@@ -1,0 +1,22 @@
+.app__footer {
+  background-color: #eee;
+  border-top: 0.2rem solid #aaa;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+
+  .app__container {
+    padding-bottom: $grid-gutter-width / 2;
+    padding-top: $grid-gutter-width / 2;
+
+    > div {
+      align-items: center;
+      display: flex;
+
+      [class^=i-] {
+        margin-right: $grid-gutter-width / 6;
+      }
+    }
+  }
+}

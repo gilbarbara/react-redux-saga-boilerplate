@@ -1,0 +1,9 @@
+node_modules
+coverage
+dist
+documentation
+api/vendor/*
+api/composer.lock
+.tmp
+.sass-cache
+.publish

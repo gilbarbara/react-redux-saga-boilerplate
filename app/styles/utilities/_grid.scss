@@ -1,0 +1,84 @@
+// Media queries shortcuts...
+@mixin xs-only {
+  @include max-screen(breakpoint-max('xs')) {
+    @content;
+  }
+}
+
+@mixin ix {
+  @include min-screen(breakpoint-min('ix')) {
+    @content;
+  }
+}
+
+@mixin ix-only {
+  @include max-screen(breakpoint-max('ix')) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @include min-screen(breakpoint-min('sm')) {
+    @content;
+  }
+}
+
+@mixin sm-only {
+  @include max-screen(breakpoint-max('sm')) {
+    @content;
+  }
+}
+
+@mixin is {
+  @include min-screen(breakpoint-min('is')) {
+    @content;
+  }
+}
+
+@mixin is-only {
+  @include max-screen(breakpoint-max('is')) {
+    @content;
+  }
+}
+
+@mixin md {
+  @include min-screen(breakpoint-min('md')) {
+    @content;
+  }
+}
+
+@mixin md-only {
+  @include max-screen(breakpoint-max('md')) {
+    @content;
+  }
+}
+
+@mixin im {
+  @include min-screen(breakpoint-min('im')) {
+    @content;
+  }
+}
+
+@mixin im-only {
+  @include max-screen(breakpoint-max('im')) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @include min-screen(breakpoint-min('lg')) {
+    @content;
+  }
+}
+
+@mixin lg-only {
+  @include max-screen(breakpoint-max('lg')) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @include min-screen(breakpoint-min('xl')) {
+    @content;
+  }
+}

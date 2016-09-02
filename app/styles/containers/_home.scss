@@ -1,0 +1,49 @@
+.app__home {
+  background: #000 repeating-linear-gradient(-45deg, transparent, transparent 1.5rem, rgba(#fff, 0.05) 1.5rem, rgba(#fff, 0.05) 3rem) fixed;
+  color: #fff;
+  min-height: 100vh;
+  position: relative;
+
+  &:before {
+    background: linear-gradient(to bottom, $brand-primary, #fff) fixed;
+    bottom: 0;
+    content: '';
+    display: block;
+    left: 0;
+    opacity: 0.5;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .app__container {
+    position: relative;
+    z-index: 10;
+  }
+
+  &__wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+  }
+
+  &__header {
+    margin-bottom: $grid-gutter-width;
+    text-align: center;
+
+    .app__logo {
+      svg {
+        width: 20rem;
+      }
+    }
+  }
+
+  h1 {
+    color: #fff;
+    line-height: 1.4;
+    margin-bottom: $grid-gutter-width;
+    text-align: center;
+  }
+}

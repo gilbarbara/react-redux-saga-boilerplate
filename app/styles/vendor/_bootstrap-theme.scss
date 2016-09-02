@@ -1,0 +1,15 @@
+.btn-black {
+  @include button-variant(#fff, #000, #000);
+}
+
+.btn-icon {
+  align-items: center;
+  display: inline-flex;
+  line-height: 1;
+
+  span {
+    font-weight: 700;
+    margin-left: $grid-gutter-width / 6;
+    text-transform: uppercase;
+  }
+}

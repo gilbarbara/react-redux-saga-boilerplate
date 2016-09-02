@@ -1,0 +1,95 @@
+// *** Mixins
+
+@mixin background-image-svg($name, $width, $height) {
+  background-image: url('#{$name}.png'); // IE8 & below
+  background-image: none, url('#{$name}.svg');
+  background-size: $width $height;
+}
+
+@mixin truncate($width: 100%) {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: $width;
+  white-space: nowrap;
+}
+
+@mixin striped-bg($bg-color: #ccc, $darken-amount: 5%, $stripe-color: darken($bg-color, $darken-amount)) {
+  background: $bg-color linear-gradient(-45deg, $stripe-color 25%, transparent 25%, transparent 50%, $stripe-color 50%, $stripe-color 75%, transparent 75%, transparent);
+  background-size: 40px 40px;
+}
+@mixin dashed-border($dashlength,
+$spacelength,
+$borderwidth,
+$color,
+$position: top) {
+  $per: percentage($dashlength / ($dashlength + $spacelength));
+  background-image: linear-gradient(to right, $color 0%, $color $per, rgba(0, 0, 0, 0) $per);
+  background-position: 0 $position;
+  background-size: ($dashlength + $spacelength) $borderwidth;
+  background-repeat: repeat-x;
+}
+
+@mixin dashed-border-vertical($dashlength,
+$spacelength,
+$borderwidth,
+$color,
+$position: left) {
+  $per: percentage($dashlength / ($dashlength + $spacelength));
+  background-image: linear-gradient(to bottom, $color 0%, $color $per, rgba(0, 0, 0, 0) $per);
+  background-position: $position 0;
+  background-size: $borderwidth ($dashlength + $spacelength);
+  background-repeat: repeat-y;
+}
+
+@mixin center-child() {
+  $distance: 50%;
+  position: relative;
+
+  > * {
+    left: $distance;
+    position: absolute;
+    top: $distance;
+    transform: translate(-#{$distance}, -#{$distance});
+  }
+}
+
+@mixin vertical-align($top: 50%) {
+  position: relative;
+  top: $top;
+  transform: translateY(-$top);
+}
+
+@mixin app-container($opts: ()) {
+  $defaults: (
+    xs: $grid-gutter-width / 2,
+    ix: $grid-gutter-width / 2,
+    sm: $grid-gutter-width / 2,
+    is: $grid-gutter-width / 2,
+    md: $grid-gutter-width,
+    im: $grid-gutter-width,
+    lg: $grid-gutter-width * 1.5,
+    xl: $grid-gutter-width * 2
+  );
+
+  margin-left: auto;
+  margin-right: auto;
+
+  @each $size, $value in $defaults {
+    $opt: map-get($opts, $size);
+    $padding: if($opt, $opt, $value);
+
+    @if ($size == xs) {
+      padding-left: $padding;
+      padding-right: $padding;
+    }
+
+    @include min-screen(breakpoint-min($size)) {
+      @if ($size == xl) {
+        max-width: 1440px;
+      }
+
+      padding-left: $padding;
+      padding-right: $padding;
+    }
+  }
+}

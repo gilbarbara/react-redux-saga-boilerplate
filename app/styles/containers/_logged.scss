@@ -1,0 +1,15 @@
+.app__logged {
+  h1 {
+    margin-bottom: $grid-gutter-width;
+  }
+
+  h3 {
+    margin-bottom: $grid-gutter-width / 3;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0 0 $grid-gutter-width;
+    padding: 0;
+  }
+}

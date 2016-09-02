@@ -1,0 +1,23 @@
+.app {
+  min-height: 100vh;
+
+  &__main {
+    min-height: 100vh;
+    padding: ($header-height + $grid-gutter-width) 0 ($footer-height + $grid-gutter-width);
+
+    @at-root .app--public & {
+      padding: 0;
+    }
+  }
+
+  &__container {
+    @include app-container();
+    margin: 0 auto;
+  }
+
+  &__logout {
+    span {
+      margin-right: $grid-gutter-width / 6;
+    }
+  }
+}
