@@ -21,7 +21,7 @@ var config = {
       modernizr$: path.resolve(__dirname, './.modernizrrc')
     },
     modules: [path.join(__dirname, 'app/scripts'), 'node_modules'],
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx', '.json']
   },
   entry: {
     '/scripts/app': './scripts/main.jsx',

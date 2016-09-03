@@ -1,0 +1,13 @@
+instrumentation:
+  root: ./app/scripts
+  include-all-sources: true
+  extensions: [ '.js', '.jsx' ]
+  excludes: ['**/vendor/**']
+  save-baseline: false
+  baseline-file: ./coverage/coverage-baseline.json
+check:
+  global:
+    statements: 50
+    lines: 50
+    functions: 50
+    branches: 50
