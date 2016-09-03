@@ -1,16 +1,18 @@
 {
   "presets": [
-    "es2015",
+    "latest",
     "react",
     "stage-1"
   ],
   "plugins": [
     "transform-decorators-legacy",
     "transform-object-assign",
-    ["transform-runtime", {
+    [
+      "transform-runtime", {
       "polyfill": false,
       "regenerator": true
-    }]
+    }
+    ]
   ],
   "compact": "true",
   "env": {

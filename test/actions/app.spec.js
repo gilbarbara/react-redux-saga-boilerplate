@@ -3,7 +3,7 @@ import expect from 'expect';
 import * as Actions from 'actions/index';
 import { ActionTypes } from 'constants/index';
 
-describe('Actions', () => {
+describe('App', () => {
   describe('goTo', () => {
     it('should create an action to navigate with react-router > UPDATE_PATH', () => {
       expect([Actions.goTo('/destination')])
