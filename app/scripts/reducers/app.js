@@ -5,7 +5,6 @@ import { ActionTypes } from 'constants/index';
 import config from 'config';
 
 export const appState = {
-  storageVersion: config.storageVersion,
   notifications: {
     visible: false,
     message: '',
@@ -20,11 +19,10 @@ export const appState = {
 export default {
   app: createReducer(appState, {
     [REHYDRATE](state, action) {
-      if (action.payload.app && action.payload.app.storageVersion === config.storageVersion) {
+      if (action.payload.app) {
         return Object.assign({}, state, action.payload.app, {
           notifications: appState.notifications,
-          rehydrated: true,
-          visits: action.payload.app.visits++
+          rehydrated: true
         });
       }
 
@@ -42,7 +40,7 @@ export default {
         visible: true,
         message: action.message,
         status: action.status,
-        withTimeout: action.withTimeout !== undefined || true
+        withTimeout: action.withTimeout === true
       };
 
       return { ...state, notifications };

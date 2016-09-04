@@ -7,7 +7,7 @@ import { hideAlert } from 'actions';
 
 let hideTimeout;
 
-class SystemNotifications extends React.Component {
+export class SystemNotifications extends React.Component {
   static propTypes = {
     app: React.PropTypes.object.isRequired,
     dispatch: React.PropTypes.func.isRequired
@@ -38,7 +38,7 @@ class SystemNotifications extends React.Component {
   render() {
     const notifications = this.props.app.notifications;
 
-    const classes = `system-notifications${(notifications.visible ? ' active' : '')}${(notifications.status ? ` ${notifications.status}` : '')}`;
+    const classes = `app__notifications${(notifications.visible ? ' active' : '')}${(notifications.status ? ` ${notifications.status}` : '')}`;
     const iconClass = {
       success: 'i-thumbs-up',
       warning: 'i-exclamation-circle',

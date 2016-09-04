@@ -17,12 +17,16 @@ import '../styles/main.scss';
 const history = syncHistoryWithStore(browserHistory, store);
 
 function renderApp(RootComponent) {
-  ReactDOM.render(
-    <AppContainer>
-      <RootComponent store={store} history={history} />
-    </AppContainer>,
-    document.getElementById('react')
-  );
+  const target = document.getElementById('react');
+  /* istanbul ignore if  */
+  if (target) {
+    ReactDOM.render(
+      <AppContainer>
+        <RootComponent store={store} history={history} />
+      </AppContainer>,
+      target
+    );
+  }
 }
 
 setTimeout(() => {
@@ -30,6 +34,7 @@ setTimeout(() => {
 }, 100);
 
 if (module.hot) {
+  /* istanbul ignore next */
   module.hot.accept(
     'containers/Root',
     () => renderApp(require('containers/Root'))

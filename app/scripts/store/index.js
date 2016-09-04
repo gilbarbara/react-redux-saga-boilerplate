@@ -11,8 +11,10 @@ else {
 
 const store = configStore();
 
-export const persistor = persistStore(store, {
-  whitelist: ['app', 'playlists', 'spotify', 'user']
-});
+if (process.env.NODE_ENV !== 'test') {
+  persistStore(store, {
+    whitelist: ['app']
+  });
+}
 
 export default store;

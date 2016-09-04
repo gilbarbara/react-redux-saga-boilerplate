@@ -4,7 +4,6 @@
  * API functions
  * @module API
  */
-
 import { XHR } from 'constants/index';
 
 /**
@@ -80,6 +79,7 @@ export function request(action:Object) {
         resolve(data);
       })
       .catch(error => {
+
         if (error.response) {
           const contentType = error.response.headers.get('content-type');
 
@@ -99,9 +99,8 @@ export function request(action:Object) {
             })
           );
         }
-        else if (error.toString().indexOf('Failed to fetch') > -1) {
-          document.getElementById('message').innerHTML = 'Você está sem conexão com a internet.<br>Tente novamente mais tarde.';
-        }
+
+        reject(error.toString());
 
         return false;
       });

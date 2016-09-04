@@ -12,13 +12,6 @@ export default class Footer extends React.Component {
 
   shouldComponentUpdate = shouldComponentUpdate;
 
-  @autobind
-  onClickLogo(e) {
-    e.preventDefault();
-
-    this.props.dispatch(goTo('/'));
-  }
-
   render() {
     const date = new Date();
     return (

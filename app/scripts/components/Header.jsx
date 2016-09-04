@@ -18,14 +18,12 @@ export default class Header extends React.Component {
   @autobind
   onClickLogo(e) {
     e.preventDefault();
-
     this.props.dispatch(goTo(e.currentTarget.getAttribute('href')));
   }
 
   @autobind
   onClickLogout(e) {
     e.preventDefault();
-
     this.props.dispatch(logOut());
   }
 

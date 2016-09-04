@@ -1,22 +1,25 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { autobind } from 'core-decorators';
 import { shouldComponentUpdate } from 'utils/helpers';
 import config from 'config';
-import store from 'store';
 
 import Logo from 'components/Logo';
 import { login } from 'actions';
 
-export default class Home extends React.Component {
+export class Home extends React.Component {
   static propTypes = {
+    dispatch: React.PropTypes.func.isRequired,
     location: React.PropTypes.object.isRequired
   };
 
   shouldComponentUpdate = shouldComponentUpdate;
 
+  @autobind
   onClickLogin(e) {
     e.preventDefault();
 
-    store.dispatch(login());
+    this.props.dispatch(login());
   }
 
   render() {
@@ -41,3 +44,5 @@ export default class Home extends React.Component {
     );
   }
 }
+
+export default connect()(Home);

@@ -10,7 +10,6 @@ import { ActionTypes } from 'constants/index';
 /**
  * Change route path.
  *
- * @function
  * @param {string} pathname
  * @param {Object} [options]
  * @param {string} [options.param]
@@ -30,7 +29,6 @@ export function goTo(pathname, options = {}) {
 /**
  * Show a message.
  *
- * @function
  * @param {string} status - Message type: success, warning, error, info.
  * @param {string} message
  * @param {boolean} withTimeout - Should close after a while.
@@ -49,8 +47,6 @@ export function showAlert(status, message, withTimeout = true) {
 /**
  * Hide message.
  *
- * @function
- *
  * @returns {Object}
  */
 export function hideAlert() {
@@ -61,8 +57,6 @@ export function hideAlert() {
 
 /**
  * Login
- *
- * @function
  *
  * @returns {Object}
  */
@@ -75,8 +69,6 @@ export function login() {
 /**
  * Logout
  *
- * @function
- *
  * @returns {Object}
  */
 export function logOut() {
@@ -88,11 +80,9 @@ export function logOut() {
 /**
  * Clean localStorage
  *
- * @function
- *
  * @returns {Object}
  */
-export function cleanStorage() {
+export function clearStorage() {
   return {
     type: ActionTypes.CLEAR_STORAGE_REQUEST
   };
