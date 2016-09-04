@@ -1,8 +1,8 @@
 // *** Mixins
 
 @mixin background-image-svg($name, $width, $height) {
-  background-image: url('#{$name}.png'); // IE8 & below
-  background-image: none, url('#{$name}.svg');
+  background-image: url('#{$name}.svg');
+  background-position: center;
   background-size: $width $height;
 }
 
@@ -17,12 +17,14 @@
   background: $bg-color linear-gradient(-45deg, $stripe-color 25%, transparent 25%, transparent 50%, $stripe-color 50%, $stripe-color 75%, transparent 75%, transparent);
   background-size: 40px 40px;
 }
+
 @mixin dashed-border($dashlength,
 $spacelength,
 $borderwidth,
 $color,
 $position: top) {
   $per: percentage($dashlength / ($dashlength + $spacelength));
+
   background-image: linear-gradient(to right, $color 0%, $color $per, rgba(0, 0, 0, 0) $per);
   background-position: 0 $position;
   background-size: ($dashlength + $spacelength) $borderwidth;
@@ -35,6 +37,7 @@ $borderwidth,
 $color,
 $position: left) {
   $per: percentage($dashlength / ($dashlength + $spacelength));
+
   background-image: linear-gradient(to bottom, $color 0%, $color $per, rgba(0, 0, 0, 0) $per);
   background-position: $position 0;
   background-size: $borderwidth ($dashlength + $spacelength);
@@ -43,6 +46,7 @@ $position: left) {
 
 @mixin center-child() {
   $distance: 50%;
+
   position: relative;
 
   > * {
