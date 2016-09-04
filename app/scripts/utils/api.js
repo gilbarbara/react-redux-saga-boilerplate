@@ -18,7 +18,7 @@ import { XHR } from 'constants/index';
  *
  * @returns {Promise}
  */
-export function request(action:Object) {
+export function request(action:Object = {}) {
   const errors = [];
 
   if (!action.method) {
@@ -37,10 +37,6 @@ export function request(action:Object) {
     throw new Error(`Error! You must pass \`${errors.join('`, `')}\``);
   }
 
-  if (!action.method) {
-    action.method = 'GET';
-  }
-
   const headers = Object.assign({}, {
     Accept: 'application/json',
     'Content-Type': 'application/json'
@@ -49,7 +45,7 @@ export function request(action:Object) {
   return new Promise((resolve, reject) => {
     const params = {
       headers,
-      method: action.method || 'GET'
+      method: action.method
     };
 
     if (params.method !== 'GET') {
@@ -79,7 +75,6 @@ export function request(action:Object) {
         resolve(data);
       })
       .catch(error => {
-
         if (error.response) {
           const contentType = error.response.headers.get('content-type');
 
@@ -99,8 +94,6 @@ export function request(action:Object) {
             })
           );
         }
-
-        reject(error.toString());
 
         return false;
       });

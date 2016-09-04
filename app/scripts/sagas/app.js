@@ -14,7 +14,7 @@ import { goTo } from 'actions';
 /**
  * Login
  */
-function* login() {
+export function* login() {
   try {
     yield call(delay, 1000);
 
@@ -24,6 +24,7 @@ function* login() {
     yield put(goTo('/private'));
   }
   catch (err) {
+    /* istanbul ignore next */
     yield put({
       type: ActionTypes.USER_LOGIN_FAILURE,
       payload: err
@@ -34,7 +35,7 @@ function* login() {
 /**
  * Logout
  */
-function* logout() {
+export function* logout() {
   try {
     yield call(delay, 200);
 
@@ -44,6 +45,7 @@ function* logout() {
     yield put(goTo('/'));
   }
   catch (err) {
+    /* istanbul ignore next */
     yield put({
       type: ActionTypes.USER_LOGOUT_FAILURE,
       payload: err
@@ -54,16 +56,16 @@ function* logout() {
 /**
  * Clear localStorage
  */
-function* clearLocalStorage() {
+export function* clearLocalStorage() {
   try {
-    const data = yield call(localStorage.clear);
+    yield call(localStorage.clear);
 
     yield put({
-      type: ActionTypes.CLEAR_STORAGE_SUCCESS,
-      payload: data
+      type: ActionTypes.CLEAR_STORAGE_SUCCESS
     });
   }
   catch (err) {
+    /* istanbul ignore next */
     yield put({
       type: ActionTypes.CLEAR_STORAGE_FAILURE,
       payload: err

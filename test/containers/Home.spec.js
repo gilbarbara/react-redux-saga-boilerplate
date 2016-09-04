@@ -1,34 +1,35 @@
-import expect from 'expect';
+import expect, { createSpy } from 'expect';
 import React from 'react';
-import TestUtils from 'react-addons-test-utils';
+import { mount } from 'enzyme';
 
-import Home from 'containers/Home';
+import { Home } from 'containers/Home';
+
+const dispatch = createSpy();
 
 function setup() {
   const props = {
-    dispatch: () => {},
-    location: {},
-    user: {},
-    spotify: {
-      seedsGenres: {}
-    }
+    dispatch,
+    location: {}
   };
-  const renderer = TestUtils.createRenderer();
-  renderer.render(<Home {...props} />);
-  const output = renderer.getRenderOutput();
 
-  return {
-    output,
-    renderer
-  };
+  return mount(<Home {...props} />);
 }
 
 describe('Home', () => {
-  it('should render properly', () => {
-    const { output } = setup(true);
-    expect(output.props.className).toBe('app__home app__route');
+  const wrapper = setup(true);
 
-    const Connect = output.props.children;
-    expect(typeof Connect).toBe('object');
+  it('should be a Component', () => {
+    expect(wrapper.instance()).toBeA(React.Component);
+  });
+
+  it('should render properly', () => {
+    expect(wrapper.find('.app__home').length).toBe(1);
+    expect(wrapper.find('h1').text()).toBe('React-Redux-Saga Boilerplate');
+    expect(wrapper.find('.btn').text()).toBe('Login');
+  });
+
+  it('should handle clicks', () => {
+    wrapper.find('.btn').simulate('click');
+    expect(dispatch).toHaveBeenCalledWith({ type: 'USER_LOGIN_REQUEST' });
   });
 });

@@ -1,7 +1,7 @@
 import expect from 'expect';
 import { ActionTypes } from 'constants/index';
 
-describe('Constants', () => {
+describe('CONSTANTS', () => {
   it('should have "USER_LOGIN_REQUEST"', () => {
     expect(ActionTypes.USER_LOGIN_REQUEST).toEqual('USER_LOGIN_REQUEST');
   });

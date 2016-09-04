@@ -13,6 +13,7 @@ export default class Root extends React.Component {
     store: React.PropTypes.object.isRequired
   };
 
+  /* istanbul ignore next */
   render() {
     const { store, history } = this.props;
     return (

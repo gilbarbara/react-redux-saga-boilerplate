@@ -2,28 +2,28 @@ import expect, { createSpy } from 'expect';
 import React from 'react';
 import { mount } from 'enzyme';
 
-import Footer from 'components/Footer';
+import NotFound from 'containers/NotFound';
 
 const dispatch = createSpy();
 
 function setup() {
   const props = {
-    app: {},
-    dispatch
+    dispatch,
+    location: {}
   };
 
-  return mount(<Footer {...props} />);
+  return mount(<NotFound {...props} />);
 }
 
-describe('Footer', () => {
-  const wrapper = setup();
+describe('NotFound', () => {
+  const wrapper = setup(true);
 
   it('should be a Component', () => {
     expect(wrapper.instance()).toBeA(React.Component);
   });
 
   it('should render properly', () => {
-    expect(wrapper.find('.app__footer').length).toBe(1);
-    expect(wrapper.find('.i-creative-commons').length).toBe(1);
+    expect(wrapper.find('.app__not-found').length).toBe(1);
+    expect(wrapper.find('h1').text()).toBe('404');
   });
 });

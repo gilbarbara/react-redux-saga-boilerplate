@@ -20,6 +20,7 @@ const logger = createLogger({
   collapsed: true
 });
 
+/* istanbul ignore next */
 export default (initialState = {}) => {
   const createStoreWithMiddleware = compose(
     applyMiddleware(sagaMiddleware, routerMiddleware(browserHistory), logger),

@@ -1,36 +1,38 @@
 import expect from 'expect';
 
-import * as Actions from 'actions/index';
+import * as Actions from 'actions';
 import { ActionTypes } from 'constants/index';
 
 describe('App', () => {
-  describe('goTo', () => {
-    it('should create an action to navigate with react-router > UPDATE_PATH', () => {
-      expect([Actions.goTo('/destination')])
-        .toInclude('/destination', (a, b) => a.payload.args[0].pathname === b);
-    });
+  it('goTo should create an action to navigate with react-router > UPDATE_PATH', () => {
+    expect([Actions.goTo('/destination')])
+      .toInclude('/destination', (a, b) => a.payload.args[0].pathname === b);
   });
 
-  describe('showAlert', () => {
-    it('should create an action to display an alert', () => {
-      const expectedAction = {
-        type: ActionTypes.SHOW_ALERT,
-        status: 'success',
-        message: 'Alright!',
-        withTimeout: false
-      };
+  it('showAlert should return an action', () => {
+    const expectedAction = {
+      type: ActionTypes.SHOW_ALERT,
+      status: 'success',
+      message: 'Alright!',
+      withTimeout: false
+    };
 
-      expect(Actions.showAlert('success', 'Alright!', false)).toEqual(expectedAction);
-    });
+    expect(Actions.showAlert('success', 'Alright!', false)).toEqual(expectedAction);
   });
 
-  describe('hideAlert', () => {
-    it('should create an action to hide an alert', () => {
-      const expectedAction = {
-        type: ActionTypes.HIDE_ALERT
-      };
+  it('hideAlert should return an action', () => {
+    expect(Actions.hideAlert()).toEqual({ type: ActionTypes.HIDE_ALERT });
+  });
 
-      expect(Actions.hideAlert()).toEqual(expectedAction);
-    });
+  it('login should return an action', () => {
+    expect(Actions.login()).toEqual({ type: ActionTypes.USER_LOGIN_REQUEST });
+  });
+
+  it('logOut should return an action', () => {
+    expect(Actions.logOut()).toEqual({ type: ActionTypes.USER_LOGOUT_REQUEST });
+  });
+
+  it('clearStorage should return an action', () => {
+    expect(Actions.clearStorage()).toEqual({ type: ActionTypes.CLEAR_STORAGE_REQUEST });
   });
 });

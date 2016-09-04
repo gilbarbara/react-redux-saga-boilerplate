@@ -18,9 +18,6 @@ var config = merge.smart(webpackConfig, {
       minimize: true,
       debug: false
     }),
-    new webpack.ProvidePlugin({
-      fetch: 'exports?self.fetch!whatwg-fetch'
-    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('test')
     })

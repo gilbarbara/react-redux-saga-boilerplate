@@ -4,6 +4,7 @@ import { Router } from 'react-router';
 import createRoutes from 'routes';
 
 const Root = ({ store, history }) => (
+  /* istanbul ignore next */
   <Provider store={store}>
     <div>
       <Router history={history} routes={createRoutes()} />

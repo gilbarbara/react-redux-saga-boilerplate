@@ -5,7 +5,10 @@
  * @desc Add CustomEvent and Dataset for older browsers.
  */
 
-
+/**
+ * CustomEvent Polyfill
+ */
+/* istanbul ignore next */
 (function() {
   if (typeof window.CustomEvent === 'function') {
     return;
@@ -26,6 +29,7 @@
 /**
  * Dataset Polyfill
  */
+/* istanbul ignore next */
 (function() {
   if (!document.documentElement.dataset && (!Object.getOwnPropertyDescriptor(Element.prototype, 'dataset') || !Object.getOwnPropertyDescriptor(Element.prototype, 'dataset').get)) {
     var descriptor = {};

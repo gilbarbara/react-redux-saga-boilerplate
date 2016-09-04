@@ -18,6 +18,7 @@
     "core-js": "^2.4",
     "ease-component": "^1.0",
     "fbjs": "^0.8",
+    "isomorphic-fetch": "^2.2",
     "lodash": "^4.15",
     "mobile-detect": "^1.3",
     "modernizr": "^3.3",
@@ -34,8 +35,7 @@
     "redux-saga": "^0.11",
     "sass-mediaqueries": "^1.6",
     "scroll": "^2.0",
-    "scroll-doc": "^0.1",
-    "whatwg-fetch": "^1.0"
+    "scroll-doc": "^0.1"
   },
   "devDependencies": {
     "apache-server-configs": "^2.14",
@@ -74,6 +74,7 @@
     "exports-loader": "^0.6",
     "expose-loader": "^0.7",
     "extract-text-webpack-plugin": "^2.0.0-beta",
+    "fetch-mock": "^5.1",
     "file-loader": "^0.9",
     "html-loader": "^0.4",
     "html-webpack-plugin": "^2.22",
@@ -82,7 +83,6 @@
     "imports-loader": "^0.6",
     "inject-loader": "^2.0",
     "istanbul": "^0.4",
-    "istanbul-instrumenter-loader": "^0.2",
     "jsdom": "^9.4",
     "json-loader": "^0.5",
     "karma": "^1.2",
@@ -134,6 +134,7 @@
     "lint:styles": "stylelint app/styles/**/*.scss",
     "test": "NODE_ENV=test karma start",
     "test:mocha": "NODE_ENV=test mocha-webpack --opts test/lib/mocha-webpack.opts",
+    "coverage": "istanbul check-coverage --statements 79 --branches 70 --functions 81 --line 19",
     "server": "node server",
     "deploy": "node config/tools deploy",
     "publish": "node config/tools publish",

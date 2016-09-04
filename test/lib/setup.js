@@ -11,8 +11,17 @@ global.document = doc;
 global.window = win;
 global.window.matchMedia = () => ({ matches: true });
 global.navigator = { userAgent: 'node.js' };
-global.Verios = {
-  wpData: {}
+global.FormData = window.FormData;
+global.window.localStorage = window.sessionStorage = {
+  getItem(key) {
+    return this[key];
+  },
+  setItem(key, value) {
+    this[key] = value;
+  },
+  clear() {
+    return this;
+  }
 };
 
 /**

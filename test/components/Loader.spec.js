@@ -2,7 +2,7 @@ import expect, { createSpy } from 'expect';
 import React from 'react';
 import { mount } from 'enzyme';
 
-import Footer from 'components/Footer';
+import Loader from 'components/Loader';
 
 const dispatch = createSpy();
 
@@ -12,10 +12,10 @@ function setup() {
     dispatch
   };
 
-  return mount(<Footer {...props} />);
+  return mount(<Loader {...props} />);
 }
 
-describe('Footer', () => {
+describe('Loader', () => {
   const wrapper = setup();
 
   it('should be a Component', () => {
@@ -23,7 +23,7 @@ describe('Footer', () => {
   });
 
   it('should render properly', () => {
-    expect(wrapper.find('.app__footer').length).toBe(1);
-    expect(wrapper.find('.i-creative-commons').length).toBe(1);
+    expect(wrapper.find('.app__loader').length).toBe(1);
+    expect(wrapper.find('.app__loader').hasClass('app__loader--pulse')).toBe(true);
   });
 });

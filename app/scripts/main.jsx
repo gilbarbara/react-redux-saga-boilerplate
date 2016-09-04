@@ -1,8 +1,8 @@
 // Polyfills
 import 'core-js/shim';
-import 'whatwg-fetch';
+import 'isomorphic-fetch';
 import 'classlist-polyfill';
-import 'utils/polyfills';
+import 'vendor/polyfills';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -33,6 +33,7 @@ setTimeout(() => {
   renderApp(Root);
 }, 100);
 
+/* istanbul ignore if  */
 if (module.hot) {
   /* istanbul ignore next */
   module.hot.accept(
