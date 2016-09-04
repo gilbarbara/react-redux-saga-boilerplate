@@ -1,11 +1,21 @@
 .app__header {
-  background-color: #ccc;
+  background-color: #fff;
   height: $header-height;
   left: 0;
   position: fixed;
   right: 0;
   top: 0;
   z-index: 200;
+
+  &:before {
+    background-color: $brand-primary;
+    bottom: 0;
+    content: '';
+    height: 0.2rem;
+    left: 0;
+    position: absolute;
+    right: 0;
+  }
 
   > .app__container {
     align-items: center;

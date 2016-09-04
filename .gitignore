@@ -1,9 +1,7 @@
-node_modules
 coverage
 dist
 documentation
-api/vendor/*
-api/composer.lock
+node_modules
 .tmp
 .sass-cache
 .publish
