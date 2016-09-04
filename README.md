@@ -1,5 +1,9 @@
 React-Redux-Saga Boilerplate
 ===
+[![Build Status](https://travis-ci.org/gilbarbara/react-redux-saga-boilerplate.svg?branch=master)](https://travis-ci.org/gilbarbara/react-redux-saga-boilerplate) 
+[![Code Climate](https://codeclimate.com/github/gilbarbara/react-redux-saga-boilerplate/badges/gpa.svg)](https://codeclimate.com/github/gilbarbara/react-redux-saga-boilerplate) [![Test Coverage](https://codeclimate.com/github/gilbarbara/react-redux-saga-boilerplate/badges/coverage.svg)](https://codeclimate.com/github/gilbarbara/react-redux-saga-boilerplate/coverage)
+
+[Demo](http://gilbarbara.github.io/react-redux-saga-boilerplate)
 
 ### Provides
 - react ^15.x
@@ -16,11 +20,11 @@ React-Redux-Saga Boilerplate
 - redux-devtools 3.x
 - reactotron 1.x (it can be enable in config.js)
 
-### Tests (soon)
-- Mocha (maybe Karma)
-- Enzyme
+### Tests
+- karma ^1.x (with coverage)
+- mocha ^3.x
+- enzyme ^2.x
 
 ### Requirements
 - node `^6.x`
 - npm `^3.x`
-
