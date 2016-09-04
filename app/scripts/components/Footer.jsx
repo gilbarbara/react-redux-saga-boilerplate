@@ -1,8 +1,5 @@
 import React from 'react';
-import { autobind } from 'core-decorators';
 import { shouldComponentUpdate } from 'utils/helpers';
-
-import { goTo } from 'actions';
 
 export default class Footer extends React.Component {
   static propTypes = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import expect, { createSpy, spyOn } from 'expect';
+import expect, { createSpy } from 'expect';
 import { mount } from 'enzyme';
 
 import { appState } from 'reducers/app';

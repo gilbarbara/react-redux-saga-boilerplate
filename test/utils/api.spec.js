@@ -59,7 +59,6 @@ describe('api', () => {
       expect(() => {
         request({ endpoint: 'http://example.com/token', method: 'POST' });
       }).toThrow('Error! You must pass `payload`');
-
     });
   });
 });

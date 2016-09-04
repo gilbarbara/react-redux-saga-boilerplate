@@ -1,4 +1,3 @@
-const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const webpackConfig = require('./config/webpack.config');
@@ -18,9 +17,6 @@ const webpackKarmaConfig = merge.smart(webpackConfig, {
     'react/lib/ReactContext': true
   }
 });
-
-const srcGlob = 'app/scripts/**/*.+(js|jsx)';
-const testGlob = 'test/*.spec.js';
 
 module.exports = config => {
   config.set({
