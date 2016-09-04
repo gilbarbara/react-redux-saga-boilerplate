@@ -1,39 +1,31 @@
 /*eslint-disable no-var, one-var, func-names, indent, prefer-arrow-callback, object-shorthand, no-console, newline-per-chained-call, one-var-declaration-per-line, prefer-template, vars-on-top */
 var path = require('path');
 var webpack = require('webpack');
-var CleanPlugin = require('clean-webpack-plugin');
 var ExtractText = require('extract-text-webpack-plugin');
-var HtmlPlugin = require('html-webpack-plugin');
-var CopyPlugin = require('copy-webpack-plugin');
-var OfflinePlugin = require('offline-plugin');
+var LodashPlugin = require('lodash-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
-var NPMPackage = require('./package.json');
-
 var isProd = process.env.NODE_ENV === 'production';
-var isTest = process.env.NODE_ENV === 'test';
 
 var cssLoaders = 'css!postcss?pack=custom!sass';
 var config = {
-  context: path.join(__dirname, 'app'),
+  context: path.resolve(__dirname, '../app'),
   resolve: {
     alias: {
-      modernizr$: path.resolve(__dirname, './.modernizrrc')
+      modernizr$: path.resolve(__dirname, '.modernizrrc')
     },
-    modules: [path.join(__dirname, 'app/scripts'), 'node_modules'],
+    modules: [path.resolve(__dirname, '../app/scripts'), 'node_modules'],
     extensions: ['', '.js', '.jsx', '.json']
   },
-  entry: {
-    '/scripts/app': './scripts/main.jsx',
-    '/scripts/modernizr': './scripts/vendor/modernizr-custom.js'
-  },
+  entry: {},
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../dist'),
     filename: '[name].[hash].js'
   },
-  devtool: 'source-map',
+  devtool: '#inline-source-map',
   plugins: [
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new LodashPlugin()
   ],
   module: {
     loaders: [
@@ -108,53 +100,10 @@ var config = {
   }
 };
 
-if (isProd) {
-  config.plugins = config.plugins.concat([
-    new CleanPlugin(['dist'], { verbose: false }),
-    new CopyPlugin([
-      { from: '.htaccess' },
-      { from: 'robots.txt' }
-    ]),
-    new ExtractText('/styles/app.[hash].css'),
-    new HtmlPlugin({
-      appMountId: 'react',
-      inject: false,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true
-      },
-      mobile: true,
-      template: './index.ejs',
-      title: NPMPackage.title
-    }),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    }),
-    new OfflinePlugin({
-      relativePaths: false,
-      publicPath: '/'
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    })
-  ]);
-}
-else {
+if (!isProd) {
   config.plugins = config.plugins.concat(
     new webpack.NamedModulesPlugin()
   );
-}
-
-if (isTest || isProd) {
-  config.plugins = config.plugins.concat([
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
-      debug: false
-    })
-  ]);
 }
 
 module.exports = config;

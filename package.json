@@ -121,20 +121,21 @@
     "url-loader": "^0.5",
     "webpack": "^2.1.0-beta",
     "webpack-dev-server": "^2.1.0-beta",
+    "webpack-merge": "^0.14.1",
     "webpack-node-externals": "^1.3"
   },
   "scripts": {
-    "start": "node webpack.server.js",
-    "build": "NODE_ENV=production webpack",
+    "start": "node config/webpack.server.js",
+    "build": "NODE_ENV=production webpack --config config/webpack.prod.js",
     "lint": "eslint  --ext .js --ext .jsx app/scripts test",
     "test": "NODE_ENV=test karma start",
     "test:mocha": "NODE_ENV=test mocha-webpack --opts test/lib/mocha-webpack.opts",
     "server": "node server",
-    "deploy": "node tools deploy",
-    "publish": "node tools publish",
-    "docs": "node tools docs",
-    "precommit": "node tools commits && npm run lint && npm test",
-    "postmerge": "node tools update && npm update"
+    "deploy": "node config/tools deploy",
+    "publish": "node config/tools publish",
+    "docs": "node config/tools docs",
+    "precommit": "node config/tools commits && npm run lint && npm test",
+    "postmerge": "node config/tools update && npm update"
   },
   "engines": {
     "node": ">=6.0.0",

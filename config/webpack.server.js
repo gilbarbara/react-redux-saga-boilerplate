@@ -1,12 +1,12 @@
 /*eslint-disable no-var, one-var, func-names, indent, prefer-arrow-callback, prefer-template, object-shorthand, no-console, newline-per-chained-call, one-var-declaration-per-line, vars-on-top */
 var path = require('path');
-var spawn = require('child_process').spawn;
-var moment = require('moment');
 var webpack = require('webpack');
+var merge = require('webpack-merge');
+var moment = require('moment');
 var WebpackDevServer = require('webpack-dev-server');
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
-var config = require('./webpack.config');
+var webpackConfig = require('./webpack.config');
 
 function getIPAddress() {
   var interfaces = require('os').networkInterfaces();
@@ -27,31 +27,35 @@ function getIPAddress() {
   return '0.0.0.0';
 }
 
-config.output.filename = '[name].js';
-config.output.publicPath = 'http://localhost:3000/';
-config.devtool = '#inline-source-map';
-config.entry = {
-  bundle: [
-    'webpack-dev-server/client?http://localhost:3030',
-    'webpack/hot/only-dev-server',
-    'react-hot-loader/patch',
-    config.entry['/scripts/app']
-  ],
-  modernizr: config.entry['/scripts/modernizr']
-};
+var config = merge.smart(webpackConfig, {
+  output: {
 
-config.plugins.unshift(
-  new webpack.HotModuleReplacementPlugin(),
-  new BrowserSyncPlugin({
-    host: getIPAddress(),
-    port: 3000,
-    notify: true,
-    logPrefix: 'sia',
-    proxy: 'http://localhost:3030'
-  }, {
-    reload: false
-  })
-);
+    filename: '[name].js',
+    publicPath: 'http://localhost:3000/'
+  },
+  entry: {
+    bundle: [
+      'webpack-dev-server/client?http://localhost:3030',
+      'webpack/hot/only-dev-server',
+      'react-hot-loader/patch',
+      './scripts/main.jsx'
+    ],
+    modernizr: './scripts/vendor/modernizr-custom.js'
+  },
+
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new BrowserSyncPlugin({
+      host: getIPAddress(),
+      port: 3000,
+      notify: true,
+      logPrefix: 'sia',
+      proxy: 'http://localhost:3030'
+    }, {
+      reload: false
+    })
+  ]
+});
 
 var compiler = webpack(config);
 var start;
@@ -70,7 +74,7 @@ compiler.plugin('emit', function(compilation, callback) {
 });
 
 new WebpackDevServer(compiler, {
-  contentBase: path.join(__dirname, 'app'),
+  contentBase: path.resolve(__dirname, '../app'),
   noInfo: true,
   hot: true,
   historyApiFallback: true,

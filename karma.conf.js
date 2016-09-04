@@ -1,16 +1,16 @@
+const path = require('path');
 const webpack = require('webpack');
-const webpackConfig = require('./webpack.config');
+const merge = require('webpack-merge');
+const webpackConfig = require('./config/webpack.config');
 
-const webpackKarmaConfig = Object.assign({}, webpackConfig, {
+const webpackKarmaConfig = merge.smart(webpackConfig, {
   entry: {},
-  devtool: 'inline-source-map',
   plugins: new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify('test')
   }),
   node: {
     fs: 'empty'
   },
-  target: 'web',
   externals: {
     cheerio: 'window',
     'react/addons': true,
@@ -27,14 +27,14 @@ module.exports = config => {
     browsers: ['PhantomJS'],
     singleRun: true,
     frameworks: ['mocha'],
-    files: [testGlob],
+    files: ['test/index.js'],
     plugins: [
-      'karma-chrome-launcher', 'karma-phantomjs-launcher', 'karma-mocha', 'karma-mocha-reporter',
+      'karma-chrome-launcher', 'karma-phantomjs-launcher',
+      'karma-mocha', 'karma-mocha-reporter',
       'karma-sourcemap-loader', 'karma-webpack', 'karma-coverage'
     ],
     preprocessors: {
-      [srcGlob]: ['webpack', 'sourcemap'],
-      [testGlob]: ['webpack', 'sourcemap']
+      'test/index.js': ['webpack', 'sourcemap']
     },
     reporters: ['mocha', 'coverage'],
     coverageReporter: {
@@ -44,7 +44,8 @@ module.exports = config => {
         { type: 'lcov', subdir: 'report-lcov' },
         { type: 'json', subdir: './', file: 'coverage.json' },
         { type: 'text-summary' }
-      ]
+      ],
+      includeAllSources: true
     },
     webpack: webpackKarmaConfig,
     webpackServer: {

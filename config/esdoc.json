@@ -1,6 +1,7 @@
 {
   "source": "./app/scripts",
   "destination": "./documentation",
+  "coverage": false,
   "plugins": [
     {"name": "esdoc-es7-plugin"}
   ]

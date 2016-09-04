@@ -14,7 +14,11 @@
     "flowtype"
   ],
   "settings": {
-    "import/resolver": "webpack"
+    "import/resolver": {
+      "webpack": {
+        "config": "config/webpack.config.js"
+      }
+    }
   },
   "rules": {
     "arrow-body-style": [
