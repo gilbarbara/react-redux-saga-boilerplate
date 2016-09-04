@@ -3,7 +3,7 @@ var path = require('path');
 var exec = require('child_process').exec;
 var del = require('del');
 const chalk = require('chalk');
-const Rsync = require('rsync');
+var ghPages = require('gh-pages');
 
 var args = process.argv.slice(2);
 
@@ -17,25 +17,37 @@ if (!args[0]) {
   );
 }
 
+function getCommit() {
+  console.log('Getting commit...');
+  return new Promise((resolve, reject) => {
+    exec('git log -1 --pretty=%s && git log -1 --pretty=%b', (err, stdout) => {
+      if (err) {
+        return reject(err);
+      }
+
+      const parts = stdout.replace('\n\n', '').split('\n');
+
+      return resolve(`${(parts[0] ? parts[0] : 'Auto-generated commit')} ${new Date().toISOString()}`);
+    });
+  });
+}
+
 function publish() {
   console.log(chalk.blue('Publishing...'));
-  const destination = 'musicbot@musicbot.io:/home/musicbot/public_html';
+  getCommit()
+    .then(commit => {
+      console.log(chalk.blue('Copying README...'));
+      exec('cp README.md dist/', (errCopy) => {
+        if (errCopy) {
+          console.log(errCopy);
+          return;
+        }
 
-  const rsync = Rsync.build({
-    exclude: ['.DS_Store'],
-    progress: true,
-    source: path.join(__dirname, 'dist/'),
-    flags: 'avzu',
-    shell: 'ssh',
-    destination
-  });
-
-  rsync.execute((error) => {
-    if (error) {
-      console.log(chalk.red(error));
-      process.exit(1);
-    }
-  });
+        ghPages.publish(path.join(__dirname, 'dist'), {
+          message: commit
+        });
+      });
+    });
 }
 
 if (args[0] === 'deploy') {
