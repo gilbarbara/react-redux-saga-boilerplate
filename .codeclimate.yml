@@ -3,6 +3,13 @@ engines:
   eslint:
     enabled: true
     channel: "eslint-2"
+    checks:
+      no-template-curly-in-string:
+        enabled: false
+      import/no-unresolved:
+        enabled: false
+      import/no-extraneous-dependencies:
+        enabled: false
   scss-lint:
     enabled: true
 ratings:
