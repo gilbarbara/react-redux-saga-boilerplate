@@ -41,7 +41,15 @@ module.exports = config => {
         { type: 'json', subdir: './', file: 'coverage.json' },
         { type: 'text-summary' }
       ],
-      includeAllSources: true
+      includeAllSources: true,
+      check: {
+        global: {
+          statements: 90,
+          branches: 90,
+          functions: 90,
+          lines: 90
+        }
+      }
     },
     webpack: webpackKarmaConfig,
     webpackServer: {

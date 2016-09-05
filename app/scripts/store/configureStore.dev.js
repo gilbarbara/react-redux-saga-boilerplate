@@ -9,6 +9,7 @@ import createLogger from 'redux-logger';
 import rootSagas from 'sagas';
 import rootReducer from 'reducers';
 import DevTools from 'components/DevTools';
+import { ActionTypes } from 'constants/index';
 
 const reducer = combineReducers(Object.assign({}, rootReducer, {
   routing: routerReducer
@@ -21,11 +22,11 @@ const logger = createLogger({
 });
 
 /* istanbul ignore next */
-export default (initialState = {}) => {
+const newStore = (initialState = {}) => {
   const createStoreWithMiddleware = compose(
     applyMiddleware(sagaMiddleware, routerMiddleware(browserHistory), logger),
     createReactotronTrackingEnhancer(Reactotron, {
-      isActionImportant: action => action.type === 'FORMAT_HARD_DRIVE'
+      isActionImportant: action => action.type === ActionTypes.USER_LOGIN_SUCCESS
     }),
     DevTools.instrument()
   )(createStore);
@@ -33,7 +34,6 @@ export default (initialState = {}) => {
   const store = createStoreWithMiddleware(reducer, initialState);
   sagaMiddleware.run(rootSagas);
 
-  // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
   if (module.hot) {
     module.hot.accept('reducers', () => {
       store.replaceReducer(require('reducers').default);
@@ -42,3 +42,5 @@ export default (initialState = {}) => {
 
   return store;
 };
+
+export default newStore;

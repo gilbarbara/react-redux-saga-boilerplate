@@ -3,8 +3,8 @@ import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 import createRoutes from 'routes';
 
+/* istanbul ignore next */
 const Root = ({ store, history }) => (
-  /* istanbul ignore next */
   <Provider store={store}>
     <div>
       <Router history={history} routes={createRoutes()} />

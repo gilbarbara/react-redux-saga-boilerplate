@@ -29,22 +29,6 @@ describe('helpers', () => {
     });
   });
 
-  context('param', () => {
-    it('should convert an object to querystring', () => {
-      expect(helpers.param({ a: 1, b: { d: 3 }, c: ['a', 'b'] })).toEqual('a=1&b%5Bd%5D=3&c%5B0%5D=a&c%5B1%5D=b');
-    });
-  });
-
-  context('deparam', () => {
-    it('should convert querystring to object', () => {
-      expect(helpers.deparam('a=1&b%5Bd%5D=3&c%5B0%5D=a&c%5B1%5D=b')).toEqual({ a: '1', b: { d: '3' }, c: ['a', 'b'] });
-    });
-
-    it('should handle wrong params', () => {
-      expect(helpers.deparam([])).toEqual({});
-    });
-  });
-
   context('datasetToObject', () => {
     const el = document.createElement('div');
     el.setAttribute('data-rule', 'yes');

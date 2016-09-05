@@ -79,23 +79,23 @@ export function request(action:Object = {}) {
           const contentType = error.response.headers.get('content-type');
 
           if (contentType && contentType.indexOf('application/json') > -1) {
-            return error.response.json().then(json => {
+            error.response.json().then(json => {
               reject({
                 status: XHR.FAIL,
                 data: json
               });
             });
+
+            return;
           }
 
-          return error.response.text().then(text =>
+          error.response.text().then(text =>
             reject({
               status: XHR.FAIL,
               data: text
             })
           );
         }
-
-        return false;
       });
   });
 }

@@ -43,6 +43,7 @@ export function checkStatus(nextState, transition, callback) {
     if (pathname === '/') {
       return dispatch(goTo('/private'));
     }
+
     return scrollBefore(nextState, transition, callback);
   }
 

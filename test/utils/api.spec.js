@@ -9,28 +9,35 @@ describe('api', () => {
 
   context('request', () => {
     it('should fail without endpoint', () => {
-      fetchMock.mock('http://example.com/token', { hello: 'world' });
       expect(() => {
         request({});
       }).toThrow('Error! You must pass `endpoint`');
     });
 
-    it('should execute a GET successfully', (done) => {
-      fetchMock.mock('http://example.com/token', { hello: 'world' });
+    it('should execute a GET successfully with json', (done) => {
+      fetchMock.mock('http://example.com/token', {
+        status: 200,
+        body: { hello: 'world' },
+        headers: { 'Content-Type': 'application/json' }
+      });
 
       request({ endpoint: 'http://example.com/token' })
         .then(data => {
-          expect(data).toBe('{"hello":"world"}');
+          expect(data).toEqual({ hello: 'world' });
           done();
         });
     });
 
     it('should reject for a server error', (done) => {
-      fetchMock.mock('http://example.com/token', 500, { error: 'world' });
+      fetchMock.mock('http://example.com/token', {
+        body: { error: 'world' },
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      });
 
       request({ endpoint: 'http://example.com/token' })
         .catch((e) => {
-          expect(e).toEqual({ status: 'FAIL', data: '' });
+          expect(e).toEqual({ status: 'FAIL', data: { error: 'world' } });
           done();
         });
     });
@@ -46,11 +53,14 @@ describe('api', () => {
     });
 
     it('should execute a POST successfully', (done) => {
-      fetchMock.post('http://example.com/token', { hello: 'world' });
+      fetchMock.post('http://example.com/token', {
+        body: 'ok',
+        status: 201
+      });
 
       request({ endpoint: 'http://example.com/token', method: 'POST', payload: { a: 1 } })
         .then(data => {
-          expect(data).toBe('{"hello":"world"}');
+          expect(data).toBe('ok');
           done();
         });
     });
