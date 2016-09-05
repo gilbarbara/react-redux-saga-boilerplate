@@ -13,18 +13,32 @@ React-Redux-Saga Boilerplate
 - redux-saga ^0.11
 
 ### Building
-- webpack ^2.1-beta",
-- webpack-dev-server ^2.1-beta
-- react-hot-loader 3.beta
+- webpack ^2.1-beta
+
+`npm run build`
 
 ### Development
+- webpack-dev-server ^2.1-beta
+- react-hot-loader 3.beta
 - redux-devtools 3.x
 - reactotron 1.x (it can be enable in config.js)
+
+`npm start`
 
 ### Tests
 - karma ^1.x (with coverage)
 - mocha ^3.x
 - enzyme ^2.x
+
+`npm test`  
+`npm run test:mocha`
+
+### Browser Automation
+- nightwatch ^0.9
+- selenium ^2.53
+
+`npm run test:ui` (with dev-server already running)  
+`npm run start:test:ui` (start dev-server, run tests and exit) 
 
 ### Requirements
 - node `^6.x`

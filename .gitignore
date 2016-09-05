@@ -2,6 +2,7 @@ coverage
 dist
 documentation
 node_modules
+reports
 .tmp
 .sass-cache
 .publish

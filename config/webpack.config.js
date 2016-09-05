@@ -24,8 +24,7 @@ var config = {
   },
   devtool: '#inline-source-map',
   plugins: [
-    new webpack.NoErrorsPlugin(),
-    new LodashPlugin()
+    new webpack.NoErrorsPlugin()// , new LodashPlugin() -- breaking redux-persist..
   ],
   module: {
     loaders: [
@@ -99,11 +98,5 @@ var config = {
     sourceMap: true
   }
 };
-
-if (!isProd) {
-  config.plugins = config.plugins.concat(
-    new webpack.NamedModulesPlugin()
-  );
-}
 
 module.exports = config;
