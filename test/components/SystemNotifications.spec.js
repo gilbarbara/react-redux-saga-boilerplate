@@ -1,11 +1,12 @@
 import React from 'react';
-import expect, { createSpy } from 'expect';
+import expect, { createSpy, spyOn } from 'expect';
 import { mount } from 'enzyme';
 
 import { appState } from 'reducers/app';
 import { SystemNotifications } from 'components/SystemNotifications';
 
 const dispatch = createSpy();
+const hideNotification = spyOn(SystemNotifications.prototype, 'hideNotification').andCallThrough();
 
 function setup(app = appState) {
   const props = {
@@ -48,7 +49,7 @@ describe('SystemNotifications', () => {
     expect(message.text()).toBe('Hello');
   });
 
-  it('should render properly with an error message and handle click', () => {
+  it('should render properly with an error message', () => {
     wrapper.setProps({
       app: {
         notifications: {
@@ -74,6 +75,8 @@ describe('SystemNotifications', () => {
 
     body.simulate('click');
     expect(dispatch).toHaveBeenCalledWith({ type: 'HIDE_ALERT' });
+    expect(hideNotification).toHaveBeenCalled();
+
     wrapper.setProps({
       app: {
         notifications: {

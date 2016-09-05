@@ -5,8 +5,6 @@ import { shouldComponentUpdate } from 'utils/helpers';
 
 import { hideAlert } from 'actions';
 
-let hideTimeout;
-
 export class SystemNotifications extends React.Component {
   static propTypes = {
     app: React.PropTypes.object.isRequired,
@@ -17,9 +15,10 @@ export class SystemNotifications extends React.Component {
 
   componentDidUpdate() {
     if (this.props.app.notifications.visible && this.props.app.notifications.withTimeout) {
-      window.clearTimeout(hideTimeout);
+      window.clearTimeout(this.hideTimeout);
 
-      hideTimeout = setTimeout(() => {
+      /* istanbul ignore next */
+      this.hideTimeout = setTimeout(() => {
         this.hideNotification();
       }, 3500);
     }
@@ -31,7 +30,7 @@ export class SystemNotifications extends React.Component {
 
   @autobind
   onClick() {
-    window.clearTimeout(hideTimeout);
+    window.clearTimeout(this.hideTimeout);
     this.hideNotification();
   }
 
@@ -57,6 +56,7 @@ export class SystemNotifications extends React.Component {
   }
 }
 
+/* istanbul ignore next */
 function mapStateToProps(state) {
   return { app: state.app };
 }

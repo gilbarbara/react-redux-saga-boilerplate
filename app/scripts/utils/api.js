@@ -75,6 +75,7 @@ export function request(action:Object = {}) {
         resolve(data);
       })
       .catch(error => {
+        /* istanbul ignore else */
         if (error.response) {
           const contentType = error.response.headers.get('content-type');
 
