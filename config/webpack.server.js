@@ -30,6 +30,25 @@ function getIPAddress() {
   return '0.0.0.0';
 }
 
+var envPlugin;
+
+if (args[0] && args[0] === 'test:ui') {
+  envPlugin = new webpack.DefinePlugin({
+    NIGHTWATCH: JSON.stringify(true),
+  });
+}
+else {
+  envPlugin = new BrowserSyncPlugin({
+    host: getIPAddress(),
+    port: 3000,
+    notify: true,
+    logPrefix: 'sia',
+    proxy: 'http://localhost:3030'
+  }, {
+    reload: false
+  });
+}
+
 var config = merge.smart(webpackConfig, {
   output: {
 
@@ -49,15 +68,7 @@ var config = merge.smart(webpackConfig, {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
-    new BrowserSyncPlugin({
-      host: getIPAddress(),
-      port: 3000,
-      notify: true,
-      logPrefix: 'sia',
-      proxy: 'http://localhost:3030'
-    }, {
-      reload: false
-    })
+    envPlugin
   ]
 });
 
@@ -77,9 +88,9 @@ compiler.plugin('emit', function(compilation, callback) {
   if (args[0] && args[0] === 'test:ui') {
     spawnSync('pkill', ['-f', 'selenium']);
 
-    var nightwatch = spawn(path.join(__dirname, 'node_modules/.bin/nightwatch'), [
+    var nightwatch = spawn(path.resolve(__dirname, '../node_modules/.bin/nightwatch'), [
       '-c',
-      path.join(__dirname, 'test/lib/nightwatch.conf.js')
+      path.resolve(__dirname, '../test/lib/nightwatch.conf.js')
     ]);
 
     nightwatch.stdout.on('data', data => {
