@@ -15,7 +15,7 @@ const store = configStore();
 /* istanbul ignore if  */
 if (process.env.NODE_ENV !== 'test') {
   persistStore(store, {
-    whitelist: ['app']
+    whitelist: ['app','user']
   });
 }
 

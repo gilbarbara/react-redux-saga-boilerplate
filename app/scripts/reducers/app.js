@@ -10,9 +10,7 @@ export const appState = {
     status: '',
     withTimeout: true
   },
-  logged: false,
-  rehydrated: false,
-  visits: 0
+  rehydrated: false
 };
 
 export default {

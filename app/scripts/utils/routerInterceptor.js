@@ -36,10 +36,10 @@ export function scrollBefore(nextState, transition, callback) {
  * @returns {function}
  */
 export function checkStatus(nextState, transition, callback) {
-  const { app } = getState();
+  const { user } = getState();
   const pathname = nextState.location.pathname;
 
-  if (app.logged) {
+  if (user.logged) {
     if (pathname === '/') {
       return dispatch(goTo('/private'));
     }

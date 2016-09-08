@@ -8,9 +8,7 @@ import Logo from 'components/Logo';
 
 export default class Header extends React.Component {
   static propTypes = {
-    app: React.PropTypes.object.isRequired,
-    dispatch: React.PropTypes.func.isRequired,
-    location: React.PropTypes.object.isRequired
+    dispatch: React.PropTypes.func.isRequired
   };
 
   shouldComponentUpdate = shouldComponentUpdate;

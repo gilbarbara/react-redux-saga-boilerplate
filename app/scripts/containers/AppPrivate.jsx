@@ -16,10 +16,10 @@ export class AppPrivate extends React.Component {
   }
 
   static propTypes = {
-    app: React.PropTypes.object.isRequired,
     children: React.PropTypes.node.isRequired,
     dispatch: React.PropTypes.func.isRequired,
-    location: React.PropTypes.object.isRequired
+    location: React.PropTypes.object.isRequired,
+    user: React.PropTypes.object.isRequired
   };
 
   shouldComponentUpdate = shouldComponentUpdate;
@@ -29,11 +29,11 @@ export class AppPrivate extends React.Component {
 
     return (
       <div key="app" className="app app--private">
-        <Header dispatch={props.dispatch} location={props.location} app={props.app} />
+        <Header dispatch={props.dispatch} />
         <main className="app__main">
           {this.props.children}
         </main>
-        <Footer app={props.app} dispatch={props.dispatch} />
+        <Footer />
         <SystemNotifications />
       </div>
     );
@@ -42,7 +42,7 @@ export class AppPrivate extends React.Component {
 
 /* istanbul ignore next */
 function mapStateToProps(state) {
-  return { app: state.app };
+  return { user: state.user };
 }
 
 export default connect(mapStateToProps)(AppPrivate);
