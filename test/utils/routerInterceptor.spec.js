@@ -10,7 +10,7 @@ const scroll = {
 
 const dispatch = createSpy();
 let getState = createSpy().andReturn({
-  app: {
+  user: {
     logged: true
   }
 });
@@ -54,7 +54,7 @@ describe('routerInterceptor', () => {
 
   context('with anon user', () => {
     getState = createSpy().andReturn({
-      app: {
+      user: {
         logged: false
       }
     });
