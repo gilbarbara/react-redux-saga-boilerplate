@@ -54,36 +54,3 @@ export function hideAlert() {
     type: ActionTypes.HIDE_ALERT
   };
 }
-
-/**
- * Login
- *
- * @returns {Object}
- */
-export function login() {
-  return {
-    type: ActionTypes.USER_LOGIN_REQUEST
-  };
-}
-
-/**
- * Logout
- *
- * @returns {Object}
- */
-export function logOut() {
-  return {
-    type: ActionTypes.USER_LOGOUT_REQUEST
-  };
-}
-
-/**
- * Clean localStorage
- *
- * @returns {Object}
- */
-export function clearStorage() {
-  return {
-    type: ActionTypes.CLEAR_STORAGE_REQUEST
-  };
-}

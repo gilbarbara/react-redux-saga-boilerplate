@@ -1,8 +1,8 @@
 // @flow
 
 /**
- * @module Sagas/App
- * @desc App
+ * @module Sagas/User
+ * @desc User
  */
 
 import { takeEvery, delay } from 'redux-saga';
@@ -53,26 +53,6 @@ export function* logout() {
   }
 }
 
-/**
- * Clear localStorage
- */
-export function* clearLocalStorage() {
-  try {
-    yield call(localStorage.clear);
-
-    yield put({
-      type: ActionTypes.CLEAR_STORAGE_SUCCESS
-    });
-  }
-  catch (err) {
-    /* istanbul ignore next */
-    yield put({
-      type: ActionTypes.CLEAR_STORAGE_FAILURE,
-      payload: err
-    });
-  }
-}
-
 function* watchLogin() {
   yield* takeEvery(ActionTypes.USER_LOGIN_REQUEST, login);
 }
@@ -81,15 +61,10 @@ function* watchLogout() {
   yield* takeEvery(ActionTypes.USER_LOGOUT_REQUEST, logout);
 }
 
-function* watchClearLocalStorage() {
-  yield* takeEvery(ActionTypes.CLEAR_STORAGE_REQUEST, clearLocalStorage);
-}
-
 /**
- * App Sagas
+ * User Sagas
  */
 export default function* app() {
   yield fork(watchLogin);
   yield fork(watchLogout);
-  yield fork(watchClearLocalStorage);
 }

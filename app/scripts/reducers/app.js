@@ -27,12 +27,6 @@ export default {
 
       return { ...state };
     },
-    [ActionTypes.USER_LOGIN_SUCCESS](state) {
-      return { ...state, logged: true };
-    },
-    [ActionTypes.USER_LOGOUT_SUCCESS](state) {
-      return { ...state, logged: false };
-    },
     [ActionTypes.SHOW_ALERT](state, action) {
       const notifications = {
         ...state.notifications,

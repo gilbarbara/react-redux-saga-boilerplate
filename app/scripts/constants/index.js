@@ -17,10 +17,7 @@ export const ActionTypes = keyMirror({
   USER_LOGOUT_SUCCESS: undefined,
   USER_LOGOUT_FAILURE: undefined,
   SHOW_ALERT: undefined,
-  HIDE_ALERT: undefined,
-  CLEAR_STORAGE_REQUEST: undefined,
-  CLEAR_STORAGE_SUCCESS: undefined,
-  CLEAR_STORAGE_FAILURE: undefined
+  HIDE_ALERT: undefined
 });
 
 /**

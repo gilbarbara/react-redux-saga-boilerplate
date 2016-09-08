@@ -31,8 +31,4 @@ describe('App', () => {
   it('logOut should return an action', () => {
     expect(Actions.logOut()).toEqual({ type: ActionTypes.USER_LOGOUT_REQUEST });
   });
-
-  it('clearStorage should return an action', () => {
-    expect(Actions.clearStorage()).toEqual({ type: ActionTypes.CLEAR_STORAGE_REQUEST });
-  });
 });

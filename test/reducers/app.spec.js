@@ -22,16 +22,6 @@ describe('App', () => {
       .toEqual(appState);
   });
 
-  it(`should handle ${ActionTypes.USER_LOGIN_SUCCESS}`, () => {
-    expect(reducers.app(undefined, { type: ActionTypes.USER_LOGIN_SUCCESS }).logged)
-      .toEqual(true);
-  });
-
-  it(`should handle ${ActionTypes.USER_LOGOUT_SUCCESS}`, () => {
-    expect(reducers.app(undefined, { type: ActionTypes.USER_LOGOUT_SUCCESS }).logged)
-      .toEqual(false);
-  });
-
   it(`should handle ${ActionTypes.SHOW_ALERT}`, () => {
     expect(reducers.app(undefined, Actions.showAlert('success', 'hello')).notifications)
       .toEqual({

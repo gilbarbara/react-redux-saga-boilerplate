@@ -1,3 +1,3 @@
 describe('SAGAS', () => {
-  require('./sagas/app.spec');
+  require('./sagas/user.spec');
 });

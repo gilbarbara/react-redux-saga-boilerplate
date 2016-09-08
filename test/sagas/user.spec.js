@@ -2,10 +2,10 @@ import expect from 'expect';
 import { delay } from 'redux-saga';
 import { put, call } from 'redux-saga/effects';
 
-import { login, logout, clearLocalStorage } from 'sagas/app';
+import { login, logout } from 'sagas/user';
 import { ActionTypes } from 'constants/index';
 
-describe('app', () => {
+describe('user', () => {
   it('login saga', () => {
     const generator = login();
 
@@ -49,15 +49,6 @@ describe('app', () => {
         }
       }
     });
-    expect(generator.next()).toEqual({ done: true, value: undefined });
-  });
-
-  it('clearLocalStorage saga', () => {
-    const generator = clearLocalStorage();
-    expect(generator.next().value).toEqual({ '@@redux-saga/IO': true, CALL: { args: [], context: null, fn: localStorage.clear } });
-    expect(generator.next().value).toEqual(put({
-      type: ActionTypes.CLEAR_STORAGE_SUCCESS
-    }));
     expect(generator.next()).toEqual({ done: true, value: undefined });
   });
 });
