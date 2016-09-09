@@ -1,17 +1,17 @@
 import React from 'react';
-import expect, { createSpy, spyOn } from 'expect';
 import { mount } from 'enzyme';
 
 import { appState } from 'reducers/app';
 import { SystemNotifications } from 'components/SystemNotifications';
 
-const dispatch = createSpy();
-const hideNotification = spyOn(SystemNotifications.prototype, 'hideNotification').andCallThrough();
+const mockDispatch = jest.fn();
+
+SystemNotifications.prototype.hideNotification = jest.fn(SystemNotifications.prototype.hideNotification);
 
 function setup(app = appState) {
   const props = {
     app,
-    dispatch
+    dispatch: mockDispatch
   };
 
   return mount(<SystemNotifications {...props} />);
@@ -21,7 +21,7 @@ describe('SystemNotifications', () => {
   const wrapper = setup();
 
   it('should be a Component', () => {
-    expect(wrapper.instance()).toBeA(React.Component);
+    expect(wrapper.instance() instanceof React.Component).toBe(true);
   });
 
   it('should render properly with the default state', () => {
@@ -74,8 +74,8 @@ describe('SystemNotifications', () => {
     const body = wrapper.find('.app__notifications');
 
     body.simulate('click');
-    expect(dispatch).toHaveBeenCalledWith({ type: 'HIDE_ALERT' });
-    expect(hideNotification).toHaveBeenCalled();
+    expect(mockDispatch.mock.calls[0][0]).toEqual({ type: 'HIDE_ALERT' });
+    expect(SystemNotifications.prototype.hideNotification).toHaveBeenCalled();
 
     wrapper.setProps({
       app: {

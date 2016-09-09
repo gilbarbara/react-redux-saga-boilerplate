@@ -1,84 +1,72 @@
-import expect, { createSpy } from 'expect';
+let logged = true;
 
-const injector = require('inject!utils/routerInterceptor');
+const mockDispatch = jest.fn();
+const mockGetState = jest.fn(() =>
+  ({
+    user: {
+      logged
+    }
+  })
+);
+const mockCallback = jest.fn();
 
-const scroll = {
-  top: (page, to, ease, callback) => {
-    callback();
-  }
-};
-
-const dispatch = createSpy();
-let getState = createSpy().andReturn({
-  user: {
-    logged: true
-  }
+const mockScroll = jest.fn((page, to, ease, cb) => {
+  cb();
 });
 
-describe('routerInterceptor', () => {
-  context('with logged user', () => {
-    const routerInterceptor = injector({
-      scroll,
-      store: {
-        dispatch,
-        getState
-      }
-    });
+jest.mock('store', () =>
+  ({
+    dispatch: mockDispatch,
+    getState: mockGetState
+  })
+);
 
-    it('checkStatus should redirect to /private', () => {
-      routerInterceptor.checkStatus({ location: { pathname: '/' } }, {}, () => {});
-      expect(dispatch)
-        .toHaveBeenCalledWith({
-          type: '@@router/CALL_HISTORY_METHOD',
-          payload: {
-            method: 'push',
-            args: [{ pathname: '/private', search: undefined, state: undefined }]
-          }
-        });
-    });
+jest.mock('scroll', () =>
+  ({
+    top: mockScroll
+  })
+);
 
-    it('checkStatus should execute callback', () => {
-      const callback = createSpy();
-      routerInterceptor.checkStatus({ location: { pathname: '/private' } }, {}, callback);
+const routerInterceptor = require('utils/routerInterceptor');
 
-      expect(callback).toHaveBeenCalled();
-    });
+describe('routerInterceptor with logged user', () => {
+  it('checkStatus should redirect to /private', () => {
+    routerInterceptor.checkStatus({ location: { pathname: '/' } }, {}, () => {});
 
-    it('scrollBefore should execute callback', () => {
-      const callback = createSpy();
-      routerInterceptor.scrollBefore({}, {}, callback);
-
-      expect(callback).toHaveBeenCalled();
-    });
+    expect(mockDispatch.mock.calls[0][0])
+      .toEqual({
+        type: '@@router/CALL_HISTORY_METHOD',
+        payload: {
+          method: 'push',
+          args: [{ pathname: '/private', search: undefined, state: undefined }]
+        }
+      });
   });
 
-  context('with anon user', () => {
-    getState = createSpy().andReturn({
-      user: {
-        logged: false
-      }
-    });
+  it('checkStatus should execute callback', () => {
+    routerInterceptor.checkStatus({ location: { pathname: '/private' } }, {}, mockCallback);
+    expect(mockCallback.mock.calls.length).toBe(1);
+  });
 
-    const routerInterceptor = injector({
-      scroll,
-      store: {
-        dispatch,
-        getState
-      }
-    });
-
-    it('checkStatus should dispatch an logout action', () => {
-      const callback = createSpy();
-      routerInterceptor.checkStatus({ location: { pathname: '/private' } }, {}, callback);
-
-      expect(dispatch).toHaveBeenCalledWith({ type: 'USER_LOGOUT_REQUEST' });
-    });
-
-    it('checkStatus should execute callback', () => {
-      const callback = createSpy();
-      routerInterceptor.checkStatus({ location: { pathname: '/' } }, {}, callback);
-
-      expect(callback).toHaveBeenCalled();
-    });
+  it('scrollBefore should execute callback', () => {
+    routerInterceptor.scrollBefore({}, {}, mockCallback);
+    expect(mockCallback.mock.calls.length).toBe(2);
   });
 });
+
+describe('routerInterceptor with anon user', () => {
+  it('checkStatus should dispatch an logout action', () => {
+    logged = false;
+
+    routerInterceptor.checkStatus({ location: { pathname: '/private' } }, {}, () => {});
+    expect(mockDispatch.mock.calls[1][0]).toEqual({ type: 'USER_LOGOUT_REQUEST' });
+  });
+
+  it('checkStatus should execute callback', () => {
+    logged = false;
+
+    routerInterceptor.checkStatus({ location: { pathname: '/' } }, {}, mockCallback);
+    expect(mockCallback.mock.calls.length).toBe(3);
+  });
+});
+

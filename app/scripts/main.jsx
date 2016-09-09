@@ -14,28 +14,24 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import store from 'store';
 import '../styles/main.scss';
 
-const history = syncHistoryWithStore(browserHistory, store);
-
+/* istanbul ignore next  */
 function renderApp(RootComponent) {
   const target = document.getElementById('react');
-  /* istanbul ignore if  */
+
   if (target) {
     ReactDOM.render(
       <AppContainer>
-        <RootComponent store={store} history={history} />
+        <RootComponent store={store} history={syncHistoryWithStore(browserHistory, store)} />
       </AppContainer>,
       target
     );
   }
 }
 
-setTimeout(() => {
-  renderApp(Root);
-}, 100);
+renderApp(Root);
 
-/* istanbul ignore if  */
+/* istanbul ignore next  */
 if (module.hot) {
-  /* istanbul ignore next */
   module.hot.accept(
     'containers/Root',
     () => renderApp(require('containers/Root'))

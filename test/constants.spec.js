@@ -1,4 +1,3 @@
-import expect from 'expect';
 import { ActionTypes } from 'constants/index';
 
 describe('CONSTANTS', () => {

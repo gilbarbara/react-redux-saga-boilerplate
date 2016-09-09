@@ -1,4 +1,3 @@
-import expect from 'expect';
 import React from 'react';
 import { shallow } from 'enzyme';
 
@@ -17,7 +16,7 @@ describe('App', () => {
   const wrapper = setup();
 
   it('should be a Component', () => {
-    expect(wrapper.instance()).toBeA(React.Component);
+    expect(wrapper.instance() instanceof React.Component).toBe(true);
   });
 
   it('should render properly', () => {

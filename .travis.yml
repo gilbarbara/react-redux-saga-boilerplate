@@ -5,4 +5,4 @@ addons:
   code_climate: true
 after_script:
   - npm install -g codeclimate-test-reporter
-  - codeclimate-test-reporter < coverage/report-lcov/lcov.info
+  - codeclimate-test-reporter < coverage/lcov.info

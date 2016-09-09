@@ -1,12 +1,18 @@
-import expect from 'expect';
-
 import * as Actions from 'actions';
 import { ActionTypes } from 'constants/index';
 
 describe('App', () => {
   it('goTo should create an action to navigate with react-router > UPDATE_PATH', () => {
     expect([Actions.goTo('/destination')])
-      .toInclude('/destination', (a, b) => a.payload.args[0].pathname === b);
+      .toEqual([
+        {
+          type: '@@router/CALL_HISTORY_METHOD',
+          payload: {
+            method: 'push',
+            args: [{ pathname: '/destination', search: undefined, state: undefined }]
+          }
+        }
+      ]);
   });
 
   it('showAlert should return an action', () => {

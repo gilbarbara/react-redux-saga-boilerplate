@@ -9,9 +9,7 @@ import createActionBuffer from 'redux-action-buffer';
 import rootSagas from 'sagas';
 import rootReducer from 'reducers';
 
-const reducer = combineReducers(Object.assign({}, rootReducer, {
-  routing: routerReducer
-}));
+const reducer = combineReducers({ ...rootReducer, routing: routerReducer });
 const sagaMiddleware = createSagaMiddleware();
 
 export default (initialState) => {

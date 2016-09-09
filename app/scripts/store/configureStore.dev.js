@@ -14,9 +14,7 @@ import rootReducer from 'reducers';
 import DevTools from 'components/DevTools';
 import { ActionTypes } from 'constants/index';
 
-const reducer = combineReducers(Object.assign({}, rootReducer, {
-  routing: routerReducer
-}));
+const reducer = combineReducers({ ...rootReducer, routing: routerReducer });
 const sagaMiddleware = createSagaMiddleware();
 
 const logger = createLogger({

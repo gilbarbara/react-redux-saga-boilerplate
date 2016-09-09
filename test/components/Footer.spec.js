@@ -1,18 +1,10 @@
-import expect, { createSpy } from 'expect';
 import React from 'react';
 import { mount } from 'enzyme';
 
 import Footer from 'components/Footer';
 
-const dispatch = createSpy();
-
 function setup() {
-  const props = {
-    app: {},
-    dispatch
-  };
-
-  return mount(<Footer {...props} />);
+  return mount(<Footer />);
 }
 
 describe('Footer', () => {

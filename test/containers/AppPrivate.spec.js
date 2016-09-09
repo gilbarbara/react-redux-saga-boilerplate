@@ -1,16 +1,14 @@
-import expect, { createSpy } from 'expect';
 import React from 'react';
 import { shallow } from 'enzyme';
 
 import { AppPrivate } from 'containers/AppPrivate';
 import SystemNotifications from 'components/SystemNotifications';
 
-const dispatch = createSpy();
-
 function setup() {
   const props = {
-    dispatch,
+    dispatch: () => {},
     children: [<div key="1" className="child">Hello</div>, <div key="2" className="child">World</div>],
+    location: {},
     user: {}
   };
 
@@ -21,7 +19,7 @@ describe('AppPrivate', () => {
   const wrapper = setup();
 
   it('should be a Component', () => {
-    expect(wrapper.instance()).toBeA(React.Component);
+    expect(wrapper.instance() instanceof React.Component).toBe(true);
   });
 
   it('should render properly', () => {

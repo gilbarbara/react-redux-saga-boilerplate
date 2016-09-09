@@ -1,4 +1,3 @@
-import expect from 'expect';
 import { REHYDRATE } from 'redux-persist/constants';
 
 import reducers from 'reducers';

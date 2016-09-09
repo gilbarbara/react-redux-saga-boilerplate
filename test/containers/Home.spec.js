@@ -1,14 +1,13 @@
-import expect, { createSpy } from 'expect';
 import React from 'react';
 import { mount } from 'enzyme';
 
 import { Home } from 'containers/Home';
 
-const dispatch = createSpy();
+const mockDispatch = jest.fn();
 
 function setup() {
   const props = {
-    dispatch,
+    dispatch: mockDispatch,
     location: {}
   };
 
@@ -19,7 +18,7 @@ describe('Home', () => {
   const wrapper = setup(true);
 
   it('should be a Component', () => {
-    expect(wrapper.instance()).toBeA(React.Component);
+    expect(wrapper.instance() instanceof React.Component).toBe(true);
   });
 
   it('should render properly', () => {
@@ -30,6 +29,6 @@ describe('Home', () => {
 
   it('should handle clicks', () => {
     wrapper.find('.btn').simulate('click');
-    expect(dispatch).toHaveBeenCalledWith({ type: 'USER_LOGIN_REQUEST' });
+    expect(mockDispatch.mock.calls[0][0]).toEqual({ type: 'USER_LOGIN_REQUEST' });
   });
 });

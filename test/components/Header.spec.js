@@ -1,15 +1,14 @@
-import expect, { createSpy } from 'expect';
 import React from 'react';
 import { mount } from 'enzyme';
 
 import Header from 'components/Header';
 
-const dispatch = createSpy();
+const mockDispatch = jest.fn();
 
 function setup() {
   const props = {
     app: {},
-    dispatch,
+    dispatch: mockDispatch,
     location: {
       pathname: '/'
     }
@@ -22,7 +21,7 @@ describe('Header', () => {
   const wrapper = setup();
 
   it('should be a Component', () => {
-    expect(wrapper.instance()).toBeA(React.Component);
+    expect(wrapper.instance() instanceof React.Component).toBe(true);
   });
 
   it('should render properly', () => {
@@ -32,12 +31,12 @@ describe('Header', () => {
 
   it('should handle clicks', () => {
     wrapper.find('.app__header__logo').simulate('click');
-    expect(dispatch).toHaveBeenCalledWith({
+    expect(mockDispatch.mock.calls[0][0]).toEqual({
       type: '@@router/CALL_HISTORY_METHOD',
       payload: { method: 'push', args: [{ pathname: '/', search: undefined, state: undefined }] }
     });
 
     wrapper.find('.app__logout').simulate('click');
-    expect(dispatch).toHaveBeenCalledWith({ type: 'USER_LOGOUT_REQUEST' });
+    expect(mockDispatch.mock.calls[1][0]).toEqual({ type: 'USER_LOGOUT_REQUEST' });
   });
 });

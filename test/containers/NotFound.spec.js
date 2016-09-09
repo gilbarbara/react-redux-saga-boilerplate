@@ -1,18 +1,10 @@
-import expect, { createSpy } from 'expect';
 import React from 'react';
 import { mount } from 'enzyme';
 
 import NotFound from 'containers/NotFound';
 
-const dispatch = createSpy();
-
 function setup() {
-  const props = {
-    dispatch,
-    location: {}
-  };
-
-  return mount(<NotFound {...props} />);
+  return mount(<NotFound />);
 }
 
 describe('NotFound', () => {

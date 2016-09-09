@@ -1,14 +1,11 @@
-import expect, { createSpy } from 'expect';
 import React from 'react';
 import { mount } from 'enzyme';
 
 import Logged from 'containers/Logged';
 
-const dispatch = createSpy();
-
 function setup() {
   const props = {
-    dispatch,
+    dispatch: () => {},
     location: {}
   };
 

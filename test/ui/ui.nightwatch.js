@@ -1,5 +1,4 @@
 /*eslint-disable no-console, no-var, no-unused-expressions no-console, func-names, prefer-arrow-callback, object-shorthand */
-
 var timer = 2500;
 var wait = 1000;
 
