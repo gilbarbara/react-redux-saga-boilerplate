@@ -8,9 +8,9 @@ describe('api', () => {
   });
 
   context('request', () => {
-    it('should fail without endpoint', () => {
+    it('should fail parameters', () => {
       expect(() => {
-        request({});
+        request();
       }).toThrow('Error! You must pass `endpoint`');
     });
 
