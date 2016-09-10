@@ -18,6 +18,7 @@
   "env": {
     "production": {
       "plugins": [
+        "lodash",
         "transform-flow-strip-types"
       ]
     },

@@ -9,10 +9,9 @@ const dispatch = createSpy();
 
 function setup() {
   const props = {
-    app: {},
     dispatch,
     children: [<div key="1" className="child">Hello</div>, <div key="2" className="child">World</div>],
-    location: {}
+    user: {}
   };
 
   return shallow(<AppPrivate {...props} />);
