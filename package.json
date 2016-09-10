@@ -124,6 +124,8 @@
     "lint": "eslint  --ext .js --ext .jsx app/scripts test",
     "lint:styles": "stylelint app/styles/**/*.scss",
     "test": "NODE_ENV=test jest",
+    "test:watch": "NODE_ENV=test jest --watch",
+    "test:update": "NODE_ENV=test jest --updateSnapshot",
     "test:ui": "nightwatch -c test/lib/nightwatch.conf.js",
     "start:test:ui": "npm start -- test:ui",
     "deploy": "node config/tools deploy",
@@ -149,21 +151,23 @@
       "app/scripts"
     ],
     "moduleNameMapper": {
-      "^.+\\.(css|less)$": "<rootDir>/test/lib/styleMock.js",
+      "^.+\\.(css|scss)$": "<rootDir>/test/lib/styleMock.js",
       "^.+\\.(jpe?g|png|gif|ttf|eot|svg|md)$": "<rootDir>/test/lib/fileMock.js"
     },
     "testRegex": "/test/.*?\\.(test|spec)\\.js$",
     "collectCoverage": true,
     "collectCoverageFrom": [
       "app/scripts/**/*.{js,jsx}",
+      "!app/scripts/**/*.dev.{js,jsx}",
+      "!app/scripts/**/DevTools.jsx",
       "!app/scripts/vendor/*"
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 20,
-        "functions": 20,
-        "lines": 20,
-        "statements": 20
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
       }
     },
     "verbose": true

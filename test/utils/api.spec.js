@@ -6,9 +6,9 @@ describe('api', () => {
     fetchMock.restore();
   });
 
-  it('should fail without endpoint', () => {
+  it('should fail without param', () => {
     expect(() => {
-      request({});
+      request();
     }).toThrow('Error! You must pass `endpoint`');
   });
 

@@ -1,0 +1,16 @@
+exports[`routes should match the snapshot 1`] = `
+"function createRoutes(){/* istanbul ignore next */++__cov_YFF48TBiBU$VZkTB0sE976HoIus.f[\'1\'];++__cov_YFF48TBiBU$VZkTB0sE976HoIus.s[\'1\'];
+return(
+/* istanbul ignore next */_react2.default.createElement(/* istanbul ignore next */_reactRouter.Route,/* istanbul ignore next */{path:\'/\',component:/* istanbul ignore next */_App2.default},
+/* istanbul ignore next */_react2.default.createElement(/* istanbul ignore next */_reactRouter.Route,/* istanbul ignore next */{component:/* istanbul ignore next */_AppPrivate2.default},
+/* istanbul ignore next */_react2.default.createElement(/* istanbul ignore next */_reactRouter.Route,/* istanbul ignore next */{path:\'private\',component:/* istanbul ignore next */_Logged2.default,onEnter:/* istanbul ignore next */_routerInterceptor.checkStatus}),
+/* istanbul ignore next */_react2.default.createElement(/* istanbul ignore next */_reactRouter.Route,/* istanbul ignore next */{path:\'*\',component:/* istanbul ignore next */_NotFound2.default})),
+
+/* istanbul ignore next */_react2.default.createElement(/* istanbul ignore next */_reactRouter.Route,/* istanbul ignore next */{component:/* istanbul ignore next */_AppPublic2.default},
+/* istanbul ignore next */_react2.default.createElement(/* istanbul ignore next */_reactRouter.IndexRoute,/* istanbul ignore next */{component:/* istanbul ignore next */_Home2.default,onEnter:/* istanbul ignore next */_routerInterceptor.checkStatus}),
+/* istanbul ignore next */_react2.default.createElement(/* istanbul ignore next */_reactRouter.Route,/* istanbul ignore next */{path:\'*\',component:/* istanbul ignore next */_NotFound2.default}))));
+
+
+
+}"
+`;

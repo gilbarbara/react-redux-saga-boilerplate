@@ -14,10 +14,10 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import store from 'store';
 import '../styles/main.scss';
 
-/* istanbul ignore next  */
-function renderApp(RootComponent) {
+export default function renderApp(RootComponent) {
   const target = document.getElementById('react');
 
+  /* istanbul ignore if */
   if (target) {
     ReactDOM.render(
       <AppContainer>

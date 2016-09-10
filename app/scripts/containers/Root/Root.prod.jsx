@@ -6,9 +6,7 @@ import createRoutes from 'routes';
 /* istanbul ignore next */
 const Root = ({ store, history }) => (
   <Provider store={store}>
-    <div>
-      <Router history={history} routes={createRoutes()} />
-    </div>
+    <Router history={history} routes={createRoutes()} />
   </Provider>
 );
 
