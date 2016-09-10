@@ -18,18 +18,17 @@ export class AppPrivate extends React.Component {
   static propTypes = {
     children: React.PropTypes.node.isRequired,
     dispatch: React.PropTypes.func.isRequired,
-    location: React.PropTypes.object.isRequired,
     user: React.PropTypes.object.isRequired
   };
 
   shouldComponentUpdate = shouldComponentUpdate;
 
   render() {
-    const props = this.props;
+    const { dispatch, user } = this.props;
 
     return (
       <div key="app" className="app app--private">
-        <Header dispatch={props.dispatch} />
+        <Header dispatch={dispatch} user={user} />
         <main className="app__main">
           {this.props.children}
         </main>

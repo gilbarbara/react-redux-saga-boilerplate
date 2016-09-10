@@ -13,10 +13,10 @@ class Loader extends React.Component {
   shouldComponentUpdate = shouldComponentUpdate;
 
   render() {
-    const props = this.props;
+    const { pulse } = this.props;
     let html;
 
-    if (props.pulse) {
+    if (pulse) {
       html = (
         <div className="app__loader app__loader--pulse">
           <div />

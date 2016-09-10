@@ -9,8 +9,7 @@ import { login } from 'actions';
 
 export class Home extends React.Component {
   static propTypes = {
-    dispatch: React.PropTypes.func.isRequired,
-    location: React.PropTypes.object.isRequired
+    dispatch: React.PropTypes.func.isRequired
   };
 
   shouldComponentUpdate = shouldComponentUpdate;

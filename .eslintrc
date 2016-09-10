@@ -47,6 +47,7 @@
     ],
     "no-nested-ternary": 1,
     "no-param-reassign": [1, { "props": false }],
+    "no-plusplus": 0,
     "no-restricted-syntax": [
       2,
       "DebuggerStatement",
@@ -103,6 +104,7 @@
     "import/prefer-default-export": 0,
     // React
     "jsx-quotes": 1,
+    "react/forbid-prop-types": 0,
     "react/jsx-closing-bracket-location": [1, "after-props"],
     "react/jsx-first-prop-new-line": [1, "multiline"],
     "react/jsx-indent": [1, 2],
@@ -110,6 +112,7 @@
     "react/jsx-key": 1,
     "react/jsx-max-props-per-line": [1, { "maximum": 4 }],
     "react/jsx-no-target-blank": 0,
+    "react/no-danger": 0,
     "react/no-did-mount-set-state": 1,
     "react/no-did-update-set-state": 1,
     "react/jsx-boolean-value": 0,

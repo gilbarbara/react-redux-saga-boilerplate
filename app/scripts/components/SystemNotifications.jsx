@@ -46,12 +46,12 @@ export class SystemNotifications extends React.Component {
     };
 
     return (
-      <div key="SystemNotification" className={classes} onClick={this.onClick}>
+      <a href="#close" key="SystemNotification" className={classes} onClick={this.onClick}>
         <div>
           <i className={iconClass[notifications.status]} />
           <div>{notifications.message}</div>
         </div>
-      </div>
+      </a>
     );
   }
 }

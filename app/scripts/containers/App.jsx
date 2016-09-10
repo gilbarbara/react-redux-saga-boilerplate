@@ -2,8 +2,7 @@ import React from 'react';
 
 class App extends React.Component {
   static propTypes = {
-    children: React.PropTypes.object.isRequired,
-    location: React.PropTypes.object.isRequired
+    children: React.PropTypes.object.isRequired
   };
 
   render() {
