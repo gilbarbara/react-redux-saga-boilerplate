@@ -8,12 +8,6 @@ const mockGetState = jest.fn(() =>
     }
   })
 );
-const mockCallback = jest.fn();
-
-const mockScroll = jest.fn((page, to, ease, cb) => {
-  cb();
-});
-
 jest.mock('store', () =>
   ({
     dispatch: mockDispatch,
@@ -21,11 +15,17 @@ jest.mock('store', () =>
   })
 );
 
+
+const mockScroll = jest.fn((page, to, ease, cb) => {
+  cb();
+});
 jest.mock('scroll', () =>
   ({
     top: mockScroll
   })
 );
+
+const mockCallback = jest.fn();
 
 const routerInterceptor = require('utils/routerInterceptor');
 
@@ -33,14 +33,7 @@ describe('routerInterceptor with logged user', () => {
   it('checkStatus should redirect to /private', () => {
     routerInterceptor.checkStatus({ location: { pathname: '/' } }, {}, () => {});
 
-    expect(mockDispatch.mock.calls[0][0])
-      .toEqual({
-        type: '@@router/CALL_HISTORY_METHOD',
-        payload: {
-          method: 'push',
-          args: [{ pathname: '/private', search: undefined, state: undefined }]
-        }
-      });
+    expect(mockDispatch.mock.calls[0][0]).toMatchSnapshot();
   });
 
   it('checkStatus should execute callback', () => {
@@ -59,7 +52,7 @@ describe('routerInterceptor with anon user', () => {
     logged = false;
 
     routerInterceptor.checkStatus({ location: { pathname: '/private' } }, {}, () => {});
-    expect(mockDispatch.mock.calls[1][0]).toEqual({ type: 'USER_LOGOUT_REQUEST' });
+    expect(mockDispatch.mock.calls[1][0]).toMatchSnapshot();
   });
 
   it('checkStatus should execute callback', () => {

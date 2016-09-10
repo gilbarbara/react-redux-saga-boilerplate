@@ -18,12 +18,7 @@ describe('helpers/shouldComponentUpdate', () => {
 
 describe('helpers/createRequestTypes', () => {
   it('should return a proper object', () => {
-    expect(helpers.createRequestTypes('REQUEST')
-    ).toEqual({
-      FAILURE: 'REQUEST_FAILURE',
-      REQUEST: 'REQUEST_REQUEST',
-      SUCCESS: 'REQUEST_SUCCESS'
-    });
+    expect(helpers.createRequestTypes('REQUEST')).toMatchSnapshot();
   });
 });
 
@@ -33,6 +28,6 @@ describe('helpers/datasetToObject', () => {
   el.setAttribute('data-minute-maid', 'no');
 
   it('should convert DOMElement data to object', () => {
-    expect(helpers.datasetToObject(el)).toEqual({ minuteMaid: 'no', rule: 'yes' });
+    expect(helpers.datasetToObject(el)).toMatchSnapshot();
   });
 });

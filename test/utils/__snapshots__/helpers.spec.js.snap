@@ -1,0 +1,14 @@
+exports[`helpers/createRequestTypes should return a proper object 1`] = `
+Object {
+  "FAILURE": "REQUEST_FAILURE",
+  "REQUEST": "REQUEST_REQUEST",
+  "SUCCESS": "REQUEST_SUCCESS"
+}
+`;
+
+exports[`helpers/datasetToObject should convert DOMElement data to object 1`] = `
+Object {
+  "minuteMaid": "no",
+  "rule": "yes"
+}
+`;

@@ -1,0 +1,21 @@
+exports[`routerInterceptor with anon user checkStatus should dispatch an logout action 1`] = `
+Object {
+  "type": "USER_LOGOUT_REQUEST"
+}
+`;
+
+exports[`routerInterceptor with logged user checkStatus should redirect to /private 1`] = `
+Object {
+  "payload": Object {
+    "args": Array [
+      Object {
+        "pathname": "/private",
+        "search": undefined,
+        "state": undefined
+      }
+    ],
+    "method": "push"
+  },
+  "type": "@@router/CALL_HISTORY_METHOD"
+}
+`;

@@ -1,40 +1,23 @@
 import * as Actions from 'actions';
-import { ActionTypes } from 'constants/index';
 
 describe('App', () => {
-  it('goTo should create an action to navigate with react-router > UPDATE_PATH', () => {
-    expect([Actions.goTo('/destination')])
-      .toEqual([
-        {
-          type: '@@router/CALL_HISTORY_METHOD',
-          payload: {
-            method: 'push',
-            args: [{ pathname: '/destination', search: undefined, state: undefined }]
-          }
-        }
-      ]);
+  it('goTo should create an action to navigate with react-router', () => {
+    expect([Actions.goTo('/destination')]).toMatchSnapshot();
   });
 
   it('showAlert should return an action', () => {
-    const expectedAction = {
-      type: ActionTypes.SHOW_ALERT,
-      status: 'success',
-      message: 'Alright!',
-      withTimeout: false
-    };
-
-    expect(Actions.showAlert('success', 'Alright!', false)).toEqual(expectedAction);
+    expect(Actions.showAlert('success', 'Alright!', false)).toMatchSnapshot();
   });
 
   it('hideAlert should return an action', () => {
-    expect(Actions.hideAlert()).toEqual({ type: ActionTypes.HIDE_ALERT });
+    expect(Actions.hideAlert()).toMatchSnapshot();
   });
 
   it('login should return an action', () => {
-    expect(Actions.login()).toEqual({ type: ActionTypes.USER_LOGIN_REQUEST });
+    expect(Actions.login()).toMatchSnapshot();
   });
 
   it('logOut should return an action', () => {
-    expect(Actions.logOut()).toEqual({ type: ActionTypes.USER_LOGOUT_REQUEST });
+    expect(Actions.logOut()).toMatchSnapshot();
   });
 });

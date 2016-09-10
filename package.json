@@ -127,7 +127,7 @@
     "test:watch": "NODE_ENV=test jest --watch",
     "test:update": "NODE_ENV=test jest --updateSnapshot",
     "test:ui": "nightwatch -c test/lib/nightwatch.conf.js",
-    "start:test:ui": "npm start -- test:ui",
+    "test:ui:start": "npm start -- test:ui",
     "deploy": "node config/tools deploy",
     "publish": "node config/tools publish",
     "docs": "node config/tools docs",

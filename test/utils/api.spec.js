@@ -12,6 +12,12 @@ describe('api', () => {
     }).toThrow('Error! You must pass `endpoint`');
   });
 
+  it('should fail to a POST without payload', () => {
+    expect(() => {
+      request({ endpoint: 'http://example.com/token', method: 'POST' });
+    }).toThrow('Error! You must pass `payload`');
+  });
+
   it('should execute a GET successfully with json', (done) => {
     fetchMock.mock('http://example.com/token', {
       status: 200,
@@ -21,31 +27,46 @@ describe('api', () => {
 
     request({ endpoint: 'http://example.com/token' })
       .then(data => {
-        expect(data).toEqual({ hello: 'world' });
+        expect(data).toMatchSnapshot();
         done();
       });
   });
 
-  it('should reject for a server error', (done) => {
+  it('should reject for a server error with JSON response', (done) => {
     fetchMock.mock('http://example.com/token', {
-      body: { error: 'world' },
+      body: { error: 'FAILED' },
       status: 500,
       headers: { 'Content-Type': 'application/json' }
     });
 
     request({ endpoint: 'http://example.com/token' })
-      .catch((e) => {
-        expect(e).toEqual({ status: 'FAIL', data: { error: 'world' } });
+      .catch(error => {
+        expect(error).toMatchSnapshot();
+        done();
+      });
+  });
+
+  it('should reject for a server error with no response', (done) => {
+    fetchMock.mock('http://example.com/token', {
+      status: 500
+    });
+
+    request({ endpoint: 'http://example.com/token' })
+      .catch(error => {
+        expect(error).toMatchSnapshot();
         done();
       });
   });
 
   it('should reject for a not found error', (done) => {
-    fetchMock.mock('http://example.com/token', 404, { error: 'world' });
+    fetchMock.mock('http://example.com/token', 404, {
+      error: 'FAILED',
+      headers: { 'Content-Type': 'application/json' }
+    });
 
     request({ endpoint: 'http://example.com/token' })
-      .catch((e) => {
-        expect(e).toEqual({ status: 'FAIL', data: '' });
+      .catch(error => {
+        expect(error).toMatchSnapshot();
         done();
       });
   });
@@ -58,14 +79,8 @@ describe('api', () => {
 
     request({ endpoint: 'http://example.com/token', method: 'POST', payload: { a: 1 } })
       .then(data => {
-        expect(data).toBe('ok');
+        expect(data).toMatchSnapshot();
         done();
       });
-  });
-
-  it('should fail to a POST without payload', () => {
-    expect(() => {
-      request({ endpoint: 'http://example.com/token', method: 'POST' });
-    }).toThrow('Error! You must pass `payload`');
   });
 });

@@ -14,7 +14,7 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import store from 'store';
 import '../styles/main.scss';
 
-export default function renderApp(RootComponent) {
+function renderApp(RootComponent) {
   const target = document.getElementById('react');
 
   /* istanbul ignore if */

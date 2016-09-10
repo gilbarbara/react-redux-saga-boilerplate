@@ -1,0 +1,34 @@
+exports[`User should handle USER_LOGIN_SUCCESS 1`] = `
+Object {
+  "logged": true,
+  "rehydrated": false
+}
+`;
+
+exports[`User should handle USER_LOGOUT_SUCCESS 1`] = `
+Object {
+  "logged": false,
+  "rehydrated": false
+}
+`;
+
+exports[`User should handle persist/REHYDRATE with payload 1`] = `
+Object {
+  "logged": true,
+  "rehydrated": true
+}
+`;
+
+exports[`User should handle persist/REHYDRATE without payload 1`] = `
+Object {
+  "logged": false,
+  "rehydrated": false
+}
+`;
+
+exports[`User should return the initial state 1`] = `
+Object {
+  "logged": false,
+  "rehydrated": false
+}
+`;

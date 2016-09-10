@@ -1,0 +1,107 @@
+exports[`user login saga 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [
+      1000
+    ],
+    "context": null,
+    "fn": [Function delay]
+  }
+}
+`;
+
+exports[`user login saga 2`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "PUT": Object {
+    "action": Object {
+      "type": "USER_LOGIN_SUCCESS"
+    },
+    "channel": null
+  }
+}
+`;
+
+exports[`user login saga 3`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "PUT": Object {
+    "action": Object {
+      "payload": Object {
+        "args": Array [
+          Object {
+            "pathname": "/private",
+            "search": undefined,
+            "state": undefined
+          }
+        ],
+        "method": "push"
+      },
+      "type": "@@router/CALL_HISTORY_METHOD"
+    },
+    "channel": null
+  }
+}
+`;
+
+exports[`user login saga 4`] = `
+Object {
+  "done": true,
+  "value": undefined
+}
+`;
+
+exports[`user logout saga 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [
+      200
+    ],
+    "context": null,
+    "fn": [Function delay]
+  }
+}
+`;
+
+exports[`user logout saga 2`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "PUT": Object {
+    "action": Object {
+      "type": "USER_LOGOUT_SUCCESS"
+    },
+    "channel": null
+  }
+}
+`;
+
+exports[`user logout saga 3`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "PUT": Object {
+    "action": Object {
+      "payload": Object {
+        "args": Array [
+          Object {
+            "pathname": "/",
+            "search": undefined,
+            "state": undefined
+          }
+        ],
+        "method": "push"
+      },
+      "type": "@@router/CALL_HISTORY_METHOD"
+    },
+    "channel": null
+  }
+}
+`;
+
+exports[`user logout saga 4`] = `
+Object {
+  "done": true,
+  "value": undefined
+}
+`;

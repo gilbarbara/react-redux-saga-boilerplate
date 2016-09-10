@@ -1,0 +1,53 @@
+exports[`App should handle HIDE_ALERT 1`] = `
+Object {
+  "message": "",
+  "status": "",
+  "visible": false,
+  "withTimeout": true
+}
+`;
+
+exports[`App should handle SHOW_ALERT 1`] = `
+Object {
+  "message": "hello",
+  "status": "success",
+  "visible": true,
+  "withTimeout": true
+}
+`;
+
+exports[`App should handle persist/REHYDRATE with payload 1`] = `
+Object {
+  "notifications": Object {
+    "message": "",
+    "status": "",
+    "visible": false,
+    "withTimeout": true
+  },
+  "rehydrated": true
+}
+`;
+
+exports[`App should handle persist/REHYDRATE without payload 1`] = `
+Object {
+  "notifications": Object {
+    "message": "",
+    "status": "",
+    "visible": false,
+    "withTimeout": true
+  },
+  "rehydrated": false
+}
+`;
+
+exports[`App should return the initial state 1`] = `
+Object {
+  "notifications": Object {
+    "message": "",
+    "status": "",
+    "visible": false,
+    "withTimeout": true
+  },
+  "rehydrated": false
+}
+`;

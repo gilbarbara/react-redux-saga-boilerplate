@@ -1,0 +1,44 @@
+exports[`App goTo should create an action to navigate with react-router 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "args": Array [
+        Object {
+          "pathname": "/destination",
+          "search": undefined,
+          "state": undefined
+        }
+      ],
+      "method": "push"
+    },
+    "type": "@@router/CALL_HISTORY_METHOD"
+  }
+]
+`;
+
+exports[`App hideAlert should return an action 1`] = `
+Object {
+  "type": "HIDE_ALERT"
+}
+`;
+
+exports[`App logOut should return an action 1`] = `
+Object {
+  "type": "USER_LOGOUT_REQUEST"
+}
+`;
+
+exports[`App login should return an action 1`] = `
+Object {
+  "type": "USER_LOGIN_REQUEST"
+}
+`;
+
+exports[`App showAlert should return an action 1`] = `
+Object {
+  "message": "Alright!",
+  "status": "success",
+  "type": "SHOW_ALERT",
+  "withTimeout": false
+}
+`;

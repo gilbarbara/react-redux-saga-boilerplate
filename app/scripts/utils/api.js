@@ -83,6 +83,8 @@ export function request(action:Object = {}) {
             error.response.json().then(json => {
               reject({
                 status: XHR.FAIL,
+                code: error.response.status,
+                error: error.response.statusText,
                 data: json
               });
             });
@@ -93,6 +95,8 @@ export function request(action:Object = {}) {
           error.response.text().then(text =>
             reject({
               status: XHR.FAIL,
+              code: error.response.status,
+              error: error.response.statusText,
               data: text
             })
           );

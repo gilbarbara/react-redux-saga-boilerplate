@@ -1,0 +1,395 @@
+exports[`Constants:ActionTypes should match the snapshot 1`] = `
+Object {
+  "HIDE_ALERT": "HIDE_ALERT",
+  "SHOW_ALERT": "SHOW_ALERT",
+  "USER_LOGIN_FAILURE": "USER_LOGIN_FAILURE",
+  "USER_LOGIN_REQUEST": "USER_LOGIN_REQUEST",
+  "USER_LOGIN_SUCCESS": "USER_LOGIN_SUCCESS",
+  "USER_LOGOUT_FAILURE": "USER_LOGOUT_FAILURE",
+  "USER_LOGOUT_REQUEST": "USER_LOGOUT_REQUEST",
+  "USER_LOGOUT_SUCCESS": "USER_LOGOUT_SUCCESS"
+}
+`;
+
+exports[`Constants:XHR should match the snapshot 1`] = `
+Object {
+  "FAIL": "FAIL",
+  "SUCCESS": "SUCCESS"
+}
+`;
+
+exports[`Routes should match the snapshot 1`] = `
+<function (props, context, updater) {
+      // This constructor gets overridden by mocks. The argument is used
+      // by mocks to assert on what gets mounted.
+
+      if (process.env.NODE_ENV !== 'production') {
+        process.env.NODE_ENV !== 'production' ? warning(this instanceof Constructor, 'Something is calling a React component directly. Use a factory or ' + 'JSX instead. See: https://fb.me/react-legacyfactory') : void 0;
+      }
+
+      // Wire up auto-binding
+      if (this.__reactAutoBindPairs.length) {
+        bindAutoBindMethods(this);
+      }
+
+      this.props = props;
+      this.context = context;
+      this.refs = emptyObject;
+      this.updater = updater || ReactNoopUpdateQueue;
+
+      this.state = null;
+
+      // ReactClasses doesn't have constructors. Instead, they use the
+      // getInitialState and componentWillMount methods for initialization.
+
+      var initialState = this.getInitialState ? this.getInitialState() : null;
+      if (process.env.NODE_ENV !== 'production') {
+        // We allow auto-mocks to proceed as if they're returning null.
+        if (initialState === undefined && this.getInitialState._isMockFunction) {
+          // This is probably bad practice. Consider warning here and
+          // deprecating this convenience.
+          initialState = null;
+        }
+      }
+      !(typeof initialState === 'object' && !Array.isArray(initialState)) ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s.getInitialState(): must return an object or null', Constructor.displayName || 'ReactCompositeComponent') : _prodInvariant('82', Constructor.displayName || 'ReactCompositeComponent') : void 0;
+
+      this.state = initialState;
+    }
+  component={[Function App]}
+  path="/">
+  <function (props, context, updater) {
+        // This constructor gets overridden by mocks. The argument is used
+        // by mocks to assert on what gets mounted.
+  
+        if (process.env.NODE_ENV !== 'production') {
+          process.env.NODE_ENV !== 'production' ? warning(this instanceof Constructor, 'Something is calling a React component directly. Use a factory or ' + 'JSX instead. See: https://fb.me/react-legacyfactory') : void 0;
+        }
+  
+        // Wire up auto-binding
+        if (this.__reactAutoBindPairs.length) {
+          bindAutoBindMethods(this);
+        }
+  
+        this.props = props;
+        this.context = context;
+        this.refs = emptyObject;
+        this.updater = updater || ReactNoopUpdateQueue;
+  
+        this.state = null;
+  
+        // ReactClasses doesn't have constructors. Instead, they use the
+        // getInitialState and componentWillMount methods for initialization.
+  
+        var initialState = this.getInitialState ? this.getInitialState() : null;
+        if (process.env.NODE_ENV !== 'production') {
+          // We allow auto-mocks to proceed as if they're returning null.
+          if (initialState === undefined && this.getInitialState._isMockFunction) {
+            // This is probably bad practice. Consider warning here and
+            // deprecating this convenience.
+            initialState = null;
+          }
+        }
+        !(typeof initialState === 'object' && !Array.isArray(initialState)) ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s.getInitialState(): must return an object or null', Constructor.displayName || 'ReactCompositeComponent') : _prodInvariant('82', Constructor.displayName || 'ReactCompositeComponent') : void 0;
+  
+        this.state = initialState;
+      }
+    component={[Function Connect]}>
+    <function (props, context, updater) {
+          // This constructor gets overridden by mocks. The argument is used
+          // by mocks to assert on what gets mounted.
+    
+          if (process.env.NODE_ENV !== 'production') {
+            process.env.NODE_ENV !== 'production' ? warning(this instanceof Constructor, 'Something is calling a React component directly. Use a factory or ' + 'JSX instead. See: https://fb.me/react-legacyfactory') : void 0;
+          }
+    
+          // Wire up auto-binding
+          if (this.__reactAutoBindPairs.length) {
+            bindAutoBindMethods(this);
+          }
+    
+          this.props = props;
+          this.context = context;
+          this.refs = emptyObject;
+          this.updater = updater || ReactNoopUpdateQueue;
+    
+          this.state = null;
+    
+          // ReactClasses doesn't have constructors. Instead, they use the
+          // getInitialState and componentWillMount methods for initialization.
+    
+          var initialState = this.getInitialState ? this.getInitialState() : null;
+          if (process.env.NODE_ENV !== 'production') {
+            // We allow auto-mocks to proceed as if they're returning null.
+            if (initialState === undefined && this.getInitialState._isMockFunction) {
+              // This is probably bad practice. Consider warning here and
+              // deprecating this convenience.
+              initialState = null;
+            }
+          }
+          !(typeof initialState === 'object' && !Array.isArray(initialState)) ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s.getInitialState(): must return an object or null', Constructor.displayName || 'ReactCompositeComponent') : _prodInvariant('82', Constructor.displayName || 'ReactCompositeComponent') : void 0;
+    
+          this.state = initialState;
+        }
+      component={[Function anonymous]}
+      onEnter={[Function checkStatus]}
+      path="private" />
+    <function (props, context, updater) {
+          // This constructor gets overridden by mocks. The argument is used
+          // by mocks to assert on what gets mounted.
+    
+          if (process.env.NODE_ENV !== 'production') {
+            process.env.NODE_ENV !== 'production' ? warning(this instanceof Constructor, 'Something is calling a React component directly. Use a factory or ' + 'JSX instead. See: https://fb.me/react-legacyfactory') : void 0;
+          }
+    
+          // Wire up auto-binding
+          if (this.__reactAutoBindPairs.length) {
+            bindAutoBindMethods(this);
+          }
+    
+          this.props = props;
+          this.context = context;
+          this.refs = emptyObject;
+          this.updater = updater || ReactNoopUpdateQueue;
+    
+          this.state = null;
+    
+          // ReactClasses doesn't have constructors. Instead, they use the
+          // getInitialState and componentWillMount methods for initialization.
+    
+          var initialState = this.getInitialState ? this.getInitialState() : null;
+          if (process.env.NODE_ENV !== 'production') {
+            // We allow auto-mocks to proceed as if they're returning null.
+            if (initialState === undefined && this.getInitialState._isMockFunction) {
+              // This is probably bad practice. Consider warning here and
+              // deprecating this convenience.
+              initialState = null;
+            }
+          }
+          !(typeof initialState === 'object' && !Array.isArray(initialState)) ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s.getInitialState(): must return an object or null', Constructor.displayName || 'ReactCompositeComponent') : _prodInvariant('82', Constructor.displayName || 'ReactCompositeComponent') : void 0;
+    
+          this.state = initialState;
+        }
+      component={[Function anonymous]}
+      path="*" />
+  </function (props, context, updater) {
+        // This constructor gets overridden by mocks. The argument is used
+        // by mocks to assert on what gets mounted.
+  
+        if (process.env.NODE_ENV !== 'production') {
+          process.env.NODE_ENV !== 'production' ? warning(this instanceof Constructor, 'Something is calling a React component directly. Use a factory or ' + 'JSX instead. See: https://fb.me/react-legacyfactory') : void 0;
+        }
+  
+        // Wire up auto-binding
+        if (this.__reactAutoBindPairs.length) {
+          bindAutoBindMethods(this);
+        }
+  
+        this.props = props;
+        this.context = context;
+        this.refs = emptyObject;
+        this.updater = updater || ReactNoopUpdateQueue;
+  
+        this.state = null;
+  
+        // ReactClasses doesn't have constructors. Instead, they use the
+        // getInitialState and componentWillMount methods for initialization.
+  
+        var initialState = this.getInitialState ? this.getInitialState() : null;
+        if (process.env.NODE_ENV !== 'production') {
+          // We allow auto-mocks to proceed as if they're returning null.
+          if (initialState === undefined && this.getInitialState._isMockFunction) {
+            // This is probably bad practice. Consider warning here and
+            // deprecating this convenience.
+            initialState = null;
+          }
+        }
+        !(typeof initialState === 'object' && !Array.isArray(initialState)) ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s.getInitialState(): must return an object or null', Constructor.displayName || 'ReactCompositeComponent') : _prodInvariant('82', Constructor.displayName || 'ReactCompositeComponent') : void 0;
+  
+        this.state = initialState;
+      }>
+  <function (props, context, updater) {
+        // This constructor gets overridden by mocks. The argument is used
+        // by mocks to assert on what gets mounted.
+  
+        if (process.env.NODE_ENV !== 'production') {
+          process.env.NODE_ENV !== 'production' ? warning(this instanceof Constructor, 'Something is calling a React component directly. Use a factory or ' + 'JSX instead. See: https://fb.me/react-legacyfactory') : void 0;
+        }
+  
+        // Wire up auto-binding
+        if (this.__reactAutoBindPairs.length) {
+          bindAutoBindMethods(this);
+        }
+  
+        this.props = props;
+        this.context = context;
+        this.refs = emptyObject;
+        this.updater = updater || ReactNoopUpdateQueue;
+  
+        this.state = null;
+  
+        // ReactClasses doesn't have constructors. Instead, they use the
+        // getInitialState and componentWillMount methods for initialization.
+  
+        var initialState = this.getInitialState ? this.getInitialState() : null;
+        if (process.env.NODE_ENV !== 'production') {
+          // We allow auto-mocks to proceed as if they're returning null.
+          if (initialState === undefined && this.getInitialState._isMockFunction) {
+            // This is probably bad practice. Consider warning here and
+            // deprecating this convenience.
+            initialState = null;
+          }
+        }
+        !(typeof initialState === 'object' && !Array.isArray(initialState)) ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s.getInitialState(): must return an object or null', Constructor.displayName || 'ReactCompositeComponent') : _prodInvariant('82', Constructor.displayName || 'ReactCompositeComponent') : void 0;
+  
+        this.state = initialState;
+      }
+    component={[Function AppPublic]}>
+    <function (props, context, updater) {
+          // This constructor gets overridden by mocks. The argument is used
+          // by mocks to assert on what gets mounted.
+    
+          if (process.env.NODE_ENV !== 'production') {
+            process.env.NODE_ENV !== 'production' ? warning(this instanceof Constructor, 'Something is calling a React component directly. Use a factory or ' + 'JSX instead. See: https://fb.me/react-legacyfactory') : void 0;
+          }
+    
+          // Wire up auto-binding
+          if (this.__reactAutoBindPairs.length) {
+            bindAutoBindMethods(this);
+          }
+    
+          this.props = props;
+          this.context = context;
+          this.refs = emptyObject;
+          this.updater = updater || ReactNoopUpdateQueue;
+    
+          this.state = null;
+    
+          // ReactClasses doesn't have constructors. Instead, they use the
+          // getInitialState and componentWillMount methods for initialization.
+    
+          var initialState = this.getInitialState ? this.getInitialState() : null;
+          if (process.env.NODE_ENV !== 'production') {
+            // We allow auto-mocks to proceed as if they're returning null.
+            if (initialState === undefined && this.getInitialState._isMockFunction) {
+              // This is probably bad practice. Consider warning here and
+              // deprecating this convenience.
+              initialState = null;
+            }
+          }
+          !(typeof initialState === 'object' && !Array.isArray(initialState)) ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s.getInitialState(): must return an object or null', Constructor.displayName || 'ReactCompositeComponent') : _prodInvariant('82', Constructor.displayName || 'ReactCompositeComponent') : void 0;
+    
+          this.state = initialState;
+        }
+      component={[Function Connect]}
+      onEnter={[Function checkStatus]} />
+    <function (props, context, updater) {
+          // This constructor gets overridden by mocks. The argument is used
+          // by mocks to assert on what gets mounted.
+    
+          if (process.env.NODE_ENV !== 'production') {
+            process.env.NODE_ENV !== 'production' ? warning(this instanceof Constructor, 'Something is calling a React component directly. Use a factory or ' + 'JSX instead. See: https://fb.me/react-legacyfactory') : void 0;
+          }
+    
+          // Wire up auto-binding
+          if (this.__reactAutoBindPairs.length) {
+            bindAutoBindMethods(this);
+          }
+    
+          this.props = props;
+          this.context = context;
+          this.refs = emptyObject;
+          this.updater = updater || ReactNoopUpdateQueue;
+    
+          this.state = null;
+    
+          // ReactClasses doesn't have constructors. Instead, they use the
+          // getInitialState and componentWillMount methods for initialization.
+    
+          var initialState = this.getInitialState ? this.getInitialState() : null;
+          if (process.env.NODE_ENV !== 'production') {
+            // We allow auto-mocks to proceed as if they're returning null.
+            if (initialState === undefined && this.getInitialState._isMockFunction) {
+              // This is probably bad practice. Consider warning here and
+              // deprecating this convenience.
+              initialState = null;
+            }
+          }
+          !(typeof initialState === 'object' && !Array.isArray(initialState)) ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s.getInitialState(): must return an object or null', Constructor.displayName || 'ReactCompositeComponent') : _prodInvariant('82', Constructor.displayName || 'ReactCompositeComponent') : void 0;
+    
+          this.state = initialState;
+        }
+      component={[Function anonymous]}
+      path="*" />
+  </function (props, context, updater) {
+        // This constructor gets overridden by mocks. The argument is used
+        // by mocks to assert on what gets mounted.
+  
+        if (process.env.NODE_ENV !== 'production') {
+          process.env.NODE_ENV !== 'production' ? warning(this instanceof Constructor, 'Something is calling a React component directly. Use a factory or ' + 'JSX instead. See: https://fb.me/react-legacyfactory') : void 0;
+        }
+  
+        // Wire up auto-binding
+        if (this.__reactAutoBindPairs.length) {
+          bindAutoBindMethods(this);
+        }
+  
+        this.props = props;
+        this.context = context;
+        this.refs = emptyObject;
+        this.updater = updater || ReactNoopUpdateQueue;
+  
+        this.state = null;
+  
+        // ReactClasses doesn't have constructors. Instead, they use the
+        // getInitialState and componentWillMount methods for initialization.
+  
+        var initialState = this.getInitialState ? this.getInitialState() : null;
+        if (process.env.NODE_ENV !== 'production') {
+          // We allow auto-mocks to proceed as if they're returning null.
+          if (initialState === undefined && this.getInitialState._isMockFunction) {
+            // This is probably bad practice. Consider warning here and
+            // deprecating this convenience.
+            initialState = null;
+          }
+        }
+        !(typeof initialState === 'object' && !Array.isArray(initialState)) ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s.getInitialState(): must return an object or null', Constructor.displayName || 'ReactCompositeComponent') : _prodInvariant('82', Constructor.displayName || 'ReactCompositeComponent') : void 0;
+  
+        this.state = initialState;
+      }>
+</function (props, context, updater) {
+      // This constructor gets overridden by mocks. The argument is used
+      // by mocks to assert on what gets mounted.
+
+      if (process.env.NODE_ENV !== 'production') {
+        process.env.NODE_ENV !== 'production' ? warning(this instanceof Constructor, 'Something is calling a React component directly. Use a factory or ' + 'JSX instead. See: https://fb.me/react-legacyfactory') : void 0;
+      }
+
+      // Wire up auto-binding
+      if (this.__reactAutoBindPairs.length) {
+        bindAutoBindMethods(this);
+      }
+
+      this.props = props;
+      this.context = context;
+      this.refs = emptyObject;
+      this.updater = updater || ReactNoopUpdateQueue;
+
+      this.state = null;
+
+      // ReactClasses doesn't have constructors. Instead, they use the
+      // getInitialState and componentWillMount methods for initialization.
+
+      var initialState = this.getInitialState ? this.getInitialState() : null;
+      if (process.env.NODE_ENV !== 'production') {
+        // We allow auto-mocks to proceed as if they're returning null.
+        if (initialState === undefined && this.getInitialState._isMockFunction) {
+          // This is probably bad practice. Consider warning here and
+          // deprecating this convenience.
+          initialState = null;
+        }
+      }
+      !(typeof initialState === 'object' && !Array.isArray(initialState)) ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s.getInitialState(): must return an object or null', Constructor.displayName || 'ReactCompositeComponent') : _prodInvariant('82', Constructor.displayName || 'ReactCompositeComponent') : void 0;
+
+      this.state = initialState;
+    }>
+`;
