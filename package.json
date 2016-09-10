@@ -104,6 +104,7 @@
     "offline-plugin": "^3.4",
     "postcss-loader": "^0.13",
     "raw-loader": "^0.5",
+    "react-addons-test-utils": "^15.3",
     "react-hot-loader": "^3.0.0-beta",
     "reactotron-react-js": "^1.1",
     "reactotron-redux": "^1.1",
