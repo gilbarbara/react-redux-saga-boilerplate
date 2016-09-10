@@ -18,8 +18,8 @@ function setup() {
 describe('Footer', () => {
   const wrapper = setup();
 
-  it('should be a Component', () => {
-    expect(wrapper.instance()).toBeA(React.Component);
+  it('should be a StatelessComponent', () => {
+    expect(wrapper.instance().constructor.name).toBe('StatelessComponent');
   });
 
   it('should render properly', () => {

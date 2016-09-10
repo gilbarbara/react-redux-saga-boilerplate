@@ -18,8 +18,8 @@ function setup() {
 describe('Logged', () => {
   const wrapper = setup(true);
 
-  it('should be a Component', () => {
-    expect(wrapper.instance()).toBeA(React.Component);
+  it('should be a StatelessComponent', () => {
+    expect(wrapper.instance().constructor.name).toBe('StatelessComponent');
   });
 
   it('should render properly', () => {
