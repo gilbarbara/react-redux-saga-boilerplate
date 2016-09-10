@@ -2,7 +2,6 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractText = require('extract-text-webpack-plugin');
-var LodashPlugin = require('lodash-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
 var isProd = process.env.NODE_ENV === 'production';
@@ -24,7 +23,7 @@ var config = {
   },
   devtool: '#inline-source-map',
   plugins: [
-    new webpack.NoErrorsPlugin()// , new LodashPlugin() -- breaking redux-persist..
+    new webpack.NoErrorsPlugin()
   ],
   module: {
     loaders: [
