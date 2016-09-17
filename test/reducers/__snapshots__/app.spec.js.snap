@@ -36,7 +36,7 @@ Object {
     "visible": false,
     "withTimeout": true
   },
-  "rehydrated": false
+  "rehydrated": true
 }
 `;
 

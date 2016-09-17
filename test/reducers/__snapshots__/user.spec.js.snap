@@ -22,7 +22,7 @@ Object {
 exports[`User should handle persist/REHYDRATE without payload 1`] = `
 Object {
   "logged": false,
-  "rehydrated": false
+  "rehydrated": true
 }
 `;
 
