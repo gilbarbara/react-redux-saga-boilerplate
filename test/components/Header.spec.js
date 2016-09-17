@@ -20,8 +20,8 @@ function setup() {
 describe('Header', () => {
   const wrapper = setup();
 
-  it('should be a Component', () => {
-    expect(wrapper.instance() instanceof React.Component).toBe(true);
+  it('should be a StatelessComponent', () => {
+    expect(wrapper.instance().constructor.name).toBe('StatelessComponent');
   });
 
   it('should render properly', () => {
@@ -40,3 +40,4 @@ describe('Header', () => {
     expect(mockDispatch.mock.calls[1][0]).toEqual({ type: 'USER_LOGOUT_REQUEST' });
   });
 });
+

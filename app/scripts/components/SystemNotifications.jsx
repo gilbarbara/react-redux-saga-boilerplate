@@ -1,60 +1,59 @@
 import React from 'react';
+import cx from 'classnames';
 import { connect } from 'react-redux';
-import { autobind } from 'core-decorators';
-import { shouldComponentUpdate } from 'utils/helpers';
 
 import { hideAlert } from 'actions';
 
-export class SystemNotifications extends React.Component {
-  static propTypes = {
-    app: React.PropTypes.object.isRequired,
-    dispatch: React.PropTypes.func.isRequired
+export const SystemNotifications = ({ app, dispatch }) => {
+  let hideTimeout;
+
+  const hideNotification = () => {
+    dispatch(hideAlert());
   };
 
-  shouldComponentUpdate = shouldComponentUpdate;
+  const onClick = () => {
+    window.clearTimeout(hideTimeout);
+    hideNotification();
+  };
 
-  componentDidUpdate() {
-    if (this.props.app.notifications.visible && this.props.app.notifications.withTimeout) {
-      window.clearTimeout(this.hideTimeout);
+  if (app.notifications.visible && app.notifications.withTimeout) {
+    window.clearTimeout(hideTimeout);
 
-      /* istanbul ignore next */
-      this.hideTimeout = setTimeout(() => {
-        this.hideNotification();
-      }, 3500);
-    }
+    /* istanbul ignore next */
+    hideTimeout = setTimeout(() => {
+      hideNotification();
+    }, 3500);
   }
 
-  hideNotification() {
-    this.props.dispatch(hideAlert());
-  }
+  const notifications = app.notifications;
+  const iconClass = {
+    success: 'i-thumbs-up',
+    warning: 'i-exclamation-circle',
+    info: 'i-info-circle',
+    error: 'i-thumbs-down'
+  };
 
-  @autobind
-  onClick() {
-    window.clearTimeout(this.hideTimeout);
-    this.hideNotification();
-  }
+  return (
+    <a
+      href="#close"
+      key="SystemNotification"
+      className={cx(`app__notifications ${notifications.status}`, {
+        active: notifications.visible
+      })}
+      onClick={onClick}>
+      <div>
+        <i className={iconClass[notifications.status]} />
+        <div>{notifications.message}</div>
+      </div>
+    </a>
+  );
+};
 
-  render() {
-    const notifications = this.props.app.notifications;
+SystemNotifications.propTypes = {
+  app: React.PropTypes.object.isRequired,
+  dispatch: React.PropTypes.func.isRequired
+};
 
-    const classes = `app__notifications${(notifications.visible ? ' active' : '')}${(notifications.status ? ` ${notifications.status}` : '')}`;
-    const iconClass = {
-      success: 'i-thumbs-up',
-      warning: 'i-exclamation-circle',
-      info: 'i-info-circle',
-      error: 'i-thumbs-down'
-    };
-
-    return (
-      <a href="#close" key="SystemNotification" className={classes} onClick={this.onClick}>
-        <div>
-          <i className={iconClass[notifications.status]} />
-          <div>{notifications.message}</div>
-        </div>
-      </a>
-    );
-  }
-}
 
 /* istanbul ignore next */
 function mapStateToProps(state) {

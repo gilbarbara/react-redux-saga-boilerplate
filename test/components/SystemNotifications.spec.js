@@ -6,8 +6,6 @@ import { SystemNotifications } from 'components/SystemNotifications';
 
 const mockDispatch = jest.fn();
 
-SystemNotifications.prototype.hideNotification = jest.fn(SystemNotifications.prototype.hideNotification);
-
 function setup(app = appState) {
   const props = {
     app,
@@ -20,8 +18,8 @@ function setup(app = appState) {
 describe('SystemNotifications', () => {
   const wrapper = setup();
 
-  it('should be a Component', () => {
-    expect(wrapper.instance() instanceof React.Component).toBe(true);
+  it('should be a StatelessComponent', () => {
+    expect(wrapper.instance().constructor.name).toBe('StatelessComponent');
   });
 
   it('should render properly with the default state', () => {
@@ -75,7 +73,6 @@ describe('SystemNotifications', () => {
 
     body.simulate('click');
     expect(mockDispatch.mock.calls[0][0]).toEqual({ type: 'HIDE_ALERT' });
-    expect(SystemNotifications.prototype.hideNotification).toHaveBeenCalled();
 
     wrapper.setProps({
       app: {

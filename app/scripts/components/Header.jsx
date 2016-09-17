@@ -1,46 +1,39 @@
 import React from 'react';
-import { autobind } from 'core-decorators';
-import { shouldComponentUpdate } from 'utils/helpers';
 
 import { goTo, logOut } from 'actions';
-
 import Logo from 'components/Logo';
 
-export default class Header extends React.Component {
-  static propTypes = {
-    dispatch: React.PropTypes.func.isRequired
+const Header = ({ dispatch }) => {
+  const onClickLogo = e => {
+    e.preventDefault();
+    dispatch(goTo(e.currentTarget.getAttribute('href')));
   };
 
-  shouldComponentUpdate = shouldComponentUpdate;
-
-  @autobind
-  onClickLogo(e) {
+  const onClickLogout = e => {
     e.preventDefault();
-    this.props.dispatch(goTo(e.currentTarget.getAttribute('href')));
-  }
+    dispatch(logOut());
+  };
 
-  @autobind
-  onClickLogout(e) {
-    e.preventDefault();
-    this.props.dispatch(logOut());
-  }
-
-  render() {
-    return (
-      <header className="app__header">
-        <div className="app__container">
-          <a href="/" className="app__header__logo" onClick={this.onClickLogo}><Logo /></a>
-          <div className="app__header__menu">
-            <ul className="list-unstyled">
-              <li>
-                <a href="#logout" className="app__logout" onClick={this.onClickLogout}>
-                  <span>logout</span><i className="i-sign-out" />
-                </a>
-              </li>
-            </ul>
-          </div>
+  return (
+    <header className="app__header">
+      <div className="app__container">
+        <a href="/" className="app__header__logo" onClick={onClickLogo}><Logo /></a>
+        <div className="app__header__menu">
+          <ul className="list-unstyled">
+            <li>
+              <a href="#logout" className="app__logout" onClick={onClickLogout}>
+                <span>logout</span><i className="i-sign-out" />
+              </a>
+            </li>
+          </ul>
         </div>
-      </header>
-    );
-  }
-}
+      </div>
+    </header>
+  );
+};
+
+Header.propTypes = {
+  dispatch: React.PropTypes.func.isRequired
+};
+
+export default Header;

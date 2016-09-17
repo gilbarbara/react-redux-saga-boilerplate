@@ -1,27 +1,21 @@
 import React from 'react';
 import Isvg from 'react-inlinesvg';
-import { shouldComponentUpdate } from 'utils/helpers';
 
 import config from 'config';
 
-export default class Logo extends React.Component {
-  static propTypes = {
-    file: React.PropTypes.string
-  };
+const Logo = ({ file }) =>
+  (<div className="app__logo">
+    <Isvg src={require(`../../media/brand/${file}.svg`)}>
+      <img src={require(`../../media/brand/${file}.png`)} alt={config.title} />
+    </Isvg>
+  </div>);
 
-  static defaultProps = {
-    file: 'icon'
-  };
+Logo.propTypes = {
+  file: React.PropTypes.string
+};
 
-  shouldComponentUpdate = shouldComponentUpdate;
+Logo.defaultProps = {
+  file: 'icon'
+};
 
-  render() {
-    return (
-      <div className="app__logo">
-        <Isvg src={require(`../../media/brand/${this.props.file}.svg`)}>
-          <img src={require(`../../media/brand/${this.props.file}.png`)} alt={config.title} />
-        </Isvg>
-      </div>
-    );
-  }
-}
+export default Logo;

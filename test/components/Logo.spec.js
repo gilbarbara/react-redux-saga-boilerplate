@@ -5,8 +5,8 @@ import Logo from 'components/Logo';
 describe('Logo', () => {
   const wrapper = mount(<Logo />);
 
-  it('should be a Component', () => {
-    expect(wrapper.instance() instanceof React.Component).toBe(true);
+  it('should be a StatelessComponent', () => {
+    expect(wrapper.instance().constructor.name).toBe('StatelessComponent');
   });
 
   it('should render properly', () => {
