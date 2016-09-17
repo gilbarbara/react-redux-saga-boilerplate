@@ -123,9 +123,8 @@
     "build": "NODE_ENV=production webpack --config config/webpack.prod.js",
     "lint": "eslint  --ext .js --ext .jsx app/scripts test",
     "lint:styles": "stylelint app/styles/**/*.scss",
-    "test": "NODE_ENV=test jest",
-    "test:watch": "NODE_ENV=test jest --watch",
-    "test:update": "NODE_ENV=test jest --updateSnapshot",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
     "test:ui": "nightwatch -c test/lib/nightwatch.conf.js",
     "test:ui:start": "npm start -- test:ui",
     "deploy": "node config/tools deploy",
@@ -155,7 +154,7 @@
       "^.+\\.(jpe?g|png|gif|ttf|eot|svg|md)$": "<rootDir>/test/lib/fileMock.js"
     },
     "testRegex": "/test/.*?\\.(test|spec)\\.js$",
-    "collectCoverage": true,
+    "collectCoverage": false,
     "collectCoverageFrom": [
       "app/scripts/**/*.{js,jsx}",
       "!app/scripts/**/*.dev.{js,jsx}",
