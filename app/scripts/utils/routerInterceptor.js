@@ -13,7 +13,7 @@ import { goTo, logOut } from 'actions';
 import store from 'store';
 
 const page = scrollDoc();
-const { dispatch, getState } = store;
+const { dispatch, getState, subscribe } = store;
 
 /**
  * Scroll to the top before navigate
@@ -28,16 +28,16 @@ export function scrollBefore(nextState, transition, callback) {
 }
 
 /**
- * Check user status and redirect if not authorized
+ * Navigate
  * @param {Object} nextState
  * @param {Object} transition
  * @param {function} callback
  *
  * @returns {function}
  */
-export function checkStatus(nextState, transition, callback) {
-  const { user } = getState();
+function navigate(nextState, transition, callback) {
   const pathname = nextState.location.pathname;
+  const { user } = getState();
 
   if (user.logged) {
     if (pathname === '/') {
@@ -52,4 +52,26 @@ export function checkStatus(nextState, transition, callback) {
   }
 
   return callback();
+}
+
+/**
+ * Check user status and redirect if not authorized
+ * @param {Object} nextState
+ * @param {Object} transition
+ * @param {function} callback
+ *
+ */
+export function checkStatus(nextState, transition, callback) {
+  if (getState().user.rehydrated) {
+    navigate(nextState, transition, callback);
+    return;
+  }
+
+  const unsubscribe = subscribe(() => {
+    /* istanbul ignore else  */
+    if (getState().user.rehydrated) {
+      unsubscribe();
+      navigate(nextState, transition, callback);
+    }
+  });
 }

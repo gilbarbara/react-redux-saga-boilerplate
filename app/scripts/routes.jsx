@@ -14,14 +14,13 @@ import NotFound from 'containers/NotFound';
 export default function createRoutes() {
   return (
     <Route path="/" component={App}>
-      <Route component={AppPrivate}>
-        <Route path="private" component={Logged} onEnter={checkStatus} />
-        <Route path="*" component={NotFound} />
-      </Route>
       <Route component={AppPublic}>
         <IndexRoute component={Home} onEnter={checkStatus} />
-        <Route path="*" component={NotFound} />
       </Route>
+      <Route component={AppPrivate}>
+        <Route path="private" component={Logged} onEnter={checkStatus} />
+      </Route>
+      <Route path="*" component={NotFound} />
     </Route>
   );
 }
