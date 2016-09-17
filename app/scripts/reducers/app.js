@@ -16,14 +16,10 @@ export const appState = {
 export default {
   app: createReducer(appState, {
     [REHYDRATE](state, action) {
-      if (action.payload.app) {
-        return Object.assign({}, state, action.payload.app, {
-          notifications: appState.notifications,
-          rehydrated: true
-        });
-      }
-
-      return { ...state };
+      return Object.assign({}, state, action.payload.app, {
+        notifications: appState.notifications,
+        rehydrated: true
+      });
     },
     [ActionTypes.SHOW_ALERT](state, action) {
       const notifications = {

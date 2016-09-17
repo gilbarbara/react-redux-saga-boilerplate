@@ -11,13 +11,9 @@ export const userState = {
 export default {
   user: createReducer(userState, {
     [REHYDRATE](state, action) {
-      if (action.payload.user) {
-        return Object.assign({}, state, action.payload.user, {
-          rehydrated: true
-        });
-      }
-
-      return { ...state };
+      return Object.assign({}, state, action.payload.user, {
+        rehydrated: true
+      });
     },
     [ActionTypes.USER_LOGIN_SUCCESS](state) {
       return { ...state, logged: true };
