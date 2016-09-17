@@ -1,5 +1,4 @@
 import React from 'react';
-import { shouldComponentUpdate } from 'utils/helpers';
 
 import readme from '../../../README.md';
 
@@ -8,7 +7,5 @@ const Logged = () => (
     <div className="app__container" dangerouslySetInnerHTML={{ __html: readme }} />
   </div>
 );
-
-Logged.shouldComponentUpdate = shouldComponentUpdate;
 
 export default Logged;

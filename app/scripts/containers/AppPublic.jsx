@@ -1,5 +1,4 @@
 import React from 'react';
-import { shouldComponentUpdate } from 'utils/helpers';
 
 import SystemNotifications from 'components/SystemNotifications';
 
@@ -7,8 +6,6 @@ export default class AppPublic extends React.Component {
   static propTypes = {
     children: React.PropTypes.node.isRequired
   };
-
-  shouldComponentUpdate = shouldComponentUpdate;
 
   render() {
     return (

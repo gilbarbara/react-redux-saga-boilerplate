@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { shouldComponentUpdate } from 'utils/helpers';
 
 import Header from 'components/Header';
 import Footer from 'components/Footer';
@@ -20,8 +19,6 @@ export class AppPrivate extends React.Component {
     dispatch: React.PropTypes.func.isRequired,
     user: React.PropTypes.object.isRequired
   };
-
-  shouldComponentUpdate = shouldComponentUpdate;
 
   render() {
     const { dispatch, user } = this.props;
