@@ -25,6 +25,7 @@
       1,
       "as-needed"
     ],
+    "arrow-parens": [1, "as-needed"],
     "block-spacing": 1,
     "brace-style": [1, "stroustrup", { "allowSingleLine": true }],
     "camelcase": 0,

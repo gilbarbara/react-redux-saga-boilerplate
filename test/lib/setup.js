@@ -68,7 +68,7 @@ function _getNodeDataAttrs(el) {
           enumerable: true,
           configurable: true,
           get: () => _datasetMap[data],
-          set: (val) => {
+          set: val => {
             _datasetMap[datakey] = val;
             el.setAttribute(attr, val);
           }

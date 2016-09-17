@@ -18,7 +18,7 @@ describe('api', () => {
     }).toThrow('Error! You must pass `payload`');
   });
 
-  it('should execute a GET successfully with json', (done) => {
+  it('should execute a GET successfully with json', done => {
     fetchMock.mock('http://example.com/token', {
       status: 200,
       body: { hello: 'world' },
@@ -32,7 +32,7 @@ describe('api', () => {
       });
   });
 
-  it('should reject for a server error with JSON response', (done) => {
+  it('should reject for a server error with JSON response', done => {
     fetchMock.mock('http://example.com/token', {
       body: { error: 'FAILED' },
       status: 500,
@@ -46,7 +46,7 @@ describe('api', () => {
       });
   });
 
-  it('should reject for a server error with no response', (done) => {
+  it('should reject for a server error with no response', done => {
     fetchMock.mock('http://example.com/token', {
       status: 500
     });
@@ -58,7 +58,7 @@ describe('api', () => {
       });
   });
 
-  it('should reject for a not found error', (done) => {
+  it('should reject for a not found error', done => {
     fetchMock.mock('http://example.com/token', 404, {
       error: 'FAILED',
       headers: { 'Content-Type': 'application/json' }
@@ -71,7 +71,7 @@ describe('api', () => {
       });
   });
 
-  it('should execute a POST successfully', (done) => {
+  it('should execute a POST successfully', done => {
     fetchMock.post('http://example.com/token', {
       body: 'ok',
       status: 201

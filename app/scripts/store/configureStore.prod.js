@@ -12,7 +12,7 @@ import rootReducer from 'reducers';
 const reducer = combineReducers({ ...rootReducer, routing: routerReducer });
 const sagaMiddleware = createSagaMiddleware();
 
-export default (initialState) => {
+export default (initialState = {}) => {
   const createStoreWithMiddleware = applyMiddleware(sagaMiddleware, routerMiddleware(browserHistory), createActionBuffer(REHYDRATE))(createStore);
   const store = createStoreWithMiddleware(reducer, initialState);
   sagaMiddleware.run(rootSagas);
