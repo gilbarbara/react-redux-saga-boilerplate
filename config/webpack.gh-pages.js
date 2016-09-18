@@ -13,12 +13,13 @@ var NPMPackage = require('./../package');
 
 var config = merge.smart(webpackConfig, {
   entry: {
-    '/scripts/app': './scripts/main.jsx',
-    '/scripts/modernizr': './scripts/vendor/modernizr-custom.js'
+    'scripts/app': './scripts/main.jsx',
+    'scripts/modernizr': './scripts/vendor/modernizr-custom.js'
   },
   output: {
+    filename: '[name].[hash].js',
     path: path.resolve(__dirname, '../dist'),
-    filename: '[name].[hash].js'
+    publicPath: '/react-redux-saga-boilerplate'
   },
   devtool: 'source-map',
   plugins: [
@@ -27,7 +28,7 @@ var config = merge.smart(webpackConfig, {
       { from: '.htaccess' },
       { from: 'robots.txt' }
     ]),
-    new ExtractText('/styles/app.[hash].css'),
+    new ExtractText('styles/app.[hash].css'),
     new HtmlPlugin({
       appMountId: 'react',
       inject: false,
@@ -37,7 +38,8 @@ var config = merge.smart(webpackConfig, {
       },
       mobile: true,
       template: './index.ejs',
-      title: NPMPackage.title
+      title: NPMPackage.title,
+      baseHref: '/react-redux-saga-boilerplate'
     }),
     new webpack.optimize.DedupePlugin(),
     new webpack.DefinePlugin({

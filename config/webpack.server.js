@@ -51,7 +51,6 @@ else {
 
 var config = merge.smart(webpackConfig, {
   output: {
-
     filename: '[name].js',
     publicPath: 'http://localhost:' + (args[0] === 'test:ui' ? 3030 : 3000) + '/'
   },

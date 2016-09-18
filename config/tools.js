@@ -1,11 +1,11 @@
 /*eslint-disable no-var, vars-on-top, no-console */
-var path = require('path');
-var exec = require('child_process').exec;
-var del = require('del');
+const path = require('path');
+const exec = require('child_process').exec;
+const del = require('del');
 const chalk = require('chalk');
-var ghPages = require('gh-pages');
+const ghPages = require('gh-pages');
 
-var args = process.argv.slice(2);
+const args = process.argv.slice(2);
 
 if (!args[0]) {
   console.log(`Valid arguments:
@@ -18,7 +18,7 @@ if (!args[0]) {
 }
 
 function getCommit() {
-  console.log('Getting commit...');
+  console.log(chalk.blue('Getting the last commit...'));
   return new Promise((resolve, reject) => {
     exec('git log -1 --pretty=%s && git log -1 --pretty=%b', (err, stdout) => {
       if (err) {
@@ -36,24 +36,33 @@ function publish() {
   console.log(chalk.blue('Publishing...'));
   getCommit()
     .then(commit => {
-      console.log(chalk.blue('Copying README...'));
-      exec('cp README.md dist/', (errCopy) => {
+      exec('cp README.md dist/', errCopy => {
         if (errCopy) {
           console.log(errCopy);
           return;
         }
-
-        ghPages.publish(path.join(__dirname, 'dist'), {
+        ghPages.publish(path.resolve(__dirname, '../dist'), {
           message: commit
+        }, error => {
+          if (error) {
+            console.log(chalk.red('Something went wrong...', error));
+            return;
+          }
+
+          console.log(chalk.green('Published'));
         });
       });
     });
 }
 
+if (args[0] === 'publish') {
+  publish();
+}
+
 if (args[0] === 'deploy') {
   const start = Date.now();
   console.log(chalk.green('Bundling...'));
-  exec('npm run build', errBuild => {
+  exec('npm run build:pages', errBuild => {
     if (errBuild) {
       console.log(chalk.red(errBuild));
       process.exit(1);
@@ -63,10 +72,6 @@ if (args[0] === 'deploy') {
 
     publish();
   });
-}
-
-if (args[0] === 'publish') {
-  publish();
 }
 
 if (args[0] === 'docs') {
@@ -79,7 +84,6 @@ if (args[0] === 'docs') {
       console.log(chalk.red('docs:del'), err);
     });
 }
-
 
 if (args[0] === 'update') {
   exec('git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD', (err, stdout) => {
@@ -94,12 +98,12 @@ if (args[0] === 'update') {
 }
 
 if (args[0] === 'commits') {
-  exec('git remote -v update', (errRemote) => {
+  exec('git remote -v update', errRemote => {
     if (errRemote) {
       throw new Error(errRemote);
     }
 
-    var local = new Promise((resolve, reject) => {
+    const local = new Promise((resolve, reject) => {
       exec('git rev-parse @', (err, stdout) => {
         if (err) {
           return reject(err);
@@ -109,7 +113,7 @@ if (args[0] === 'commits') {
       });
     });
 
-    var remote = new Promise((resolve, reject) => {
+    const remote = new Promise((resolve, reject) => {
       exec('git rev-parse @{u}', (err, stdout) => {
         if (err) {
           return reject(err);
@@ -119,7 +123,7 @@ if (args[0] === 'commits') {
       });
     });
 
-    var base = new Promise((resolve, reject) => {
+    const base = new Promise((resolve, reject) => {
       exec('git rev-parse @ @{u}', (err, stdout) => {
         if (err) {
           return reject(err);
@@ -130,7 +134,7 @@ if (args[0] === 'commits') {
 
     Promise.all([local, remote, base])
       .then(values => {
-        const [$local, $remote, $base] = values;
+        const [$local, , $base] = values;
 
         if ($local === $base) {
           console.error(chalk.red('⊘ Error: There are new commits.'));

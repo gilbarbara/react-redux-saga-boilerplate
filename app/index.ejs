@@ -37,7 +37,6 @@
   <% if (htmlWebpackPlugin.options.baseHref) { %>
   <base href="<%= htmlWebpackPlugin.options.baseHref %>" />
   <% } %>
-  <script src="<%= htmlWebpackPlugin.files.chunks['/scripts/modernizr'].entry %>"></script>
 </head>
 <body>
 <% if (htmlWebpackPlugin.options.unsupportedBrowser) { %>
@@ -71,9 +70,7 @@
 <% } %>
 
 <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
-<% if (chunk !== 'scripts/vendor/modernizr') { %>
 <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
-<% } %>
 <% } %>
 
 <% if (htmlWebpackPlugin.options.googleAnalytics) { %>
