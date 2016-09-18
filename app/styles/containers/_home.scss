@@ -1,11 +1,11 @@
 .app__home {
-  background: #000 repeating-linear-gradient(-45deg, transparent, transparent 1.5rem, rgba(#fff, 0.2) 1.5rem, rgba(#fff, 0.2) 3rem) fixed;
+  background: #000 repeating-linear-gradient(0deg, transparent, transparent 2rem, rgba(#fff, 0.2) 2rem, rgba(#fff, 0.2) 4rem) fixed;
   color: #fff;
   min-height: 100vh;
   position: relative;
 
   &:before {
-    background: linear-gradient(to bottom, $brand-primary, #ff9800) fixed;
+    background: linear-gradient(to bottom, #000, #ccc) fixed;
     bottom: 0;
     content: '';
     display: block;
