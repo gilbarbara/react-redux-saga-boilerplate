@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'icon-font-v2';
-  src: url('#{$media-path}/fonts/icon-font-v2.ttf?hiqvyh') format('truetype'),
-    url('#{$media-path}/fonts/icon-font-v2.woff?hiqvyh') format('woff'),
-    url('#{$media-path}/fonts/icon-font-v2.svg?hiqvyh#icon-font-v2') format('svg');
+  src: url('#{$font-path}icon-font-v2.ttf?hiqvyh') format('truetype'),
+    url('#{$font-path}icon-font-v2.woff?hiqvyh') format('woff'),
+    url('#{$font-path}icon-font-v2.svg?hiqvyh#icon-font-v2') format('svg');
   font-weight: normal;
   font-style: normal;
 }
