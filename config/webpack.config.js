@@ -63,7 +63,7 @@ var config = {
       },
       {
         test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url?limit=10000&minetype=application/font-woff&name=/media/fonts/[name].[ext]',
+        loader: 'url?limit=10000&minetype=application/font-woff&name=/fonts/[name].[ext]',
         include: /fonts/
       },
       {
@@ -74,7 +74,7 @@ var config = {
       {
         test: /\.(jpe?g|png|gif|svg|ico)$/i,
         loaders: [
-          'file?hash=sha512&digest=hex' + (isProd ? '&name=/fonts/[name].[ext]' : ''),
+          'file?hash=sha512&digest=hex' + (isProd ? '&name=/media/[name].[ext]' : ''),
           'image-webpack?bypassOnDebug=false&optimizationLevel=7&interlaced=false'
         ],
         include: /media/

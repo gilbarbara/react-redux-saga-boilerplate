@@ -1,12 +1,6 @@
 {
   "presets": [
-    [
-      "latest", {
-        "es2015": {
-          "modules": false
-        }
-      }
-    ],
+    "latest",
     "react",
     "stage-1"
   ],
@@ -23,9 +17,28 @@
   "compact": "true",
   "env": {
     "production": {
+      "presets": [
+        [
+          "latest", {
+            "es2015": {
+              "modules": false
+            }
+          }
+        ],
+        "react",
+        "stage-1"
+      ],
       "plugins": [
         "lodash",
-        "transform-flow-strip-types"
+        "transform-flow-strip-types",
+        "transform-decorators-legacy",
+        "transform-object-assign",
+        [
+          "transform-runtime", {
+          "polyfill": false,
+          "regenerator": true
+        }
+        ]
       ]
     },
     "development": {
