@@ -6,27 +6,52 @@ var autoprefixer = require('autoprefixer');
 
 var isProd = process.env.NODE_ENV === 'production';
 
-var cssLoaders = 'css!postcss?pack=custom!sass';
+var cssLoaders = 'css?sourceMap!postcss?pack=custom!sass?sourceMap';
 var config = {
-  context: path.resolve(__dirname, '../app'),
+  context: path.join(__dirname, '../app'),
   resolve: {
     alias: {
-      modernizr$: path.resolve(__dirname, '.modernizrrc')
+      modernizr$: path.join(__dirname, '.modernizrrc')
     },
-    modules: [path.resolve(__dirname, '../app/scripts'), 'node_modules'],
-    extensions: ['', '.js', '.jsx', '.json']
+    modules: [path.join(__dirname, '../app/scripts'), 'node_modules'],
+    extensions: ['.js', '.jsx', '.json']
   },
   entry: {},
   output: {
-    path: path.resolve(__dirname, '../dist'),
+    path: path.join(__dirname, '../dist'),
     filename: '[name].[hash].js'
   },
   devtool: '#inline-source-map',
   plugins: [
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        context: '/',
+        postcss: function() {
+          return {
+            defaults: [autoprefixer],
+            custom: [
+              autoprefixer({
+                browsers: [
+                  'ie >= 9',
+                  'ie_mob >= 10',
+                  'ff >= 30',
+                  'chrome >= 34',
+                  'safari >= 7',
+                  'opera >= 23',
+                  'ios >= 7',
+                  'android >= 4.4',
+                  'bb >= 10'
+                ]
+              })
+            ]
+          };
+        }
+      }
+    }),
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         loaders: ['babel'],
@@ -49,7 +74,7 @@ var config = {
       {
         test: /\.(jpe?g|png|gif|svg|ico)$/i,
         loaders: [
-          'file?hash=sha512&digest=hex' + (isProd ? '&name=/[path][name].[ext]' : ''),
+          'file?hash=sha512&digest=hex' + (isProd ? '&name=/fonts/[name].[ext]' : ''),
           'image-webpack?bypassOnDebug=false&optimizationLevel=7&interlaced=false'
         ],
         include: /media/
@@ -67,34 +92,6 @@ var config = {
         loader: 'html!markdown'
       }
     ]
-  },
-  postcss: function() {
-    return {
-      defaults: [autoprefixer],
-      custom: [
-        autoprefixer({
-          browsers: [
-            'ie >= 9',
-            'ie_mob >= 10',
-            'ff >= 30',
-            'chrome >= 34',
-            'safari >= 7',
-            'opera >= 23',
-            'ios >= 7',
-            'android >= 4.4',
-            'bb >= 10'
-          ]
-        })
-      ]
-    };
-  },
-  sassLoader: {
-    sourceMap: true,
-    sourceMapContents: true
-  },
-  cssLoader: {
-    minification: isProd,
-    sourceMap: true
   }
 };
 

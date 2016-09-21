@@ -87,9 +87,9 @@ compiler.plugin('emit', function(compilation, callback) {
   if (args[0] && args[0] === 'test:ui') {
     spawnSync('pkill', ['-f', 'selenium']);
 
-    var nightwatch = spawn(path.resolve(__dirname, '../node_modules/.bin/nightwatch'), [
+    var nightwatch = spawn(path.join(__dirname, '../node_modules/.bin/nightwatch'), [
       '-c',
-      path.resolve(__dirname, '../test/lib/nightwatch.conf.js')
+      path.join(__dirname, '../test/lib/nightwatch.conf.js')
     ]);
 
     nightwatch.stdout.on('data', data => {
@@ -109,7 +109,7 @@ compiler.plugin('emit', function(compilation, callback) {
 });
 
 new WebpackDevServer(compiler, {
-  contentBase: path.resolve(__dirname, '../app'),
+  contentBase: path.join(__dirname, '../app'),
   noInfo: true,
   hot: true,
   historyApiFallback: true,

@@ -7,6 +7,7 @@ var CleanPlugin = require('clean-webpack-plugin');
 var HtmlPlugin = require('html-webpack-plugin');
 var CopyPlugin = require('copy-webpack-plugin');
 var OfflinePlugin = require('offline-plugin');
+var autoprefixer = require('autoprefixer');
 
 var webpackConfig = require('./webpack.config');
 var NPMPackage = require('./../package');
@@ -17,12 +18,12 @@ var config = merge.smart(webpackConfig, {
     '/scripts/modernizr': './scripts/vendor/modernizr-custom.js'
   },
   output: {
-    path: path.resolve(__dirname, '../dist'),
-    filename: '[name].[hash].js'
+    filename: '[name].[hash].js',
+    path: path.join(__dirname, '../dist'),
   },
   devtool: 'source-map',
   plugins: [
-    new CleanPlugin(['dist'], { verbose: false }),
+    new CleanPlugin(['dist'], { root: path.join(__dirname, '../') }),
     new CopyPlugin([
       { from: '.htaccess' },
       { from: 'robots.txt' }
@@ -49,12 +50,33 @@ var config = merge.smart(webpackConfig, {
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
-      debug: false
+      debug: false,
+      options: {
+        context: '/',
+        postcss: function() {
+          return {
+            defaults: [autoprefixer],
+            custom: [
+              autoprefixer({
+                browsers: [
+                  'ie >= 9',
+                  'ie_mob >= 10',
+                  'ff >= 30',
+                  'chrome >= 34',
+                  'safari >= 7',
+                  'opera >= 23',
+                  'ios >= 7',
+                  'android >= 4.4',
+                  'bb >= 10'
+                ]
+              })
+            ]
+          };
+        }
+      }
     }),
     new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
+      sourceMap: true
     })
   ]
 });

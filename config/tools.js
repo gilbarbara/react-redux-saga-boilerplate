@@ -41,7 +41,7 @@ function publish() {
           console.log(errCopy);
           return;
         }
-        ghPages.publish(path.resolve(__dirname, '../dist'), {
+        ghPages.publish(path.join(__dirname, '../dist'), {
           message: commit
         }, error => {
           if (error) {
