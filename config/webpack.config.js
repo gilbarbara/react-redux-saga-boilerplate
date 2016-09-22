@@ -6,14 +6,15 @@ var autoprefixer = require('autoprefixer');
 
 var isProd = process.env.NODE_ENV === 'production';
 
-var cssLoaders = 'css?sourceMap!postcss?pack=custom!sass?sourceMap';
+var cssLoaders = ['css?sourceMap', 'postcss?pack=custom', 'sass?sourceMap'];
 var config = {
   context: path.join(__dirname, '../app'),
   resolve: {
     alias: {
-      modernizr$: path.join(__dirname, '.modernizrrc')
+      modernizr$: path.join(__dirname, '.modernizrrc'),
+      static: path.join(__dirname, '../static')
     },
-    modules: [path.join(__dirname, '../app/scripts'), 'node_modules'],
+    modules: [path.join(__dirname, '../app', 'scripts'), 'node_modules'],
     extensions: ['.js', '.jsx', '.json']
   },
   entry: {},
@@ -54,26 +55,28 @@ var config = {
     rules: [
       {
         test: /\.jsx?$/,
-        loaders: ['babel'],
-        exclude: /node_modules/
+        use: ['babel?cacheDirectory'],
+        include: [
+          path.join(__dirname, '../app', 'scripts')
+        ]
       },
       {
         test: /\.scss$/,
-        loader: isProd ? ExtractText.extract(cssLoaders) : 'style!' + cssLoaders
+        loader: isProd ? ExtractText.extract(cssLoaders.join('!')) : ['style'].concat(cssLoaders).join('!')
       },
       {
         test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url?limit=10000&minetype=application/font-woff&name=/fonts/[name].[ext]',
+        use: ['url?limit=10000&minetype=application/font-woff&name=/fonts/[name].[ext]'],
         include: /fonts/
       },
       {
         test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file?name=/media/fonts/[name].[ext]',
+        use: ['file?name=/fonts/[name].[ext]'],
         include: /fonts/
       },
       {
         test: /\.(jpe?g|png|gif|svg|ico)$/i,
-        loaders: [
+        use: [
           'file?hash=sha512&digest=hex' + (isProd ? '&name=/media/[name].[ext]' : ''),
           'image-webpack?bypassOnDebug=false&optimizationLevel=7&interlaced=false'
         ],
@@ -81,15 +84,15 @@ var config = {
       },
       {
         test: /\.json$/,
-        loader: 'json'
+        use: ['json']
       },
       {
         test: /\.modernizrrc$/,
-        loader: 'modernizr'
+        use: ['modernizr']
       },
       {
         test: /\.md$/,
-        loader: 'html!markdown'
+        use: ['html', 'markdown']
       }
     ]
   }

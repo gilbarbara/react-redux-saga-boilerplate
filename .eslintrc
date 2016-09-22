@@ -29,6 +29,7 @@
     "block-spacing": 1,
     "brace-style": [1, "stroustrup", { "allowSingleLine": true }],
     "camelcase": 0,
+    "class-methods-use-this": 0,
     "comma-dangle": 0,
     "dot-notation": 1,
     "global-require": 0,
