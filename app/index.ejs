@@ -26,10 +26,10 @@
   <meta property="og:title" content="React-Redux-Saga Boilerplate" />
   <meta property="og:url" content="https://gilbarbara.github.io/react-redux-saga-boilerplate/" />
   <meta property="og:description" content="Provides: react ^15.x, react-router ^2.x, redux ^3.x, redux-saga ^0.11" />
-  <meta property="og:image" content="https://gilbarbara.github.io/react-redux-saga-boilerplate/media/images/og-image-v1.png" />
+  <meta property="og:image" content="https://gilbarbara.github.io/react-redux-saga-boilerplate/media/og-image-v1.png" />
   <meta property="og:type" content="website" />
-  <% require('./media/images/og-image-v1.png') %>
-  <link rel="shortcut icon" href="<%- require('./media/favicon.ico') %>">
+  <% require('static/media/images/og-image-v1.png') %>
+  <link rel="shortcut icon" href="<%- require('static/media/favicon.ico') %>">
   <% for (var css in htmlWebpackPlugin.files.css) { %>
   <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
   <% } %>
