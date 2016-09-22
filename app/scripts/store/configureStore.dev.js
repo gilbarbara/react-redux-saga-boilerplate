@@ -2,8 +2,6 @@ import { applyMiddleware, createStore, compose, combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { browserHistory } from 'react-router';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
-import { REHYDRATE } from 'redux-persist/constants';
-import createActionBuffer from 'redux-action-buffer';
 
 import createLogger from 'redux-logger';
 import Reactotron from 'reactotron-react-js';
@@ -25,7 +23,7 @@ const logger = createLogger({
 /* istanbul ignore next */
 const newStore = (initialState = {}) => {
   const createStoreWithMiddleware = compose(
-    applyMiddleware(sagaMiddleware, routerMiddleware(browserHistory), createActionBuffer(REHYDRATE), logger),
+    applyMiddleware(sagaMiddleware, routerMiddleware(browserHistory), logger),
     createReactotronTrackingEnhancer(Reactotron, {
       isActionImportant: action => action.type === ActionTypes.USER_LOGIN_SUCCESS
     }),
