@@ -3,6 +3,7 @@ let rehydrated = true;
 
 const mockDispatch = jest.fn();
 const mockUnsubscribe = jest.fn();
+const mockCallback = jest.fn();
 const mockSubscribe = jest.fn(() => mockUnsubscribe);
 const mockGetState = jest.fn(() =>
   ({
@@ -12,6 +13,7 @@ const mockGetState = jest.fn(() =>
     }
   })
 );
+
 jest.mock('store', () =>
   ({
     dispatch: mockDispatch,
@@ -28,8 +30,6 @@ jest.mock('scroll', () =>
     top: mockScroll
   })
 );
-
-const mockCallback = jest.fn();
 
 const routerInterceptor = require('utils/routerInterceptor');
 

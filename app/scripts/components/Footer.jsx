@@ -1,5 +1,4 @@
 import React from 'react';
-import { shouldComponentUpdate } from 'utils/helpers';
 
 const date = new Date();
 const Footer = () => (
@@ -12,7 +11,5 @@ const Footer = () => (
     </div>
   </footer>
 );
-
-Footer.shouldComponentUpdate = shouldComponentUpdate;
 
 export default Footer;
