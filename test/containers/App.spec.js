@@ -20,6 +20,6 @@ describe('App', () => {
   });
 
   it('should render properly', () => {
-    expect(wrapper.find('.child').length).toBe(1);
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });

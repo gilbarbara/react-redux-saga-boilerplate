@@ -20,6 +20,6 @@ describe('Logged', () => {
   });
 
   it('should render properly', () => {
-    expect(wrapper.find('.app__logged').length).toBe(1);
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });

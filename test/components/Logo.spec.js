@@ -10,6 +10,6 @@ describe('Logo', () => {
   });
 
   it('should render properly', () => {
-    expect(wrapper.find('.isvg').length).toBe(1);
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });

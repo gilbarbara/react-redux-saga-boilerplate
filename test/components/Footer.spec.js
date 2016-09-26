@@ -15,7 +15,6 @@ describe('Footer', () => {
   });
 
   it('should render properly', () => {
-    expect(wrapper.find('.app__footer').length).toBe(1);
-    expect(wrapper.find('.i-creative-commons').length).toBe(1);
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });

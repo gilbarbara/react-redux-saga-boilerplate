@@ -15,7 +15,6 @@ describe('NotFound', () => {
   });
 
   it('should render properly', () => {
-    expect(wrapper.find('.app__not-found').length).toBe(1);
-    expect(wrapper.find('h1').text()).toBe('404');
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });

@@ -16,8 +16,8 @@ describe('Constants:XHR', () => {
 });
 
 describe('Routes', () => {
-  it('should match the snapshot', () => {
+  it('should have 3 mounts', () => {
     const routes = createRoutes();
-    expect(routes.props.children.length).toMatchSnapshot();
+    expect(routes.props.children.length).toBe(3);
   });
 });

@@ -25,8 +25,7 @@ describe('Header', () => {
   });
 
   it('should render properly', () => {
-    expect(wrapper.find('.app__header').length).toBe(1);
-    expect(wrapper.find('.app__header__logo').length).toBe(1);
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should handle clicks', () => {

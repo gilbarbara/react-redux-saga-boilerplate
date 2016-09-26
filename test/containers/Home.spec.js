@@ -22,9 +22,7 @@ describe('Home', () => {
   });
 
   it('should render properly', () => {
-    expect(wrapper.find('.app__home').length).toBe(1);
-    expect(wrapper.find('h1').text()).toBe('React-Redux-Saga Boilerplate');
-    expect(wrapper.find('.btn').text()).toBe('Login');
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should handle clicks', () => {

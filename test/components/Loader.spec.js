@@ -22,8 +22,7 @@ describe('Loader', () => {
   });
 
   it('should render properly with pulse type', () => {
-    expect(wrapper.find('.app__loader').length).toBe(1);
-    expect(wrapper.find('.app__loader').hasClass('app__loader--pulse')).toBe(true);
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should render properly with rotate type', () => {
@@ -31,7 +30,6 @@ describe('Loader', () => {
       pulse: false
     });
 
-    expect(wrapper.find('.app__loader').length).toBe(1);
-    expect(wrapper.find('.app__loader').hasClass('app__loader--rotate')).toBe(true);
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });

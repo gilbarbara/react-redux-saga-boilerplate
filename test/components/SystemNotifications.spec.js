@@ -23,7 +23,7 @@ describe('SystemNotifications', () => {
   });
 
   it('should render properly with the default state', () => {
-    expect(wrapper.find('.app__notifications > div').text()).toBe('');
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should render properly with a success message', () => {
@@ -38,13 +38,7 @@ describe('SystemNotifications', () => {
       }
     });
 
-    const body = wrapper.find('.app__notifications');
-    const icon = wrapper.find('i');
-    const message = wrapper.find('.app__notifications > div');
-
-    expect(body.hasClass('success') && body.hasClass('active')).toBe(true);
-    expect(icon.hasClass('i-thumbs-up')).toBe(true);
-    expect(message.text()).toBe('Hello');
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should render properly with an error message', () => {
@@ -59,13 +53,7 @@ describe('SystemNotifications', () => {
       }
     });
 
-    const body = wrapper.find('.app__notifications');
-    const icon = wrapper.find('i');
-    const message = wrapper.find('.app__notifications > div');
-
-    expect(body.hasClass('error') && body.hasClass('active')).toBe(true);
-    expect(icon.hasClass('i-thumbs-down')).toBe(true);
-    expect(message.text()).toBe('Fail');
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should handle clicks', () => {
@@ -84,6 +72,6 @@ describe('SystemNotifications', () => {
         }
       }
     });
-    expect(body.hasClass('active')).toBe(false);
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });

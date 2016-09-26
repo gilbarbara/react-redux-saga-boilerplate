@@ -1,0 +1,1 @@
+exports[`Footer should render properly 1`] = `"<footer class=\"app__footer\"><div class=\"app__container\"><div><i class=\"i-creative-commons\"></i><span>2016 RRS-B</span></div></div></footer>"`;
