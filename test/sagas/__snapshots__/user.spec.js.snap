@@ -3,11 +3,11 @@ Object {
   "@@redux-saga/IO": true,
   "CALL": Object {
     "args": Array [
-      1000
+      1000,
     ],
     "context": null,
-    "fn": [Function delay]
-  }
+    "fn": [Function],
+  },
 }
 `;
 
@@ -16,10 +16,10 @@ Object {
   "@@redux-saga/IO": true,
   "PUT": Object {
     "action": Object {
-      "type": "USER_LOGIN_SUCCESS"
+      "type": "USER_LOGIN_SUCCESS",
     },
-    "channel": null
-  }
+    "channel": null,
+  },
 }
 `;
 
@@ -33,22 +33,22 @@ Object {
           Object {
             "pathname": "/private",
             "search": undefined,
-            "state": undefined
-          }
+            "state": undefined,
+          },
         ],
-        "method": "push"
+        "method": "push",
       },
-      "type": "@@router/CALL_HISTORY_METHOD"
+      "type": "@@router/CALL_HISTORY_METHOD",
     },
-    "channel": null
-  }
+    "channel": null,
+  },
 }
 `;
 
 exports[`user login saga 4`] = `
 Object {
   "done": true,
-  "value": undefined
+  "value": undefined,
 }
 `;
 
@@ -57,11 +57,11 @@ Object {
   "@@redux-saga/IO": true,
   "CALL": Object {
     "args": Array [
-      200
+      200,
     ],
     "context": null,
-    "fn": [Function delay]
-  }
+    "fn": [Function],
+  },
 }
 `;
 
@@ -70,10 +70,10 @@ Object {
   "@@redux-saga/IO": true,
   "PUT": Object {
     "action": Object {
-      "type": "USER_LOGOUT_SUCCESS"
+      "type": "USER_LOGOUT_SUCCESS",
     },
-    "channel": null
-  }
+    "channel": null,
+  },
 }
 `;
 
@@ -87,21 +87,21 @@ Object {
           Object {
             "pathname": "/",
             "search": undefined,
-            "state": undefined
-          }
+            "state": undefined,
+          },
         ],
-        "method": "push"
+        "method": "push",
       },
-      "type": "@@router/CALL_HISTORY_METHOD"
+      "type": "@@router/CALL_HISTORY_METHOD",
     },
-    "channel": null
-  }
+    "channel": null,
+  },
 }
 `;
 
 exports[`user logout saga 4`] = `
 Object {
   "done": true,
-  "value": undefined
+  "value": undefined,
 }
 `;

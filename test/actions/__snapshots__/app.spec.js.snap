@@ -6,31 +6,31 @@ Array [
         Object {
           "pathname": "/destination",
           "search": undefined,
-          "state": undefined
-        }
+          "state": undefined,
+        },
       ],
-      "method": "push"
+      "method": "push",
     },
-    "type": "@@router/CALL_HISTORY_METHOD"
-  }
+    "type": "@@router/CALL_HISTORY_METHOD",
+  },
 ]
 `;
 
 exports[`App hideAlert should return an action 1`] = `
 Object {
-  "type": "HIDE_ALERT"
+  "type": "HIDE_ALERT",
 }
 `;
 
 exports[`App logOut should return an action 1`] = `
 Object {
-  "type": "USER_LOGOUT_REQUEST"
+  "type": "USER_LOGOUT_REQUEST",
 }
 `;
 
 exports[`App login should return an action 1`] = `
 Object {
-  "type": "USER_LOGIN_REQUEST"
+  "type": "USER_LOGIN_REQUEST",
 }
 `;
 
@@ -39,6 +39,6 @@ Object {
   "message": "Alright!",
   "status": "success",
   "type": "SHOW_ALERT",
-  "withTimeout": false
+  "withTimeout": false,
 }
 `;

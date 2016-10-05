@@ -1,6 +1,6 @@
 exports[`api should execute a GET successfully with json 1`] = `
 Object {
-  "hello": "world"
+  "hello": "world",
 }
 `;
 
@@ -11,7 +11,7 @@ Object {
   "code": 404,
   "data": "",
   "error": "Not Found",
-  "status": "FAIL"
+  "status": "FAIL",
 }
 `;
 
@@ -19,10 +19,10 @@ exports[`api should reject for a server error with JSON response 1`] = `
 Object {
   "code": 500,
   "data": Object {
-    "error": "FAILED"
+    "error": "FAILED",
   },
   "error": "Internal Server Error",
-  "status": "FAIL"
+  "status": "FAIL",
 }
 `;
 
@@ -31,6 +31,6 @@ Object {
   "code": 500,
   "data": "",
   "error": "Internal Server Error",
-  "status": "FAIL"
+  "status": "FAIL",
 }
 `;

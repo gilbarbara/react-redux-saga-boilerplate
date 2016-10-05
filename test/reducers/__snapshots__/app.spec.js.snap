@@ -3,7 +3,7 @@ Object {
   "message": "",
   "status": "",
   "visible": false,
-  "withTimeout": true
+  "withTimeout": true,
 }
 `;
 
@@ -12,7 +12,7 @@ Object {
   "message": "hello",
   "status": "success",
   "visible": true,
-  "withTimeout": true
+  "withTimeout": true,
 }
 `;
 
@@ -22,9 +22,9 @@ Object {
     "message": "",
     "status": "",
     "visible": false,
-    "withTimeout": true
+    "withTimeout": true,
   },
-  "rehydrated": true
+  "rehydrated": true,
 }
 `;
 
@@ -34,9 +34,9 @@ Object {
     "message": "",
     "status": "",
     "visible": false,
-    "withTimeout": true
+    "withTimeout": true,
   },
-  "rehydrated": true
+  "rehydrated": true,
 }
 `;
 
@@ -46,8 +46,8 @@ Object {
     "message": "",
     "status": "",
     "visible": false,
-    "withTimeout": true
+    "withTimeout": true,
   },
-  "rehydrated": false
+  "rehydrated": false,
 }
 `;
