@@ -1,8 +1,9 @@
+.tmp
+.sass-cache
+.publish
 coverage/
 dist/
 documentation/
 node_modules/
 reports/
-.tmp
-.sass-cache
-.publish
+webpack.stats.json
