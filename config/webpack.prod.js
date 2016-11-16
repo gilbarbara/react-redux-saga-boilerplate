@@ -30,7 +30,6 @@ var config = merge.smart(webpackConfig, {
     ]),
     new ExtractText('/styles/app.[hash].css'),
     new HtmlPlugin({
-      appMountId: 'react',
       inject: false,
       minify: {
         removeComments: true,
@@ -40,7 +39,6 @@ var config = merge.smart(webpackConfig, {
       template: './index.ejs',
       title: NPMPackage.title
     }),
-    new webpack.optimize.DedupePlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
