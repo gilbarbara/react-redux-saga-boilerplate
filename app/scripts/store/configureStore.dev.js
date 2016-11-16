@@ -1,4 +1,5 @@
 import { applyMiddleware, createStore, compose, combineReducers } from 'redux';
+import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 import { browserHistory } from 'react-router';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
@@ -9,7 +10,6 @@ import createReactotronTrackingEnhancer from 'reactotron-redux';
 
 import rootSagas from 'sagas';
 import rootReducer from 'reducers';
-import DevTools from 'components/DevTools';
 import { ActionTypes } from 'constants/index';
 
 const reducer = combineReducers({ ...rootReducer, routing: routerReducer });
@@ -23,14 +23,14 @@ const logger = createLogger({
 /* istanbul ignore next */
 const newStore = (initialState = {}) => {
   const createStoreWithMiddleware = compose(
-    applyMiddleware(sagaMiddleware, routerMiddleware(browserHistory), logger),
+    applyMiddleware(thunk, sagaMiddleware, routerMiddleware(browserHistory), logger),
     createReactotronTrackingEnhancer(Reactotron, {
       isActionImportant: action => action.type === ActionTypes.USER_LOGIN_SUCCESS
-    }),
-    DevTools.instrument()
+    })
   )(createStore);
 
-  const store = createStoreWithMiddleware(reducer, initialState);
+  const store = createStoreWithMiddleware(reducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
   sagaMiddleware.run(rootSagas);
 
   if (module.hot) {

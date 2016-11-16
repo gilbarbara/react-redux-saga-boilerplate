@@ -32,6 +32,7 @@
     "redux": "^3.6",
     "redux-persist": "^3.5",
     "redux-saga": "^0.13",
+    "redux-thunk": "^2.1",
     "sass-mediaqueries": "^1.6",
     "scroll": "^2.0",
     "scroll-doc": "^0.1"
@@ -98,9 +99,6 @@
     "react-hot-loader": "^3.0.0-beta",
     "reactotron-react-js": "^1.5",
     "reactotron-redux": "^1.5",
-    "redux-devtools": "^3.3",
-    "redux-devtools-dock-monitor": "^1.1",
-    "redux-devtools-log-monitor": "^1.0",
     "redux-diff-logger": "0.0.9",
     "redux-logger": "^2.7",
     "redux-mock-store": "1.2",
@@ -162,7 +160,6 @@
     "collectCoverageFrom": [
       "app/scripts/**/*.{js,jsx}",
       "!app/scripts/**/*.dev.{js,jsx}",
-      "!app/scripts/**/DevTools.jsx",
       "!app/scripts/vendor/*"
     ],
     "coverageThreshold": {
