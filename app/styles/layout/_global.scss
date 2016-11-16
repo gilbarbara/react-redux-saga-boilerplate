@@ -1,8 +1,8 @@
 .browsehappy {
   background: #ccc;
   color: #000;
-  margin: 0.2em 0;
-  padding: 0.2em 0;
+  margin: 2rem 0;
+  padding: 2rem 0;
 }
 
 html {
@@ -28,19 +28,15 @@ a {
   }
 }
 
-#react {
-  min-height: 100vh;
-}
-
 .not-found {
   text-align: center;
 
   h1 {
-    font-size: 128px;
+    font-size: 12.8rem;
     margin: 0;
 
     @include sm {
-      font-size: 256px;
+      font-size: 25.6rem;
     }
   }
 }

@@ -1,6 +1,6 @@
 $loader-size: 2rem;
 $loader-speed: 1s;
-$width: 100px;
+$width: 10rem;
 
 .app__loader {
   &--rotate {
@@ -56,7 +56,7 @@ $width: 100px;
   }
 
   30% {
-    border-width: 0.8em;
+    border-width: 0.8rem;
     height: $loader-size;
     opacity: 1;
     width: $loader-size;

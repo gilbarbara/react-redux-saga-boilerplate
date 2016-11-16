@@ -7,15 +7,15 @@
 }
 
 @mixin truncate($width: 100%) {
-  text-overflow: ellipsis;
   overflow: hidden;
-  width: $width;
+  text-overflow: ellipsis;
   white-space: nowrap;
+  width: $width;
 }
 
 @mixin striped-bg($bg-color: #ccc, $darken-amount: 5%, $stripe-color: darken($bg-color, $darken-amount)) {
   background: $bg-color linear-gradient(-45deg, $stripe-color 25%, transparent 25%, transparent 50%, $stripe-color 50%, $stripe-color 75%, transparent 75%, transparent);
-  background-size: 40px 40px;
+  background-size: 4rem 4rem;
 }
 
 @mixin dashed-border($dashlength,
@@ -27,8 +27,8 @@ $position: top) {
 
   background-image: linear-gradient(to right, $color 0%, $color $per, rgba(0, 0, 0, 0) $per);
   background-position: 0 $position;
-  background-size: ($dashlength + $spacelength) $borderwidth;
   background-repeat: repeat-x;
+  background-size: ($dashlength + $spacelength) $borderwidth;
 }
 
 @mixin dashed-border-vertical($dashlength,
@@ -40,8 +40,8 @@ $position: left) {
 
   background-image: linear-gradient(to bottom, $color 0%, $color $per, rgba(0, 0, 0, 0) $per);
   background-position: $position 0;
-  background-size: $borderwidth ($dashlength + $spacelength);
   background-repeat: repeat-y;
+  background-size: $borderwidth ($dashlength + $spacelength);
 }
 
 @mixin center-child() {
@@ -82,16 +82,16 @@ $position: left) {
     $opt: map-get($opts, $size);
     $padding: if($opt, $opt, $value);
 
-    @if ($size == xs) {
+    @include min-screen(breakpoint-min($size)) {
       padding-left: $padding;
       padding-right: $padding;
-    }
 
-    @include min-screen(breakpoint-min($size)) {
       @if ($size == xl) {
         max-width: 1440px;
       }
+    }
 
+    @if ($size == xs) {
       padding-left: $padding;
       padding-right: $padding;
     }

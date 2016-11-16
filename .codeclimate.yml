@@ -12,8 +12,9 @@ engines:
         enabled: false
       import/no-extraneous-dependencies:
         enabled: false
-  scss-lint:
+  stylelint:
     enabled: true
+    channel: "beta"
 ratings:
   paths:
   - "**.js"

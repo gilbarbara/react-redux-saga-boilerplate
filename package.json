@@ -109,9 +109,10 @@
     "selenium-server-standalone-jar": "^3.0",
     "source-map-support": "^0.4",
     "style-loader": "^0.13",
-    "stylelint": "^7.3",
-    "stylelint-config-standard": "^13.0",
-    "stylelint-selector-bem-pattern": "^1.0",
+    "stylelint": "^7.5",
+    "stylelint-config-standard": "^14.0",
+    "stylelint-order": "^0.2",
+    "stylelint-scss": "^1.3",
     "url-loader": "^0.5",
     "webpack": "^2.1.0-beta",
     "webpack-dev-server": "^2.1.0-beta",
@@ -131,7 +132,7 @@
     "deploy": "node config/tools deploy",
     "publish": "node config/tools publish",
     "docs": "node config/tools docs",
-    "precommit": "node config/tools commits && npm run lint && npm test",
+    "precommit": "node config/tools commits && npm run lint && npm run lint:styles && npm test",
     "postmerge": "node config/tools update && npm update"
   },
   "engines": {

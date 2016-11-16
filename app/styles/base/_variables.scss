@@ -9,6 +9,7 @@ $enable-flex: true;
 $enable-transitions: true;
 $grid-gutter-width: 3rem;
 
+/* stylelint-disable unit-blacklist */
 $grid-breakpoints: (
   xs: 0,
   ix: 400px,
@@ -19,6 +20,7 @@ $grid-breakpoints: (
   lg: 1024px,
   xl: 1280px
 );
+/* stylelint-enable */
 
 $container-max-widths: (
   ix: 40rem,
