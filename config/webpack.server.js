@@ -90,7 +90,7 @@ compiler.plugin('emit', function(compilation, callback) {
 
     var nightwatch = spawn(path.join(__dirname, '../node_modules/.bin/nightwatch'), [
       '-c',
-      path.join(__dirname, '../test/lib/nightwatch.conf.js')
+      path.join(__dirname, '../test/__setup__/nightwatch.conf.js')
     ]);
 
     nightwatch.stdout.on('data', data => {
@@ -110,7 +110,7 @@ compiler.plugin('emit', function(compilation, callback) {
 });
 
 new WebpackDevServer(compiler, {
-  contentBase: path.join(__dirname, '../static'),
+  contentBase: path.join(__dirname, '../assets'),
   noInfo: true,
   hot: true,
   historyApiFallback: true,

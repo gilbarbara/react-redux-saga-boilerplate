@@ -151,8 +151,8 @@
       "app/scripts"
     ],
     "moduleNameMapper": {
-      "^.+\\.(css|scss)$": "<rootDir>/test/lib/styleMock.js",
-      "^.+\\.(jpe?g|png|gif|ttf|eot|svg|md)$": "<rootDir>/test/lib/fileMock.js"
+      "^.+\\.(css|scss)$": "<rootDir>/test/__setup__/styleMock.js",
+      "^.+\\.(jpe?g|png|gif|ttf|eot|svg|md)$": "<rootDir>/test/__setup__/fileMock.js"
     },
     "testRegex": "/test/.*?\\.(test|spec)\\.js$",
     "collectCoverage": false,
