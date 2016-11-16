@@ -1,1 +1,1 @@
-exports[`Logo should render properly 1`] = `"<div class=\"app__logo\"><span class=\"isvg failed\"></span></div>"`;
+exports[`Logo should render properly 1`] = `"<div class=\"app__logo\"><span class=\"isvg failed\"><img src=\"\" alt=\"react-redux-saga-boilerplate\"></span></div>"`;
