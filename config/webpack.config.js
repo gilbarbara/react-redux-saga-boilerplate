@@ -12,7 +12,7 @@ var config = {
   resolve: {
     alias: {
       modernizr$: path.join(__dirname, '.modernizrrc'),
-      static: path.join(__dirname, '../static')
+      assets: path.join(__dirname, '../assets')
     },
     modules: [path.join(__dirname, '../app', 'scripts'), 'node_modules'],
     extensions: ['.js', '.jsx', '.json']
