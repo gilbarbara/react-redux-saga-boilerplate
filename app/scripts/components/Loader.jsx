@@ -9,8 +9,7 @@ const Loader = ({ pulse }) => {
         <div />
       </div>
     );
-  }
-  else {
+  } else {
     html = (
       <div className="app__loader app__loader--rotate">
         <svg className="loader__svg">
@@ -20,7 +19,8 @@ const Loader = ({ pulse }) => {
             cy="50"
             r="20"
             fill="none"
-            strokeWidth="2" />
+            strokeWidth="2"
+          />
         </svg>
       </div>
     );

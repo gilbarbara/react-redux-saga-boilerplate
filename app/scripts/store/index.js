@@ -5,8 +5,7 @@ let configStore;
 /* istanbul ignore else  */
 if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'test') {
   configStore = require('./configureStore.prod').default;
-}
-else {
+} else {
   configStore = require('./configureStore.dev').default;
 }
 

@@ -58,8 +58,7 @@ export function request(action:Object = {}) {
           const error = new Error(response.statusText);
           error.response = response;
           throw error;
-        }
-        else {
+        } else {
           return response;
         }
       })

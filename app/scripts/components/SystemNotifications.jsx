@@ -40,7 +40,8 @@ export const SystemNotifications = ({ app, dispatch }) => {
       className={cx(`app__notifications ${notifications.status}`, {
         active: notifications.visible
       })}
-      onClick={onClick}>
+      onClick={onClick}
+    >
       <div>
         <i className={iconClass[notifications.status]} />
         <div>{notifications.message}</div>

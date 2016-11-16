@@ -33,7 +33,8 @@ export class Home extends React.Component {
             <a
               href="#login"
               onClick={this.onClickLogin}
-              className="btn btn-lg btn-primary btn-icon">
+              className="btn btn-lg btn-primary btn-icon"
+            >
               <i className="i-sign-in" />
               <span>Login</span>
             </a>

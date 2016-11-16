@@ -22,8 +22,7 @@ export function* login() {
       type: ActionTypes.USER_LOGIN_SUCCESS
     });
     yield put(goTo('/private'));
-  }
-  catch (err) {
+  } catch (err) {
     /* istanbul ignore next */
     yield put({
       type: ActionTypes.USER_LOGIN_FAILURE,
@@ -43,8 +42,7 @@ export function* logout() {
       type: ActionTypes.USER_LOGOUT_SUCCESS
     });
     yield put(goTo('/'));
-  }
-  catch (err) {
+  } catch (err) {
     /* istanbul ignore next */
     yield put({
       type: ActionTypes.USER_LOGOUT_FAILURE,

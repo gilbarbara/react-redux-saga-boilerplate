@@ -123,7 +123,7 @@
     "build": "NODE_ENV=production webpack --config config/webpack.prod.js",
     "build:pages": "NODE_ENV=production webpack --config config/webpack.gh-pages.js",
     "analyze": "NODE_ENV=production webpack --config config/webpack.prod.js --profile --json > webpack.stats.json",
-    "lint": "eslint  --ext .js --ext .jsx app/scripts test",
+    "lint": "eslint  --ext .js --ext .jsx app/scripts config test",
     "lint:styles": "stylelint app/styles/**/*.scss",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
