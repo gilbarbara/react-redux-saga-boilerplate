@@ -124,7 +124,7 @@ if (args[0] === 'commits') {
     });
 
     const base = new Promise((resolve, reject) => {
-      exec('git rev-parse @ @{u}', (err, stdout) => {
+      exec('git merge-base @ @{u}', (err, stdout) => {
         if (err) {
           return reject(err);
         }
@@ -134,15 +134,17 @@ if (args[0] === 'commits') {
 
     Promise.all([local, remote, base])
       .then(values => {
-        const [$local, , $base] = values;
+        const [$local, $remote, $base] = values;
 
-        if ($local === $base) {
-          console.error(chalk.red('⊘ Error: There are new commits.'));
+        if ($local === $remote) {
+          console.log(chalk.green('✔ Repo is up-to-date!'));
+        } else if ($local === $base) {
+          console.error(chalk.red('⊘ Error: You need to pull, there are new commits.'));
           process.exit(1);
         }
       })
       .catch(err => {
-        console.log(chalk.red('commits'), err);
+        console.log(chalk.red('⊘ Error: Commits failed'), err);
       });
   });
 }
