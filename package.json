@@ -35,7 +35,8 @@
     "redux-thunk": "^2.1",
     "sass-mediaqueries": "^1.6",
     "scroll": "^2.0",
-    "scroll-doc": "^0.1"
+    "scroll-doc": "^0.1",
+    "snyk": "^1.25.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.5",
@@ -131,7 +132,9 @@
     "publish": "node config/tools publish",
     "docs": "node config/tools docs",
     "precommit": "node config/tools commits && npm run lint && npm run lint:styles && npm test",
-    "postmerge": "node config/tools update && npm update"
+    "postmerge": "node config/tools update && npm update",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "engines": {
     "node": ">=6.0.0",
@@ -171,5 +174,6 @@
       }
     },
     "verbose": true
-  }
+  },
+  "snyk": true
 }
