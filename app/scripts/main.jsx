@@ -14,6 +14,11 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import store from 'store';
 import '../styles/main.scss';
 
+/* istanbul ignore next */
+if (process.env.production) {
+  require('offline-plugin/runtime').install();
+}
+
 function renderApp(RootComponent) {
   const target = document.getElementById('react');
 

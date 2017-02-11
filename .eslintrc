@@ -100,8 +100,6 @@
         "requireReturnDescription": false
       }
     ],
-    "babel/arrow-parens": [1, "as-needed"],
-    "babel/generator-star-spacing": [1, "after"],
     "flowtype/require-parameter-type": [0, { "excludeArrowFunctions": true }],
     "import/no-dynamic-require": 0,
     "import/no-extraneous-dependencies": [2, { "devDependencies": true }],
