@@ -1,7 +1,6 @@
 import { applyMiddleware, createStore, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
-import { browserHistory } from 'react-router';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 
 import createLogger from 'redux-logger';
@@ -11,6 +10,8 @@ import createReactotronTrackingEnhancer from 'reactotron-redux';
 import rootSagas from 'sagas';
 import rootReducer from 'reducers';
 import { ActionTypes } from 'constants/index';
+
+import browserHistory from 'modules/history';
 
 const reducer = combineReducers({ ...rootReducer, routing: routerReducer });
 const sagaMiddleware = createSagaMiddleware();

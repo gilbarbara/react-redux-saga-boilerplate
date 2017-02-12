@@ -7,10 +7,11 @@ import 'vendor/polyfills';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from 'containers/Root';
-import { browserHistory } from 'react-router';
+
 import { AppContainer } from 'react-hot-loader';
 import { syncHistoryWithStore } from 'react-router-redux';
 
+import browserHistory from 'modules/history';
 import store from 'store';
 import '../styles/main.scss';
 
