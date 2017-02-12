@@ -30,7 +30,9 @@ module.exports = function(env) {
       new CleanPlugin(['dist'], { root: path.join(__dirname, '../') }),
       new CopyPlugin([
         { from: '.htaccess' },
-        { from: 'robots.txt' }
+        { from: 'robots.txt' },
+        { from: '../assets/manifest.json' },
+        { from: '../assets/browserconfig.xml' }
       ]),
       new ExtractText('styles/app.[hash].css'),
       new HtmlPlugin({

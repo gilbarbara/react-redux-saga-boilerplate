@@ -1,22 +1,9 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]>
-<html lang="en"
-      class="ie6" <% if(htmlWebpackPlugin.files.manifest) { %> manifest="<%= htmlWebpackPlugin.files.manifest %>"<% } %>> <![endif]-->
-<!--[if IE 7 ]>
-<html lang="en"
-      class="ie7" <% if(htmlWebpackPlugin.files.manifest) { %> manifest="<%= htmlWebpackPlugin.files.manifest %>"<% } %>> <![endif]-->
-<!--[if IE 8 ]>
-<html lang="en"
-      class="ie8" <% if(htmlWebpackPlugin.files.manifest) { %> manifest="<%= htmlWebpackPlugin.files.manifest %>"<% } %>> <![endif]-->
-<!--[if IE 9 ]>
-<html lang="en"
-      class="ie9" <% if(htmlWebpackPlugin.files.manifest) { %> manifest="<%= htmlWebpackPlugin.files.manifest %>"<% } %>> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!-->
 <html lang="en" class=""
   <% if(htmlWebpackPlugin.files.manifest) { %>
       manifest="<%= htmlWebpackPlugin.files.manifest %>"
   <% } %>
-> <!--<![endif]-->
+>
 <head>
   <meta charset="utf-8">
   <title><%= htmlWebpackPlugin.options.title || 'Webpack App' %></title>
@@ -29,11 +16,23 @@
   <meta property="og:image" content="https://gilbarbara.github.io/react-redux-saga-boilerplate/media/og-image-v1.png" />
   <meta property="og:type" content="website" />
   <% require('assets/media/images/og-image-v1.png') %>
-  <link rel="shortcut icon" href="<%- require('assets/media/favicon.ico') %>">
+  <link rel="shortcut icon" href="<%- require('assets/media/icons/favicon.ico') %>">
   <% for (var css in htmlWebpackPlugin.files.css) { %>
   <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
   <% } %>
-
+  <meta name="apple-mobile-web-app-title" content="React-Redux-Saga">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#333333">
+  <link rel="apple-touch-icon" sizes="180x180" href="<%- require('assets/media/icons/apple-touch-icon.png') %>">
+  <link rel="icon" type="image/png" href="<%- require('assets/media/icons/favicon-32x32.png') %>" sizes="32x32">
+  <link rel="icon" type="image/png" href="<%- require('assets/media/icons/favicon-16x16.png') %>" sizes="16x16">
+  <link rel="manifest" href="/manifest.json">
+  <% require('assets/media/icons/icon-96x96.png') %>
+  <% require('assets/media/icons/icon-144x144.png') %>
+  <% require('assets/media/icons/icon-192x192.png') %>
+  <% require('assets/media/icons/icon-512x512.png') %>
+  <link rel="mask-icon" href="<%- require('assets/media/icons/safari-pinned-tab.svg') %>" color="#5bbad5">
+  <meta name="theme-color" content="#333333">
   <% if (htmlWebpackPlugin.options.baseHref) { %>
   <base href="<%= htmlWebpackPlugin.options.baseHref %>" />
   <% } %>
