@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Footer from 'components/Footer';
 import SystemNotifications from 'components/SystemNotifications';
 
 export default class AppPublic extends React.Component {
@@ -13,6 +14,7 @@ export default class AppPublic extends React.Component {
         <main className="app__main">
           {this.props.children}
         </main>
+        <Footer />
         <SystemNotifications />
       </div>
     );
