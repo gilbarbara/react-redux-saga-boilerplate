@@ -16,7 +16,7 @@ import store from 'store';
 import '../styles/main.scss';
 
 /* istanbul ignore next */
-if (process.env.production) {
+if (process.env.NODE_ENV === 'production') {
   require('offline-plugin/runtime').install();
 }
 
