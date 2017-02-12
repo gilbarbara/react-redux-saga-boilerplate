@@ -23,7 +23,7 @@ module.exports = function(env) {
     output: {
       filename: '[name].[hash].js',
       path: path.join(__dirname, '../dist'),
-      publicPath: target === 'pages' ? '/react-redux-saga-boilerplate/' : '',
+      publicPath: target === 'pages' ? '/react-redux-saga-boilerplate/' : '/',
     },
     devtool: 'source-map',
     plugins: [
@@ -31,7 +31,6 @@ module.exports = function(env) {
       new CopyPlugin([
         { from: '.htaccess' },
         { from: 'robots.txt' },
-        { from: '../assets/manifest.json' },
         { from: '../assets/browserconfig.xml' }
       ]),
       new ExtractText('styles/app.[hash].css'),

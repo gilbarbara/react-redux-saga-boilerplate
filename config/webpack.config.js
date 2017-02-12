@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const ExtractText = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
-
 module.exports = function(env) {
   const isProd = process.env.NODE_ENV === 'production';
   const target = env ? env.target : 'serve';
@@ -101,6 +100,11 @@ module.exports = function(env) {
             },
           ],
           include: /media/
+        },
+        {
+          test: /\.json$/,
+          use: ['file?name=[name].[ext]'],
+          include: /assets/
         },
         {
           test: /\.json$/,
