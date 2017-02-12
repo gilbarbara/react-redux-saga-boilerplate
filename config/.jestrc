@@ -1,0 +1,38 @@
+{
+  "transform": {
+    ".*": "<rootDir>/node_modules/babel-jest"
+  },
+  "moduleFileExtensions": [
+    "js",
+    "jsx",
+    "json"
+  ],
+  "moduleDirectories": [
+    "node_modules",
+    "bower_components",
+    "app/scripts"
+  ],
+  "moduleNameMapper": {
+    "^.+\\.(css|scss)$": "<rootDir>/test/__setup__/styleMock.js",
+    "^.+\\.(jpe?g|png|gif|ttf|eot|svg|md)$": "<rootDir>/test/__setup__/fileMock.js"
+  },
+  "setupFiles": [
+    "<rootDir>/test/__setup__/index.js"
+  ],
+  "testRegex": "/test/.*?\\.(test|spec)\\.js$",
+  "collectCoverage": false,
+  "collectCoverageFrom": [
+    "app/scripts/**/*.{js,jsx}",
+    "!app/scripts/**/*.dev.{js,jsx}",
+    "!app/scripts/vendor/*"
+  ],
+  "coverageThreshold": {
+    "global": {
+      "branches": 90,
+      "functions": 90,
+      "lines": 90,
+      "statements": 90
+    }
+  },
+  "verbose": true
+}

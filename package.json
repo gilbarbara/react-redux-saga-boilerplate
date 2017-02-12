@@ -124,8 +124,8 @@
     "analyze": "NODE_ENV=production webpack --config config/webpack.prod.js --profile --json > webpack.stats.json",
     "lint": "eslint  --ext .js --ext .jsx app/scripts config test",
     "lint:styles": "stylelint app/styles/**/*.scss",
-    "test": "jest --coverage",
-    "test:watch": "jest --watch",
+    "test": "jest --config config/.jestrc --coverage",
+    "test:watch": "jest --config config/.jestrc --watch",
     "test:ui": "nightwatch -c test/__setup__/nightwatch.conf.js",
     "test:ui:start": "npm start -- test:ui",
     "deploy": "node config/tools deploy",
@@ -137,40 +137,5 @@
   "engines": {
     "node": ">=6.0.0",
     "npm": ">=3.0.0"
-  },
-  "jest": {
-    "transform": {
-      ".*": "<rootDir>/node_modules/babel-jest"
-    },
-    "moduleFileExtensions": [
-      "js",
-      "jsx",
-      "json"
-    ],
-    "moduleDirectories": [
-      "node_modules",
-      "bower_components",
-      "app/scripts"
-    ],
-    "moduleNameMapper": {
-      "^.+\\.(css|scss)$": "<rootDir>/test/__setup__/styleMock.js",
-      "^.+\\.(jpe?g|png|gif|ttf|eot|svg|md)$": "<rootDir>/test/__setup__/fileMock.js"
-    },
-    "testRegex": "/test/.*?\\.(test|spec)\\.js$",
-    "collectCoverage": false,
-    "collectCoverageFrom": [
-      "app/scripts/**/*.{js,jsx}",
-      "!app/scripts/**/*.dev.{js,jsx}",
-      "!app/scripts/vendor/*"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 90,
-        "functions": 90,
-        "lines": 90,
-        "statements": 90
-      }
-    },
-    "verbose": true
   }
 }
