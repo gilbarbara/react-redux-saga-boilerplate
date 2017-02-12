@@ -120,7 +120,7 @@
   "scripts": {
     "start": "node config/webpack.server.js",
     "build": "NODE_ENV=production webpack --config config/webpack.prod.js",
-    "build:pages": "NODE_ENV=production webpack --config config/webpack.gh-pages.js",
+    "build:pages": "NODE_ENV=production webpack --config config/webpack.prod.js --env.target=pages",
     "analyze": "NODE_ENV=production webpack --config config/webpack.prod.js --profile --json > webpack.stats.json",
     "lint": "eslint  --ext .js --ext .jsx app/scripts config test",
     "lint:styles": "stylelint app/styles/**/*.scss",

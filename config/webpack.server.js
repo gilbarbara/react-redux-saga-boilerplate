@@ -48,7 +48,7 @@ if (args[0] && args[0] === 'test:ui') {
   });
 }
 
-var config = merge.smart(webpackConfig, {
+var config = merge.smart(webpackConfig(), {
   cache: true,
   output: {
     filename: '[name].js',

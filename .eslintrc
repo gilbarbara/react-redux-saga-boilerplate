@@ -8,7 +8,8 @@
   "globals": {
     "$": true,
     "Modernizr": false,
-    "fetch": false
+    "fetch": false,
+    "__TARGET__": false
   },
   "plugins": [
     "babel",
