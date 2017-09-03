@@ -1,14 +1,14 @@
 {
-  "name": "react-redux-saga-boilerplate",
-  "title": "react-redux-saga-boilerplate",
-  "description": "React-Redux-Saga Boilerplate",
+  "name": "cart-page-app",
+  "title": "cart-page-app",
+  "description": "React-Redux-Saga Cart Page App",
   "version": "0.4.0",
-  "author": "Gil Barbara <gilbarbara@gmail.com>",
+  "author": "NaviMarella<navi.marella@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gilbarbara/react-redux-saga-boilerplate"
+    "url": "https://github.com/NaviMarella/react-redux-saga-boilerplate"
   },
-  "bugs": "https://github.com/gilbarbara/react-redux-saga-boilerplate/issues",
+  "bugs": "https://github.com/NaviMarella/react-redux-saga-boilerplate/issues",
   "license": "MIT",
   "dependencies": {
     "bootstrap": "^4.0.0-alpha",
