@@ -1,107 +1,40 @@
-exports[`user login saga 1`] = `
-Object {
-  "@@redux-saga/IO": true,
-  "CALL": Object {
-    "args": Array [
-      1000,
-    ],
-    "context": null,
-    "fn": [Function],
-  },
-}
-`;
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`user login saga 2`] = `
-Object {
-  "@@redux-saga/IO": true,
-  "PUT": Object {
-    "action": Object {
-      "type": "USER_LOGIN_SUCCESS",
+exports[`user should have the expected watchers 1`] = `
+Array [
+  Object {
+    "@@redux-saga/IO": true,
+    "FORK": Object {
+      "args": Array [],
+      "context": null,
+      "fn": [Function],
     },
-    "channel": null,
   },
-}
-`;
-
-exports[`user login saga 3`] = `
-Object {
-  "@@redux-saga/IO": true,
-  "PUT": Object {
-    "action": Object {
-      "payload": Object {
-        "args": Array [
-          Object {
-            "pathname": "/private",
-            "search": undefined,
-            "state": undefined,
-          },
-        ],
-        "method": "push",
-      },
-      "type": "@@router/CALL_HISTORY_METHOD",
+  Object {
+    "@@redux-saga/IO": true,
+    "FORK": Object {
+      "args": Array [],
+      "context": null,
+      "fn": [Function],
     },
-    "channel": null,
   },
-}
+]
 `;
 
-exports[`user login saga 4`] = `
-Object {
-  "done": true,
-  "value": undefined,
-}
-`;
-
-exports[`user logout saga 1`] = `
+exports[`user should match the login saga 1`] = `
 Object {
   "@@redux-saga/IO": true,
-  "CALL": Object {
-    "args": Array [
-      200,
-    ],
-    "context": null,
-    "fn": [Function],
+  "TAKE": Object {
+    "pattern": "USER_LOGIN_REQUEST",
   },
 }
 `;
 
-exports[`user logout saga 2`] = `
+exports[`user should match the logout saga 1`] = `
 Object {
   "@@redux-saga/IO": true,
-  "PUT": Object {
-    "action": Object {
-      "type": "USER_LOGOUT_SUCCESS",
-    },
-    "channel": null,
+  "TAKE": Object {
+    "pattern": "USER_LOGOUT_REQUEST",
   },
-}
-`;
-
-exports[`user logout saga 3`] = `
-Object {
-  "@@redux-saga/IO": true,
-  "PUT": Object {
-    "action": Object {
-      "payload": Object {
-        "args": Array [
-          Object {
-            "pathname": "/",
-            "search": undefined,
-            "state": undefined,
-          },
-        ],
-        "method": "push",
-      },
-      "type": "@@router/CALL_HISTORY_METHOD",
-    },
-    "channel": null,
-  },
-}
-`;
-
-exports[`user logout saga 4`] = `
-Object {
-  "done": true,
-  "value": undefined,
 }
 `;

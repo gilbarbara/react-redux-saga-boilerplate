@@ -6,7 +6,7 @@ engines:
       extensions:
         - .js
         - .jsx
-    channel: "eslint-3"
+    channel: "eslint-4"
     checks:
       import/no-duplicates:
         enabled: false

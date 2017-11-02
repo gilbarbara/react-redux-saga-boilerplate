@@ -54,5 +54,5 @@ module.exports = {
     browser.url('http://localhost:3030/private');
     browser.pause(wait);
     browser.assert.urlEquals('http://localhost:3030/');
-  }
+  },
 };

@@ -12,7 +12,7 @@ import { ActionTypes } from 'constants/index';
  */
 export function login() {
   return {
-    type: ActionTypes.USER_LOGIN_REQUEST
+    type: ActionTypes.USER_LOGIN_REQUEST,
   };
 }
 
@@ -23,6 +23,6 @@ export function login() {
  */
 export function logOut() {
   return {
-    type: ActionTypes.USER_LOGOUT_REQUEST
+    type: ActionTypes.USER_LOGOUT_REQUEST,
   };
 }

@@ -4,7 +4,7 @@ describe('helpers/shouldComponentUpdate', () => {
   const instance = {
     props: { a: 1 },
     state: { b: 2 },
-    context: { c: 3 }
+    context: { c: 3 },
   };
 
   it('should prevent update', () => {

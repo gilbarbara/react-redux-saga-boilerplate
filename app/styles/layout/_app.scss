@@ -1,12 +1,16 @@
 .app {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+  opacity: 1 !important;
+  position: relative;
+  transition: opacity 0.5s;
 
   &__main {
     min-height: 100vh;
-    padding: ($header-height + $grid-gutter-width) 0 ($footer-height + $grid-gutter-width);
 
-    @at-root .app--public & {
-      padding: 0;
+    @at-root .app--private & {
+      padding: ($header-height + $grid-gutter-width) 0 ($footer-height + $grid-gutter-width);
     }
   }
 
@@ -14,6 +18,13 @@
     @include app-container();
 
     margin: 0 auto;
+  }
+
+  &__route {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 100vh;
   }
 
   &__logout {

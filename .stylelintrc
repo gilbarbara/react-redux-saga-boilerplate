@@ -1,16 +1,19 @@
 {
   "extends": "stylelint-config-standard",
   "plugins": [
+    "stylelint-declaration-strict-value",
     "stylelint-order",
     "stylelint-scss"
   ],
   "rules": {
     "at-rule-empty-line-before": [
       "always",
-      { "except": ["blockless-group", "first-nested"], "ignore": ["after-comment"] }
+      { "except": ["blockless-after-blockless", "first-nested"], "ignore": ["after-comment"] }
     ],
+    "at-rule-no-unknown": null,
     "color-named": "never",
     "declaration-colon-newline-after": null,
+    "declaration-block-no-redundant-longhand-properties": null,
     "declaration-empty-line-before": null,
     "declaration-property-value-blacklist": {
       "/^border/": ["none"]
@@ -25,7 +28,7 @@
     "property-no-vendor-prefix": true,
     "selector-class-pattern": "^((?:-{1,2}|_{2})?[a-z0-9]+(?:(?:-{1,2}|_{2})[a-z0-9]+)*)(?:-{1,2}|_{2})?$",
     "selector-max-compound-selectors": 5,
-    "selector-max-specificity": ["0,6,4"],
+    "selector-max-specificity": ["1,6,4"],
     "selector-no-qualifying-type": [true, { "ignore": ["class"] }],
     "selector-pseudo-element-colon-notation": "single",
     "string-quotes": "single",
@@ -36,19 +39,32 @@
         }
       }
     ],
-    "order/declaration-block-order": [
+    "order/order": [
       "custom-properties",
       "dollar-variables",
       { "type": "at-rule", "name": "extend" },
       { "type": "at-rule", "name": "include", "hasBlock": false },
       "declarations",
-      { "type": "at-rule", "name": "include", "parameter": "/ix|sm|is|md|im|lg|xl|xxl/", "hasBlock": true },
+      {
+        "type": "at-rule",
+        "name": "include",
+        "hasBlock": true
+      },
       "rules",
       "at-rules"
     ],
-    "order/declaration-block-properties-alphabetical-order": true,
+    "order/properties-alphabetical-order": true,
+    "scale-unlimited/declaration-strict-value": [
+      ["/colore/"],
+      {
+        "ignoreKeywords": {
+          "/color/": ["transparent", "inherit"]
+        }
+      }
+    ],
     "scss/at-import-no-partial-leading-underscore": true,
     "scss/at-import-partial-extension-blacklist": ["scss"],
+    "scss/at-rule-no-unknown": true,
     "scss/dollar-variable-colon-space-after": "always",
     "scss/dollar-variable-colon-space-before": "never",
     "scss/dollar-variable-no-missing-interpolation": true,

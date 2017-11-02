@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { connect } from 'react-redux';
 
@@ -25,12 +26,12 @@ export const SystemNotifications = ({ app, dispatch }) => {
     }, 3500);
   }
 
-  const notifications = app.notifications;
+  const { notifications } = app;
   const iconClass = {
     success: 'i-thumbs-up',
     warning: 'i-exclamation-circle',
     info: 'i-info-circle',
-    error: 'i-thumbs-down'
+    error: 'i-thumbs-down',
   };
 
   return (
@@ -38,7 +39,7 @@ export const SystemNotifications = ({ app, dispatch }) => {
       href="#close"
       key="SystemNotification"
       className={cx(`app__notifications ${notifications.status}`, {
-        active: notifications.visible
+        active: notifications.visible,
       })}
       onClick={onClick}
     >
@@ -51,8 +52,8 @@ export const SystemNotifications = ({ app, dispatch }) => {
 };
 
 SystemNotifications.propTypes = {
-  app: React.PropTypes.object.isRequired,
-  dispatch: React.PropTypes.func.isRequired
+  app: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 

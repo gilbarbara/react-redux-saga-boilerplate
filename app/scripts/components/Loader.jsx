@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 const Loader = ({ pulse }) => {
@@ -30,11 +31,11 @@ const Loader = ({ pulse }) => {
 };
 
 Loader.propTypes = {
-  pulse: React.PropTypes.bool.isRequired
+  pulse: PropTypes.bool.isRequired,
 };
 
 Loader.defaultProps = {
-  pulse: true
+  pulse: true,
 };
 
 export default Loader;
