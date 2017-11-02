@@ -1,12 +1,17 @@
 {
   "presets": [
-    "latest",
+    [
+      "env", {
+      "targets": {
+        "browsers": ["last 2 versions"]
+      },
+      "modules": false
+    }
+    ],
     "react",
     "stage-1"
   ],
   "plugins": [
-    "transform-decorators-legacy",
-    "transform-object-assign",
     [
       "transform-runtime", {
       "polyfill": false,
@@ -17,28 +22,10 @@
   "compact": "true",
   "env": {
     "production": {
-      "presets": [
-        [
-          "latest", {
-            "es2015": {
-              "modules": false
-            }
-          }
-        ],
-        "react",
-        "stage-1"
-      ],
       "plugins": [
         "lodash",
-        "transform-flow-strip-types",
-        "transform-decorators-legacy",
-        "transform-object-assign",
-        [
-          "transform-runtime", {
-          "polyfill": false,
-          "regenerator": true
-        }
-        ]
+        "array-includes",
+        "transform-flow-strip-types"
       ]
     },
     "development": {
@@ -47,6 +34,9 @@
       ]
     },
     "test": {
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ],
       "sourceMaps": "both"
     }
   }

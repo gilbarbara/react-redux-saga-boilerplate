@@ -5,8 +5,8 @@
  * @desc User
  */
 
-import { takeEvery, delay } from 'redux-saga';
-import { put, call, fork } from 'redux-saga/effects';
+import { delay } from 'redux-saga';
+import { all, call, fork, put, take } from 'redux-saga/effects';
 
 import { ActionTypes } from 'constants/index';
 import { goTo } from 'actions';
@@ -14,19 +14,19 @@ import { goTo } from 'actions';
 /**
  * Login
  */
-export function* login() {
+function* login() {
   try {
-    yield call(delay, 1000);
+    yield call(delay, 400);
 
     yield put({
-      type: ActionTypes.USER_LOGIN_SUCCESS
+      type: ActionTypes.USER_LOGIN_SUCCESS,
     });
     yield put(goTo('/private'));
   } catch (err) {
     /* istanbul ignore next */
     yield put({
       type: ActionTypes.USER_LOGIN_FAILURE,
-      payload: err
+      payload: err,
     });
   }
 }
@@ -34,35 +34,39 @@ export function* login() {
 /**
  * Logout
  */
-export function* logout() {
+function* logout() {
   try {
     yield call(delay, 200);
 
     yield put({
-      type: ActionTypes.USER_LOGOUT_SUCCESS
+      type: ActionTypes.USER_LOGOUT_SUCCESS,
     });
     yield put(goTo('/'));
   } catch (err) {
     /* istanbul ignore next */
     yield put({
       type: ActionTypes.USER_LOGOUT_FAILURE,
-      payload: err
+      payload: err,
     });
   }
 }
 
-function* watchLogin() {
-  yield* takeEvery(ActionTypes.USER_LOGIN_REQUEST, login);
+export function* watchLogin() {
+  yield take(ActionTypes.USER_LOGIN_REQUEST);
+  yield call(login);
 }
 
-function* watchLogout() {
-  yield* takeEvery(ActionTypes.USER_LOGOUT_REQUEST, logout);
+export function* watchLogout() {
+  yield take(ActionTypes.USER_LOGOUT_REQUEST);
+  yield call(logout);
 }
 
 /**
  * User Sagas
  */
-export default function* app() {
-  yield fork(watchLogin);
-  yield fork(watchLogout);
+export default function* root() {
+  yield all([
+    fork(watchLogin),
+    fork(watchLogout),
+  ]);
 }

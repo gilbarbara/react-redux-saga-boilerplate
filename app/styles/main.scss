@@ -2,9 +2,10 @@
 @import '~sass-mediaqueries/media-queries';
 
 // *** Base
-@import 'base/variables';
-@import 'base/icons';
-@import 'base/typography';
+@import 'variables/common';
+@import 'variables/bootstrap';
+@import 'variables/typography';
+@import 'modules/icons';
 
 // *** Utilities
 @import 'utilities/functions';
@@ -13,7 +14,7 @@
 
 // *** Vendor
 @import 'vendor/bootstrap';
-@import 'vendor/bootstrap-theme';
+@import 'modules/buttons';
 
 // *** Layout
 @import 'layout/global';
@@ -26,7 +27,7 @@
 @import 'components/logo';
 @import 'components/system-notifications';
 
-// *** Containers
-@import 'containers/home';
-@import 'containers/logged';
-@import 'containers/not-found';
+// *** Routes
+@import 'routes/home';
+@import 'routes/private';
+@import 'routes/not-found';

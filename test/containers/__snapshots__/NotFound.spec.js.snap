@@ -1,1 +1,0 @@
-exports[`NotFound should render properly 1`] = `"<div class=\"app__not-found app__route\"><h1>404</h1></div>"`;

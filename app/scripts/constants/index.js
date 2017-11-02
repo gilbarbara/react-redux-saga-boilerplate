@@ -17,7 +17,7 @@ export const ActionTypes = keyMirror({
   USER_LOGOUT_SUCCESS: undefined,
   USER_LOGOUT_FAILURE: undefined,
   SHOW_ALERT: undefined,
-  HIDE_ALERT: undefined
+  HIDE_ALERT: undefined,
 });
 
 /**
@@ -26,5 +26,5 @@ export const ActionTypes = keyMirror({
  */
 export const XHR = keyMirror({
   SUCCESS: undefined,
-  FAIL: undefined
+  FAIL: undefined,
 });

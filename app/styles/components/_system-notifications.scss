@@ -33,19 +33,19 @@
   }
 
   &.success {
-    background-color: $brand-success;
+    background-color: $success;
   }
 
   &.warning {
-    background-color: $brand-warning;
+    background-color: $warning;
   }
 
   &.error {
-    background-color: $brand-danger;
+    background-color: $danger;
   }
 
   &.info {
-    background-color: $brand-info;
+    background-color: $info;
   }
 
   > div {

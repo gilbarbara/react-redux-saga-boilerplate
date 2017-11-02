@@ -41,35 +41,6 @@ a {
   }
 }
 
-.bricklayer-column-sizer {
-  @include is {
-    width: percentage(1 / 2);
-  }
-
-  @include md {
-    width: percentage(1 / 3);
-  }
-
-  @include xl {
-    width: percentage(1 / 4);
-  }
-}
-
-.bricklayer-column {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(359deg);
-  }
-}
-
 @keyframes appear {
   0% {
     transform: scale(0);

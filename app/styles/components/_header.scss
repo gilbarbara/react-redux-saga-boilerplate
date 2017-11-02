@@ -52,7 +52,7 @@
   }
 
   &__menu {
-    @include is-only {
+    @include sm-only {
       margin-top: $grid-gutter-width / 6;
       order: 3;
       width: 100%;

@@ -1,7 +1,9 @@
-exports[`SystemNotifications should handle clicks 1`] = `"<a href=\"#close\" class=\"app__notifications error\"><div><i class=\"i-thumbs-down\"></i><div>Fail</div></div></a>"`;
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SystemNotifications should render properly with a success message 1`] = `"<a href=\"#close\" class=\"app__notifications success active\"><div><i class=\"i-thumbs-up\"></i><div>Hello</div></div></a>"`;
+exports[`SystemNotifications should handle clicks 1`] = `"<a href=\\"#close\\" class=\\"app__notifications error\\"><div><i class=\\"i-thumbs-down\\"></i><div>Fail</div></div></a>"`;
 
-exports[`SystemNotifications should render properly with an error message 1`] = `"<a href=\"#close\" class=\"app__notifications error active\"><div><i class=\"i-thumbs-down\"></i><div>Fail</div></div></a>"`;
+exports[`SystemNotifications should render properly with a success message 1`] = `"<a href=\\"#close\\" class=\\"app__notifications success active\\"><div><i class=\\"i-thumbs-up\\"></i><div>Hello</div></div></a>"`;
 
-exports[`SystemNotifications should render properly with the default state 1`] = `"<a href=\"#close\" class=\"app__notifications \"><div><i></i><div></div></div></a>"`;
+exports[`SystemNotifications should render properly with an error message 1`] = `"<a href=\\"#close\\" class=\\"app__notifications error active\\"><div><i class=\\"i-thumbs-down\\"></i><div>Fail</div></div></a>"`;
+
+exports[`SystemNotifications should render properly with the default state 1`] = `"<a href=\\"#close\\" class=\\"app__notifications \\"><div><i></i><div></div></div></a>"`;

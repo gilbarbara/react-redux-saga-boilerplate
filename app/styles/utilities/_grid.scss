@@ -29,18 +29,6 @@
   }
 }
 
-@mixin is {
-  @include min-screen(breakpoint-min('is')) {
-    @content;
-  }
-}
-
-@mixin is-only {
-  @include max-screen(breakpoint-max('is')) {
-    @content;
-  }
-}
-
 @mixin md {
   @include min-screen(breakpoint-min('md')) {
     @content;

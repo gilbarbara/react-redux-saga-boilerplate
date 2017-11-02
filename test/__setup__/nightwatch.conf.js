@@ -10,8 +10,8 @@ module.exports = {
     server_path: selenium.path,
     cli_args: {
       'webdriver.chrome.driver': chromedriver.path,
-      'webdriver.ie.driver': ''
-    }
+      'webdriver.ie.driver': '',
+    },
   },
   test_settings: {
     default: {
@@ -21,8 +21,8 @@ module.exports = {
       desiredCapabilities: {
         browserName: 'chrome',
         javascriptEnabled: true,
-        acceptSslCerts: true
+        acceptSslCerts: true,
       },
-    }
-  }
+    },
+  },
 };
