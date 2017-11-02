@@ -56,6 +56,7 @@
     "babel-runtime": "^6.26.0",
     "browser-sync": "^2.18.13",
     "browser-sync-webpack-plugin": "^1.2.0",
+    "bundlesize": "^0.15.3",
     "case-sensitive-paths-webpack-plugin": "^2.1.1",
     "chalk": "^2.3.0",
     "chromedriver": "^2.33.2",
@@ -131,10 +132,11 @@
     "test:watch": "jest --config config/jest.config.js --watch",
     "test:ui": "nightwatch -c test/__setup__/nightwatch.conf.js",
     "test:ui:start": "npm start -- test:ui",
+    "bundlesize": "bundlesize",
     "deploy": "node tools deploy",
     "publish": "node tools publish",
     "docs": "node tools docs",
-    "precommit": "node tools commits && npm run lint && npm run lint:styles && npm test",
+    "precommit": "node tools commits && npm run lint && npm run lint:styles && npm test && npm run bundlesize",
     "postmerge": "node tools update && npm update"
   },
   "browserslist": [
@@ -147,5 +149,15 @@
     "ios >= 7",
     "android >= 4.4",
     "bb >= 10"
+  ],
+  "bundlesize": [
+    {
+      "path": "./dist/scripts/app.*.js",
+      "maxSize": "150 kB"
+    },
+    {
+      "path": "./dist/scripts/modernizr.*.js",
+      "maxSize": "30 kB"
+    }
   ]
 }
