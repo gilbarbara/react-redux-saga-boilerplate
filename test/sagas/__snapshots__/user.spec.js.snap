@@ -5,7 +5,10 @@ Array [
   Object {
     "@@redux-saga/IO": true,
     "FORK": Object {
-      "args": Array [],
+      "args": Array [
+        "USER_LOGIN_REQUEST",
+        [Function],
+      ],
       "context": null,
       "fn": [Function],
     },
@@ -13,28 +16,13 @@ Array [
   Object {
     "@@redux-saga/IO": true,
     "FORK": Object {
-      "args": Array [],
+      "args": Array [
+        "USER_LOGOUT_REQUEST",
+        [Function],
+      ],
       "context": null,
       "fn": [Function],
     },
   },
 ]
-`;
-
-exports[`user should match the login saga 1`] = `
-Object {
-  "@@redux-saga/IO": true,
-  "TAKE": Object {
-    "pattern": "USER_LOGIN_REQUEST",
-  },
-}
-`;
-
-exports[`user should match the logout saga 1`] = `
-Object {
-  "@@redux-saga/IO": true,
-  "TAKE": Object {
-    "pattern": "USER_LOGOUT_REQUEST",
-  },
-}
 `;

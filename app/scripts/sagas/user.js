@@ -6,10 +6,9 @@
  */
 
 import { delay } from 'redux-saga';
-import { all, call, fork, put, take } from 'redux-saga/effects';
+import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 import { ActionTypes } from 'constants/index';
-import { goTo } from 'actions';
 
 /**
  * Login
@@ -21,7 +20,6 @@ function* login() {
     yield put({
       type: ActionTypes.USER_LOGIN_SUCCESS,
     });
-    yield put(goTo('/private'));
   } catch (err) {
     /* istanbul ignore next */
     yield put({
@@ -41,7 +39,6 @@ function* logout() {
     yield put({
       type: ActionTypes.USER_LOGOUT_SUCCESS,
     });
-    yield put(goTo('/'));
   } catch (err) {
     /* istanbul ignore next */
     yield put({
@@ -50,23 +47,12 @@ function* logout() {
     });
   }
 }
-
-export function* watchLogin() {
-  yield take(ActionTypes.USER_LOGIN_REQUEST);
-  yield call(login);
-}
-
-export function* watchLogout() {
-  yield take(ActionTypes.USER_LOGOUT_REQUEST);
-  yield call(logout);
-}
-
 /**
  * User Sagas
  */
 export default function* root() {
   yield all([
-    fork(watchLogin),
-    fork(watchLogout),
+    takeLatest(ActionTypes.USER_LOGIN_REQUEST, login),
+    takeLatest(ActionTypes.USER_LOGOUT_REQUEST, logout),
   ]);
 }
