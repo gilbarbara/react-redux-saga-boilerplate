@@ -2,4 +2,4 @@
 
 exports[`modules/RoutePrivate should allow navigation for authenticated access 1`] = `"<div data-reactroot=\\"\\">PRIVATE</div>"`;
 
-exports[`modules/RoutePrivate should redirect for unauthenticated access 1`] = `""`;
+exports[`modules/RoutePrivate should redirect for unauthenticated access 1`] = `"<div id=\\"redirect\\" data-reactroot=\\"\\"></div>"`;

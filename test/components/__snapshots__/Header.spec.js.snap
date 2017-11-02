@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header should render properly 1`] = `"<header class=\\"app__header\\"><div class=\\"app__container\\"><a href=\\"/\\" class=\\"app__header__logo\\"><div class=\\"app__logo\\"><span class=\\"isvg failed\\"><img src=\\"\\" alt=\\"react-redux-saga-boilerplate\\"></span></div></a><div class=\\"app__header__menu\\"><ul class=\\"list-unstyled\\"><li><a href=\\"#logout\\" class=\\"app__logout\\"><span>logout</span><i class=\\"i-sign-out\\"></i></a></li></ul></div></div></header>"`;
+exports[`Header should render properly 1`] = `"<header class=\\"app__header\\"><div class=\\"app__container\\"><div class=\\"app__logo\\"><span class=\\"isvg failed\\"><img src=\\"\\" alt=\\"react-redux-saga-boilerplate\\"></span></div><div class=\\"app__header__menu\\"><ul class=\\"list-unstyled\\"><li><a href=\\"#logout\\" class=\\"app__logout\\"><span>logout</span><i class=\\"i-sign-out\\"></i></a></li></ul></div></div></header>"`;
