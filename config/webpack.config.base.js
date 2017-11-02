@@ -13,7 +13,7 @@ const gitInfoPlugin = new GitInfoPlugin({
 
 const isProd = process.env.NODE_ENV === 'production';
 const cssLoaders = [
-  'style',
+  { loader: 'style' },
   {
     loader: 'css',
     options: {
