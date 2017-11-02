@@ -1,1 +1,3 @@
-exports[`Logo should render properly 1`] = `"<div class=\"app__logo\"><span class=\"isvg failed\"><img src=\"\" alt=\"react-redux-saga-boilerplate\"></span></div>"`;
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logo should render properly 1`] = `"<div class=\\"app__logo\\"><span class=\\"isvg failed\\"><img src=\\"\\" alt=\\"react-redux-saga-boilerplate\\"></span></div>"`;

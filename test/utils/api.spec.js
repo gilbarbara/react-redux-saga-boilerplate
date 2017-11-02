@@ -22,7 +22,7 @@ describe('api', () => {
     fetchMock.mock('http://example.com/token', {
       status: 200,
       body: { hello: 'world' },
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json' },
     });
 
     request({ endpoint: 'http://example.com/token' })
@@ -36,7 +36,7 @@ describe('api', () => {
     fetchMock.mock('http://example.com/token', {
       body: { error: 'FAILED' },
       status: 500,
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json' },
     });
 
     request({ endpoint: 'http://example.com/token' })
@@ -48,7 +48,7 @@ describe('api', () => {
 
   it('should reject for a server error with no response', done => {
     fetchMock.mock('http://example.com/token', {
-      status: 500
+      status: 500,
     });
 
     request({ endpoint: 'http://example.com/token' })
@@ -61,7 +61,7 @@ describe('api', () => {
   it('should reject for a not found error', done => {
     fetchMock.mock('http://example.com/token', 404, {
       error: 'FAILED',
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json' },
     });
 
     request({ endpoint: 'http://example.com/token' })
@@ -74,7 +74,7 @@ describe('api', () => {
   it('should execute a POST successfully', done => {
     fetchMock.post('http://example.com/token', {
       body: 'ok',
-      status: 201
+      status: 201,
     });
 
     request({ endpoint: 'http://example.com/token', method: 'POST', payload: { a: 1 } })

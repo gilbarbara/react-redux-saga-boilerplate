@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`api should execute a GET successfully with json 1`] = `
 Object {
   "hello": "world",

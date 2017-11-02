@@ -68,11 +68,11 @@ $position: left) {
     xs: $grid-gutter-width / 2,
     ix: $grid-gutter-width / 2,
     sm: $grid-gutter-width / 2,
-    is: $grid-gutter-width / 2,
     md: $grid-gutter-width,
     im: $grid-gutter-width,
     lg: $grid-gutter-width * 1.5,
-    xl: $grid-gutter-width * 2
+    xl: $grid-gutter-width * 2,
+    xxl: $grid-gutter-width * 2
   );
 
   margin-left: auto;

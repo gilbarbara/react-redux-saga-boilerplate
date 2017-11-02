@@ -7,27 +7,27 @@ React-Redux-Saga Boilerplate
 [Demo](http://gilbarbara.github.io/react-redux-saga-boilerplate)
 
 ### Provides
-- react ^15.x
-- react-router ^3.x
+- react ^16.x
+- react-helmet ^5.x
+- react-router ^4.x
 - redux ^3.x
-- redux-saga ^0.14
+- redux-persist ^5.x
+- redux-saga ^0.16
 
 ### Building
-- webpack ^2.2
+- webpack ^3.x
 
 `npm run build`
 
 ### Development
-- webpack-dev-server ^2.3
-- react-hot-loader ^3.0-beta
-- redux-devtools ^3.x
-- reactotron ^1.x (it can be enable in config.js)
+- webpack-dev-server ^2.x
+- react-hot-loader ^3.x
 
 `npm start`
 
 ### Tests
-- jest ^18.x
-- enzyme ^2.x
+- jest ^21.x
+- enzyme ^3.x
 
 `npm test`  
 `npm run test:watch`
@@ -39,6 +39,3 @@ React-Redux-Saga Boilerplate
 `npm run test:ui` (with dev-server already running)  
 `npm run test:ui:start` (start dev-server, run tests and exit) 
 
-### Requirements
-- node `^6.x`
-- npm `^3.x`

@@ -10,8 +10,8 @@ function setup() {
     app: {},
     dispatch: mockDispatch,
     location: {
-      pathname: '/'
-    }
+      pathname: '/',
+    },
   };
 
   return mount(<Header {...props} />);
@@ -21,7 +21,7 @@ describe('Header', () => {
   const wrapper = setup();
 
   it('should be a StatelessComponent', () => {
-    expect(wrapper.instance().constructor.name).toBe('StatelessComponent');
+    expect(wrapper.instance()).toBeNull();
   });
 
   it('should render properly', () => {
@@ -32,7 +32,7 @@ describe('Header', () => {
     wrapper.find('.app__header__logo').simulate('click');
     expect(mockDispatch.mock.calls[0][0]).toEqual({
       type: '@@router/CALL_HISTORY_METHOD',
-      payload: { method: 'push', args: [{ pathname: '/', search: undefined, state: undefined }] }
+      payload: { method: 'push', args: [{ pathname: '/', search: undefined, state: undefined }] },
     });
 
     wrapper.find('.app__logout').simulate('click');

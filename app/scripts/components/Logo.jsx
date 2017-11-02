@@ -1,21 +1,23 @@
 import React from 'react';
-import Isvg from 'react-inlinesvg';
+import PropTypes from 'prop-types';
+import SVG from 'react-inlinesvg';
 
 import config from 'config';
 
-const Logo = ({ file }) =>
-  (<div className="app__logo">
-    <Isvg src={require(`assets/media/brand/${file}.svg`)}>
+const Logo = ({ file }) => (
+  <div className="app__logo">
+    <SVG src={require(`assets/media/brand/${file}.svg`)}>
       <img src={require(`assets/media/brand/${file}.png`)} alt={config.title} />
-    </Isvg>
-  </div>);
+    </SVG>
+  </div>
+);
 
 Logo.propTypes = {
-  file: React.PropTypes.string
+  file: PropTypes.string,
 };
 
 Logo.defaultProps = {
-  file: 'icon'
+  file: 'icon',
 };
 
 export default Logo;

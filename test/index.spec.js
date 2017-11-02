@@ -1,6 +1,10 @@
-import 'main';
-import createRoutes from 'routes';
+import React from 'react';
 import { ActionTypes, XHR } from 'constants/index';
+import '../app/scripts/index';
+
+jest.mock('redux-persist/lib/integration/react', () => ({
+  PersistGate: () => (<div />),
+}));
 
 describe('Constants:ActionTypes', () => {
   it('should match the snapshot', () => {
@@ -8,16 +12,8 @@ describe('Constants:ActionTypes', () => {
   });
 });
 
-
 describe('Constants:XHR', () => {
   it('should match the snapshot', () => {
     expect(XHR).toMatchSnapshot();
-  });
-});
-
-describe('Routes', () => {
-  it('should have 3 mounts', () => {
-    const routes = createRoutes();
-    expect(routes.props.children.length).toBe(3);
   });
 });

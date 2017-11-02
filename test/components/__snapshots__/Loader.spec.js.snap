@@ -1,3 +1,5 @@
-exports[`Loader should render properly with pulse type 1`] = `"<div class=\"app__loader app__loader--pulse\"><div></div></div>"`;
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Loader should render properly with rotate type 1`] = `"<div class=\"app__loader app__loader--rotate\"><svg class=\"loader__svg\"><circle class=\"loader__circle\" cx=\"50\" cy=\"50\" r=\"20\" fill=\"none\" stroke-width=\"2\"></circle></svg></div>"`;
+exports[`Loader should render properly with pulse type 1`] = `"<div class=\\"app__loader app__loader--pulse\\"><div></div></div>"`;
+
+exports[`Loader should render properly with rotate type 1`] = `"<div class=\\"app__loader app__loader--rotate\\"><svg class=\\"loader__svg\\"><circle class=\\"loader__circle\\" cx=\\"50\\" cy=\\"50\\" r=\\"20\\" fill=\\"none\\" stroke-width=\\"2\\"></circle></svg></div>"`;

@@ -18,7 +18,7 @@ import { XHR } from 'constants/index';
  *
  * @returns {Promise}
  */
-export function request(action:Object = {}) {
+export function request(action: Object = {}) {
   const errors = [];
 
   if (!action.method) {
@@ -39,13 +39,13 @@ export function request(action:Object = {}) {
 
   const headers = Object.assign({}, {
     Accept: 'application/json',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   }, action.headers);
 
   return new Promise((resolve, reject) => {
     const params = {
       headers,
-      method: action.method
+      method: action.method,
     };
 
     if (params.method !== 'GET') {
@@ -84,7 +84,7 @@ export function request(action:Object = {}) {
                 status: XHR.FAIL,
                 code: error.response.status,
                 error: error.response.statusText,
-                data: json
+                data: json,
               });
             });
 
@@ -96,9 +96,8 @@ export function request(action:Object = {}) {
               status: XHR.FAIL,
               code: error.response.status,
               error: error.response.statusText,
-              data: text
-            })
-          );
+              data: text,
+            }));
         }
       });
   });

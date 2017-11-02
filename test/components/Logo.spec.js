@@ -6,7 +6,7 @@ describe('Logo', () => {
   const wrapper = mount(<Logo />);
 
   it('should be a StatelessComponent', () => {
-    expect(wrapper.instance().constructor.name).toBe('StatelessComponent');
+    expect(wrapper.instance()).toBeNull();
   });
 
   it('should render properly', () => {

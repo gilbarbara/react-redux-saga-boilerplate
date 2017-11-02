@@ -1,25 +1,23 @@
-import { REHYDRATE } from 'redux-persist/constants';
+import update from 'immutability-helper';
 import { createReducer } from 'utils/helpers';
 
 import { ActionTypes } from 'constants/index';
 
 export const userState = {
-  logged: false,
-  rehydrated: false
+  isAuthenticated: false,
 };
 
 export default {
   user: createReducer(userState, {
-    [REHYDRATE](state, action) {
-      return Object.assign({}, state, action.payload.user, {
-        rehydrated: true
+    [ActionTypes.USER_LOGIN_SUCCESS](state) {
+      return update(state, {
+        isAuthenticated: { $set: true },
       });
     },
-    [ActionTypes.USER_LOGIN_SUCCESS](state) {
-      return { ...state, logged: true };
-    },
     [ActionTypes.USER_LOGOUT_SUCCESS](state) {
-      return { ...state, logged: false };
-    }
-  })
+      return update(state, {
+        isAuthenticated: { $set: false },
+      });
+    },
+  }),
 };
