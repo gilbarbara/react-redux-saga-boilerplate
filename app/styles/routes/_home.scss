@@ -1,19 +1,20 @@
 .app__home {
-  background: #000 repeating-linear-gradient(0deg, transparent, transparent 2rem, rgba(#fff, 0.2) 2rem, rgba(#fff, 0.2) 4rem) fixed;
+  background: #000 linear-gradient(to bottom, $app-color 0%, darken($app-color, 40) 100%) fixed;
   color: #fff;
   min-height: 100vh;
+  overflow: hidden;
   position: relative;
 
   &:before {
-    background: linear-gradient(to bottom, #000, #ccc) fixed;
+    background: linear-gradient(to bottom, #000, #fff);
     bottom: 0;
     content: '';
-    display: block;
     left: 0;
-    opacity: 0.7;
+    opacity: 0.4;
     position: absolute;
     right: 0;
     top: 0;
+    transform: rotate(-20deg) scale(1.5) translate(0, 43%);
   }
 
   .app__container {
@@ -42,8 +43,13 @@
 
   h1 {
     color: #fff;
+    font-size: 3.5rem;
     line-height: 1.4;
     margin-bottom: $grid-gutter-width;
     text-align: center;
+
+    @include lg {
+      font-size: 4rem;
+    }
   }
 }

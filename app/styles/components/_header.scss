@@ -1,5 +1,5 @@
 .app__header {
-  background-color: #fff;
+  background-color: rgba($app-color, 0.7);
   height: $header-height;
   left: 0;
   position: fixed;
@@ -8,7 +8,7 @@
   z-index: 200;
 
   &:before {
-    background-color: $brand-primary;
+    background-color: $app-color;
     bottom: 0;
     content: '';
     height: 0.2rem;
@@ -43,12 +43,8 @@
     }
   }
 
-  &__logo {
-    line-height: 1;
-
-    .app__logo svg {
-      width: 5rem;
-    }
+  .app__logo svg {
+    width: 5rem;
   }
 
   &__menu {
@@ -78,6 +74,7 @@
     }
 
     a {
+      color: darken($app-color, 20);
       font-size: 1.3rem;
 
       @include lg {

@@ -1,6 +1,16 @@
 .app__not-found {
+  align-items: center;
+  background-color: $app-color;
+  display: flex;
+  justify-content: center;
+
   h1 {
-    font-size: 8rem;
+    color: $white;
+    font-size: 12rem;
     text-align: center;
+  }
+
+  a {
+    color: darken($app-color, 20);
   }
 }

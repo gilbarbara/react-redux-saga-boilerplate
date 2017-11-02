@@ -36,7 +36,7 @@ $width: 10rem;
 
     > div {
       animation: loader-pulse 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
-      border: 0 solid $brand-primary;
+      border: 0 solid $app-color;
       border-radius: 50%;
       box-sizing: border-box;
       height: 0;
