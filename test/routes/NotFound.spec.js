@@ -8,7 +8,7 @@ function setup() {
 }
 
 describe('NotFound', () => {
-  const wrapper = setup(true);
+  const wrapper = setup();
 
   it('should be a StatelessComponent', () => {
     expect(wrapper.instance()).toBeNull();

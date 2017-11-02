@@ -13,7 +13,7 @@ function setup() {
 }
 
 describe('Private', () => {
-  const wrapper = setup(true);
+  const wrapper = setup();
 
   it('should be a StatelessComponent', () => {
     expect(wrapper.instance()).toBeNull();

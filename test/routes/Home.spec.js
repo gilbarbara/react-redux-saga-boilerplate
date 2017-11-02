@@ -15,7 +15,7 @@ function setup() {
 }
 
 describe('Home', () => {
-  const wrapper = setup(true);
+  const wrapper = setup();
 
   it('should be a Component', () => {
     expect(wrapper.instance() instanceof React.Component).toBe(true);

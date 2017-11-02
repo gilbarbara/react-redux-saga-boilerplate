@@ -1,9 +1,5 @@
-import { call, put } from 'redux-saga/effects';
 import user, { watchLogin, watchLogout } from 'sagas/user';
 import { ActionTypes } from 'constants/index';
-import { goTo } from 'actions/app';
-
-const mockCall = jest.fn();
 
 describe('user', () => {
   it('should have the expected watchers', () => {
