@@ -67,7 +67,7 @@
     "del": "^3.0.0",
     "dotenv": "^4.0.0",
     "enzyme": "^3.1.0",
-    "enzyme-adapter-react-16": "^1.0.2",
+    "enzyme-adapter-react-16": "^1.0.3",
     "esdoc": "^1.0.3",
     "esdoc-es7-plugin": "^0.0.3",
     "eslint": "^4.10.0",
@@ -118,11 +118,11 @@
     "stylelint-scss": "^2.1.0",
     "url-loader": "^0.6.2",
     "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.3",
+    "webpack-dev-server": "^2.9.4",
     "webpack-merge": "^4.1.1"
   },
   "scripts": {
-    "start": "APP_ENV=dev node tools/start.js",
+    "start": "APP_ENV=development node tools/start.js",
     "build": "NODE_ENV=production APP_ENV=production webpack --config config/webpack.config.prod.js",
     "build:pages": "NODE_ENV=production APP_ENV=pages webpack --config config/webpack.config.prod.js",
     "analyze": "NODE_ENV=production webpack --config config/webpack.prod.js --profile --json > webpack.stats.json",

@@ -20,45 +20,28 @@ function setup(ownProps = props) {
 }
 
 describe('App', () => {
-  let wrapper;
+  const wrapper = setup();
 
-  describe('basic functionality', () => {
-    beforeAll(() => {
-      wrapper = setup();
-    });
-
-    it('should be a Component', () => {
-      expect(wrapper.instance() instanceof React.Component).toBe(true);
-    });
-
-    it('should render properly for anonymous users', () => {
-      expect(wrapper.find('HelmetWrapper')).toBePresent();
-      expect(wrapper.find('ConnectedRouter')).toBePresent();
-      expect(wrapper.find('Switch')).toBePresent();
-      expect(wrapper.find('Footer')).toBePresent();
-      expect(wrapper.find('Connect(SystemNotifications)')).toBePresent();
-    });
-
-    it('should render properly for logged users', () => {
-      wrapper.setProps({
-        ...wrapper.props(),
-        user: {
-          isAuthenticated: true,
-        },
-      });
-
-      expect(wrapper.find('Header')).toBePresent();
-    });
+  it('should be a Component', () => {
+    expect(wrapper.instance() instanceof React.Component).toBe(true);
   });
 
-  describe('with TARGET', () => {
-    beforeAll(() => {
-      global.APP__TARGET = 'pages';
-      wrapper = setup();
+  it('should render properly for anonymous users', () => {
+    expect(wrapper.find('HelmetWrapper')).toBePresent();
+    expect(wrapper.find('ConnectedRouter')).toBePresent();
+    expect(wrapper.find('Switch')).toBePresent();
+    expect(wrapper.find('Footer')).toBePresent();
+    expect(wrapper.find('Connect(SystemNotifications)')).toBePresent();
+  });
+
+  it('should render properly for logged users', () => {
+    wrapper.setProps({
+      ...wrapper.props(),
+      user: {
+        isAuthenticated: true,
+      },
     });
 
-    it('should change basename if APP__TARGET = pages', () => {
-      expect(wrapper.find('ConnectedRouter').prop('basename')).toBe('/react-redux-saga-boilerplate');
-    });
+    expect(wrapper.find('Header')).toBePresent();
   });
 });

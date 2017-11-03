@@ -7,11 +7,14 @@ const dateFns = require('date-fns');
 const paths = require('./paths');
 
 const NPMPackage = require(paths.packageJson);
+
+const { APP_ENV, NODE_ENV } = process.env;
+const isProd = process.env.NODE_ENV === 'production';
+
 const gitInfoPlugin = new GitInfoPlugin({
   hashCommand: 'rev-parse --short HEAD',
 });
 
-const isProd = process.env.NODE_ENV === 'production';
 const cssLoaders = [
   { loader: 'style' },
   {
@@ -67,12 +70,11 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     gitInfoPlugin,
     new webpack.DefinePlugin({
-      'process.env.APP_ENV': JSON.stringify(process.env.APP_ENV || 'staging'),
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+      'process.env.APP_ENV': JSON.stringify(APP_ENV || 'staging'),
+      'process.env.NODE_ENV': JSON.stringify(NODE_ENV || 'development'),
       APP__BRANCH: JSON.stringify(gitInfoPlugin.branch()),
       APP__BUILD_DATE: JSON.stringify(dateFns.format(new Date(), 'DD/MM/YYYY')),
       APP__GITHASH: JSON.stringify(gitInfoPlugin.hash()),
-      APP__TARGET: JSON.stringify(process.env.APP_ENV === 'pages' ? '/react-redux-saga-boilerplate' : '/'),
       APP__VERSION: JSON.stringify(NPMPackage.version),
     }),
   ],

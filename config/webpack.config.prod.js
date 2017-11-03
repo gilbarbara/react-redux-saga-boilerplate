@@ -24,10 +24,7 @@ if (definePlugin) {
 module.exports = merge.smart(webpackConfig, {
   entry: {
     'scripts/modernizr': paths.modernizr,
-    'scripts/app': [
-      require.resolve('./polyfills'),
-      paths.appIndexJs,
-    ],
+    'scripts/app': paths.appIndexJs,
   },
   output: {
     chunkFilename: 'scripts/[name].[git-hash].js',
@@ -40,6 +37,7 @@ module.exports = merge.smart(webpackConfig, {
     new CleanPlugin(['dist'], { root: path.join(__dirname, '../') }),
     new CopyPlugin([
       { from: '../assets/manifest.json' },
+      { from: '../assets/404.html' },
     ]),
     new ExtractText('styles/app.[git-hash].css'),
     new HtmlPlugin({
@@ -51,7 +49,7 @@ module.exports = merge.smart(webpackConfig, {
       },
       template: './index.ejs',
       title: NPMPackage.title,
-      baseHref: APP_ENV === 'pages' ? '/react-redux-saga-boilerplate' : '',
+      baseHref: APP_ENV === 'pages' ? '/react-redux-saga-boilerplate/' : '',
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true,

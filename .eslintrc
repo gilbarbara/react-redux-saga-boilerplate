@@ -14,7 +14,6 @@
     "APP__BRANCH": false,
     "APP__BUILD_DATE": false,
     "APP__GITHASH": false,
-    "APP__TARGET": false,
     "APP__VERSION": false
   },
   "plugins": [

@@ -20,8 +20,6 @@ Object.defineProperty(window.location, 'search', {
   value: '',
 });
 
-global.APP__TARGET = 'test';
-
 const react = document.createElement('div');
 react.id = 'react';
 react.style.height = '100vh';

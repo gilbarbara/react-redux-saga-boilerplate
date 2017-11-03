@@ -29,7 +29,7 @@ export class App extends React.Component {
     const { dispatch, user } = this.props;
 
     return (
-      <ConnectedRouter history={history} basename={APP__TARGET === 'pages' ? '/react-redux-saga-boilerplate' : '/'}>
+      <ConnectedRouter history={history}>
         <div
           className={cx('app', {
             'app--private': user.isAuthenticated,
