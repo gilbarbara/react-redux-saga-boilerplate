@@ -130,7 +130,7 @@
     "lint:styles": "stylelint app/styles/**/*.scss",
     "test": "jest --config config/jest.config.js --coverage",
     "test:watch": "jest --config config/jest.config.js --watch",
-    "test:automation": "npm run start headless & cypress run; kill %1",
+    "test:automation": "npm run start headless & cypress run",
     "bundlesize": "bundlesize",
     "deploy": "node tools deploy",
     "publish": "node tools publish",
