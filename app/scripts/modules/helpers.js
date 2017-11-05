@@ -1,27 +1,8 @@
 // @flow
-
 /**
  * Helper functions
  * @module Helpers
  */
-
-import shallowEqual from 'fbjs/lib/shallowEqual';
-
-/**
- * shouldComponentUpdate with context
- *
- * @param {Object} instance
- * @param {Object} nextProps
- * @param {Object} nextState
- * @param {Object} nextContext
- *
- * @returns {boolean}
- */
-export function shouldComponentUpdate(instance: Object, nextProps: Object, nextState: Object, nextContext: Object) {
-  return !shallowEqual(instance.props, nextProps)
-    || !shallowEqual(instance.state, nextState)
-    || !shallowEqual(instance.context, nextContext);
-}
 
 /**
  * Generate reducer.
@@ -30,8 +11,8 @@ export function shouldComponentUpdate(instance: Object, nextProps: Object, nextS
  * @param {Object} handlers
  * @returns {function}
  */
-export function createReducer(initialState: Object, handlers: Object) {
-  return function reducer(state: Object = initialState, action: Object) {
+export function createReducer(initialState: Object, handlers: Object): Function {
+  return function reducer(state: Object = initialState, action: Object): Object {
     if ({}.hasOwnProperty.call(handlers, action.type)) {
       return handlers[action.type](state, action);
     }
@@ -45,7 +26,7 @@ export function createReducer(initialState: Object, handlers: Object) {
  * @param {string} base
  * @returns {Object}
  */
-export function createRequestTypes(base:String) {
+export function createRequestTypes(base:string): Object {
   return ['REQUEST', 'SUCCESS', 'FAILURE'].reduce((acc, type) => {
     acc[type] = `${base}_${type}`;
     return acc;
@@ -57,7 +38,7 @@ export function createRequestTypes(base:String) {
  * @param {Element} elem
  * @returns {{}}
  */
-export function datasetToObject(elem: Element) {
+export function datasetToObject(elem: Element): Object {
   const data = {};
   [].forEach.call(elem.attributes, attr => {
     /* istanbul ignore else */
@@ -67,4 +48,19 @@ export function datasetToObject(elem: Element) {
     }
   });
   return data;
+}
+
+export class ServerError extends Error {
+  response: Object;
+
+  constructor(response: Object, ...params: any): Error {
+    super(...params);
+
+    Error.captureStackTrace(this, ServerError);
+
+    this.name = 'ServerError';
+    this.response = {};
+
+    return this;
+  }
 }

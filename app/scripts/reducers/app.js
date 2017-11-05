@@ -1,5 +1,5 @@
 import update from 'immutability-helper';
-import { createReducer } from 'utils/helpers';
+import { createReducer } from 'modules/helpers';
 import { ActionTypes } from 'constants/index';
 
 export const appState = {
