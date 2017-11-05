@@ -13,7 +13,10 @@ describe('store', () => {
         },
       },
       router: { location: null },
-      user: { isAuthenticated: false },
+      user: {
+        isAuthenticated: false,
+        isRunning: false,
+      },
     });
   });
 

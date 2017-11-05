@@ -1,5 +1,3 @@
-// @flow
-
 /**
  * @module Sagas/User
  * @desc User
@@ -13,7 +11,7 @@ import { ActionTypes } from 'constants/index';
 /**
  * Login
  */
-function* login() {
+export function* login() {
   try {
     yield call(delay, 400);
 
@@ -32,7 +30,7 @@ function* login() {
 /**
  * Logout
  */
-function* logout() {
+export function* logout() {
   try {
     yield call(delay, 200);
 
@@ -47,6 +45,7 @@ function* logout() {
     });
   }
 }
+
 /**
  * User Sagas
  */

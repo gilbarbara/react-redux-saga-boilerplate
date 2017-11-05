@@ -1,28 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`user should have the expected watchers 1`] = `
-Array [
-  Object {
-    "@@redux-saga/IO": true,
-    "FORK": Object {
-      "args": Array [
-        "USER_LOGIN_REQUEST",
-        [Function],
-      ],
-      "context": null,
-      "fn": [Function],
+Object {
+  "fork": Array [
+    Object {
+      "@@redux-saga/IO": true,
+      "FORK": Object {
+        "args": Array [
+          "USER_LOGIN_REQUEST",
+          "@@redux-saga-test-plan/json/function/login",
+        ],
+        "context": null,
+        "fn": "@@redux-saga-test-plan/json/function/takeLatest",
+      },
     },
-  },
-  Object {
-    "@@redux-saga/IO": true,
-    "FORK": Object {
-      "args": Array [
-        "USER_LOGOUT_REQUEST",
-        [Function],
-      ],
-      "context": null,
-      "fn": [Function],
+    Object {
+      "@@redux-saga/IO": true,
+      "FORK": Object {
+        "args": Array [
+          "USER_LOGOUT_REQUEST",
+          "@@redux-saga-test-plan/json/function/logout",
+        ],
+        "context": null,
+        "fn": "@@redux-saga-test-plan/json/function/takeLatest",
+      },
     },
-  },
-]
+  ],
+  "take": Array [
+    Object {
+      "@@redux-saga/IO": true,
+      "TAKE": Object {
+        "pattern": "USER_LOGIN_REQUEST",
+      },
+    },
+    Object {
+      "@@redux-saga/IO": true,
+      "TAKE": Object {
+        "pattern": "USER_LOGOUT_REQUEST",
+      },
+    },
+  ],
+}
 `;

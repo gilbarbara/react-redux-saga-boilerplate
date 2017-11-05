@@ -1,6 +1,7 @@
 {
   "globals": {
     "getAction": true,
+    "getSaga": true
   },
   "rules": {
     "no-console": 0,

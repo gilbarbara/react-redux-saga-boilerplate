@@ -9,6 +9,7 @@ function setup() {
   const props = {
     dispatch: mockDispatch,
     location: {},
+    user: {},
   };
 
   return mount(<Home {...props} />);

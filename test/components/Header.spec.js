@@ -20,8 +20,8 @@ function setup() {
 describe('Header', () => {
   const wrapper = setup();
 
-  it('should be a StatelessComponent', () => {
-    expect(wrapper.instance()).toBeNull();
+  it('should be a Component', () => {
+    expect(wrapper.instance() instanceof React.Component).toBe(true);
   });
 
   it('should render properly', () => {

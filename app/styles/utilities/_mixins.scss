@@ -13,9 +13,9 @@
   width: $width;
 }
 
-@mixin striped-bg($bg-color: #ccc, $darken-amount: 5%, $stripe-color: darken($bg-color, $darken-amount)) {
-  background: $bg-color linear-gradient(-45deg, $stripe-color 25%, transparent 25%, transparent 50%, $stripe-color 50%, $stripe-color 75%, transparent 75%, transparent);
-  background-size: 4rem 4rem;
+@mixin striped-bg($angle: 45deg, $bg-color: $black, $stripe-color: transparent) {
+  background-image: repeating-linear-gradient($angle, $bg-color, $bg-color 2rem, $stripe-color 2rem, $stripe-color 4rem);
+  background-size: 5.6rem 5.6rem;
 }
 
 @mixin dashed-border($dashlength,

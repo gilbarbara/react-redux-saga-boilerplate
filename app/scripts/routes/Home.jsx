@@ -1,18 +1,18 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { shouldComponentUpdate } from 'utils/helpers';
+import cx from 'classnames';
+
 import config from 'config';
 
 import Logo from 'components/Logo';
 import { login } from 'actions/index';
 
-export class Home extends React.Component {
+export class Home extends React.PureComponent {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
+    user: PropTypes.object.isRequired,
   };
-
-  shouldComponentUpdate = shouldComponentUpdate;
 
   handleClickLogin = (e) => {
     e.preventDefault();
@@ -21,6 +21,8 @@ export class Home extends React.Component {
   };
 
   render() {
+    const { user } = this.props;
+
     return (
       <div key="Home" className="app__home app__route">
         <div className="app__container">
@@ -32,7 +34,9 @@ export class Home extends React.Component {
             <a
               href="#login"
               onClick={this.handleClickLogin}
-              className="btn btn-lg btn-primary btn-icon"
+              className={cx('btn btn-lg btn-primary btn-icon', {
+                'btn-loading': user.isRunning,
+              })}
             >
               <i className="i-sign-in" />
               <span>Login</span>
@@ -44,4 +48,9 @@ export class Home extends React.Component {
   }
 }
 
-export default connect()(Home);
+/* istanbul ignore next */
+function mapStateToProps(state) {
+  return { user: state.user };
+}
+
+export default connect(mapStateToProps)(Home);

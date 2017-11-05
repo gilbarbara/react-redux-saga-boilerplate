@@ -1,5 +1,4 @@
-// @flow
-/*eslint-disable no-console, no-var, vars-on-top, func-names */
+/*eslint-disable func-names */
 /**
  * @module Polyfills
  * @desc Add CustomEvent and Dataset for older browsers.

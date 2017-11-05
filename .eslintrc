@@ -25,6 +25,9 @@
       "webpack": {
         "config": "config/webpack.config.base.js"
       }
+    },
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": true
     }
   },
   "rules": {
@@ -95,7 +98,13 @@
         }
       }
     ],
-    "space-before-function-paren": [1, "never"],
+    "space-before-function-paren": [
+      1, {
+        "anonymous": "never",
+        "named": "never",
+        "asyncArrow": "always"
+      }
+    ],
     "space-in-parens": 1,
     "spaced-comment": [
       1,
@@ -110,17 +119,8 @@
         ]
       }
     ],
-    "valid-jsdoc": [
-      1, {
-        "prefer": {
-          "return": "returns"
-        },
-        "requireReturn": false,
-        "requireParamDescription": false,
-        "requireReturnDescription": false
-      }
-    ],
-    "flowtype/require-parameter-type": [0, { "excludeArrowFunctions": true }],
+    "flowtype/require-parameter-type": [1, { "excludeArrowFunctions": true }],
+    "flowtype/require-return-type": [1, "always", { "excludeArrowFunctions": true }],
     "import/no-dynamic-require": 0,
     "import/no-extraneous-dependencies": [2, { "devDependencies": true }],
     "import/no-unresolved": 1,
