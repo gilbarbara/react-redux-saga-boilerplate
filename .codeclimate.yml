@@ -16,6 +16,8 @@ engines:
         enabled: false
       import/no-unresolved:
         enabled: false
+      import/extensions:
+        enabled: false
   stylelint:
     enabled: true
 ratings:
