@@ -44,14 +44,15 @@ export function hideAlert(id: string): Object {
  * Show a message.
  *
  * @param {string} message
- * @param {Object} [options]
- * @param {string} [options.type] - Type of the alert. Available: success, error, warning and info
+ * @param {Object} options
+ * @param {string} options.type - Type of the alert. Available: success, error, warning, info, black
  * @param {number} [options.timeout] - Delay in seconds for the notification go away. Set this to 0 to not auto-dismiss the notification
  * @param {string} [options.position]
+ * @param {string} [options.icon]
  *
  * @returns {Object}
  */
-export function showAlert(message: string, options: Object = {}): Object {
+export function showAlert(message: string, options: Object): Object {
   const timeout = options.type === 'error' ? 0 : 5;
 
   return {

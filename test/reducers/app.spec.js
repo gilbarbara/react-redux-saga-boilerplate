@@ -3,15 +3,19 @@ import * as Actions from 'actions';
 import { ActionTypes } from 'constants/index';
 
 describe('App', () => {
+  let app = reducer.app(undefined, {});
+
   it('should return the initial state', () => {
-    expect(reducer.app(undefined, {})).toMatchSnapshot();
+    expect(reducer.app(app, {})).toMatchSnapshot();
   });
 
   it(`should handle ${ActionTypes.SHOW_ALERT}`, () => {
-    expect(reducer.app(undefined, Actions.showAlert('success', 'hello')).notifications).toMatchSnapshot();
+    app = reducer.app(app, Actions.showAlert('HELLO', { id: 'test', type: 'success' }));
+    expect(app).toMatchSnapshot();
   });
 
   it(`should handle ${ActionTypes.HIDE_ALERT}`, () => {
-    expect(reducer.app(undefined, Actions.hideAlert()).notifications).toMatchSnapshot();
+    app = reducer.app(app, Actions.hideAlert('test'));
+    expect(app).toMatchSnapshot();
   });
 });

@@ -32,6 +32,7 @@ export class App extends React.Component {
     const { dispatch, user } = this.props;
     const { user: nextUser } = nextProps;
 
+    /* istanbul ignore else */
     if (!user.isAuthenticated && nextUser.isAuthenticated) {
       dispatch(showAlert('Hello! And welcome!', { type: 'success', icon: 'i-trophy' }));
     }
