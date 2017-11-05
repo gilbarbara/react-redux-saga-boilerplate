@@ -1,4 +1,4 @@
-import update from 'immutability-helper';
+import immutable from 'immutability-helper';
 import { createReducer } from 'modules/helpers';
 
 import { ActionTypes } from 'constants/index';
@@ -16,7 +16,7 @@ export const githubState = {
 export default {
   github: createReducer(githubState, {
     [ActionTypes.GITHUB_GET_REPOS_REQUEST](state, { payload }) {
-      return update(state, {
+      return immutable(state, {
         repos: {
           error: { $set: false },
           isRunning: { $set: true },
@@ -26,7 +26,7 @@ export default {
       });
     },
     [ActionTypes.GITHUB_GET_REPOS_SUCCESS](state, { payload }) {
-      return update(state, {
+      return immutable(state, {
         repos: {
           data: { $set: payload.data || [] },
           isRunning: { $set: false },
@@ -34,7 +34,7 @@ export default {
       });
     },
     [ActionTypes.GITHUB_GET_REPOS_FAILURE](state, { payload }) {
-      return update(state, {
+      return immutable(state, {
         repos: {
           error: { $set: true },
           isRunning: { $set: false },

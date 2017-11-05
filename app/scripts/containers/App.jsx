@@ -17,16 +17,28 @@ import NotFound from 'routes/NotFound';
 
 import Header from 'components/Header';
 import Footer from 'components/Footer';
-import SystemNotifications from 'components/SystemNotifications';
+import SystemAlerts from 'components/SystemAlerts';
+
+import { showAlert } from 'actions';
 
 export class App extends React.Component {
   static propTypes = {
+    app: PropTypes.object.isRequired,
     dispatch: PropTypes.func.isRequired,
     user: PropTypes.object.isRequired,
   };
 
-  render() {
+  componentWillReceiveProps(nextProps) {
     const { dispatch, user } = this.props;
+    const { user: nextUser } = nextProps;
+
+    if (!user.isAuthenticated && nextUser.isAuthenticated) {
+      dispatch(showAlert('Hello! And welcome!', { type: 'success', icon: 'i-trophy' }));
+    }
+  }
+
+  render() {
+    const { app, dispatch, user } = this.props;
 
     return (
       <ConnectedRouter history={history}>
@@ -52,7 +64,7 @@ export class App extends React.Component {
             </Switch>
           </main>
           <Footer />
-          <SystemNotifications />
+          <SystemAlerts alerts={app.alerts} dispatch={dispatch} />
         </div>
       </ConnectedRouter>
     );
@@ -61,7 +73,10 @@ export class App extends React.Component {
 
 /* istanbul ignore next */
 function mapStateToProps(state) {
-  return { user: state.user };
+  return {
+    app: state.app,
+    user: state.user,
+  };
 }
 
 export default connect(mapStateToProps)(App);

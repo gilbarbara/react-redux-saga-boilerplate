@@ -4,6 +4,7 @@
  */
 
 import { push } from 'react-router-redux';
+import uuid from 'uuid/v4';
 
 import { ActionTypes } from 'constants/index';
 
@@ -27,30 +28,41 @@ export function goTo(pathname, options = {}) {
 }
 
 /**
- * Show a message.
+ * Hide message.
  *
- * @param {string} status - Message type: success, warning, error, info.
- * @param {string} message
- * @param {boolean} withTimeout - Should close after a while.
- *
+ * @param {string} id
  * @returns {Object}
  */
-export function showAlert(status, message, withTimeout = true) {
+export function hideAlert(id: string): Object {
   return {
-    type: ActionTypes.SHOW_ALERT,
-    status,
-    message,
-    withTimeout,
+    type: ActionTypes.HIDE_ALERT,
+    payload: { id },
   };
 }
 
 /**
- * Hide message.
+ * Show a message.
+ *
+ * @param {string} message
+ * @param {Object} [options]
+ * @param {string} [options.type] - Type of the alert. Available: success, error, warning and info
+ * @param {number} [options.timeout] - Delay in seconds for the notification go away. Set this to 0 to not auto-dismiss the notification
+ * @param {string} [options.position]
  *
  * @returns {Object}
  */
-export function hideAlert() {
+export function showAlert(message: string, options: Object = {}): Object {
+  const timeout = options.type === 'error' ? 0 : 5;
+
   return {
-    type: ActionTypes.HIDE_ALERT,
+    type: ActionTypes.SHOW_ALERT,
+    payload: {
+      id: options.id || uuid(),
+      icon: options.icon,
+      message,
+      position: options.position || 'bottom-right',
+      type: options.type,
+      timeout: !isNaN(options.timeout) ? options.timeout : timeout,
+    },
   };
 }

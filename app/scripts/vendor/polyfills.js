@@ -63,7 +63,7 @@
         // colons (and non-uppercase for XHTML)
 
         if (attribute && attribute.name && /^data-\w[\w-]*$/.test(attribute.name)) {
-          const { name, value } = attribute.name;
+          const { name, value } = attribute;
 
           // Change to CamelCase
 

@@ -9,7 +9,6 @@ export const Link = (props) => {
     onClick,
     style,
     className,
-    replace,
     ...rest
   } = props;
   delete rest.exact;

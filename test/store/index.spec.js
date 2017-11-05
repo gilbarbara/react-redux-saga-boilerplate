@@ -5,12 +5,7 @@ describe('store', () => {
     expect(store.getState()).toEqual({
       _persist: { rehydrated: true, version: -1 },
       app: {
-        notifications: {
-          message: '',
-          status: '',
-          visible: false,
-          withTimeout: true,
-        },
+        alerts: [],
       },
       github: {
         repos: {

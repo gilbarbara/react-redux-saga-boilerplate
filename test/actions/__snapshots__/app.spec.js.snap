@@ -20,27 +20,23 @@ Array [
 
 exports[`App hideAlert should return an action 1`] = `
 Object {
+  "payload": Object {
+    "id": "test",
+  },
   "type": "HIDE_ALERT",
-}
-`;
-
-exports[`App logOut should return an action 1`] = `
-Object {
-  "type": "USER_LOGOUT_REQUEST",
-}
-`;
-
-exports[`App login should return an action 1`] = `
-Object {
-  "type": "USER_LOGIN_REQUEST",
 }
 `;
 
 exports[`App showAlert should return an action 1`] = `
 Object {
-  "message": "Alright!",
-  "status": "success",
+  "payload": Object {
+    "icon": undefined,
+    "id": "test",
+    "message": "Alright!",
+    "position": "bottom-right",
+    "timeout": 5,
+    "type": undefined,
+  },
   "type": "SHOW_ALERT",
-  "withTimeout": false,
 }
 `;

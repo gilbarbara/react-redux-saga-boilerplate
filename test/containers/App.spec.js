@@ -6,6 +6,9 @@ import { App } from 'containers/App';
 const mockDispatch = jest.fn();
 
 const props = {
+  app: {
+    alerts: [],
+  },
   dispatch: mockDispatch,
   user: {
     isAuthenticated: false,
@@ -31,7 +34,7 @@ describe('App', () => {
     expect(wrapper.find('ConnectedRouter')).toBePresent();
     expect(wrapper.find('Switch')).toBePresent();
     expect(wrapper.find('Footer')).toBePresent();
-    expect(wrapper.find('Connect(SystemNotifications)')).toBePresent();
+    expect(wrapper.find('SystemAlerts')).toBePresent();
   });
 
   it('should render properly for logged users', () => {

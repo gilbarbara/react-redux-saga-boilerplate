@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App logOut should return an action 1`] = `
+Object {
+  "type": "USER_LOGOUT_REQUEST",
+}
+`;
+
+exports[`App login should return an action 1`] = `
+Object {
+  "type": "USER_LOGIN_REQUEST",
+}
+`;

@@ -1,36 +1,29 @@
-import update from 'immutability-helper';
+import immutable from 'immutability-helper';
+import { REHYDRATE } from 'redux-persist/lib/constants';
 import { createReducer } from 'modules/helpers';
 import { ActionTypes } from 'constants/index';
 
 export const appState = {
-  notifications: {
-    visible: false,
-    message: '',
-    status: '',
-    withTimeout: true,
-  },
+  alerts: [],
 };
 
 export default {
   app: createReducer(appState, {
-    [ActionTypes.SHOW_ALERT](state, action) {
-      return update(state, {
-        notifications: {
-          $set: {
-            ...appState.notifications,
-            visible: true,
-            message: action.message,
-            status: action.status,
-            withTimeout: action.withTimeout === true,
-          },
-        },
+    [REHYDRATE](state) {
+      return immutable(state, {
+        alerts: { $set: [] },
       });
     },
-    [ActionTypes.HIDE_ALERT](state) {
-      return update(state, {
-        notifications: {
-          $set: appState.notifications,
-        },
+    [ActionTypes.HIDE_ALERT](state, { payload: { id } }) {
+      const alerts = state.alerts.filter(d => d.id !== id);
+
+      return immutable(state, {
+        alerts: { $set: alerts },
+      });
+    },
+    [ActionTypes.SHOW_ALERT](state, { payload }) {
+      return immutable(state, {
+        alerts: { $push: [payload] },
       });
     },
   }),

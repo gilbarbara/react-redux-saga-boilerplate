@@ -14,18 +14,23 @@
 
 // *** Vendor
 @import 'vendor/bootstrap';
+
+// *** Modules
+@import 'modules/animations';
 @import 'modules/buttons';
+@import 'modules/transitions';
 
 // *** Layout
 @import 'layout/global';
 @import 'layout/app';
 
 // *** Components
+@import 'components/alert';
 @import 'components/footer';
 @import 'components/header';
 @import 'components/loader';
 @import 'components/logo';
-@import 'components/system-notifications';
+@import 'components/system-alerts';
 
 // *** Containers
 @import 'containers/github';
