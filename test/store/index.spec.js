@@ -12,6 +12,16 @@ describe('store', () => {
           withTimeout: true,
         },
       },
+      github: {
+        repos: {
+          data: [],
+          error: false,
+          isRunning: false,
+          message: '',
+          q: '',
+        },
+      },
+
       router: { location: null },
       user: {
         isAuthenticated: false,

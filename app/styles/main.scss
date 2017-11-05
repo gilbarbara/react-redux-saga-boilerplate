@@ -27,6 +27,9 @@
 @import 'components/logo';
 @import 'components/system-notifications';
 
+// *** Containers
+@import 'containers/github';
+
 // *** Routes
 @import 'routes/home';
 @import 'routes/private';

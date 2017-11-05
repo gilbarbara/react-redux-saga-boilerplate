@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Github should handle GITHUB_GET_REPOS_FAILURE 1`] = `
+Object {
+  "repos": Object {
+    "data": Array [],
+    "error": true,
+    "isRunning": false,
+    "message": undefined,
+    "q": "",
+  },
+}
+`;
+
+exports[`Github should handle GITHUB_GET_REPOS_REQUEST 1`] = `
+Object {
+  "repos": Object {
+    "data": Array [],
+    "error": false,
+    "isRunning": true,
+    "message": "",
+    "q": "react",
+  },
+}
+`;
+
+exports[`Github should handle GITHUB_GET_REPOS_SUCCESS 1`] = `
+Object {
+  "repos": Object {
+    "data": Array [],
+    "error": false,
+    "isRunning": false,
+    "message": "",
+    "q": "",
+  },
+}
+`;
+
+exports[`Github should return the initial state 1`] = `
+Object {
+  "repos": Object {
+    "data": Array [],
+    "error": false,
+    "isRunning": false,
+    "message": "",
+    "q": "",
+  },
+}
+`;

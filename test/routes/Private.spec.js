@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import Private from 'routes/Private';
 
@@ -9,17 +9,19 @@ function setup() {
     location: {},
   };
 
-  return mount(<Private {...props} />);
+  return shallow(<Private {...props} />);
 }
 
 describe('Private', () => {
   const wrapper = setup();
 
-  it('should be a StatelessComponent', () => {
-    expect(wrapper.instance()).toBeNull();
+  it('should be a Component', () => {
+    expect(wrapper.instance() instanceof React.Component).toBe(true);
   });
 
   it('should render properly', () => {
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.find('.app__private')).toBePresent();
+    expect(wrapper.find('h1')).toHaveText('Oh hai!');
+    expect(wrapper.find('Connect(GitHub)')).toBePresent();
   });
 });

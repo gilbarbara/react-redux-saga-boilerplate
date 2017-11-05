@@ -1,25 +1,15 @@
-.app__logged {
-  h1 {
+.app__private {
+  &__header {
     margin-bottom: $grid-gutter-width;
+    text-align: center;
   }
 
-  h3 {
-    margin: $grid-gutter-width 0 ($grid-gutter-width / 3);
-  }
+  &__intro {
+    text-align: center;
 
-  ul {
-    list-style-type: circle;
-    padding-left: 2rem;
-  }
-
-  code {
-    background-color: #f7f7f7;
-    border: 0.1rem solid #eee;
-    border-radius: 0.2rem;
-    display: inline-block;
-    font-size: 1.4rem;
-    line-height: 1;
-    margin-top: $grid-gutter-width / 6;
-    padding: 0.3rem;
+    h5 {
+      line-height: 1;
+      margin: 0;
+    }
   }
 }
