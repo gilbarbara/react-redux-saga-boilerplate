@@ -2,7 +2,7 @@
 
 exports[`GitHub should render some items when data arrives 1`] = `
 <ul
-  className="app__github__grid"
+  className="app__github__grid app__github__grid--react"
 >
   <li
     key="12"

@@ -42,7 +42,7 @@ export class GitHub extends React.Component {
 
     if (github.repos.data.length) {
       output = (
-        <ul className="app__github__grid">
+        <ul className={`app__github__grid app__github__grid--${query}`}>
           {github.repos.data.map(d => (
             <li key={d.id}>
               <div className="app__github__item">

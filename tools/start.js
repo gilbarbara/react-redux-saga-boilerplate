@@ -14,8 +14,6 @@ process.on('unhandledRejection', err => {
 // Ensure environment variables are read.
 require('../config/env');
 
-const path = require('path');
-const { spawn, spawnSync } = require('child_process');
 const chalk = require('chalk');
 const dateFns = require('date-fns');
 const webpack = require('webpack');
@@ -35,7 +33,7 @@ const createDevServerConfig = require('../config/webpackDevServer');
 
 const isInteractive = process.stdout.isTTY;
 const args = process.argv.slice(2);
-const isNightwatch = args[0] && args[0] === 'test:ui';
+const isHeadless = args[0] && args[0] === 'headless';
 
 // Warn and crash if required files are missing
 if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
@@ -57,20 +55,7 @@ choosePort(HOST, DEFAULT_PORT)
     const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
     const appName = require(paths.packageJson).name;
     const urls = prepareUrls(protocol, HOST, port);
-    let compiler;
-
-    if (isNightwatch) {
-      config.plugins.push(new webpack.DefinePlugin({
-        NIGHTWATCH: JSON.stringify(true),
-      }));
-    }
-
-    if (!isNightwatch) {
-      // Create a webpack compiler that is configured with custom messages.
-      compiler = createCompiler(webpack, config, appName, urls);
-    } else {
-      compiler = webpack(config);
-    }
+    const compiler = createCompiler(webpack, config, appName, urls);
 
     // Load proxy config
     const proxySetting = require(paths.packageJson).proxy;
@@ -91,27 +76,6 @@ choosePort(HOST, DEFAULT_PORT)
       const now = new Date();
       console.log(chalk.yellow(`Duration: ${dateFns.differenceInSeconds(now, start)}s - ${compilation.hash}`));
 
-      if (isNightwatch) {
-        spawnSync('pkill', ['-f', 'selenium']);
-
-        const nightwatch = spawn(path.join(__dirname, '../node_modules/.bin/nightwatch'), [
-          '-c',
-          path.join(__dirname, '../test/__setup__/nightwatch.conf.js'),
-        ]);
-
-        nightwatch.stdout.on('data', data => {
-          process.stdout.write(data.toString());
-        });
-
-        nightwatch.stderr.on('data', data => {
-          process.stdout.write(data.toString());
-        });
-
-        nightwatch.on('close', () => {
-          spawn('kill', [process.pid]);
-        });
-      }
-
       callback();
     });
 
@@ -127,12 +91,10 @@ choosePort(HOST, DEFAULT_PORT)
         clearConsole();
       }
 
-      if (!isNightwatch) {
-        console.log(chalk.cyan('Starting the development server...'));
+      if (!isHeadless) {
         openBrowser(urls.localUrlForBrowser);
-      } else {
-        console.log(chalk.cyan('Starting the nightwatch session...'));
       }
+      console.log(chalk.cyan('Starting the development server...'));
     });
 
     ['SIGINT', 'SIGTERM'].forEach(function(sig) {

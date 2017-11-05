@@ -3,6 +3,10 @@ node_js:
 - '8'
 addons:
   code_climate: true
-after_script:
+before_script:
   - npm install -g codeclimate-test-reporter
+script:
+  - npm run test
+  - npm run test:automation
+after_script:
   - codeclimate-test-reporter < coverage/lcov.info

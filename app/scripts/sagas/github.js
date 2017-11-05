@@ -16,7 +16,7 @@ import { ActionTypes } from 'constants/index';
  */
 export function* getRepos({ payload }) {
   try {
-    const response = yield call(request, `https://api.github.com/search/repositories?q=${payload.query}&sort=stars&limit=50`);
+    const response = yield call(request, `https://api.github.com/search/repositories?q=${payload.query}&sort=stars`);
     yield put({
       type: ActionTypes.GITHUB_GET_REPOS_SUCCESS,
       payload: { data: response.items },
