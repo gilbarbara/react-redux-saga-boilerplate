@@ -1,10 +1,12 @@
 /*eslint-disable no-var, vars-on-top, no-console */
 const path = require('path');
+const { promisify } = require('util');
 const { exec } = require('child_process');
 const del = require('del');
 const chalk = require('chalk');
 const ghPages = require('gh-pages');
 
+const execAsync = promisify(exec);
 const args = process.argv.slice(2);
 
 if (!args[0]) {
@@ -98,53 +100,41 @@ if (args[0] === 'update') {
 }
 
 if (args[0] === 'commits') {
-  exec('git remote -v update', errRemote => {
-    if (errRemote) {
-      throw new Error(errRemote);
-    }
+  execAsync('git rev-parse --is-inside-work-tree')
+    .then(() =>
+      execAsync('git remote -v update')
+        .then(() => {
+          Promise.all([
+            execAsync('git rev-parse @'),
+            execAsync('git rev-parse @{u}'),
+            execAsync('git merge-base @ @{u}'),
+          ])
+            .then(([
+              { stdout: $local },
+              { stdout: $remote },
+              { stdout: $base },
+            ]) => {
+              if ($local === $remote) {
+                console.log(chalk.green('✔ Repo is up-to-date!'));
+              } else if ($local === $base) {
+                console.log(chalk.red('⊘ Error'), 'You need to pull, there are new commits.');
+                process.exit(1);
+              }
+            })
+            .catch(err => {
+              if (err.message.includes('no upstream configured ')) {
+                console.log(chalk.yellow('⚠ Warning'), 'No upstream. Is this a new branch?');
+                return;
+              }
 
-    const local = new Promise((resolve, reject) => {
-      exec('git rev-parse @', (err, stdout) => {
-        if (err) {
-          return reject(err);
-        }
-
-        return resolve(stdout);
-      });
+              console.log(chalk.yellow('⚠ Warning'), err.message);
+            });
+        })
+        .catch(err => {
+          throw new Error(err);
+        })
+    )
+    .catch(() => {
+      console.log('not under git');
     });
-
-    const remote = new Promise((resolve, reject) => {
-      exec('git rev-parse @{u}', (err, stdout) => {
-        if (err) {
-          return reject(err);
-        }
-
-        return resolve(stdout);
-      });
-    });
-
-    const base = new Promise((resolve, reject) => {
-      exec('git merge-base @ @{u}', (err, stdout) => {
-        if (err) {
-          return reject(err);
-        }
-        return resolve(stdout);
-      });
-    });
-
-    Promise.all([local, remote, base])
-      .then(values => {
-        const [$local, $remote, $base] = values;
-
-        if ($local === $remote) {
-          console.log(chalk.green('✔ Repo is up-to-date!'));
-        } else if ($local === $base) {
-          console.error(chalk.red('⊘ Error: You need to pull, there are new commits.'));
-          process.exit(1);
-        }
-      })
-      .catch(err => {
-        console.log(chalk.yellow('⚠ Warning'), err.message);
-      });
-  });
 }
