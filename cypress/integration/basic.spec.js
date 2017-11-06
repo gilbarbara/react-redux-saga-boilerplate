@@ -5,9 +5,9 @@ describe('React-Redux-Saga-Boilerplate', () => {
       .should('include', 'react-redux-saga-boilerplate');
   });
 
-  it('should be able to login', () => {
+  it('should be able to start', () => {
     cy.get('.btn')
-      .should('contain', 'Login')
+      .should('contain', 'Start')
       .click();
   });
 
@@ -48,8 +48,8 @@ describe('React-Redux-Saga-Boilerplate', () => {
       .should('have.length', 1);
   });
 
-  it('should be able to login again', () => {
-    cy.get('.btn').should('contain', 'Login').click();
+  it('should be able to start again', () => {
+    cy.get('.btn').should('contain', 'Start').click();
 
     cy.get('.app__private')
       .should('have.length', 1);
