@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import cx from 'classnames';
 
-import { getRepos } from 'actions';
+import { getRepos, showAlert } from 'actions';
 
 import Loader from 'components/Loader';
 
@@ -24,15 +24,26 @@ export class GitHub extends React.Component {
     dispatch(getRepos(query));
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { dispatch, github: { repos } } = this.props;
+    const { github: { repos: nextRepos } } = nextProps;
+
+    if (repos.state === 'running' && nextRepos.state === 'error') {
+      dispatch(showAlert(nextRepos.message, { type: 'error' }));
+    }
+  }
+
   handleClick = (e) => {
     const { query } = e.currentTarget.dataset;
-    const { dispatch } = this.props;
+    const { dispatch, github } = this.props;
 
     this.setState({
       query,
     });
 
-    dispatch(getRepos(query));
+    if (!github.repos.data[query] || !github.repos.data[query].length) {
+      dispatch(getRepos(query));
+    }
   };
 
   render() {
@@ -40,10 +51,10 @@ export class GitHub extends React.Component {
     const { github } = this.props;
     let output;
 
-    if (github.repos.data.length) {
+    if (github.repos.data[query] && github.repos.data[query].length) {
       output = (
         <ul className={`app__github__grid app__github__grid--${query}`}>
-          {github.repos.data.map(d => (
+          {github.repos.data[query].map(d => (
             <li key={d.id}>
               <div className="app__github__item">
                 <img src={d.owner.avatar_url} alt={d.owner.login} />
@@ -69,8 +80,8 @@ export class GitHub extends React.Component {
             <button
               type="button"
               className={cx('btn', {
-                'btn-dark': query !== 'react',
                 'btn-primary': query === 'react',
+                'btn-outline-primary': query !== 'react',
                 'btn-loading': query === 'react' && github.repos.isRunning,
               })}
               data-query="react"
@@ -81,8 +92,8 @@ export class GitHub extends React.Component {
             <button
               type="button"
               className={cx('btn', {
-                'btn-dark': query !== 'redux',
                 'btn-primary': query === 'redux',
+                'btn-outline-primary': query !== 'redux',
                 'btn-loading': query === 'redux' && github.repos.isRunning,
               })}
               data-query="redux"

@@ -9,14 +9,12 @@ describe('store', () => {
       },
       github: {
         repos: {
-          data: [],
-          error: false,
-          isRunning: false,
+          data: {},
           message: '',
-          q: '',
+          query: '',
+          state: 'idle',
         },
       },
-
       router: { location: null },
       user: {
         isAuthenticated: false,

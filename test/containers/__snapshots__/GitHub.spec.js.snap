@@ -1,35 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GitHub should render some items when data arrives 1`] = `
-<ul
-  className="app__github__grid app__github__grid--react"
->
-  <li
-    key="12"
-  >
-    <div
-      className="app__github__item"
-    >
-      <img
-        alt="username"
-        src="avatar_url"
-      />
-      <div>
-        <h5>
-          <a
-            href="https://github.com/username/magic-tricks"
-            target="_blank"
-          >
-            username
-            /
-            magic-tricks
-          </a>
-        </h5>
-        <div>
-          nothing much
-        </div>
-      </div>
-    </div>
-  </li>
-</ul>
-`;
+exports[`GitHub should render some items when data arrives 1`] = `null`;

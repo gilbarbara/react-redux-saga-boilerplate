@@ -3,11 +3,10 @@
 exports[`Github should handle GITHUB_GET_REPOS_FAILURE 1`] = `
 Object {
   "repos": Object {
-    "data": Array [],
-    "error": true,
-    "isRunning": false,
-    "message": undefined,
-    "q": "",
+    "data": Object {},
+    "message": "Something went wrong",
+    "query": "",
+    "state": "error",
   },
 }
 `;
@@ -15,11 +14,12 @@ Object {
 exports[`Github should handle GITHUB_GET_REPOS_REQUEST 1`] = `
 Object {
   "repos": Object {
-    "data": Array [],
-    "error": false,
-    "isRunning": true,
+    "data": Object {
+      "undefined": Array [],
+    },
     "message": "",
-    "q": "react",
+    "query": undefined,
+    "state": "running",
   },
 }
 `;
@@ -27,11 +27,12 @@ Object {
 exports[`Github should handle GITHUB_GET_REPOS_SUCCESS 1`] = `
 Object {
   "repos": Object {
-    "data": Array [],
-    "error": false,
-    "isRunning": false,
+    "data": Object {
+      "": Array [],
+    },
     "message": "",
-    "q": "",
+    "query": "",
+    "state": "loaded",
   },
 }
 `;
@@ -39,11 +40,10 @@ Object {
 exports[`Github should return the initial state 1`] = `
 Object {
   "repos": Object {
-    "data": Array [],
-    "error": false,
-    "isRunning": false,
+    "data": Object {},
     "message": "",
-    "q": "",
+    "query": "",
+    "state": "idle",
   },
 }
 `;

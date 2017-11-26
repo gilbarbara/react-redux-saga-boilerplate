@@ -45,4 +45,8 @@
       @include truncate();
     }
   }
+
+  .btn-primary {
+    pointer-events: none;
+  }
 }
