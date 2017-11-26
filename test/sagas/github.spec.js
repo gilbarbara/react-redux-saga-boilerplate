@@ -3,7 +3,7 @@ import { expectSaga } from 'redux-saga-test-plan';
 import github, { getRepos } from 'sagas/github';
 import { ActionTypes } from 'constants/index';
 
-jest.mock('modules/api', () => ({
+jest.mock('modules/connect', () => ({
   request: () => ({ items: [] }),
 }));
 

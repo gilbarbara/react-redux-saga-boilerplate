@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`connect request should execute a GET successfully 1`] = `
+Object {
+  "hello": "world",
+}
+`;
+
+exports[`connect request should execute a POST successfully 1`] = `""`;
+
+exports[`connect request should reject for a not found error 1`] = `
+Object {
+  "data": Object {
+    "error": "FAILED",
+  },
+  "status": 404,
+}
+`;
+
+exports[`connect request should reject for a server error with JSON response 1`] = `
+Object {
+  "data": Object {
+    "error": "FAILED",
+  },
+  "status": 500,
+}
+`;
+
+exports[`connect request should reject for a server error with no response 1`] = `
+Object {
+  "data": "",
+  "status": 500,
+}
+`;

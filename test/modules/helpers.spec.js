@@ -27,11 +27,4 @@ describe('helpers', () => {
       expect(datasetToObject(el)).toMatchSnapshot();
     });
   });
-
-  describe('ServerError', () => {
-    const error = new ServerError('error');
-
-    expect(error.name).toBe('ServerError');
-    expect(error.response).toEqual({});
-  });
 });

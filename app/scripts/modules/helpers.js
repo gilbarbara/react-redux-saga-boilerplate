@@ -49,18 +49,3 @@ export function datasetToObject(elem: Element): Object {
   });
   return data;
 }
-
-export class ServerError extends Error {
-  response: Object;
-
-  constructor(response: Object, ...params: any): Error {
-    super(...params);
-
-    Error.captureStackTrace(this, ServerError);
-
-    this.name = 'ServerError';
-    this.response = {};
-
-    return this;
-  }
-}

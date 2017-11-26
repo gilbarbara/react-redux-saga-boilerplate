@@ -4,7 +4,7 @@
  */
 
 import { all, call, put, takeLatest } from 'redux-saga/effects';
-import { request } from 'modules/api';
+import { request } from 'modules/connect';
 
 import { ActionTypes } from 'constants/index';
 

@@ -1,9 +1,27 @@
 // @flow
 /**
- * API functions
- * @module API
+ * Connect
+ * @module Connect
  */
-import { ServerError } from 'modules/helpers';
+
+export class ServerError extends Error {
+  response: Object;
+
+  constructor(response: Object, ...params: any): Error {
+    super(...params);
+
+    Error.captureStackTrace(this, ServerError);
+
+    this.name = 'ServerError';
+    this.response = {};
+
+    return this;
+  }
+}
+
+export function parseError(error: string): string {
+  return error || 'Something went wrong';
+}
 
 /**
  * Fetch data
@@ -70,15 +88,12 @@ export function request(url: string, options: Object = {}): Promise<*> {
 
         throw error;
       } else {
-        return response;
-      }
-    })
-    .then(response => {
-      const contentType = response.headers.get('content-type');
-      if (contentType && contentType.includes('application/json')) {
-        return response.json();
-      }
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+          return response.json();
+        }
 
-      return response.text();
+        return response.text();
+      }
     });
 }
