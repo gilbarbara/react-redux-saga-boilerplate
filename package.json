@@ -132,12 +132,12 @@
     "lint:styles": "stylelint app/styles/**/*.scss",
     "test": "jest --config config/jest.config.js --coverage",
     "test:watch": "jest --config config/jest.config.js --watch",
-    "test:automation": "npm run start headless & cypress run",
+    "test:automation": "npm run start automation",
     "bundlesize": "bundlesize",
     "deploy": "node tools deploy",
     "publish": "node tools publish",
     "docs": "node tools docs",
-    "precommit": "node tools commits && npm run lint && npm run lint:styles && npm test && npm run bundlesize",
+    "precommit": "node tools commits && npm run lint && npm run lint:styles && npm test",
     "postmerge": "node tools update && npm update"
   },
   "browserslist": [

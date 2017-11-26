@@ -14,6 +14,8 @@ process.on('unhandledRejection', err => {
 // Ensure environment variables are read.
 require('../config/env');
 
+const path = require('path');
+const { spawn } = require('child_process');
 const chalk = require('chalk');
 const dateFns = require('date-fns');
 const webpack = require('webpack');
@@ -31,9 +33,9 @@ const paths = require('../config/paths');
 const config = require('../config/webpack.config.dev');
 const createDevServerConfig = require('../config/webpackDevServer');
 
-const isInteractive = process.stdout.isTTY;
 const args = process.argv.slice(2);
-const isHeadless = args[0] && args[0] === 'headless';
+const isInteractive = process.stdout.isTTY;
+const isAutomationTest = args[0] && args[0] === 'automation';
 
 // Warn and crash if required files are missing
 if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
@@ -76,6 +78,22 @@ choosePort(HOST, DEFAULT_PORT)
       const now = new Date();
       console.log(chalk.yellow(`Duration: ${dateFns.differenceInSeconds(now, start)}s - ${compilation.hash}`));
 
+      if (isAutomationTest) {
+        const cypress = spawn(path.join(__dirname, '../node_modules/.bin/cypress'), ['run']);
+
+        cypress.stdout.on('data', (data) => {
+          process.stdout.write(data.toString());
+        });
+
+        cypress.stderr.on('data', (data) => {
+          process.stdout.write(data.toString());
+        });
+
+        cypress.on('close', () => {
+          process.exit(0);
+        });
+      }
+
       callback();
     });
 
@@ -91,10 +109,11 @@ choosePort(HOST, DEFAULT_PORT)
         clearConsole();
       }
 
-      if (!isHeadless) {
+      console.log(chalk.cyan('Starting the development server...'));
+
+      if (!isAutomationTest) {
         openBrowser(urls.localUrlForBrowser);
       }
-      console.log(chalk.cyan('Starting the development server...'));
     });
 
     ['SIGINT', 'SIGTERM'].forEach(function(sig) {
