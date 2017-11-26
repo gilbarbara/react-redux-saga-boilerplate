@@ -28,6 +28,10 @@ $headings-font-weight: 700;
 
 $body-bg: #fff;
 
+$theme-colors: (
+  'primary':    $app-color,
+);
+
 $btn-border-radius-sm: 2rem;
 $input-btn-padding-x-sm: 2rem;
 $input-btn-padding-y-sm: 0.6rem;
