@@ -63,12 +63,27 @@ module.exports = merge.smart(webpackConfig, {
     }),
     new OfflinePlugin({
       autoUpdate: true,
+      safeToUseOptionalCaches: true,
       ServiceWorker: {
         events: true,
       },
       AppCache: {
         events: true,
-        caches: ['main', 'additional', 'optional'],
+      },
+      caches: {
+        main: [
+          '**/*.js',
+          '**/*.css',
+          'index.html',
+        ],
+        additional: [
+          'fonts/*.woff',
+          'fonts/*.ttf',
+          'fonts/*.svg',
+        ],
+        optional: [
+          ':rest:',
+        ],
       },
       cacheMaps: [
         {

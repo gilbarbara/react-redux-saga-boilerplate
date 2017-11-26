@@ -19,7 +19,16 @@ import '../styles/main.scss';
 
 /* istanbul ignore next */
 if (process.env.NODE_ENV === 'production') {
-  require('offline-plugin/runtime').install();
+  const OfflinePlugin = require('offline-plugin/runtime');
+
+  OfflinePlugin.install({
+    onUpdateReady() {
+      OfflinePlugin.applyUpdate();
+    },
+    onUpdated() {
+      window.location.reload();
+    },
+  });
 }
 
 function renderRoot(Component) {
