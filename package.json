@@ -70,8 +70,6 @@
     "dotenv": "^4.0.0",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
-    "esdoc": "^1.0.4",
-    "esdoc-es7-plugin": "^0.0.3",
     "eslint": "^4.12.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-import-resolver-webpack": "^0.8.3",
@@ -122,6 +120,7 @@
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4",
     "webpack-merge": "^4.1.1"
+    "yargs": "^10.0.3"
   },
   "scripts": {
     "start": "APP_ENV=development node tools/start.js",
@@ -136,9 +135,8 @@
     "bundlesize": "bundlesize",
     "deploy": "node tools deploy",
     "publish": "node tools publish",
-    "docs": "node tools docs",
-    "precommit": "node tools commits && npm run lint && npm run lint:styles && npm test",
-    "postmerge": "node tools update && npm update"
+    "precommit": "node tools upstream && npm run lint && npm run lint:styles && npm test",
+    "postmerge": "node tools dependencies && npm update"
   },
   "browserslist": [
     "ie >= 11",

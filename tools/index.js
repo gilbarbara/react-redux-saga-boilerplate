@@ -2,24 +2,14 @@
 const path = require('path');
 const { promisify } = require('util');
 const { exec } = require('child_process');
-const del = require('del');
+
 const chalk = require('chalk');
 const ghPages = require('gh-pages');
+const yargs = require('yargs');
 
-const execAsync = promisify(exec);
-const args = process.argv.slice(2);
+const run = promisify(exec);
 
-if (!args[0]) {
-  console.log(`Valid arguments:
-  • publish (push to github)
-  • deploy (build & publish)
-  • docs (rebuild documentation)
-  • update (if package.json has changed run \`npm update\`)
-  • commits (has new remote commits)
-  `);
-}
-
-function getCommit() {
+function getLastCommit() {
   console.log(chalk.blue('Getting the last commit...'));
   return new Promise((resolve, reject) => {
     exec('git log -1 --pretty=%s && git log -1 --pretty=%b', (err, stdout) => {
@@ -36,7 +26,7 @@ function getCommit() {
 
 function publish() {
   console.log(chalk.blue('Publishing...'));
-  getCommit()
+  getLastCommit()
     .then(commit => {
       exec('cp README.md dist/', errCopy => {
         if (errCopy) {
@@ -57,14 +47,11 @@ function publish() {
     });
 }
 
-if (args[0] === 'publish') {
-  publish();
-}
-
-if (args[0] === 'deploy') {
+function deploy() {
   const start = Date.now();
   console.log(chalk.green('Bundling...'));
-  exec('npm run build:pages', errBuild => {
+
+  return exec('npm run build:pages', errBuild => {
     if (errBuild) {
       console.log(chalk.red(errBuild));
       process.exit(1);
@@ -76,38 +63,30 @@ if (args[0] === 'deploy') {
   });
 }
 
-if (args[0] === 'docs') {
-  del(['./docs/*'])
-    .then(() => {
-      console.log(chalk.blue('Generating documentation...'));
-      return exec('./node_modules/.bin/esdoc -c config/esdoc.json ');
+function updateDependencies() {
+  return run('git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD')
+    .then(({ stdout }) => {
+      if (stdout.match('package.json')) {
+        console.log(chalk.yellow('▼ Updating...'));
+        exec('npm update').stdout.pipe(process.stdout);
+      } else {
+        console.log(chalk.green('✔ Nothing to update'));
+      }
     })
     .catch(err => {
-      console.log(chalk.red('docs:del'), err);
+      throw new Error(err);
     });
 }
 
-if (args[0] === 'update') {
-  exec('git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD', (err, stdout) => {
-    if (err) {
-      throw new Error(err);
-    }
-
-    if (stdout.match('package.json')) {
-      exec('npm update').stdout.pipe(process.stdout);
-    }
-  });
-}
-
-if (args[0] === 'commits') {
-  execAsync('git rev-parse --is-inside-work-tree')
+function checkUpstream() {
+  return run('git rev-parse --is-inside-work-tree')
     .then(() =>
-      execAsync('git remote -v update')
+      run('git remote -v update')
         .then(() => {
           Promise.all([
-            execAsync('git rev-parse @'),
-            execAsync('git rev-parse @{u}'),
-            execAsync('git merge-base @ @{u}'),
+            run('git rev-parse @'),
+            run('git rev-parse @{u}'),
+            run('git merge-base @ @{u}'),
           ])
             .then(([
               { stdout: $local },
@@ -138,3 +117,41 @@ if (args[0] === 'commits') {
       console.log('not under git');
     });
 }
+
+module.exports = yargs
+  .command({
+    command: 'publish',
+    desc: 'publish last build to pages',
+    handler: publish,
+  })
+  .command({
+    command: 'deploy',
+    desc: 'build and publish to pages',
+    handler: deploy,
+  })
+  .command({
+    command: 'upstream',
+    desc: 'has new remote commits',
+    handler: checkUpstream,
+  })
+  .command({
+    command: 'dependencies',
+    desc: 'run `npm update` if package.json has changed',
+    handler: updateDependencies,
+  })
+  .demandCommand()
+  .help()
+  .wrap(72)
+  .version(false)
+  .strict()
+  .fail((msg, err, instance) => {
+    if (err) {
+      throw new Error(err);
+    }
+
+    console.error(`${chalk.red(msg)}
+    `);
+    console.log(instance.help());
+    process.exit(1);
+  })
+  .argv;
