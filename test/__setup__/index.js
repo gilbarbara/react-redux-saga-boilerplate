@@ -5,21 +5,6 @@ import 'vendor/polyfills';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-Object.defineProperty(window.location, 'href', {
-  writable: true,
-  value: 'http://localhost:3000/',
-});
-
-Object.defineProperty(window.location, 'pathname', {
-  writable: true,
-  value: '/',
-});
-
-Object.defineProperty(window.location, 'search', {
-  writable: true,
-  value: '',
-});
-
 const react = document.createElement('div');
 react.id = 'react';
 react.style.height = '100vh';
@@ -48,3 +33,18 @@ global.getSaga = (sagas, action) =>
     .filter(d => d.FORK.args[0] === action)
     .map(d => d.FORK.args[1])
     .reduce((acc, d) => d);
+
+global.navigate = (options) => {
+  const { pathname = location.pathname, search, hash } = options;
+  let url = `${location.protocol}//${location.host}${pathname}`;
+
+  if (search) {
+    url += `?${search}`;
+  }
+
+  if (hash) {
+    url += `#${hash}`;
+  }
+
+  jsdom.reconfigure({ url });
+};

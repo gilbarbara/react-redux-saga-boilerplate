@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-
 import NotFound from 'routes/NotFound';
 
 function setup() {
@@ -17,5 +16,12 @@ describe('NotFound', () => {
 
   it('should render properly', () => {
     expect(wrapper.html()).toMatchSnapshot();
+  });
+
+  it('should redirect to home', () => {
+    navigate({ pathname: '/some-page' });
+
+    wrapper.find('Link').simulate('click');
+    expect(location.pathname).toBe('/');
   });
 });

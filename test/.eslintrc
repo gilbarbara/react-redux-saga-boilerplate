@@ -1,7 +1,8 @@
 {
   "globals": {
-    "getAction": true,
-    "getSaga": true
+    "getSaga": true,
+    "jsdom": false,
+    "navigate": true
   },
   "rules": {
     "no-console": 0,

@@ -20,9 +20,11 @@ export const Link = (props) => {
       style={style}
       onClick={e => {
         e.preventDefault();
-        const [pathname, search] = e.currentTarget.getAttribute('href').split('?');
-        location.pathname = pathname;
-        location.search = search ? `?${search}` : '';
+
+        jsdom.reconfigure({
+          url: e.currentTarget.href,
+        });
+
         if (typeof onClick === 'function') {
           onClick(e);
         }
