@@ -1,6 +1,6 @@
 import 'isomorphic-fetch';
 import nock from 'nock';
-import { parseError, request, ServerError } from 'modules/connect';
+import { parseError, request, ServerError } from 'modules/client';
 
 describe('connect', () => {
   describe('request', () => {

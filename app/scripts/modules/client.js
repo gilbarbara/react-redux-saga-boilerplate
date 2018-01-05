@@ -1,7 +1,7 @@
 // @flow
 /**
- * Connect
- * @module Connect
+ * Client
+ * @module Client
  */
 
 export class ServerError extends Error {

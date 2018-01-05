@@ -2,7 +2,6 @@ import {
   createReducer,
   createRequestTypes,
   datasetToObject,
-  ServerError,
 } from 'modules/helpers';
 
 describe('helpers', () => {

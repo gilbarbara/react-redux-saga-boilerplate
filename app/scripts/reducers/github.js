@@ -1,6 +1,6 @@
 import immutable from 'immutability-helper';
 import { createReducer } from 'modules/helpers';
-import { parseError } from 'modules/connect';
+import { parseError } from 'modules/client';
 
 import { ActionTypes } from 'constants/index';
 
