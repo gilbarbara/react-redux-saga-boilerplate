@@ -14,7 +14,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 const reducer = persistReducer(
   {
-    key: 'septt', // key is required
+    key: 'rrsb', // key is required
     storage, // storage is now required
     whitelist: ['app', 'user'],
   },
