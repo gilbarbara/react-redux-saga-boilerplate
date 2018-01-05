@@ -1,5 +1,4 @@
 import { applyMiddleware, createStore, compose, combineReducers } from 'redux';
-import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 
@@ -26,7 +25,6 @@ const reducer = persistReducer(
 
 
 const middleware = [
-  thunk,
   sagaMiddleware,
   routerMiddleware(history),
 ];

@@ -36,7 +36,6 @@
     "redux": "^3.7.2",
     "redux-persist": "^5.4.0",
     "redux-saga": "^0.16.0",
-    "redux-thunk": "^2.2.0",
     "sass-mediaqueries": "^1.6.1",
     "scroll": "^2.0.1",
     "scroll-doc": "^0.2.1",
