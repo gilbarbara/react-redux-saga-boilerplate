@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class=""
-  <% if(htmlWebpackPlugin.files.manifest) { %>
-      manifest="<%= htmlWebpackPlugin.files.manifest %>"
-  <% } %>
->
+<html lang="en"<% if(htmlWebpackPlugin.files.manifest) { %> manifest="<%= htmlWebpackPlugin.files.manifest %>"<% } %>>
 <head>
   <meta charset="utf-8">
   <title><%= htmlWebpackPlugin.options.title || 'Webpack App' %></title>
@@ -13,24 +9,21 @@
   <meta property="og:description" content="Provides: react ^16.x, react-router ^4.x, redux ^3.x, redux-saga ^0.16" />
   <meta property="og:image" content="https://gilbarbara.github.io/react-redux-saga-boilerplate/media/og-image-v1.png" />
   <meta property="og:type" content="website" />
-  <% require('assets/media/images/og-image-v1.png') %>
-  <link rel="shortcut icon" href="<%- require('assets/media/icons/favicon.ico') %>">
-  <% for (var css in htmlWebpackPlugin.files.css) { %>
-  <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
-  <% } %>
+  <link rel="manifest" href="<%- require('assets/manifest.json') %>">
+  <meta name="theme-color" content="#000000">
   <meta name="apple-mobile-web-app-title" content="React-Redux-Saga">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="#333333">
-  <link rel="apple-touch-icon" sizes="180x180" href="<%- require('assets/media/icons/apple-touch-icon.png') %>">
-  <link rel="icon" type="image/png" href="<%- require('assets/media/icons/favicon-32x32.png') %>" sizes="32x32">
+  <link rel="shortcut icon" href="<%- require('assets/media/icons/favicon.ico') %>">
   <link rel="icon" type="image/png" href="<%- require('assets/media/icons/favicon-16x16.png') %>" sizes="16x16">
-  <link rel="manifest" href="<%- require('assets/manifest.json') %>">
+  <link rel="icon" type="image/png" href="<%- require('assets/media/icons/favicon-32x32.png') %>" sizes="32x32">
+  <link rel="apple-touch-icon" sizes="180x180" href="<%- require('assets/media/icons/apple-touch-icon.png') %>">
+  <link rel="mask-icon" href="<%- require('assets/media/icons/safari-pinned-tab.svg') %>" color="#5bbad5">
   <% require('assets/media/icons/icon-96x96.png') %>
   <% require('assets/media/icons/icon-144x144.png') %>
   <% require('assets/media/icons/icon-192x192.png') %>
   <% require('assets/media/icons/icon-512x512.png') %>
-  <link rel="mask-icon" href="<%- require('assets/media/icons/safari-pinned-tab.svg') %>" color="#5bbad5">
-  <meta name="theme-color" content="#000000">
+  <% require('assets/media/images/og-image-v1.png') %>
   <% if (htmlWebpackPlugin.options.baseHref) { %>
   <base href="<%= htmlWebpackPlugin.options.baseHref %>" />
   <script type="text/javascript">
@@ -320,6 +313,26 @@
   <% } %>
 </script>
 <% } %>
+
+<script>
+  var cb = function() {
+    var l = document.createElement('link');
+    l.rel = 'stylesheet';
+    l.href = '<%= htmlWebpackPlugin.files.css[0] %>';
+    var h = document.getElementsByTagName('head')[0];
+    h.parentNode.insertBefore(l, h);
+  };
+  var raf = window.requestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.msRequestAnimationFrame;
+  if (raf) {
+    raf(cb);
+  }
+  else {
+    window.addEventListener('load', cb);
+  }
+</script>
 
 <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
 <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
