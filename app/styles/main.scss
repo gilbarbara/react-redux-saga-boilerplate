@@ -1,11 +1,10 @@
-// *** Vendor
+// *** Node modules
 @import '~sass-mediaqueries/media-queries';
 
-// *** Base
-@import 'variables/common';
+// *** Variables
+@import 'variables/app';
 @import 'variables/bootstrap';
 @import 'variables/typography';
-@import 'modules/icons';
 
 // *** Utilities
 @import 'utilities/functions';
@@ -15,14 +14,15 @@
 // *** Vendor
 @import 'vendor/bootstrap';
 
+// *** Layout
+@import 'layout/root';
+@import 'layout/app';
+
 // *** Modules
 @import 'modules/animations';
 @import 'modules/buttons';
+@import 'modules/icons';
 @import 'modules/transitions';
-
-// *** Layout
-@import 'layout/global';
-@import 'layout/app';
 
 // *** Components
 @import 'components/alert';
