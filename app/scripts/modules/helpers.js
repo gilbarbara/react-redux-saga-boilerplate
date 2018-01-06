@@ -26,7 +26,7 @@ export function createReducer(initialState: Object, handlers: Object): Function 
  * @param {string} base
  * @returns {Object}
  */
-export function createRequestTypes(base:string): Object {
+export function createRequestTypes(base: string): Object {
   return ['REQUEST', 'SUCCESS', 'FAILURE'].reduce((acc, type) => {
     acc[type] = `${base}_${type}`;
     return acc;

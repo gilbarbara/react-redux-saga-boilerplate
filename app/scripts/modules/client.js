@@ -79,7 +79,8 @@ export function request(url: string, options: Object = {}): Promise<*> {
             status: response.status,
             data: await response.json(),
           };
-        } else {
+        }
+        else {
           error.response = {
             status: response.status,
             data: await response.text(),
@@ -87,7 +88,8 @@ export function request(url: string, options: Object = {}): Promise<*> {
         }
 
         throw error;
-      } else {
+      }
+      else {
         const contentType = response.headers.get('content-type');
         if (contentType && contentType.includes('application/json')) {
           return response.json();

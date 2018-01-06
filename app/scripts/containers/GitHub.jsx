@@ -69,7 +69,8 @@ export class GitHub extends React.Component {
           ))}
         </ul>
       );
-    } else {
+    }
+    else {
       output = <Loader />;
     }
 

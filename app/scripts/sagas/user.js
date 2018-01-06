@@ -18,7 +18,8 @@ export function* login() {
     yield put({
       type: ActionTypes.USER_LOGIN_SUCCESS,
     });
-  } catch (err) {
+  }
+  catch (err) {
     /* istanbul ignore next */
     yield put({
       type: ActionTypes.USER_LOGIN_FAILURE,
@@ -37,7 +38,8 @@ export function* logout() {
     yield put({
       type: ActionTypes.USER_LOGOUT_SUCCESS,
     });
-  } catch (err) {
+  }
+  catch (err) {
     /* istanbul ignore next */
     yield put({
       type: ActionTypes.USER_LOGOUT_FAILURE,

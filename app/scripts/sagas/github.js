@@ -21,7 +21,8 @@ export function* getRepos({ payload }) {
       type: ActionTypes.GITHUB_GET_REPOS_SUCCESS,
       payload: { data: response.items },
     });
-  } catch (err) {
+  }
+  catch (err) {
     /* istanbul ignore next */
     yield put({
       type: ActionTypes.GITHUB_GET_REPOS_FAILURE,
