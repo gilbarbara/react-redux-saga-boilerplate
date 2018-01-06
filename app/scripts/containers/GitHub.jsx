@@ -51,7 +51,7 @@ export class GitHub extends React.Component {
     const { github } = this.props;
     let output;
 
-    if (github.repos.data[query] && github.repos.data[query].status === 'loaded') {
+    if (github.repos.data[query] && github.repos.status === 'loaded') {
       output = (
         <ul className={`app__github__grid app__github__grid--${query}`}>
           {github.repos.data[query].map(d => (
