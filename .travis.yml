@@ -10,7 +10,7 @@ before_script:
   - ./cc-test-reporter before-build
 script:
   - npm run test
-  - npm run test:automation
+  - npm run test:automation:start
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 addons:
