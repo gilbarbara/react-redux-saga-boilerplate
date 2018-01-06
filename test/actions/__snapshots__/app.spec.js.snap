@@ -1,23 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App goTo should return an action to navigate with react-router 1`] = `
-Array [
-  Object {
-    "payload": Object {
-      "args": Array [
-        Object {
-          "pathname": "/destination",
-          "search": undefined,
-          "state": undefined,
-        },
-      ],
-      "method": "push",
-    },
-    "type": "@@router/CALL_HISTORY_METHOD",
-  },
-]
-`;
-
 exports[`App hideAlert should return an action 1`] = `
 Object {
   "payload": Object {

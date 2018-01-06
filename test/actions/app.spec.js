@@ -1,10 +1,6 @@
-import { goTo, hideAlert, showAlert } from 'actions/app';
+import { hideAlert, showAlert } from 'actions/app';
 
 describe('App', () => {
-  it('goTo should return an action to navigate with react-router', () => {
-    expect([goTo('/destination')]).toMatchSnapshot();
-  });
-
   it('showAlert with type `error` should return an action', () => {
     expect(showAlert('Alright!', { id: 'test', type: 'error' })).toMatchSnapshot();
   });

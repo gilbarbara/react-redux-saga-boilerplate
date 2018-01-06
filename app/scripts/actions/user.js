@@ -1,8 +1,8 @@
+// @flow
 /**
  * @module Actions/User
  * @desc User Actions
  */
-
 import { ActionTypes } from 'constants/index';
 
 /**
@@ -10,9 +10,10 @@ import { ActionTypes } from 'constants/index';
  *
  * @returns {Object}
  */
-export function login() {
+export function login(): Object {
   return {
     type: ActionTypes.USER_LOGIN_REQUEST,
+    payload: {},
   };
 }
 
@@ -21,8 +22,9 @@ export function login() {
  *
  * @returns {Object}
  */
-export function logOut() {
+export function logOut(): Object {
   return {
     type: ActionTypes.USER_LOGOUT_REQUEST,
+    payload: {},
   };
 }

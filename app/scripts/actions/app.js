@@ -1,34 +1,17 @@
+// @flow
 /**
  * @module Actions/App
  * @desc App Actions
  */
-
-import { push } from 'react-router-redux';
+import { go, goBack, push, replace } from 'react-router-redux';
 import uuid from 'uuid/v4';
 
 import { ActionTypes } from 'constants/index';
 
-/**
- * Change route path.
- *
- * @param {string} pathname
- * @param {Object} [options]
- * @param {string} [options.param]
- * @param {string} [options.query]
- * @param {Object} [options.state]
- *
- * @returns {function}
- */
-export function goTo(pathname, options = {}) {
-  return push({
-    pathname,
-    search: options.search,
-    state: options.state,
-  });
-}
+export { go, goBack, push, replace };
 
 /**
- * Hide message.
+ * Hide alert.
  *
  * @param {string} id
  * @returns {Object}
@@ -41,7 +24,7 @@ export function hideAlert(id: string): Object {
 }
 
 /**
- * Show a message.
+ * Show an alert.
  *
  * @param {string} message
  * @param {Object} options

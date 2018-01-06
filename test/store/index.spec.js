@@ -12,13 +12,13 @@ describe('store', () => {
           data: {},
           message: '',
           query: '',
-          state: 'idle',
+          status: 'idle',
         },
       },
       router: { location: null },
       user: {
         isAuthenticated: false,
-        isRunning: false,
+        status: 'idle',
       },
     });
   });

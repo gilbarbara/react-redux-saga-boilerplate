@@ -28,6 +28,9 @@ describe('Home', () => {
 
   it('should handle clicks', () => {
     wrapper.find('.btn').simulate('click');
-    expect(mockDispatch.mock.calls[0][0]).toEqual({ type: 'USER_LOGIN_REQUEST' });
+    expect(mockDispatch.mock.calls[0][0]).toEqual({
+      type: 'USER_LOGIN_REQUEST',
+      payload: {},
+    });
   });
 });

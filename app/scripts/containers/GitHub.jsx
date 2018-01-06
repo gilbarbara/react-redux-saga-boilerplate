@@ -28,7 +28,7 @@ export class GitHub extends React.Component {
     const { dispatch, github: { repos } } = this.props;
     const { github: { repos: nextRepos } } = nextProps;
 
-    if (repos.state === 'running' && nextRepos.state === 'error') {
+    if (repos.status === 'running' && nextRepos.status === 'error') {
       dispatch(showAlert(nextRepos.message, { type: 'error' }));
     }
   }
@@ -51,7 +51,7 @@ export class GitHub extends React.Component {
     const { github } = this.props;
     let output;
 
-    if (github.repos.data[query] && github.repos.data[query].length) {
+    if (github.repos.data[query] && github.repos.data[query].status === 'loaded') {
       output = (
         <ul className={`app__github__grid app__github__grid--${query}`}>
           {github.repos.data[query].map(d => (
@@ -82,7 +82,7 @@ export class GitHub extends React.Component {
               className={cx('btn', {
                 'btn-primary': query === 'react',
                 'btn-outline-primary': query !== 'react',
-                'btn-loading': query === 'react' && github.repos.isRunning,
+                'btn-loading': query === 'react' && github.repos.status === 'running',
               })}
               data-query="react"
               onClick={this.handleClick}
@@ -94,7 +94,7 @@ export class GitHub extends React.Component {
               className={cx('btn', {
                 'btn-primary': query === 'redux',
                 'btn-outline-primary': query !== 'redux',
-                'btn-loading': query === 'redux' && github.repos.isRunning,
+                'btn-loading': query === 'redux' && github.repos.status === 'running',
               })}
               data-query="redux"
               onClick={this.handleClick}

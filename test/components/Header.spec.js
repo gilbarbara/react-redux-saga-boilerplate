@@ -30,7 +30,10 @@ describe('Header', () => {
 
   it('should handle clicks', () => {
     wrapper.find('.app__logout').simulate('click');
-    expect(mockDispatch.mock.calls[0][0]).toEqual({ type: 'USER_LOGOUT_REQUEST' });
+    expect(mockDispatch.mock.calls[0][0]).toEqual({
+      type: 'USER_LOGOUT_REQUEST',
+      payload: {},
+    });
   });
 });
 

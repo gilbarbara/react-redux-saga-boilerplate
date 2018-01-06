@@ -10,6 +10,7 @@ import RoutePublic from 'modules/RoutePublic';
 import RoutePrivate from 'modules/RoutePrivate';
 
 import config from 'config';
+import { showAlert } from 'actions';
 
 import Home from 'routes/Home';
 import Private from 'routes/Private';
@@ -18,8 +19,6 @@ import NotFound from 'routes/NotFound';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import SystemAlerts from 'components/SystemAlerts';
-
-import { showAlert } from 'actions';
 
 export class App extends React.Component {
   static propTypes = {

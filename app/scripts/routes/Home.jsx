@@ -35,7 +35,7 @@ export class Home extends React.PureComponent {
               href="#login"
               onClick={this.handleClickLogin}
               className={cx('btn btn-lg btn-primary btn-icon', {
-                'btn-loading': user.isRunning,
+                'btn-loading': user.status === 'running',
               })}
             >
               <i className="i-sign-in" />

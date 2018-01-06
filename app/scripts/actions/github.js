@@ -3,7 +3,6 @@
  * @module Actions/User
  * @desc User Actions
  */
-
 import { ActionTypes } from 'constants/index';
 
 /**

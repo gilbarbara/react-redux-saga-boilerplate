@@ -6,7 +6,7 @@ Object {
     "data": Object {},
     "message": "Something went wrong",
     "query": "",
-    "state": "error",
+    "status": "error",
   },
 }
 `;
@@ -19,7 +19,7 @@ Object {
     },
     "message": "",
     "query": undefined,
-    "state": "running",
+    "status": "running",
   },
 }
 `;
@@ -32,7 +32,7 @@ Object {
     },
     "message": "",
     "query": "",
-    "state": "loaded",
+    "status": "loaded",
   },
 }
 `;
@@ -43,7 +43,7 @@ Object {
     "data": Object {},
     "message": "",
     "query": "",
-    "state": "idle",
+    "status": "idle",
   },
 }
 `;

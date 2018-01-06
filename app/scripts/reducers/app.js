@@ -1,6 +1,7 @@
 import immutable from 'immutability-helper';
 import { REHYDRATE } from 'redux-persist/lib/constants';
 import { createReducer } from 'modules/helpers';
+
 import { ActionTypes } from 'constants/index';
 
 export const appState = {

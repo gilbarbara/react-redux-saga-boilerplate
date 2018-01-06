@@ -1,5 +1,5 @@
 import reducer from 'reducers/app';
-import * as Actions from 'actions';
+import { hideAlert, showAlert } from 'actions/app';
 import { ActionTypes } from 'constants/index';
 
 describe('App', () => {
@@ -10,12 +10,12 @@ describe('App', () => {
   });
 
   it(`should handle ${ActionTypes.SHOW_ALERT}`, () => {
-    app = reducer.app(app, Actions.showAlert('HELLO', { id: 'test', type: 'success' }));
+    app = reducer.app(app, showAlert('HELLO', { id: 'test', type: 'success' }));
     expect(app).toMatchSnapshot();
   });
 
   it(`should handle ${ActionTypes.HIDE_ALERT}`, () => {
-    app = reducer.app(app, Actions.hideAlert('test'));
+    app = reducer.app(app, hideAlert('test'));
     expect(app).toMatchSnapshot();
   });
 });

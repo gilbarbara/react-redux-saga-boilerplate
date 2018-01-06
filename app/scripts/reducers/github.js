@@ -7,7 +7,7 @@ import { ActionTypes } from 'constants/index';
 export const githubState = {
   repos: {
     data: {},
-    state: 'idle',
+    status: 'idle',
     message: '',
     query: '',
   },
@@ -25,7 +25,7 @@ export default {
           },
           message: { $set: '' },
           query: { $set: payload.query },
-          state: { $set: 'running' },
+          status: { $set: 'running' },
         },
       });
     },
@@ -35,15 +35,15 @@ export default {
           data: {
             [state.repos.query]: { $set: payload.data || [] },
           },
-          state: { $set: 'loaded' },
+          status: { $set: 'loaded' },
         },
       });
     },
     [ActionTypes.GITHUB_GET_REPOS_FAILURE](state, { payload }) {
       return immutable(state, {
         repos: {
-          state: { $set: 'error' },
           message: { $set: parseError(payload.message) },
+          status: { $set: 'error' },
         },
       });
     },

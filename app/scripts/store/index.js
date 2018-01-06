@@ -1,12 +1,11 @@
 import { applyMiddleware, createStore, compose, combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
-
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import history from 'modules/history';
-import rootSagas from 'sagas';
+import rootSaga from 'sagas';
 import rootReducer from 'reducers';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -44,7 +43,7 @@ const configStore = (initialState = {}) => {
 
   const store = createStoreWithMiddleware(reducer, initialState);
 
-  sagaMiddleware.run(rootSagas);
+  sagaMiddleware.run(rootSaga);
 
   if (module.hot) {
     module.hot.accept('reducers', () => {
