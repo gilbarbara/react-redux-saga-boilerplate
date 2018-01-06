@@ -23,13 +23,14 @@ React-Redux-Saga Boilerplate
 
 ### Development
 - webpack-dev-server ^2.x
-- react-hot-loader ^3.x
+- react-dev-utils ^4.x
 - react-error-overlay ^3.x
+- react-hot-loader ^3.x
 
 `npm start`
 
 ### Tests
-- jest ^21.x
+- jest ^22.x
 - enzyme ^3.x
 
 `npm test` or `npm run test:watch`
@@ -39,4 +40,3 @@ React-Redux-Saga Boilerplate
 
 `cypress run` (with dev-server already running)  
 `npm run test:automation` (start dev-server, run tests and exit)
-

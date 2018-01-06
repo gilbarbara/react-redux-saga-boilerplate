@@ -3,7 +3,7 @@
     [
       "env", {
       "targets": {
-        "browsers": ["last 2 versions"]
+        "browsers": ["last 2 versions", "safari >= 8", "ios >= 8"]
       },
       "modules": false
     }
@@ -25,7 +25,8 @@
       "plugins": [
         "lodash",
         "array-includes",
-        "transform-flow-strip-types"
+        "transform-flow-strip-types",
+        "transform-object-assign"
       ]
     },
     "development": {

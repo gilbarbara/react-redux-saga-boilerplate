@@ -30,3 +30,5 @@ exclude_paths:
   - dist/**/*
   - documentation/**/*
   - node_modules/**/*
+  - test/**/*
+  
