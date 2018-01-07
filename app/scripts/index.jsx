@@ -31,6 +31,7 @@ export const init = {
 
     this.initOfflinePlugin();
 
+    /* istanbul ignore next */
     return Promise
       .all([this.loadCSS()])
       .then(() => this.render(App))
@@ -43,6 +44,7 @@ export const init = {
       });
   },
   loadCSS() {
+    /* istanbul ignore next */
     return new Promise(resolve => {
       this.retryCSS = () => {
         if (this.isCSSLoaded() || this.cssRetries > 2) {
@@ -62,6 +64,7 @@ export const init = {
   initOfflinePlugin() {
     const OfflinePlugin = require('offline-plugin/runtime');
 
+    /* istanbul ignore next */
     OfflinePlugin.install({
       onUpdateReady: () => {
         OfflinePlugin.applyUpdate();
@@ -81,6 +84,7 @@ export const init = {
   isCSSLoaded() {
     const styles = document.styleSheets;
 
+    /* istanbul ignore next */
     try {
       for (let i = 0; i < styles.length; i++) {
         if (styles[i].href && styles[i].href.match('app.*.css')) {
