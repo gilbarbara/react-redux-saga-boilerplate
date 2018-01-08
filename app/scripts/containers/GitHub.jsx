@@ -54,19 +54,21 @@ export class GitHub extends React.Component {
     if (github.repos.data[query] && github.repos.status === 'loaded') {
       output = (
         <ul className={`app__github__grid app__github__grid--${query}`}>
-          {github.repos.data[query].map(d => (
-            <li key={d.id}>
-              <div className="app__github__item">
-                <img src={d.owner.avatar_url} alt={d.owner.login} />
-                <div>
-                  <h5>
-                    <a href={d.html_url} target="_blank">{d.owner.login}/{d.name}</a>
-                  </h5>
-                  <div>{d.description}</div>
+          {github.repos.data[query]
+            .map(d => (
+              <li key={d.id}>
+                <div className="app__github__item">
+                  <img src={d.owner.avatar_url} alt={d.owner.login} />
+                  <div>
+                    <h5>
+                      <a href={d.html_url} target="_blank">{d.name}</a>
+                      <small>{d.owner.login}</small>
+                    </h5>
+                    <div>{d.description}</div>
+                  </div>
                 </div>
-              </div>
-            </li>
-          ))}
+              </li>
+            ))}
         </ul>
       );
     }

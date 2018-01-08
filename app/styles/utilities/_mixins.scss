@@ -64,36 +64,26 @@ $position: left) {
 }
 
 @mixin app-container($opts: ()) {
-  $defaults: (
-    xs: $grid-gutter-width / 2,
-    ix: $grid-gutter-width / 2,
-    sm: $grid-gutter-width / 2,
-    md: $grid-gutter-width,
-    im: $grid-gutter-width,
-    lg: $grid-gutter-width * 1.5,
-    xl: $grid-gutter-width * 2,
-    xxl: $grid-gutter-width * 2
-  );
-
   margin-left: auto;
   margin-right: auto;
 
-  @each $size, $value in $defaults {
+  @each $size, $value in $grid-breakpoints-padding {
     $opt: map-get($opts, $size);
     $padding: if($opt, $opt, $value);
-
-    @include min-screen(breakpoint-min($size)) {
-      padding-left: $padding;
-      padding-right: $padding;
-
-      @if ($size == xl) {
-        max-width: 1440px;
-      }
-    }
 
     @if ($size == xs) {
       padding-left: $padding;
       padding-right: $padding;
+    }
+    @else {
+      @include min-screen(breakpoint-min($size)) {
+        padding-left: $padding;
+        padding-right: $padding;
+
+        @if ($size == xl) {
+          max-width: 1440px;
+        }
+      }
     }
   }
 }

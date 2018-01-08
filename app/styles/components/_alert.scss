@@ -134,4 +134,20 @@
       }
     }
   }
+
+  &.is-primary {
+    border-color: $primary;
+
+    .app__alert__icon {
+      background-color: $primary;
+    }
+
+    .app__alert__content {
+      color: $primary;
+
+      a {
+        color: $primary;
+      }
+    }
+  }
 }

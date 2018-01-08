@@ -13,6 +13,16 @@ $grid-breakpoints: (
 );
 /* stylelint-enable */
 
+$grid-breakpoints-padding: (
+  xs: $grid-gutter-width / 2,
+  ix: $grid-gutter-width / 2,
+  sm: $grid-gutter-width / 2,
+  md: $grid-gutter-width,
+  lg: $grid-gutter-width,
+  xl: $grid-gutter-width * 2,
+  xxl: $grid-gutter-width * 2,
+);
+
 $container-max-widths: (
   ix: 40rem,
   sm: 54rem,

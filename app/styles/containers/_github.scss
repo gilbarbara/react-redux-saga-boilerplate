@@ -2,38 +2,63 @@
   &__selector {
     margin: ($grid-gutter-width / 2) 0;
     text-align: center;
+
+    @include lg {
+      margin-bottom: $grid-gutter-width;
+    }
   }
 
   &__grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-auto-flow: row;
+    grid-gap: $grid-gutter-width / 3;
+    grid-template-columns: 100%;
     list-style: none;
     margin: 0;
     padding: 0;
 
+    @include sm {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include lg {
+      grid-gap: $grid-gutter-width / 2;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include xl {
+      grid-gap: $grid-gutter-width;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
     > li {
       display: flex;
-      padding: $grid-gutter-width / 6;
-      width: 100%;
-
-      @include md {
-        width: 50%;
-      }
     }
   }
 
   &__item {
-    align-items: flex-start;
+    align-items: center;
     border: solid 0.1rem $app-color;
     border-radius: 0.4rem;
     display: flex;
-    flex: 1;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-start;
     overflow: hidden;
-    padding: $grid-gutter-width / 6;
+    padding: $grid-gutter-width / 3;
+    text-align: center;
+    width: 100%;
+
+    @include md {
+      padding: $grid-gutter-width / 2;
+    }
+
+    @include lg {
+      padding: $grid-gutter-width;
+    }
 
     img {
-      max-width: 8rem;
+      height: 8rem;
+      margin-bottom: $grid-gutter-width / 2;
     }
 
     > div {
@@ -41,8 +66,21 @@
       margin-left: $grid-gutter-width / 2;
     }
 
-    h5 a {
-      @include truncate();
+    h5 {
+      line-height: 1;
+      margin-bottom: $grid-gutter-width / 3;
+
+      @include ix-only {
+        font-size: $font-size-base;
+      }
+
+      a {
+        display: block;
+      }
+
+      small {
+        color: $gray-600;
+      }
     }
   }
 
