@@ -32,7 +32,7 @@ function deploy() {
   const start = Date.now();
   console.log(chalk.green('Bundling...'));
 
-  return exec('npm run build:pages', errBuild => {
+  return exec('npm run build', errBuild => {
     if (errBuild) {
       console.log(chalk.red(errBuild));
       process.exit(1);
@@ -104,12 +104,12 @@ function checkUpstream() {
 module.exports = yargs
   .command({
     command: 'publish',
-    desc: 'publish last build to pages',
+    desc: 'publish last build',
     handler: publish,
   })
   .command({
     command: 'deploy',
-    desc: 'build and publish to pages',
+    desc: 'build and publish',
     handler: deploy,
   })
   .command({
