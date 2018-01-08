@@ -18,7 +18,8 @@
   },
   "plugins": [
     "babel",
-    "flowtype"
+    "flowtype",
+    "redux-saga"
   ],
   "settings": {
     "import/resolver": {
@@ -189,6 +190,8 @@
           ]
         }
       }
-    ]
+    ],
+    "redux-saga/no-yield-in-race": "error",
+    "redux-saga/yield-effects": "error"
   }
 }
