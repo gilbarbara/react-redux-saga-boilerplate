@@ -9,7 +9,7 @@ const paths = require('./paths');
 
 const NPMPackage = require(paths.packageJson);
 
-const { APP_ENV, NODE_ENV } = process.env;
+const { NODE_ENV } = process.env;
 const isProd = process.env.NODE_ENV === 'production';
 
 const gitInfoPlugin = new GitInfoPlugin({
@@ -71,7 +71,6 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     gitInfoPlugin,
     new webpack.DefinePlugin({
-      'process.env.APP_ENV': JSON.stringify(APP_ENV || 'staging'),
       'process.env.NODE_ENV': JSON.stringify(NODE_ENV || 'development'),
       APP__BRANCH: JSON.stringify(gitInfoPlugin.branch()),
       APP__BUILD_DATE: JSON.stringify(dateFns.format(new Date(), 'DD/MM/YYYY')),

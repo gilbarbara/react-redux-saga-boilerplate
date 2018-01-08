@@ -2,13 +2,7 @@
 import createHistory from 'history/createBrowserHistory';
 import qs from 'qs';
 
-let basename = '/';
-/* istanbul ignore next */
-if (process.env.APP_ENV === 'pages') {
-  basename = '/react-redux-saga-boilerplate/';
-}
-
-const history = createHistory({ basename });
+const history = createHistory();
 
 history.location = {
   ...history.location,

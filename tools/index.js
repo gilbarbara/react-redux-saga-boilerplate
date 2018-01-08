@@ -1,50 +1,31 @@
 /*eslint-disable no-var, vars-on-top, no-console */
-const path = require('path');
 const { promisify } = require('util');
 const { exec } = require('child_process');
-
 const chalk = require('chalk');
-const ghPages = require('gh-pages');
+const Rsync = require('rsync');
 const yargs = require('yargs');
+
+const paths = require('../config/paths');
 
 const run = promisify(exec);
 
-function getLastCommit() {
-  console.log(chalk.blue('Getting the last commit...'));
-  return new Promise((resolve, reject) => {
-    exec('git log -1 --pretty=%s && git log -1 --pretty=%b', (err, stdout) => {
-      if (err) {
-        return reject(err);
-      }
-
-      const parts = stdout.replace('\n\n', '').split('\n');
-
-      return resolve(`${(parts[0] ? parts[0] : 'Auto-generated commit')} ${new Date().toISOString()}`);
-    });
-  });
-}
-
 function publish() {
   console.log(chalk.blue('Publishing...'));
-  getLastCommit()
-    .then(commit => {
-      exec('cp README.md dist/', errCopy => {
-        if (errCopy) {
-          console.log(errCopy);
-          return;
-        }
-        ghPages.publish(path.join(__dirname, '../dist'), {
-          message: commit,
-        }, error => {
-          if (error) {
-            console.log(chalk.red('Something went wrong...', error));
-            return;
-          }
+  const rsync = new Rsync()
+    .shell('ssh')
+    .exclude('.DS_Store')
+    .flags('az')
+    .source(`${paths.destination}/`)
+    .destination('reactboilerplate@react-boilerplate.com:/home/reactboilerplate/public_html/redux-saga');
 
-          console.log(chalk.green('Published'));
-        });
-      });
-    });
+  rsync.execute((error, code, cmd) => {
+    if (error) {
+      console.log(chalk.red('Something went wrong...', error, code, cmd));
+      process.exit(1);
+    }
+
+    console.log(chalk.green('Published'));
+  });
 }
 
 function deploy() {
@@ -69,7 +50,8 @@ function updateDependencies() {
       if (stdout.match('package.json')) {
         console.log(chalk.yellow('▼ Updating...'));
         exec('npm update').stdout.pipe(process.stdout);
-      } else {
+      }
+      else {
         console.log(chalk.green('✔ Nothing to update'));
       }
     })
@@ -95,7 +77,8 @@ function checkUpstream() {
             ]) => {
               if ($local === $remote) {
                 console.log(chalk.green('✔ Repo is up-to-date!'));
-              } else if ($local === $base) {
+              }
+              else if ($local === $base) {
                 console.log(chalk.red('⊘ Error'), 'You need to pull, there are new commits.');
                 process.exit(1);
               }
