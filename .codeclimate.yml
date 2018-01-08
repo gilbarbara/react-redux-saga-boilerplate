@@ -18,6 +18,10 @@ engines:
         enabled: false
       import/extensions:
         enabled: false
+      redux-saga/yield-effects:
+        enabled: false
+      redux-saga/no-yield-in-race:
+        enabled: false
   stylelint:
     enabled: true
 ratings:
@@ -31,4 +35,3 @@ exclude_paths:
   - documentation/**/*
   - node_modules/**/*
   - test/**/*
-  
