@@ -2,6 +2,7 @@
 const webpack = require('webpack');
 const ExtractText = require('extract-text-webpack-plugin');
 const GitInfoPlugin = require('git-info-webpack-plugin');
+const CircularDependencyPlugin = require('circular-dependency-plugin');
 const autoprefixer = require('autoprefixer');
 const dateFns = require('date-fns');
 const paths = require('./paths');
@@ -76,6 +77,11 @@ module.exports = {
       APP__BUILD_DATE: JSON.stringify(dateFns.format(new Date(), 'DD/MM/YYYY')),
       APP__GITHASH: JSON.stringify(gitInfoPlugin.hash()),
       APP__VERSION: JSON.stringify(NPMPackage.version),
+    }),
+    new CircularDependencyPlugin({
+      exclude: /node_modules/,
+      failOnError: true,
+      cwd: process.cwd(),
     }),
   ],
   module: {

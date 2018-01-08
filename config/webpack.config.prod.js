@@ -7,6 +7,7 @@ const CleanPlugin = require('clean-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 const paths = require('./paths');
 const webpackConfig = require('./webpack.config.base');
@@ -51,6 +52,7 @@ module.exports = merge.smart(webpackConfig, {
       title: NPMPackage.title,
       baseHref: APP_ENV === 'pages' ? '/react-redux-saga-boilerplate/' : '',
     }),
+    new LodashModuleReplacementPlugin(),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
       debug: false,

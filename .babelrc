@@ -26,7 +26,17 @@
         "lodash",
         "array-includes",
         "transform-flow-strip-types",
-        "transform-object-assign"
+        "transform-object-assign",
+        "transform-react-remove-prop-types",
+        [
+          "transform-imports",
+          {
+            "lodash": {
+              "transform": "lodash/${member}",
+              "preventFullImport": true
+            }
+          }
+        ]
       ]
     },
     "development": {
