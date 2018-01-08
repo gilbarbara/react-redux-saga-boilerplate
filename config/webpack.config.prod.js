@@ -14,8 +14,6 @@ const webpackConfig = require('./webpack.config.base');
 
 const NPMPackage = require(paths.packageJson);
 
-const { APP_ENV } = process.env;
-
 let GITHASH = '';
 const definePlugin = webpackConfig.plugins.find(d => d.constructor.name === 'DefinePlugin');
 if (definePlugin) {
@@ -31,14 +29,14 @@ module.exports = merge.smart(webpackConfig, {
     chunkFilename: 'scripts/[name].[git-hash].js',
     filename: '[name].[git-hash].js',
     path: paths.destination,
-    publicPath: APP_ENV === 'pages' ? '/react-redux-saga-boilerplate/' : '/',
+    publicPath: '/',
   },
   devtool: 'source-map',
   plugins: [
     new CleanPlugin(['dist'], { root: path.join(__dirname, '../') }),
     new CopyPlugin([
       { from: '../assets/manifest.json' },
-      { from: APP_ENV === 'pages' ? '../assets/404.html' : '../app/.htaccess' },
+      { from: '../app/.htaccess' },
     ]),
     new ExtractText('styles/app.[git-hash].css'),
     new HtmlPlugin({
@@ -50,7 +48,6 @@ module.exports = merge.smart(webpackConfig, {
       },
       template: './index.ejs',
       title: NPMPackage.title,
-      baseHref: APP_ENV === 'pages' ? '/react-redux-saga-boilerplate/' : '',
     }),
     new LodashModuleReplacementPlugin(),
     new webpack.LoaderOptionsPlugin({
