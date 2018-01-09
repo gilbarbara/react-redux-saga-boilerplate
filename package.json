@@ -148,7 +148,7 @@
     "deploy": "node tools deploy",
     "publish": "node tools publish",
     "precommit": "node tools upstream && npm run lint && npm run lint:styles && npm test",
-    "postmerge": "node tools dependencies && npm update"
+    "postmerge": "node tools update"
   },
   "browserslist": [
     "last 2 versions",

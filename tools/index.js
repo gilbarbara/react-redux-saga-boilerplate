@@ -45,18 +45,24 @@ function deploy() {
 }
 
 function updateDependencies() {
-  return run('git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD')
-    .then(({ stdout }) => {
-      if (stdout.match('package.json')) {
-        console.log(chalk.yellow('▼ Updating...'));
-        exec('npm update').stdout.pipe(process.stdout);
-      }
-      else {
-        console.log(chalk.green('✔ Nothing to update'));
-      }
-    })
-    .catch(err => {
-      throw new Error(err);
+  return run('git rev-parse --is-inside-work-tree')
+    .then(() =>
+      run('git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD')
+        .then(({ stdout }) => {
+          if (stdout.match('package.json')) {
+            console.log(chalk.yellow('▼ Updating...'));
+            exec('npm update').stdout.pipe(process.stdout);
+          }
+          else {
+            console.log(chalk.green('✔ Nothing to update'));
+          }
+        })
+        .catch(err => {
+          throw new Error(err);
+        })
+    )
+    .catch(() => {
+      console.log('not under git');
     });
 }
 
@@ -118,7 +124,7 @@ module.exports = yargs
     handler: checkUpstream,
   })
   .command({
-    command: 'dependencies',
+    command: 'update',
     desc: 'run `npm update` if package.json has changed',
     handler: updateDependencies,
   })
