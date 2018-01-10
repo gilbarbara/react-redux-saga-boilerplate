@@ -1,5 +1,4 @@
 /*eslint-disable  func-names, no-param-reassign prefer-arrow-callback, object-shorthand, no-console, prefer-template, vars-on-top */
-const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const ExtractText = require('extract-text-webpack-plugin');
@@ -33,7 +32,7 @@ module.exports = merge.smart(webpackConfig, {
   },
   devtool: 'source-map',
   plugins: [
-    new CleanPlugin(['dist'], { root: path.join(__dirname, '../') }),
+    new CleanPlugin(['dist'], { root: paths.root }),
     new CopyPlugin([
       { from: '../assets/manifest.json' },
       { from: '../app/.htaccess' },

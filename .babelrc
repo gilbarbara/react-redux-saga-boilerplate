@@ -1,13 +1,6 @@
 {
   "presets": [
-    [
-      "env", {
-      "targets": {
-        "browsers": ["last 2 versions", "safari >= 8", "ios >= 8"]
-      },
-      "modules": false
-    }
-    ],
+    ["env", { "modules": false }],
     "react",
     "stage-1"
   ],
@@ -46,6 +39,7 @@
     },
     "test": {
       "plugins": [
+        "dynamic-import-node",
         "transform-es2015-modules-commonjs"
       ],
       "sourceMaps": "both"

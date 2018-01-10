@@ -1,5 +1,5 @@
 {
-  "minify": false,
+  "minify": true,
   "options": [
     "setClasses"
   ],
