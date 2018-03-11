@@ -115,9 +115,10 @@
           "-+"
         ],
         "markers": [
-          "eslint-enable",
           "eslint-disable",
-          "eslint-disable-line"
+          "eslint-disable-line",
+          "eslint-disable-next-line",
+          "eslint-enable"
         ]
       }
     ],
