@@ -137,7 +137,7 @@
     "start": "node tools/start.js",
     "build": "NODE_ENV=production webpack --config config/webpack.config.prod.js --hide-modules --display-optimization-bailout",
     "build:serve": "npm run build && npm run serve",
-    "analyze": "NODE_ENV=production webpack --config config/webpack.prod.js --profile --json > webpack.stats.json",
+    "analyze": "NODE_ENV=production webpack --config config/webpack.config.prod.js --profile --json > webpack.stats.json",
     "lint": "eslint  --ext .js --ext .jsx app/scripts config test tools",
     "lint:styles": "stylelint 'app/styles/**/*.scss'",
     "test": "jest --config config/jest.config.js --bail --coverage",
