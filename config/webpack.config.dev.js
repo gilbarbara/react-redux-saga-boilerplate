@@ -55,8 +55,7 @@ module.exports = merge.smart(webpackConfig, {
     // This is the URL that app is served from. We use "/" in development.
     publicPath,
     // Point sourcemap entries to original disk location (format as URL on Windows)
-    devtoolModuleFilenameTemplate: info =>
-      path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
+    devtoolModuleFilenameTemplate: info => path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
   },
   plugins: [
     // Makes some environment variables available in index.html.

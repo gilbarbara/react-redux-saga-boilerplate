@@ -16,8 +16,9 @@ export class Home extends React.PureComponent {
 
   handleClickLogin = (e) => {
     e.preventDefault();
+    const { dispatch } = this.props;
 
-    this.props.dispatch(login());
+    dispatch(login());
   };
 
   render() {

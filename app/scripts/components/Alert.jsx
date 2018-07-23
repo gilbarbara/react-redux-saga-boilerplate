@@ -37,6 +37,7 @@ const Alert = ({ children, handleClickClose, id, icon, type }) => {
         className="app__alert__close"
         data-id={id}
         onClick={handleClickClose}
+        type="button"
       >
         <i className="i-times" />
       </button>
