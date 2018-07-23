@@ -28,11 +28,10 @@ console.error = jest.fn(message => {
   }
 });
 
-global.getSaga = (sagas, action) =>
-  sagas
-    .filter(d => d.FORK.args[0] === action)
-    .map(d => d.FORK.args[1])
-    .reduce((acc, d) => d);
+global.getSaga = (sagas, action) => sagas
+  .filter(d => d.FORK.args[0] === action)
+  .map(d => d.FORK.args[1])
+  .reduce((acc, d) => d);
 
 global.navigate = (options) => {
   const { pathname = location.pathname, search, hash } = options;

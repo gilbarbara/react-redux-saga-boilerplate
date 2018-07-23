@@ -20,13 +20,24 @@ module.exports = {
     '^(expose|bundle)': '<rootDir>/test/__setup__/moduleMock.js',
   },
   setupFiles: [
+    'jest-localstorage-mock',
     '<rootDir>/test/__setup__/shim.js',
     '<rootDir>/test/__setup__/index.js',
   ],
-  setupTestFrameworkScriptFile: 'jest-enzyme/lib/index.js',
+  setupTestFrameworkScriptFile: '<rootDir>/test/__setup__/setupTests.js',
+  snapshotSerializers: [
+    'enzyme-to-json/serializer',
+  ],
   testEnvironment: 'jest-environment-jsdom-global',
+  testEnvironmentOptions: {
+    resources: 'usable',
+  },
   testRegex: '/test/.*?\\.(test|spec)\\.js$',
   testURL: 'http://localhost:3000',
+  watchPlugins: [
+    'jest-watch-typeahead/filename',
+    'jest-watch-typeahead/testname',
+  ],
   collectCoverage: false,
   collectCoverageFrom: [
     'app/scripts/**/*.{js,jsx}',

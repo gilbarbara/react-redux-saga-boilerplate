@@ -15,9 +15,9 @@ describe('Alert', () => {
   });
 
   it('should render properly', () => {
-    expect(wrapper.find('.app__alert')).toBePresent();
-    expect(wrapper.find('.app__alert__icon')).toBePresent();
-    expect(wrapper.find('.app__alert__content')).toBePresent();
+    expect(wrapper.find('.app__alert')).toExist();
+    expect(wrapper.find('.app__alert__icon')).toExist();
+    expect(wrapper.find('.app__alert__content')).toExist();
   });
 
   it('should render a default alert', () => {
@@ -34,7 +34,7 @@ describe('Alert', () => {
   it('should render a error alert with markup', () => {
     wrapper = setup(<p>This is a success message</p>, 'error');
 
-    expect(wrapper.find('.app__alert__content p')).toBePresent();
+    expect(wrapper.find('.app__alert__content p')).toExist();
     expect(wrapper.find('.app__alert')).toHaveClassName('is-error');
   });
 

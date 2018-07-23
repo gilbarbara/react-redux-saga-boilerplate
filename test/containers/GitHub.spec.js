@@ -29,12 +29,12 @@ describe('GitHub', () => {
   });
 
   it('should render properly', () => {
-    expect(wrapper.find('.app__github')).toBePresent();
-    expect(wrapper.find('.app__github__selector')).toBePresent();
+    expect(wrapper.find('.app__github')).toExist();
+    expect(wrapper.find('.app__github__selector')).toExist();
   });
 
   it('should render a Loader without data', () => {
-    expect(wrapper.find('Loader')).toBePresent();
+    expect(wrapper.find('Loader')).toExist();
   });
 
   it('should have dispatched an action on mount', () => {

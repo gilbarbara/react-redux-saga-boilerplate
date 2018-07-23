@@ -30,11 +30,11 @@ describe('App', () => {
   });
 
   it('should render properly for anonymous users', () => {
-    expect(wrapper.find('HelmetWrapper')).toBePresent();
-    expect(wrapper.find('ConnectedRouter')).toBePresent();
-    expect(wrapper.find('Switch')).toBePresent();
-    expect(wrapper.find('Footer')).toBePresent();
-    expect(wrapper.find('SystemAlerts')).toBePresent();
+    expect(wrapper.find('HelmetWrapper')).toExist();
+    expect(wrapper.find('ConnectedRouter')).toExist();
+    expect(wrapper.find('Switch')).toExist();
+    expect(wrapper.find('Footer')).toExist();
+    expect(wrapper.find('SystemAlerts')).toExist();
   });
 
   it('should render properly for logged users', () => {
@@ -45,6 +45,6 @@ describe('App', () => {
       },
     });
 
-    expect(wrapper.find('Header')).toBePresent();
+    expect(wrapper.find('Header')).toExist();
   });
 });
