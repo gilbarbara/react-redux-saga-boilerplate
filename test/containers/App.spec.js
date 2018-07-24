@@ -31,7 +31,7 @@ describe('App', () => {
 
   it('should render properly for anonymous users', () => {
     expect(wrapper.find('HelmetWrapper')).toExist();
-    expect(wrapper.find('ConnectedRouter')).toExist();
+    expect(wrapper.find('Connect(ConnectedRouter)')).toExist();
     expect(wrapper.find('Switch')).toExist();
     expect(wrapper.find('Footer')).toExist();
     expect(wrapper.find('SystemAlerts')).toExist();

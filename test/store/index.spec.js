@@ -15,7 +15,16 @@ describe('store', () => {
           status: 'idle',
         },
       },
-      router: { location: null },
+      router: {
+        action: 'POP',
+        location: {
+          hash: '',
+          pathname: '/',
+          query: {},
+          search: '',
+          state: {},
+        },
+      },
       user: {
         isAuthenticated: false,
         status: 'idle',

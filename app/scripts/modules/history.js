@@ -7,7 +7,7 @@ const history = createHistory();
 history.location = {
   ...history.location,
   query: qs.parse(history.location.search.substr(1)),
-  state: { modal: false, scroll: false },
+  state: {},
 };
 
 /* istanbul ignore next */
