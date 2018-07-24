@@ -1,7 +1,7 @@
 import React from 'react';
 import Router from 'react-router-dom/MemoryRouter';
 import { renderToString } from 'react-dom/server';
-import RoutePrivate from 'modules/RoutePrivate';
+import RoutePrivate from 'components/RoutePrivate';
 
 describe('modules/RoutePrivate', () => {
   it('should redirect for unauthenticated access', () => {

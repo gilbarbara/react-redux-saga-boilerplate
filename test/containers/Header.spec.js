@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import Header from 'components/Header';
+import Header from 'containers/Header';
 
 const mockDispatch = jest.fn();
 
@@ -31,7 +31,7 @@ describe('Header', () => {
   it('should handle clicks', () => {
     wrapper.find('.app__logout').simulate('click');
     expect(mockDispatch.mock.calls[0][0]).toEqual({
-      type: 'USER_LOGOUT_REQUEST',
+      type: 'USER_LOGOUT',
       payload: {},
     });
   });

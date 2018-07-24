@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import SystemAlerts from 'components/SystemAlerts';
+import SystemAlerts from 'containers/SystemAlerts';
 
 jest.useFakeTimers();
 

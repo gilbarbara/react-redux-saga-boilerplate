@@ -6,8 +6,6 @@ import { ConnectedRouter } from 'connected-react-router';
 import Helmet from 'react-helmet';
 import cx from 'classnames';
 import history from 'modules/history';
-import RoutePublic from 'modules/RoutePublic';
-import RoutePrivate from 'modules/RoutePrivate';
 
 import config from 'config';
 import { showAlert } from 'actions';
@@ -16,9 +14,12 @@ import Home from 'routes/Home';
 import Private from 'routes/Private';
 import NotFound from 'routes/NotFound';
 
-import Header from 'components/Header';
+import Header from 'containers/Header';
+import SystemAlerts from 'containers/SystemAlerts';
+
 import Footer from 'components/Footer';
-import SystemAlerts from 'components/SystemAlerts';
+import RoutePublic from 'components/RoutePublic';
+import RoutePrivate from 'components/RoutePrivate';
 
 export class App extends React.Component {
   static propTypes = {

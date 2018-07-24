@@ -1,7 +1,7 @@
 import React from 'react';
 import Router from 'react-router-dom/MemoryRouter';
 import { renderToString } from 'react-dom/server';
-import RoutePublic from 'modules/RoutePublic';
+import RoutePublic from 'components/RoutePublic';
 
 describe('modules/RoutePublic', () => {
   it('should render the Login component for unauthenticated access', () => {
