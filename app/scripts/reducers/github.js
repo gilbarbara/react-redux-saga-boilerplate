@@ -2,12 +2,12 @@ import { handleActions } from 'redux-actions';
 import immutable from 'immutability-helper';
 import { parseError } from 'modules/client';
 
-import { ActionTypes } from 'constants/index';
+import { ActionTypes, STATUS } from 'constants/index';
 
 export const githubState = {
   repos: {
     data: {},
-    status: 'idle',
+    status: STATUS.IDLE,
     message: '',
     query: '',
   },
@@ -25,7 +25,7 @@ export default {
           },
           message: { $set: '' },
           query: { $set: payload.query },
-          status: { $set: 'running' },
+          status: { $set: STATUS.IDLE },
         },
       });
     },
@@ -34,13 +34,13 @@ export default {
         data: {
           [state.repos.query]: { $set: payload.data || [] },
         },
-        status: { $set: 'loaded' },
+        status: { $set: STATUS.READY },
       },
     }),
     [ActionTypes.GITHUB_GET_REPOS_FAILURE]: (state, { payload }) => immutable(state, {
       repos: {
         message: { $set: parseError(payload.message) },
-        status: { $set: 'error' },
+        status: { $set: STATUS.ERROR },
       },
     }),
   }, githubState),

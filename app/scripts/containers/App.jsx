@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import Helmet from 'react-helmet';
 import cx from 'classnames';
+import treeChanges from 'tree-changes';
 import history from 'modules/history';
 
 import config from 'config';
@@ -29,11 +30,11 @@ export class App extends React.Component {
   };
 
   componentWillReceiveProps(nextProps) {
-    const { dispatch, user } = this.props;
-    const { user: nextUser } = nextProps;
+    const { dispatch } = this.props;
+    const { changedTo } = treeChanges(this.props, nextProps);
 
     /* istanbul ignore else */
-    if (!user.isAuthenticated && nextUser.isAuthenticated) {
+    if (changedTo('user.isAuthenticated', true)) {
       dispatch(showAlert('Hello! And welcome!', { type: 'success', icon: 'i-trophy' }));
     }
   }

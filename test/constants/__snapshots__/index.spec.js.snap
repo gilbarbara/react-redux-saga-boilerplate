@@ -15,3 +15,13 @@ Object {
   "USER_LOGOUT_SUCCESS": "USER_LOGOUT_SUCCESS",
 }
 `;
+
+exports[`constants should match the snapshot 2`] = `
+Object {
+  "ERROR": "error",
+  "IDLE": "idle",
+  "READY": "ready",
+  "RUNNING": "running",
+  "SUCCESS": "success",
+}
+`;

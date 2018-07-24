@@ -24,10 +24,13 @@ export const ActionTypes = keyMirror({
 });
 
 /**
- * @constant {Object} XHR
+ * @constant {Object} STATUS
  * @memberof Constants
  */
-export const XHR = keyMirror({
-  SUCCESS: undefined,
-  FAIL: undefined,
-});
+export const STATUS = {
+  IDLE: 'idle',
+  RUNNING: 'running',
+  READY: 'ready',
+  SUCCESS: 'success',
+  ERROR: 'error',
+};

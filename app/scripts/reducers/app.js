@@ -10,11 +10,9 @@ export const appState = {
 
 export default {
   app: handleActions({
-    [REHYDRATE]: (state) => {
-      return immutable(state, {
-        alerts: { $set: [] },
-      });
-    },
+    [REHYDRATE]: (state) => immutable(state, {
+      alerts: { $set: [] },
+    }),
     [ActionTypes.HIDE_ALERT]: (state, { payload: { id } }) => {
       const alerts = state.alerts.filter(d => d.id !== id);
 
@@ -22,10 +20,8 @@ export default {
         alerts: { $set: alerts },
       });
     },
-    [ActionTypes.SHOW_ALERT]: (state, { payload }) => {
-      return immutable(state, {
-        alerts: { $push: [payload] },
-      });
-    },
+    [ActionTypes.SHOW_ALERT]: (state, { payload }) => immutable(state, {
+      alerts: { $push: [payload] },
+    }),
   }, appState),
 };

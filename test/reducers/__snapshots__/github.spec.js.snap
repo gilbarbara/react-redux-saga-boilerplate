@@ -1,16 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Github should handle GITHUB_GET_REPOS_FAILURE 1`] = `
-Object {
-  "repos": Object {
-    "data": Object {},
-    "message": "Something went wrong",
-    "query": "",
-    "status": "error",
-  },
-}
-`;
-
 exports[`Github should handle GITHUB_GET_REPOS 1`] = `
 Object {
   "repos": Object {
@@ -19,7 +8,18 @@ Object {
     },
     "message": "",
     "query": undefined,
-    "status": "running",
+    "status": "idle",
+  },
+}
+`;
+
+exports[`Github should handle GITHUB_GET_REPOS_FAILURE 1`] = `
+Object {
+  "repos": Object {
+    "data": Object {},
+    "message": "Something went wrong",
+    "query": "",
+    "status": "error",
   },
 }
 `;
@@ -32,7 +32,7 @@ Object {
     },
     "message": "",
     "query": "",
-    "status": "loaded",
+    "status": "ready",
   },
 }
 `;

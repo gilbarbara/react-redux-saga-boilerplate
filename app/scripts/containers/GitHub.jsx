@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import cx from 'classnames';
+import treeChanges from 'tree-changes';
 
 import { getRepos, showAlert } from 'actions';
+import { STATUS } from 'constants/index';
 
 import Loader from 'components/Loader';
 
@@ -25,11 +27,11 @@ export class GitHub extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { dispatch, github: { repos } } = this.props;
-    const { github: { repos: nextRepos } } = nextProps;
+    const { dispatch } = this.props;
+    const { changedTo } = treeChanges(this.props, nextProps);
 
-    if (repos.status === 'running' && nextRepos.status === 'error') {
-      dispatch(showAlert(nextRepos.message, { type: 'error' }));
+    if (changedTo('github.repos.status', STATUS.ERROR)) {
+      dispatch(showAlert(nextProps.github.repos.message, { type: 'error' }));
     }
   }
 
@@ -51,26 +53,31 @@ export class GitHub extends React.Component {
     const { github } = this.props;
     let output;
 
-    if (github.repos.data[query] && github.repos.status === 'loaded') {
-      output = (
-        <ul className={`app__github__grid app__github__grid--${query}`}>
-          {github.repos.data[query]
-            .map(d => (
-              <li key={d.id}>
-                <div className="app__github__item">
-                  <img src={d.owner.avatar_url} alt={d.owner.login} />
-                  <div>
-                    <h5>
-                      <a href={d.html_url} target="_blank">{d.name}</a>
-                      <small>{d.owner.login}</small>
-                    </h5>
-                    <div>{d.description}</div>
+    if (github.repos.status === STATUS.READY) {
+      if (github.repos.data[query]) {
+        output = (
+          <ul className={`app__github__grid app__github__grid--${query}`}>
+            {github.repos.data[query]
+              .map(d => (
+                <li key={d.id}>
+                  <div className="app__github__item">
+                    <img src={d.owner.avatar_url} alt={d.owner.login} />
+                    <div>
+                      <h5>
+                        <a href={d.html_url} target="_blank">{d.name}</a>
+                        <small>{d.owner.login}</small>
+                      </h5>
+                      <div>{d.description}</div>
+                    </div>
                   </div>
-                </div>
-              </li>
-            ))}
-        </ul>
-      );
+                </li>
+              ))}
+          </ul>
+        );
+      }
+      else {
+        output = <h3>Nothing found</h3>;
+      }
     }
     else {
       output = <Loader />;
