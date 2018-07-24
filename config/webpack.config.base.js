@@ -120,6 +120,11 @@ module.exports = {
               pngquant: {
                 quality: '75-90',
               },
+              svgo: {
+                plugins: [
+                  { removeViewBox: false },
+                ],
+              },
             },
           },
         ],
