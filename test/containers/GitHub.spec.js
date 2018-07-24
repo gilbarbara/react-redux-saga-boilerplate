@@ -78,7 +78,7 @@ describe('GitHub', () => {
 
     expect(mockDispatch.mock.calls[1][0]).toEqual({
       payload: { query: 'redux' },
-      type: 'GITHUB_GET_REPOS',
+      type: 'SWITCH_MENU',
     });
   });
 });

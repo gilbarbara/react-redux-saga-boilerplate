@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import cx from 'classnames';
 import treeChanges from 'tree-changes';
 
-import { getRepos, showAlert } from 'actions';
+import { getRepos, showAlert, switchMenu } from 'actions';
 import { STATUS } from 'constants/index';
 
 import Loader from 'components/Loader';
@@ -37,15 +37,13 @@ export class GitHub extends React.Component {
 
   handleClick = (e) => {
     const { query } = e.currentTarget.dataset;
-    const { dispatch, github } = this.props;
+    const { dispatch } = this.props;
 
     this.setState({
       query,
     });
 
-    if (!github.repos.data[query] || !github.repos.data[query].length) {
-      dispatch(getRepos(query));
-    }
+    dispatch(switchMenu(query));
   };
 
   render() {
