@@ -3,13 +3,13 @@
 exports[`App logOut should return an action 1`] = `
 Object {
   "payload": Object {},
-  "type": "USER_LOGOUT_REQUEST",
+  "type": "USER_LOGOUT",
 }
 `;
 
 exports[`App login should return an action 1`] = `
 Object {
   "payload": Object {},
-  "type": "USER_LOGIN_REQUEST",
+  "type": "USER_LOGIN",
 }
 `;

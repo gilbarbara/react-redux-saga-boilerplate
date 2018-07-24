@@ -7,7 +7,7 @@ Object {
       "@@redux-saga/IO": true,
       "FORK": Object {
         "args": Array [
-          "USER_LOGIN_REQUEST",
+          "USER_LOGIN",
           "@@redux-saga-test-plan/json/function/login",
         ],
         "context": null,
@@ -18,7 +18,7 @@ Object {
       "@@redux-saga/IO": true,
       "FORK": Object {
         "args": Array [
-          "USER_LOGOUT_REQUEST",
+          "USER_LOGOUT",
           "@@redux-saga-test-plan/json/function/logout",
         ],
         "context": null,
@@ -30,13 +30,13 @@ Object {
     Object {
       "@@redux-saga/IO": true,
       "TAKE": Object {
-        "pattern": "USER_LOGIN_REQUEST",
+        "pattern": "USER_LOGIN",
       },
     },
     Object {
       "@@redux-saga/IO": true,
       "TAKE": Object {
-        "pattern": "USER_LOGOUT_REQUEST",
+        "pattern": "USER_LOGOUT",
       },
     },
   ],

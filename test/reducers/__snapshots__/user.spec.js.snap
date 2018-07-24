@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`User should handle USER_LOGIN_REQUEST 1`] = `
+exports[`User should handle USER_LOGIN 1`] = `
 Object {
   "isAuthenticated": false,
   "status": "running",
@@ -14,7 +14,7 @@ Object {
 }
 `;
 
-exports[`User should handle USER_LOGOUT_REQUEST 1`] = `
+exports[`User should handle USER_LOGOUT 1`] = `
 Object {
   "isAuthenticated": false,
   "status": "running",

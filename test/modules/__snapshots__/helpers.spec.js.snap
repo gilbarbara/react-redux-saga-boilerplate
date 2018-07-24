@@ -1,15 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`helpers createReducer should return a proper object 1`] = `[Function]`;
-
-exports[`helpers createRequestTypes should return a proper object 1`] = `
-Object {
-  "FAILURE": "REQUEST_FAILURE",
-  "REQUEST": "REQUEST_REQUEST",
-  "SUCCESS": "REQUEST_SUCCESS",
-}
-`;
-
 exports[`helpers datasetToObject should convert DOMElement data to object 1`] = `
 Object {
   "minuteMaid": "no",

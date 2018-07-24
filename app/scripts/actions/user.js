@@ -3,28 +3,14 @@
  * @module Actions/User
  * @desc User Actions
  */
+import { createActions } from 'redux-actions';
+
 import { ActionTypes } from 'constants/index';
 
-/**
- * Login
- *
- * @returns {Object}
- */
-export function login(): Object {
-  return {
-    type: ActionTypes.USER_LOGIN_REQUEST,
-    payload: {},
-  };
-}
-
-/**
- * Logout
- *
- * @returns {Object}
- */
-export function logOut(): Object {
-  return {
-    type: ActionTypes.USER_LOGOUT_REQUEST,
-    payload: {},
-  };
-}
+export const {
+  userLogin: login,
+  userLogout: logOut,
+} = createActions({
+  [ActionTypes.USER_LOGIN]: () => ({}),
+  [ActionTypes.USER_LOGOUT]: () => ({}),
+});

@@ -53,7 +53,7 @@ export function* logout() {
  */
 export default function* root() {
   yield all([
-    takeLatest(ActionTypes.USER_LOGIN_REQUEST, login),
-    takeLatest(ActionTypes.USER_LOGOUT_REQUEST, logout),
+    takeLatest(ActionTypes.USER_LOGIN, login),
+    takeLatest(ActionTypes.USER_LOGOUT, logout),
   ]);
 }

@@ -6,16 +6,16 @@ describe('User', () => {
     expect(reducer.user(undefined, {})).toMatchSnapshot();
   });
 
-  it(`should handle ${ActionTypes.USER_LOGIN_REQUEST}`, () => {
-    expect(reducer.user(undefined, { type: ActionTypes.USER_LOGIN_REQUEST })).toMatchSnapshot();
+  it(`should handle ${ActionTypes.USER_LOGIN}`, () => {
+    expect(reducer.user(undefined, { type: ActionTypes.USER_LOGIN })).toMatchSnapshot();
   });
 
   it(`should handle ${ActionTypes.USER_LOGIN_SUCCESS}`, () => {
     expect(reducer.user(undefined, { type: ActionTypes.USER_LOGIN_SUCCESS })).toMatchSnapshot();
   });
 
-  it(`should handle ${ActionTypes.USER_LOGOUT_REQUEST}`, () => {
-    expect(reducer.user(undefined, { type: ActionTypes.USER_LOGOUT_REQUEST })).toMatchSnapshot();
+  it(`should handle ${ActionTypes.USER_LOGOUT}`, () => {
+    expect(reducer.user(undefined, { type: ActionTypes.USER_LOGOUT })).toMatchSnapshot();
   });
 
   it(`should handle ${ActionTypes.USER_LOGOUT_SUCCESS}`, () => {

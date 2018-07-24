@@ -7,9 +7,9 @@ describe('Github', () => {
       .toMatchSnapshot();
   });
 
-  it(`should handle ${ActionTypes.GITHUB_GET_REPOS_REQUEST}`, () => {
+  it(`should handle ${ActionTypes.GITHUB_GET_REPOS}`, () => {
     expect(reducer.github(undefined, {
-      type: ActionTypes.GITHUB_GET_REPOS_REQUEST,
+      type: ActionTypes.GITHUB_GET_REPOS,
       payload: { q: 'react' },
     }))
       .toMatchSnapshot();

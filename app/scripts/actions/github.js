@@ -3,17 +3,12 @@
  * @module Actions/User
  * @desc User Actions
  */
+import { createActions } from 'redux-actions';
+
 import { ActionTypes } from 'constants/index';
 
-/**
- * Get Repos
- *
- * @param {string} query
- * @returns {Object}
- */
-export function getRepos(query: string): Object {
-  return {
-    type: ActionTypes.GITHUB_GET_REPOS_REQUEST,
-    payload: { query },
-  };
-}
+export const {
+  githubGetRepos: getRepos,
+} = createActions({
+  [ActionTypes.GITHUB_GET_REPOS]: (query: string) => ({ query }),
+});

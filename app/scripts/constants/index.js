@@ -10,13 +10,13 @@ import keyMirror from 'fbjs/lib/keyMirror';
  * @memberof Constants
  */
 export const ActionTypes = keyMirror({
-  USER_LOGIN_REQUEST: undefined,
+  USER_LOGIN: undefined,
   USER_LOGIN_SUCCESS: undefined,
   USER_LOGIN_FAILURE: undefined,
-  USER_LOGOUT_REQUEST: undefined,
+  USER_LOGOUT: undefined,
   USER_LOGOUT_SUCCESS: undefined,
   USER_LOGOUT_FAILURE: undefined,
-  GITHUB_GET_REPOS_REQUEST: undefined,
+  GITHUB_GET_REPOS: undefined,
   GITHUB_GET_REPOS_SUCCESS: undefined,
   GITHUB_GET_REPOS_FAILURE: undefined,
   SHOW_ALERT: undefined,

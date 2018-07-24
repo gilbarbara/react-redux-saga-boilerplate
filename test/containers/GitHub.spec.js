@@ -40,7 +40,7 @@ describe('GitHub', () => {
   it('should have dispatched an action on mount', () => {
     expect(mockDispatch.mock.calls[0][0]).toEqual({
       payload: { query: 'react' },
-      type: 'GITHUB_GET_REPOS_REQUEST',
+      type: 'GITHUB_GET_REPOS',
     });
   });
 
@@ -78,7 +78,7 @@ describe('GitHub', () => {
 
     expect(mockDispatch.mock.calls[1][0]).toEqual({
       payload: { query: 'redux' },
-      type: 'GITHUB_GET_REPOS_REQUEST',
+      type: 'GITHUB_GET_REPOS',
     });
   });
 });

@@ -11,7 +11,7 @@ Object {
 }
 `;
 
-exports[`Github should handle GITHUB_GET_REPOS_REQUEST 1`] = `
+exports[`Github should handle GITHUB_GET_REPOS 1`] = `
 Object {
   "repos": Object {
     "data": Object {

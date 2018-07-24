@@ -36,6 +36,6 @@ export function* getRepos({ payload }) {
  */
 export default function* root() {
   yield all([
-    takeLatest(ActionTypes.GITHUB_GET_REPOS_REQUEST, getRepos),
+    takeLatest(ActionTypes.GITHUB_GET_REPOS, getRepos),
   ]);
 }
