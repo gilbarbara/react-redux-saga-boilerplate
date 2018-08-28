@@ -1,8 +1,10 @@
-import 'isomorphic-fetch';
-import nock from 'nock';
 import { parseError, request, ServerError } from 'modules/client';
 
-describe('connect', () => {
+describe('client', () => {
+  beforeEach(() => {
+    fetch.resetMocks();
+  });
+
   describe('request', () => {
     it('should fail without param', () => {
       expect(() => request()).toThrow('Error! You must pass `url`');
@@ -14,9 +16,7 @@ describe('connect', () => {
     });
 
     it('should execute a GET successfully', done => {
-      nock('http://example.com')
-        .get('/token')
-        .reply(200, { hello: 'world' });
+      fetch.mockResponseOnce(JSON.stringify({ hello: 'world' }), global.fetchInit);
 
       request('http://example.com/token')
         .then(data => {
@@ -26,9 +26,7 @@ describe('connect', () => {
     });
 
     it('should reject for a server error with JSON response', done => {
-      nock('http://example.com')
-        .get('/token')
-        .reply(500, { error: 'FAILED' });
+      fetch.mockRejectOnce(JSON.stringify({ error: 'FAILED' }), global.fetchInit);
 
       request('http://example.com/token')
         .catch(error => {
@@ -38,9 +36,7 @@ describe('connect', () => {
     });
 
     it('should reject for a server error with no response', done => {
-      nock('http://example.com')
-        .get('/token')
-        .reply(500);
+      fetch.mockRejectOnce(new Error('Failed to Fetch'));
 
       request('http://example.com/token')
         .catch(error => {
@@ -50,11 +46,10 @@ describe('connect', () => {
     });
 
     it('should reject for a not found error', done => {
-      nock('http://example.com')
-        .get('/token')
-        .reply(404, {
-          error: 'FAILED',
-        });
+      fetch.mockRejectOnce(JSON.stringify({ error: 'FAILED' }), {
+        ...global.fetchInit,
+        status: 404,
+      });
 
       request('http://example.com/token')
         .catch(error => {
@@ -64,9 +59,9 @@ describe('connect', () => {
     });
 
     it('should execute a POST successfully', done => {
-      nock('http://example.com')
-        .post('/token')
-        .reply(201);
+      fetch.mockResponseOnce(null, {
+        status: 201,
+      });
 
       request('http://example.com/token', { method: 'POST', payload: { a: 1 } })
         .then(data => {

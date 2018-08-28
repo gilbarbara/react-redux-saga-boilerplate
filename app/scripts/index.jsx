@@ -1,8 +1,5 @@
 // Polyfills
-import 'core-js/shim';
-import 'isomorphic-fetch';
-import 'classlist-polyfill';
-import 'vendor/polyfills';
+import 'polyfills';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -14,9 +11,10 @@ import { PersistGate } from 'redux-persist/lib/integration/react';
 import { store, persistor } from 'app-store';
 import { showAlert } from 'actions';
 
+import '../styles/main.scss';
+
 import App from 'containers/App';
 import Loader from 'components/Loader';
-import '../styles/main.scss';
 
 export const init = {
   cssRetries: 0,

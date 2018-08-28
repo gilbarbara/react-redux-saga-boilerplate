@@ -1,9 +1,17 @@
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import 'vendor/polyfills';
+import 'polyfills';
 
 Enzyme.configure({ adapter: new Adapter() });
+
+global.fetch = require('jest-fetch-mock');
+
+global.fetchInit = {
+  headers: {
+    'content-type': 'application/json',
+  },
+};
 
 const react = document.createElement('div');
 react.id = 'react';
