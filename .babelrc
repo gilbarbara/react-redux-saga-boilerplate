@@ -1,26 +1,73 @@
 {
   "presets": [
-    ["env", { "modules": false }],
-    "react",
-    "stage-1"
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "entry",
+        "modules": false,
+        "targets": {
+          "browsers": [
+            "last 2 versions",
+            "safari >= 7"
+          ]
+        }
+      }
+    ],
+    "@babel/preset-react",
+    "@babel/preset-flow"
   ],
   "plugins": [
+    "@babel/plugin-proposal-function-bind",
+    "@babel/plugin-proposal-export-default-from",
+    "@babel/plugin-proposal-logical-assignment-operators",
     [
-      "transform-runtime", {
-      "polyfill": false,
-      "regenerator": true
-    }
-    ]
+      "@babel/plugin-proposal-optional-chaining",
+      {
+        "loose": false
+      }
+    ],
+    [
+      "@babel/plugin-proposal-pipeline-operator",
+      {
+        "proposal": "minimal"
+      }
+    ],
+    [
+      "@babel/plugin-proposal-nullish-coalescing-operator",
+      {
+        "loose": false
+      }
+    ],
+    "@babel/plugin-proposal-do-expressions",
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    "@babel/plugin-proposal-function-sent",
+    "@babel/plugin-proposal-export-namespace-from",
+    "@babel/plugin-proposal-numeric-separator",
+    "@babel/plugin-proposal-throw-expressions",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-syntax-import-meta",
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        "loose": false
+      }
+    ],
+    "@babel/plugin-proposal-json-strings",
+    "@babel/plugin-transform-runtime"
   ],
-  "compact": "true",
+  "compact": true,
   "env": {
     "production": {
       "plugins": [
-        "lodash",
+        "@babel/plugin-transform-flow-strip-types",
+        "@babel/plugin-transform-object-assign",
         "array-includes",
-        "transform-flow-strip-types",
-        "transform-object-assign",
-        "transform-react-remove-prop-types",
+        "lodash",
         [
           "transform-imports",
           {
@@ -39,8 +86,8 @@
     },
     "test": {
       "plugins": [
-        "dynamic-import-node",
-        "transform-es2015-modules-commonjs"
+        "@babel/transform-modules-commonjs",
+        "dynamic-import-node"
       ],
       "sourceMaps": "both"
     }

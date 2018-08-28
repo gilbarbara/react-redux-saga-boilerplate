@@ -1,10 +1,11 @@
 /*eslint-disable no-console */
 const webpack = require('webpack');
-const ExtractText = require('extract-text-webpack-plugin');
-const GitInfoPlugin = require('git-info-webpack-plugin');
-const CircularDependencyPlugin = require('circular-dependency-plugin');
 const autoprefixer = require('autoprefixer');
+const CircularDependencyPlugin = require('circular-dependency-plugin');
 const dateFns = require('date-fns');
+const GitInfoPlugin = require('git-info-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 const paths = require('./paths');
 
 const NPMPackage = require(paths.packageJson);
@@ -17,7 +18,7 @@ const gitInfoPlugin = new GitInfoPlugin({
 });
 
 const cssLoaders = [
-  { loader: 'style' },
+  isProd ? MiniCssExtractPlugin.loader : { loader: 'style' },
   {
     loader: 'css',
     options: {
@@ -43,6 +44,7 @@ const cssLoaders = [
 ];
 
 module.exports = {
+  devtool: '#cheap-module-source-map',
   resolve: {
     alias: {
       'app-store$': paths.store,
@@ -56,8 +58,16 @@ module.exports = {
   resolveLoader: {
     moduleExtensions: ['-loader'],
   },
+  // Some libraries import Node modules but don't use them in the browser.
+  // Tell Webpack to provide empty mocks for them so importing them works.
+  node: {
+    dgram: 'empty',
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty',
+    child_process: 'empty',
+  },
   context: paths.app,
-  devtool: '#cheap-module-source-map',
   entry: {},
   output: {
     filename: '[name].[git-version].js',
@@ -87,15 +97,13 @@ module.exports = {
         test: /\.jsx?$/,
         loader: 'babel',
         options: {
-          cacheDirectory: true,
+          cacheDirectory: false,
         },
         exclude: /node_modules/,
       },
       {
         test: /\.scss$/,
-        loader: isProd ? ExtractText.extract({
-          use: cssLoaders.slice(1),
-        }) : cssLoaders,
+        loader: cssLoaders,
       },
       {
         test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -131,17 +139,8 @@ module.exports = {
         include: /media/,
       },
       {
-        test: /(manifest\.json|\.xml)$/,
-        use: [
-          {
-            loader: 'file',
-            query: { name: '[name].[ext]' },
-          },
-        ],
-        include: /assets/,
-      },
-      {
         test: /modernizrrc\.json$/,
+        type: 'javascript/auto',
         use: ['expose?Modernizr', 'modernizr', 'json'],
       },
       {
