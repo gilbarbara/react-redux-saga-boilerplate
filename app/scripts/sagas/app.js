@@ -12,7 +12,7 @@ import { ActionTypes } from 'constants/index';
  * @param {Object} action
  *
  */
-export function* switchMenu({ payload }) {
+export function* searchRepos({ payload }) {
   try {
     const repos = yield select(state => state.github.repos);
 
@@ -37,6 +37,6 @@ export function* switchMenu({ payload }) {
  */
 export default function* root() {
   yield all([
-    takeLatest(ActionTypes.SWITCH_MENU, switchMenu),
+    takeLatest(ActionTypes.SEARCH_REPOS, searchRepos),
   ]);
 }

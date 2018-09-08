@@ -14,9 +14,9 @@ export { goBack, goForward, push, replace } from 'connected-react-router';
 export const {
   hideAlert,
   showAlert,
-  switchMenu,
+  searchRepos,
 } = createActions({
-  [ActionTypes.SWITCH_MENU]: (query: string) => ({ query }),
+  [ActionTypes.SEARCH_REPOS]: (query: string) => ({ query }),
   [ActionTypes.HIDE_ALERT]: (id: string) => ({ id }),
   [ActionTypes.SHOW_ALERT]: (message: string, options: Object) => {
     const timeout = options.type === 'error' ? 0 : 5;

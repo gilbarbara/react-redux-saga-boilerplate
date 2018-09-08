@@ -4,7 +4,7 @@ import github, { getRepos } from 'sagas/github';
 import { ActionTypes } from 'constants/index';
 
 jest.mock('modules/client', () => ({
-  request: () => ({ items: [] }),
+  request: () => ([]),
 }));
 
 describe('github', () => {

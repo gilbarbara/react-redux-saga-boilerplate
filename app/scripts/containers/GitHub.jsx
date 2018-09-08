@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 import cx from 'classnames';
 import treeChanges from 'tree-changes';
 
-import { getRepos, showAlert, switchMenu } from 'actions';
+import { getRepos, showAlert, searchRepos } from 'actions';
 import { STATUS } from 'constants/index';
 
 import Loader from 'components/Loader';
 
 export class GitHub extends React.Component {
   state = {
-    query: 'react',
+    query: '',
   };
 
   static propTypes = {
@@ -23,7 +23,9 @@ export class GitHub extends React.Component {
     const { query } = this.state;
     const { dispatch } = this.props;
 
-    dispatch(getRepos(query));
+    if (query) {
+      dispatch(getRepos(query));
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -35,16 +37,20 @@ export class GitHub extends React.Component {
     }
   }
 
-  handleClick = (e) => {
-    const { query } = e.currentTarget.dataset;
-    const { dispatch } = this.props;
+  handleSubmit = (e) => {
+    e.preventDefault();
+
+    const { query } = e.target.elements;
+    const { dispatch, github } = this.props;
 
     this.setState({
-      query,
+      query: query.value,
     });
 
-    dispatch(switchMenu(query));
-  };
+    if (github.repos.status !== STATUS.RUNNING) {
+      dispatch(searchRepos(query.value));
+    }
+  }
 
   render() {
     const { query } = this.state;
@@ -52,7 +58,7 @@ export class GitHub extends React.Component {
     let output;
 
     if (github.repos.status === STATUS.READY) {
-      if (github.repos.data[query]) {
+      if (github.repos.data[query] && github.repos.data[query].length) {
         output = (
           <ul className={`app__github__grid app__github__grid--${query}`}>
             {github.repos.data[query]
@@ -77,40 +83,27 @@ export class GitHub extends React.Component {
         output = <h3>Nothing found</h3>;
       }
     }
-    else {
+    else if (github.repos.status === STATUS.RUNNING) {
       output = <Loader />;
     }
 
     return (
       <div key="GitHub" className="app__github">
-        <div className="app__github__selector">
-          <div className="btn-group" role="group" aria-label="Basic example">
-            <button
-              type="button"
-              className={cx('btn', {
-                'btn-primary': query === 'react',
-                'btn-outline-primary': query !== 'react',
-                'btn-loading': query === 'react' && github.repos.status === 'running',
+        <form
+          className="app__github__search"
+          onSubmit={this.handleSubmit}
+        >
+          <div className="form-group">
+            <input
+              type="search"
+              className={cx('form-control', {
+                'is-valid': query,
               })}
-              data-query="react"
-              onClick={this.handleClick}
-            >
-              React
-            </button>
-            <button
-              type="button"
-              className={cx('btn', {
-                'btn-primary': query === 'redux',
-                'btn-outline-primary': query !== 'redux',
-                'btn-loading': query === 'redux' && github.repos.status === 'running',
-              })}
-              data-query="redux"
-              onClick={this.handleClick}
-            >
-              Redux
-            </button>
+              name="query"
+              placeholder="Repository"
+            />
           </div>
-        </div>
+        </form>
         {output}
       </div>
     );

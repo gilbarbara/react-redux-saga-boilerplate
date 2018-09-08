@@ -66,6 +66,7 @@ $position: left) {
 @mixin app-container($opts: ()) {
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
 
   @each $size, $value in $grid-breakpoints-padding {
     $opt: map-get($opts, $size);

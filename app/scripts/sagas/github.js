@@ -16,10 +16,10 @@ import { ActionTypes } from 'constants/index';
  */
 export function* getRepos({ payload }) {
   try {
-    const response = yield call(request, `https://api.github.com/search/repositories?q=${payload.query}&sort=stars`);
+    const response = yield call(request, `https://api.github.com/users/${payload.query}/repos?sort=updated`);
     yield put({
       type: ActionTypes.GITHUB_GET_REPOS_SUCCESS,
-      payload: { data: response.items },
+      payload: { data: response },
     });
   }
   catch (err) {
