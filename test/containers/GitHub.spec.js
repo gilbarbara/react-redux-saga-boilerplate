@@ -8,8 +8,11 @@ const mockDispatch = jest.fn();
 const props = {
   dispatch: mockDispatch,
   github: {
-    repos: {
+    users: {
       data: [],
+    },
+    user: {
+      data: {},
     },
   },
 };
@@ -30,25 +33,36 @@ describe('GitHub', () => {
 
   it('should render properly', () => {
     expect(wrapper.find('.app__github')).toExist();
-    expect(wrapper.find('.app__github__selector')).toExist();
+    expect(wrapper.find('.app__github__search')).toExist();
   });
 
-  it('should render a Loader without data', () => {
-    expect(wrapper.find('Loader')).toExist();
+  it('should not render a Loader without data', () => {
+    expect(wrapper.find('Loader')).not.toExist();
   });
 
-  it('should have dispatched an action on mount', () => {
-    expect(mockDispatch.mock.calls[0][0]).toEqual({
-      payload: { query: 'react' },
-      type: 'GITHUB_GET_REPOS',
-    });
+  it('should not have dispatched an action on mount', () => {
+    expect(mockDispatch).not.toHaveBeenCalled();
   });
 
   it('should render some items when data arrives', () => {
     wrapper.setProps({
       github: {
-        repos: {
+        users: {
           data: [
+            {
+              login: 'vallades',
+              id: 1777796,
+              node_id: 'MDQ6VXNlcjE3Nzc3OTY=',
+              avatar_url: 'https://avatars0.githubusercontent.com/u/1777796?v=4',
+              gravatar_id: '',
+            },
+          ],
+        },
+        user: {
+          data: {
+            login: 'vallades',
+          },
+          repos: [
             {
               id: 12,
               name: 'magic-tricks',
@@ -65,20 +79,5 @@ describe('GitHub', () => {
     });
 
     expect(wrapper.find('.app__github__grid')).toMatchSnapshot();
-  });
-
-  it('should dispatch an action when click selector button', () => {
-    const button = wrapper.find('.btn-group').childAt(1);
-
-    button.simulate('click', {
-      currentTarget: {
-        dataset: { query: button.getElement().props['data-query'] },
-      },
-    });
-
-    expect(mockDispatch.mock.calls[1][0]).toEqual({
-      payload: { query: 'redux' },
-      type: 'SWITCH_MENU',
-    });
   });
 });

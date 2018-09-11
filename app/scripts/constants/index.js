@@ -10,7 +10,7 @@ import keyMirror from 'fbjs/lib/keyMirror';
  * @memberof Constants
  */
 export const ActionTypes = keyMirror({
-  SWITCH_MENU: undefined,
+  SEARCH_REPOS: undefined,
   EXCEPTION: undefined,
   USER_LOGIN: undefined,
   USER_LOGIN_SUCCESS: undefined,
@@ -21,6 +21,12 @@ export const ActionTypes = keyMirror({
   GITHUB_GET_REPOS: undefined,
   GITHUB_GET_REPOS_SUCCESS: undefined,
   GITHUB_GET_REPOS_FAILURE: undefined,
+  GITHUB_GET_USERS: undefined,
+  GITHUB_GET_USERS_SUCCESS: undefined,
+  GITHUB_GET_USERS_FAILURE: undefined,
+  GITHUB_GET_USER: undefined,
+  GITHUB_GET_USER_SUCCESS: undefined,
+  GITHUB_GET_USER_FAILURE: undefined,
   SHOW_ALERT: undefined,
   HIDE_ALERT: undefined,
 });

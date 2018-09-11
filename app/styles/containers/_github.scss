@@ -1,11 +1,15 @@
 .app__github {
-  &__selector {
+  &__search {
     margin: ($grid-gutter-width / 2) 0;
     text-align: center;
 
     @include lg {
       margin-bottom: $grid-gutter-width;
     }
+  }
+
+  &__userlist {
+    margin: ($grid-gutter-width / 2) 0;
   }
 
   &__grid {

@@ -2,12 +2,15 @@
 
 exports[`Github should handle GITHUB_GET_REPOS 1`] = `
 Object {
-  "repos": Object {
-    "data": Object {
-      "undefined": Array [],
-    },
+  "user": Object {
+    "data": Object {},
     "message": "",
-    "query": undefined,
+    "repos": Array [],
+    "status": "running",
+  },
+  "users": Object {
+    "data": Object {},
+    "message": "",
     "status": "idle",
   },
 }
@@ -15,34 +18,47 @@ Object {
 
 exports[`Github should handle GITHUB_GET_REPOS_FAILURE 1`] = `
 Object {
-  "repos": Object {
+  "user": Object {
     "data": Object {},
     "message": "Something went wrong",
-    "query": "",
+    "repos": Array [],
     "status": "error",
+  },
+  "users": Object {
+    "data": Object {},
+    "message": "",
+    "status": "idle",
   },
 }
 `;
 
 exports[`Github should handle GITHUB_GET_REPOS_SUCCESS 1`] = `
 Object {
-  "repos": Object {
-    "data": Object {
-      "": Array [],
-    },
+  "user": Object {
+    "data": Object {},
     "message": "",
-    "query": "",
+    "repos": Array [],
     "status": "ready",
+  },
+  "users": Object {
+    "data": Object {},
+    "message": "",
+    "status": "idle",
   },
 }
 `;
 
 exports[`Github should return the initial state 1`] = `
 Object {
-  "repos": Object {
+  "user": Object {
     "data": Object {},
     "message": "",
-    "query": "",
+    "repos": Array [],
+    "status": "idle",
+  },
+  "users": Object {
+    "data": Object {},
+    "message": "",
     "status": "idle",
   },
 }

@@ -1,10 +1,10 @@
 import { expectSaga } from 'redux-saga-test-plan';
 
-import github, { getRepos } from 'sagas/github';
+import github, { getUser } from 'sagas/github';
 import { ActionTypes } from 'constants/index';
 
 jest.mock('modules/client', () => ({
-  request: () => ({ items: [] }),
+  request: () => ([]),
 }));
 
 describe('github', () => {
@@ -15,11 +15,11 @@ describe('github', () => {
       done();
     }));
 
-  it('should have the repos saga', () => expectSaga(getRepos, { payload: { query: 'react' } })
+  it('should have the user saga', () => expectSaga(getUser, { payload: { user: 'vallades' } })
     .put({
-      type: ActionTypes.GITHUB_GET_REPOS_SUCCESS,
+      type: ActionTypes.GITHUB_GET_USER_SUCCESS,
       payload: {
-        data: [],
+        user: [],
       },
     })
     .run());

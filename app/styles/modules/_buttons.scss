@@ -5,6 +5,8 @@ button {
   cursor: pointer;
   display: inline-block;
   line-height: 1;
+  margin-bottom: $grid-gutter-width / 6;
+  margin-right: $grid-gutter-width / 6;
   padding: 0;
 
   &:active,
