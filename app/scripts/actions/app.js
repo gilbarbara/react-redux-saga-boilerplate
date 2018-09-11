@@ -14,7 +14,6 @@ export { goBack, goForward, push, replace } from 'connected-react-router';
 export const {
   hideAlert,
   showAlert,
-  searchRepos,
 } = createActions({
   [ActionTypes.SEARCH_REPOS]: (query: string) => ({ query }),
   [ActionTypes.HIDE_ALERT]: (id: string) => ({ id }),

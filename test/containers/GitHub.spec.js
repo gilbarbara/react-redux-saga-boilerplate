@@ -8,8 +8,11 @@ const mockDispatch = jest.fn();
 const props = {
   dispatch: mockDispatch,
   github: {
-    repos: {
+    users: {
       data: [],
+    },
+    user: {
+      data: {},
     },
   },
 };
@@ -44,8 +47,22 @@ describe('GitHub', () => {
   it('should render some items when data arrives', () => {
     wrapper.setProps({
       github: {
-        repos: {
+        users: {
           data: [
+            {
+              login: 'vallades',
+              id: 1777796,
+              node_id: 'MDQ6VXNlcjE3Nzc3OTY=',
+              avatar_url: 'https://avatars0.githubusercontent.com/u/1777796?v=4',
+              gravatar_id: '',
+            },
+          ],
+        },
+        user: {
+          data: {
+            login: 'vallades',
+          },
+          repos: [
             {
               id: 12,
               name: 'magic-tricks',

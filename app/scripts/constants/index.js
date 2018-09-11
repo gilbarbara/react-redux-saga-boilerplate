@@ -21,6 +21,12 @@ export const ActionTypes = keyMirror({
   GITHUB_GET_REPOS: undefined,
   GITHUB_GET_REPOS_SUCCESS: undefined,
   GITHUB_GET_REPOS_FAILURE: undefined,
+  GITHUB_GET_USERS: undefined,
+  GITHUB_GET_USERS_SUCCESS: undefined,
+  GITHUB_GET_USERS_FAILURE: undefined,
+  GITHUB_GET_USER: undefined,
+  GITHUB_GET_USER_SUCCESS: undefined,
+  GITHUB_GET_USER_FAILURE: undefined,
   SHOW_ALERT: undefined,
   HIDE_ALERT: undefined,
 });

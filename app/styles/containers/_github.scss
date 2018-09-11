@@ -8,6 +8,10 @@
     }
   }
 
+  &__userlist {
+    margin: ($grid-gutter-width / 2) 0;
+  }
+
   &__grid {
     display: grid;
     grid-auto-flow: row;

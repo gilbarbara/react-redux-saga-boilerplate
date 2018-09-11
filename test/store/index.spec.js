@@ -8,11 +8,16 @@ describe('store', () => {
         alerts: [],
       },
       github: {
-        repos: {
+        users: {
           data: {},
-          message: '',
-          query: '',
           status: 'idle',
+          message: '',
+        },
+        user: {
+          data: {},
+          repos: [],
+          status: 'idle',
+          message: '',
         },
       },
       router: {
