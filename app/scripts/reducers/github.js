@@ -25,7 +25,7 @@ export default {
           },
           message: { $set: '' },
           query: { $set: payload.query },
-          status: { $set: STATUS.IDLE },
+          status: { $set: STATUS.RUNNING },
         },
       });
     },

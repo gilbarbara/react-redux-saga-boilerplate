@@ -8,7 +8,7 @@ Object {
     },
     "message": "",
     "query": undefined,
-    "status": "idle",
+    "status": "running",
   },
 }
 `;
