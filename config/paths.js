@@ -17,6 +17,7 @@ module.exports = {
   modernizrrc: resolvePath('config/modernizrrc.json'),
   nodeModules: resolvePath('node_modules'),
   packageJson: resolvePath('package.json'),
+  polyfills: resolvePath('app/scripts/polyfills'),
   publicPath: resolvePath('/'),
   root: resolvePath(''),
   store: resolvePath('app/scripts/store/index'),

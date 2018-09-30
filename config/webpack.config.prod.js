@@ -1,15 +1,16 @@
 /*eslint-disable  func-names, no-param-reassign prefer-arrow-callback, object-shorthand, no-console, prefer-template, vars-on-top */
 const webpack = require('webpack');
 const merge = require('webpack-merge');
+
 const CleanPlugin = require('clean-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
+const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OfflinePlugin = require('offline-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
@@ -39,7 +40,10 @@ module.exports = merge.smart(webpackConfig, {
   devtool: 'source-map',
   entry: {
     'scripts/modernizr': paths.modernizr,
-    'scripts/app': paths.appIndexJs,
+    'scripts/app': [
+      paths.polyfills,
+      paths.appIndexJs,
+    ],
   },
   output: {
     chunkFilename: 'scripts/[name].[git-hash].js',
@@ -49,8 +53,8 @@ module.exports = merge.smart(webpackConfig, {
   },
   optimization: {
     minimizer: [
-      new UglifyJsPlugin({
-        uglifyOptions: {
+      new TerserPlugin({
+        terserOptions: {
           parse: {
             // we want uglify-js to parse ecma 8 code. However, we don't want it
             // to apply any minfication steps that turns valid ecma 5 code
@@ -94,17 +98,9 @@ module.exports = merge.smart(webpackConfig, {
   },
   plugins: [
     new CleanPlugin(['dist'], { root: paths.root }),
-    new CopyPlugin([
-      { from: '../assets/manifest.json' },
-      { from: '../app/.htaccess' },
-    ]),
-    new MiniCssExtractPlugin({
-      filename: 'styles/app.[git-hash].css',
-      chunkFilename: 'styles/app.[git-hash].chunk.css',
-    }),
     new HtmlPlugin({
       githash: GITHASH,
-      inject: false,
+      inject: true,
       minify: {
         collapseWhitespace: true,
         keepClosingSlash: true,
@@ -120,8 +116,19 @@ module.exports = merge.smart(webpackConfig, {
       template: './index.ejs',
       title: NPMPackage.title,
     }),
-    new InterpolateHtmlPlugin(env.raw),
+    // Inlines the webpack runtime script. This script is too small to warrant
+    // a network request.
+    new InlineChunkHtmlPlugin(HtmlPlugin, [/runtime~.+[.]js/]),
+    // Makes some environment variables available in index.html.
+    // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
+    // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    // In development, this will be an empty string.
+    new InterpolateHtmlPlugin(HtmlPlugin, env.raw),
     new LodashModuleReplacementPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'styles/app.[git-hash].css',
+      chunkFilename: 'styles/app.[git-hash].chunk.css',
+    }),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
       debug: false,
