@@ -7,7 +7,7 @@ import { all, put, select, takeLatest } from 'redux-saga/effects';
 import { ActionTypes } from 'constants/index';
 
 /**
- * Login
+ * Switch GitHub
  *
  * @param {Object} action
  *
