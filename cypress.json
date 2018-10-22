@@ -1,6 +1,5 @@
 {
   "viewportHeight": 800,
   "viewportWidth": 1280,
-  "videoRecording": false,
-  "screenshotOnHeadlessFailure" : false
+  "video": false
 }
