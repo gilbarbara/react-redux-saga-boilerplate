@@ -131,6 +131,7 @@
     "jest-localstorage-mock": "^2.3.0",
     "jest-watch-typeahead": "^0.2.0",
     "json-loader": "^0.5.7",
+    "lint-staged": "^7.3.0",
     "lodash-webpack-plugin": "^0.11.5",
     "markdown-loader": "^4.0.0",
     "mini-css-extract-plugin": "^0.4.4",
@@ -179,7 +180,7 @@
     "serve": "serve dist/",
     "deploy": "node tools deploy",
     "publish": "node tools publish",
-    "precommit": "node tools upstream && npm run lint && npm run lint:styles && npm test"
+    "precommit": "node tools upstream && lint-staged && flow"
   },
   "husky": {
     "hooks": {
