@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`app should have the expected watchers 1`] = `
+Object {
+  "fork": Array [
+    Object {
+      "@@redux-saga/IO": true,
+      "FORK": Object {
+        "args": Array [
+          "SWITCH_MENU",
+          "@@redux-saga-test-plan/json/function/switchMenu",
+        ],
+        "context": null,
+        "fn": "@@redux-saga-test-plan/json/function/takeLatest",
+      },
+    },
+  ],
+  "take": Array [
+    Object {
+      "@@redux-saga/IO": true,
+      "TAKE": Object {
+        "pattern": "SWITCH_MENU",
+      },
+    },
+  ],
+}
+`;

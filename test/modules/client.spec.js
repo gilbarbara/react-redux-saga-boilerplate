@@ -25,6 +25,30 @@ describe('client', () => {
         });
     });
 
+    it('should execute a POST successfully', done => {
+      fetch.mockResponseOnce(null, {
+        status: 201,
+      });
+
+      request('http://example.com/token', { method: 'POST', payload: { a: 1 } })
+        .then(data => {
+          expect(data).toMatchSnapshot();
+          done();
+        });
+    });
+
+    it('should reject for a  bad request', done => {
+      fetch.mockResponseOnce(JSON.stringify({ error: 'Something went wrong' }),
+        { ...global.fetchInit, status: 400 });
+
+      request('http://example.com/token')
+        .catch(error => {
+          expect(error.response).toEqual({ error: 'Something went wrong' });
+          expect(error.status).toBe(400);
+          done();
+        });
+    });
+
     it('should reject for a server error with JSON response', done => {
       fetch.mockRejectOnce(JSON.stringify({ error: 'FAILED' }), global.fetchInit);
 
@@ -57,26 +81,12 @@ describe('client', () => {
           done();
         });
     });
-
-    it('should execute a POST successfully', done => {
-      fetch.mockResponseOnce(null, {
-        status: 201,
-      });
-
-      request('http://example.com/token', { method: 'POST', payload: { a: 1 } })
-        .then(data => {
-          expect(data).toMatchSnapshot();
-          done();
-        });
-    });
   });
 
   describe('ServerError', () => {
     it('should create a new instance', () => {
       const error = new ServerError('error');
-
       expect(error.name).toBe('ServerError');
-      expect(error.response).toEqual({});
     });
   });
 

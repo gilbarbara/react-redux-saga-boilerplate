@@ -9,7 +9,7 @@ import { request } from 'modules/client';
 import { ActionTypes } from 'constants/index';
 
 /**
- * Login
+ * Get Repos
  *
  * @param {Object} action
  *

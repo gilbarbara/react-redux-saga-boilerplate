@@ -1,13 +1,13 @@
 /**
- * @module Sagas/GitHub
- * @desc GitHub
+ * @module Sagas/App
+ * @desc App
  */
 import { all, put, select, takeLatest } from 'redux-saga/effects';
 
 import { ActionTypes } from 'constants/index';
 
 /**
- * Login
+ * Switch Menu
  *
  * @param {Object} action
  *
@@ -33,7 +33,7 @@ export function* switchMenu({ payload }) {
 }
 
 /**
- * GitHub Sagas
+ * App Sagas
  */
 export default function* root() {
   yield all([
