@@ -38,19 +38,6 @@ const GlobalStyle =  createGlobalStyle`
     }
   }
 
-  .not-found {
-    text-align: center;
-
-    h1 {
-      font-size: 12.8rem;
-      margin: 0;
-
-      @include sm {
-        font-size: 25.6rem;
-      }
-    }
-  }
-
   button {
     appearance: none;
     background-color: transparent;

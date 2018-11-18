@@ -11,7 +11,7 @@ const paths = require('./paths');
 const NPMPackage = require(paths.packageJson);
 
 const { NODE_ENV } = process.env;
-const isProd = process.env.NODE_ENV === 'production';
+const isProd = NODE_ENV === 'production';
 
 const gitInfoPlugin = new GitInfoPlugin({
   hashCommand: 'rev-parse --short HEAD',
@@ -47,11 +47,11 @@ module.exports = {
   devtool: '#cheap-module-source-map',
   resolve: {
     alias: {
-      assets: paths.assets,
-      modernizr$: paths.modernizrrc,
+      assets: paths.appAssets,
+      modernizr$: paths.appModernizrrc,
       test: paths.test,
     },
-    modules: [paths.appScripts, paths.nodeModules],
+    modules: [paths.appSrc, paths.nodeModules],
     extensions: ['.js', '.jsx', '.json'],
   },
   resolveLoader: {
@@ -66,19 +66,22 @@ module.exports = {
     tls: 'empty',
     child_process: 'empty',
   },
-  context: paths.app,
+  context: paths.appSrc,
   entry: {},
   output: {
     filename: '[name].[git-version].js',
-    path: paths.destination,
+    path: paths.appBuild,
     chunkFilename: '[name].js',
-    publicPath: '/',
+    publicPath: paths.publicPath,
   },
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
     gitInfoPlugin,
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(NODE_ENV || 'development'),
+      'process.env': {
+        NODE_ENV: JSON.stringify(NODE_ENV),
+        PUBLIC_URL: JSON.stringify(paths.publicPath.slice(0, -1)),
+      },
       APP__BRANCH: JSON.stringify(gitInfoPlugin.branch()),
       APP__BUILD_DATE: JSON.stringify(dateFns.format(new Date(), 'DD/MM/YYYY')),
       APP__GITHASH: JSON.stringify(gitInfoPlugin.hash()),

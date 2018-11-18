@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import treeChanges from 'tree-changes';
 import { appColor } from 'modules/theme';
 
-import { getRepos, showAlert, switchMenu } from 'actions';
+import { getRepos, showAlert, switchMenu } from 'actions/index';
 import { STATUS } from 'constants/index';
 
 import {

@@ -19,7 +19,7 @@ const NPMPackage = require(paths.packageJson);
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
-const publicPath = '/';
+const { publicPath } = paths;
 // `publicUrl` is just like `publicPath`, but we will provide it to our app
 // as %PUBLIC_URL% in `index.html` and `process.env.PUBLIC_URL` in JavaScript.
 // Omit trailing slash as %PUBLIC_PATH%/xyz looks better than %PUBLIC_PATH%xyz.
@@ -38,16 +38,16 @@ module.exports = merge.smart(webpackConfig, {
   bail: true,
   devtool: 'source-map',
   entry: {
-    'scripts/modernizr': paths.modernizr,
+    'scripts/modernizr': paths.appModernizr,
     'scripts/app': [
-      paths.polyfills,
+      paths.appPolyfills,
       paths.appIndexJs,
     ],
   },
   output: {
     chunkFilename: 'scripts/[name].[git-hash].js',
     filename: '[name].[git-hash].js',
-    path: paths.destination,
+    path: paths.appBuild,
     publicPath,
   },
   optimization: {
@@ -143,13 +143,7 @@ module.exports = merge.smart(webpackConfig, {
       caches: {
         main: [
           '**/*.js',
-          '**/*.css',
           'index.html',
-        ],
-        additional: [
-          'fonts/*.woff',
-          'fonts/*.ttf',
-          'fonts/*.svg',
         ],
         optional: [
           ':rest:',

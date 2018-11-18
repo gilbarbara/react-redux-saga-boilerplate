@@ -13,7 +13,7 @@ module.exports = function(proxy, allowedHost) {
   return {
     clientLogLevel: 'none',
     compress: true,
-    contentBase: paths.assets,
+    contentBase: paths.appAssets,
     disableHostCheck: !proxy || process.env.DANGEROUSLY_DISABLE_HOST_CHECK === 'true',
     historyApiFallback: {
       disableDotRule: true,
@@ -31,7 +31,7 @@ module.exports = function(proxy, allowedHost) {
     watchOptions: {
       ignored: new RegExp(
         `^(?!${path
-          .normalize(`${paths.appScripts}/`)
+          .normalize(`${paths.appSrc}/`)
           .replace(/[\\]+/g, '\\\\')}).+[\\\\/]node_modules[\\\\/]`,
         'g'
       ),

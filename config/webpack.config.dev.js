@@ -12,7 +12,7 @@ const webpackConfig = require('./webpack.config.base');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
-const publicPath = '/';
+const { publicPath } = paths;
 // `publicUrl` is just like `publicPath`, but we will provide it to our app
 // as %PUBLIC_URL% in `index.html` and `process.env.PUBLIC_URL` in JavaScript.
 // Omit trailing slash as %PUBLIC_PATH%/xyz looks better than %PUBLIC_PATH%xyz.
@@ -32,7 +32,7 @@ module.exports = merge.smart(webpackConfig, {
   // This means they will be the "root" imports that are included in JS bundle.
   // The first two entry points enable "hot" CSS and auto-refreshes for JS.
   entry: {
-    modernizr: paths.modernizr,
+    modernizr: paths.appModernizr,
     bundle: [
       'react-hot-loader/patch',
       'react-dev-utils/webpackHotDevClient',
@@ -45,7 +45,7 @@ module.exports = merge.smart(webpackConfig, {
   },
   output: {
     // Next line is not used in dev but WebpackDevServer crashes without it:
-    path: paths.destination,
+    path: paths.appBuild,
     // Add /* filename */ comments to generated require()s in the output.
     pathinfo: true,
     // This does not produce a real file. It's just the virtual path that is

@@ -3,7 +3,7 @@
  * @module config
  */
 
-import NPMPackage from '../../package.json';
+import NPMPackage from '../package.json';
 
 const config = {
   name: NPMPackage.name,

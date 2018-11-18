@@ -91,7 +91,7 @@ function build(previousFileSizes) {
       };
       if (writeStatsJson) {
         return bfj
-          .write(`${paths.destination}/bundle-stats.json`, stats.toJson())
+          .write(`${paths.appBuild}/bundle-stats.json`, stats.toJson())
           .then(() => resolve(resolveArgs))
           .catch(error => reject(new Error(error)));
       }
@@ -102,19 +102,19 @@ function build(previousFileSizes) {
 }
 
 function copyPublicFolder() {
-  fs.copySync(paths.assets, paths.destination, {
+  fs.copySync(paths.appAssets, paths.appBuild, {
     dereference: true,
     filter: file => ![paths.appHtml].includes(file),
   });
 }
 
-checkBrowsers(paths.app, isInteractive)
-  .then(() => measureFileSizesBeforeBuild(paths.destination)
+checkBrowsers(paths.appPath, isInteractive)
+  .then(() => measureFileSizesBeforeBuild(paths.appBuild)
   )
   .then(previousFileSizes => {
     // Remove all content but keep the directory so that
     // if you're in it, you don't end up in Trash
-    fs.emptyDirSync(paths.destination);
+    fs.emptyDirSync(paths.appBuild);
     // Merge with the public folder
     copyPublicFolder();
     // Start the webpack build
@@ -144,7 +144,7 @@ checkBrowsers(paths.app, isInteractive)
       printFileSizesAfterBuild(
         stats,
         previousFileSizes,
-        paths.destination,
+        paths.appBuild,
         WARN_AFTER_BUNDLE_GZIP_SIZE,
         WARN_AFTER_CHUNK_GZIP_SIZE
       );
@@ -153,7 +153,7 @@ checkBrowsers(paths.app, isInteractive)
       const appPackage = require(paths.packageJson);
       const { publicUrl } = paths;
       const { publicPath } = config.output;
-      const buildFolder = path.relative(process.cwd(), paths.destination);
+      const buildFolder = path.relative(process.cwd(), paths.appBuild);
       printHostingInstructions(
         appPackage,
         publicUrl,

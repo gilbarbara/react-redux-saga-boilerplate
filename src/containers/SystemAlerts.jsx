@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { utils } from 'styled-minimal';
-import { hideAlert } from 'actions';
+import { hideAlert } from 'actions/index';
 
-import Transition from 'components/Transition';
+import Transition from 'components/Transition/index';
 import Alert from 'components/Alert';
 
 const Base = styled.div`

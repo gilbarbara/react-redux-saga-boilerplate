@@ -6,8 +6,8 @@ import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 
-import { store, persistor } from 'store';
-import { showAlert } from 'actions';
+import { store, persistor } from 'store/index';
+import { showAlert } from 'actions/index';
 
 import App from 'containers/App';
 import Loader from 'components/Loader';

@@ -1,8 +1,8 @@
 module.exports = {
   collectCoverage: false,
   collectCoverageFrom: [
-    'app/scripts/**/*.{js,jsx}',
-    '!app/scripts/vendor/*',
+    'src/**/*.{js,jsx}',
+    '!src/vendor/*',
   ],
   coverageThreshold: {
     global: {
@@ -14,7 +14,7 @@ module.exports = {
   },
   moduleDirectories: [
     'node_modules',
-    'app/scripts',
+    'src',
     './',
   ],
   moduleFileExtensions: [
@@ -23,7 +23,7 @@ module.exports = {
     'json',
   ],
   moduleNameMapper: {
-    '^app-store': '<rootDir>/app/scripts/store',
+    '^app-store': '<rootDir>/src/store',
     '\\.(css|scss)$': '<rootDir>/test/__mocks__/styleMock.js',
     '\\.(jpe?g|png|gif|ttf|eot|woff|md)$': '<rootDir>/test/__mocks__/fileMock.js',
     '\\.svg$': '<rootDir>/test/__mocks__/svgMock.js',

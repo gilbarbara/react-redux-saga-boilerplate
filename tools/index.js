@@ -15,7 +15,7 @@ function publish() {
     .shell('ssh')
     .exclude('.DS_Store')
     .flags('az')
-    .source(`${paths.destination}/`)
+    .source(`${paths.appBuild}/`)
     .destination('reactboilerplate@react-boilerplate.com:/home/reactboilerplate/public_html/redux-saga');
 
   rsync.execute((error, code, cmd) => {

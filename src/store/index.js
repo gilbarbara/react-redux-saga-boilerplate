@@ -2,8 +2,8 @@ import { applyMiddleware, createStore, compose, combineReducers } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import rootSaga from 'sagas';
-import rootReducer from 'reducers';
+import rootSaga from 'sagas/index';
+import rootReducer from 'reducers/index';
 
 import middleware, { sagaMiddleware } from './middleware';
 
@@ -32,7 +32,7 @@ const configStore = (initialState = {}) => {
 
   if (module.hot) {
     module.hot.accept('reducers', () => {
-      store.replaceReducer(require('reducers').default);
+      store.replaceReducer(require('reducers/index').default);
     });
   }
 

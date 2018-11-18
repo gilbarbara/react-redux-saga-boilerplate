@@ -11,7 +11,7 @@ import theme, { headerHeight } from 'modules/theme';
 import { utils } from 'styled-minimal';
 
 import config from 'config';
-import { showAlert } from 'actions';
+import { showAlert } from 'actions/index';
 
 import Home from 'routes/Home';
 import Private from 'routes/Private';

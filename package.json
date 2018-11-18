@@ -179,14 +179,14 @@
     "build": "node tools/build",
     "build:serve": "npm run build && npm run serve",
     "analyze": "NODE_ENV=production webpack --config config/webpack.config.prod.js --profile --json > webpack.stats.json",
-    "lint": "eslint  --ext .js --ext .jsx app/scripts config test tools",
-    "lint:styles": "stylelint 'app/scripts/**/*.{js,jsx}'",
+    "lint": "eslint  --ext .js --ext .jsx src config test tools",
+    "lint:styles": "stylelint 'src/**/*.{js,jsx}'",
     "test": "jest --bail --coverage",
     "test:watch": "jest --watch",
     "test:automation": "cypress run",
     "test:automation:start": "npm run start automation",
     "bundlesize": "bundlesize",
-    "serve": "serve dist/",
+    "serve": "serve build",
     "deploy": "node tools deploy",
     "publish": "node tools publish",
     "precommit": "node tools upstream && lint-staged && flow"
@@ -203,11 +203,11 @@
   ],
   "bundlesize": [
     {
-      "path": "./dist/scripts/app.*.js",
-      "maxSize": "130 kB"
+      "path": "./build/scripts/app.*.js",
+      "maxSize": "160 kB"
     },
     {
-      "path": "./dist/scripts/modernizr.*.js",
+      "path": "./build/scripts/modernizr.*.js",
       "maxSize": "25 kB"
     }
   ]

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import rgba from 'polished/lib/color/rgba';
 import { appColor, headerHeight } from 'modules/theme';
 
-import { logOut } from 'actions';
+import { logOut } from 'actions/index';
 
 import { Container, utils } from 'styled-minimal';
 import Icon from 'components/Icon';
