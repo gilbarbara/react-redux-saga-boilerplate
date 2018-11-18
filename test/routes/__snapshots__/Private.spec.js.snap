@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Private should render properly 1`] = `
+<Screen
+  key="Private"
+  minHeight="100vh"
+>
+  <Container
+    verticalPadding={true}
+  >
+    <Header>
+      <Heading
+        as="h1"
+      >
+        Oh hai!
+      </Heading>
+      <Paragraph>
+        You can get this boilerplate
+         
+        <Link
+          href="https://github.com/gilbarbara/react-redux-saga-boilerplate/"
+          target="_blank"
+        >
+          here
+        </Link>
+      </Paragraph>
+    </Header>
+    <Box
+      mb={4}
+      textAlign="center"
+    >
+      <Heading
+        as="h5"
+      >
+        Here's some GitHub data
+      </Heading>
+      <Text
+        fontSize={1}
+      >
+        <i>
+          *Just to have some requests in the sagas...
+        </i>
+      </Text>
+    </Box>
+    <Connect(GitHub) />
+  </Container>
+</Screen>
+`;

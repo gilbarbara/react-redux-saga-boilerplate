@@ -1,10 +1,12 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+
+import { STATUS } from 'constants/index';
 
 import { GitHub } from 'containers/GitHub';
 
-const mockDispatch = jest.fn();
+jest.mock('uuid/v4', () => () => 'ABCDE');
 
+const mockDispatch = jest.fn();
 const props = {
   dispatch: mockDispatch,
   github: {
@@ -24,13 +26,8 @@ function setup(ownProps = props) {
 describe('GitHub', () => {
   const wrapper = setup();
 
-  it('should be a Component', () => {
-    expect(wrapper.instance() instanceof React.Component).toBe(true);
-  });
-
   it('should render properly', () => {
-    expect(wrapper.find('.app__github')).toExist();
-    expect(wrapper.find('.app__github__selector')).toExist();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should render a Loader without data', () => {
@@ -38,45 +35,82 @@ describe('GitHub', () => {
   });
 
   it('should have dispatched an action on mount', () => {
-    expect(mockDispatch.mock.calls[0][0]).toEqual({
+    expect(mockDispatch).toHaveBeenCalledWith({
       payload: { query: 'react' },
       type: 'GITHUB_GET_REPOS',
     });
   });
 
-  it('should render some items when data arrives', () => {
+  it('should not render if selected data doesn\'t exist', () => {
     wrapper.setProps({
       github: {
         repos: {
-          data: [
-            {
-              id: 12,
-              name: 'magic-tricks',
-              html_url: 'https://github.com/username/magic-tricks',
-              description: 'nothing much',
-              owner: {
-                avatar_url: 'avatar_url',
-                login: 'username',
-              },
-            },
-          ],
+          data: {},
+          status: STATUS.READY,
         },
       },
     });
 
-    expect(wrapper.find('.app__github__grid')).toMatchSnapshot();
+    expect(wrapper.find('Grid')).not.toExist();
   });
 
-  it('should dispatch an action when click selector button', () => {
-    const button = wrapper.find('.btn-group').childAt(1);
-
-    button.simulate('click', {
-      currentTarget: {
-        dataset: { query: button.getElement().props['data-query'] },
+  it('should render the Grid if data exists', () => {
+    wrapper.setProps({
+      github: {
+        repos: {
+          data: {
+            react: [
+              {
+                id: 12,
+                name: 'magic-tricks',
+                html_url: 'https://github.com/username/magic-tricks',
+                description: 'nothing much',
+                owner: {
+                  avatar_url: 'avatar_url',
+                  login: 'username',
+                },
+              },
+            ],
+          },
+          status: STATUS.READY,
+        },
       },
     });
 
-    expect(mockDispatch.mock.calls[1][0]).toEqual({
+    expect(wrapper.find('Grid')).toMatchSnapshot();
+  });
+
+  it('should dispatch an alert', () => {
+    wrapper.setProps({
+      github: {
+        repos: {
+          data: {},
+          status: STATUS.ERROR,
+          message: 'Noothing found',
+        },
+      },
+    });
+
+    expect(mockDispatch).toHaveBeenCalledWith({
+      type: 'SHOW_ALERT',
+      payload:
+        {
+          id: 'ABCDE',
+          icon: undefined,
+          message: 'Noothing found',
+          position: 'bottom-right',
+          variant: 'danger',
+          timeout: 0,
+        },
+    });
+  });
+
+  it('should dispatch an action when click selector button', () => {
+    const button = mount(wrapper.find('ButtonGroup').childAt(1).getElement());
+
+    button.simulate('click');
+
+    expect(mockDispatch).toHaveBeenCalledWith({
       payload: { query: 'redux' },
       type: 'SWITCH_MENU',
     });

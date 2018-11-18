@@ -47,7 +47,6 @@ module.exports = {
   devtool: '#cheap-module-source-map',
   resolve: {
     alias: {
-      'app-store$': paths.store,
       assets: paths.assets,
       modernizr$: paths.modernizrrc,
       test: paths.test,
@@ -116,9 +115,24 @@ module.exports = {
         include: /fonts/,
       },
       {
-        test: /\.(jpe?g|png|gif|svg|ico)$/i,
+        test: /\.svg$/,
         use: [
-          `file?hash=sha512&digest=hex${isProd ? '&name=media/[name].[ext]' : ''}`,
+          {
+            loader: '@svgr/webpack',
+            options: {
+              icon: true,
+            },
+          },
+          {
+            loader: 'url-loader',
+          },
+        ],
+        include: /media/,
+      },
+      {
+        test: /\.(jpe?g|png|gif|ico)$/i,
+        use: [
+          `file?hash=sha512&digest=hex${isProd ? '&name=images/[name].[ext]' : ''}`,
           {
             loader: 'image-webpack',
             query: {
@@ -127,11 +141,6 @@ module.exports = {
               },
               pngquant: {
                 quality: '75-90',
-              },
-              svgo: {
-                plugins: [
-                  { removeViewBox: false },
-                ],
               },
             },
           },

@@ -1,3 +1,85 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GitHub should render some items when data arrives 1`] = `null`;
+exports[`GitHub should render properly 1`] = `
+<div
+  key="GitHub"
+>
+  <Flex
+    justifyContent="center"
+  >
+    <ButtonGroup
+      aria-label="GitHub Selector"
+      role="group"
+    >
+      <Button
+        animate={false}
+        block={false}
+        data-query="react"
+        disabled={false}
+        onClick={[Function]}
+        outline={false}
+        size="lg"
+        type="button"
+        variant="primary"
+      >
+        React
+      </Button>
+      <Button
+        animate={false}
+        block={false}
+        data-query="redux"
+        disabled={false}
+        onClick={[Function]}
+        outline={true}
+        size="lg"
+        type="button"
+        variant="primary"
+      >
+        Redux
+      </Button>
+    </ButtonGroup>
+  </Flex>
+  <Loader
+    type="pulse"
+  />
+</div>
+`;
+
+exports[`GitHub should render the Grid if data exists 1`] = `
+<Grid
+  data-type="react"
+>
+  <li
+    key="12"
+  >
+    <Item>
+      <Link
+        href="https://github.com/username/magic-tricks"
+      >
+        <Image
+          alt="username"
+          src="avatar_url"
+        />
+      </Link>
+      <ItemHeader>
+        <Link
+          href="https://github.com/username/magic-tricks"
+        >
+          <Heading
+            as="h5"
+            lineHeight={1}
+          >
+            magic-tricks
+          </Heading>
+          <small>
+            username
+          </small>
+        </Link>
+      </ItemHeader>
+      <Paragraph>
+        nothing much
+      </Paragraph>
+    </Item>
+  </li>
+</Grid>
+`;

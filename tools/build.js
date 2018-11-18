@@ -104,7 +104,7 @@ function build(previousFileSizes) {
 function copyPublicFolder() {
   fs.copySync(paths.assets, paths.destination, {
     dereference: true,
-    filter: file => [paths.appHtml].includes(file),
+    filter: file => ![paths.appHtml].includes(file),
   });
 }
 

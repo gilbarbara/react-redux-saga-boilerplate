@@ -1,5 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`modules/RoutePublic should redirect to /private for authenticated access 1`] = `"<div id=\\"redirect\\" data-reactroot=\\"\\"></div>"`;
+exports[`modules/RoutePublic should redirect to /private for authenticated access 1`] = `
 
-exports[`modules/RoutePublic should render the Login component for unauthenticated access 1`] = `"<div data-reactroot=\\"\\">LOGIN</div>"`;
+<div id="redirect"
+     data-reactroot
+>
+</div>
+
+`;
+
+exports[`modules/RoutePublic should render the Login component for unauthenticated access 1`] = `
+
+<div data-reactroot>
+  LOGIN
+</div>
+
+`;

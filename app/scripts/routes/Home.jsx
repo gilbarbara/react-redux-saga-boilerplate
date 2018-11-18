@@ -1,12 +1,49 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import cx from 'classnames';
+import styled from 'styled-components';
 
 import config from 'config';
-
-import Logo from 'components/Logo';
 import { login } from 'actions/index';
+
+import { Button, Container, Text, utils } from 'styled-minimal';
+import Background from 'components/Background';
+import Icon from 'components/Icon';
+import Logo from 'components/Logo';
+
+const { spacer } = utils;
+
+const Wrapper = styled(Container)`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+`;
+
+const Header = styled.div`
+  margin-bottom: ${spacer(3)};
+  text-align: center;
+
+  svg {
+    width: 20rem;
+  }
+`;
+
+const H1 = styled.h1`
+  color: #fff;
+  font-size: 3.5rem;
+  line-height: 1.4;
+  margin-bottom: ${spacer(3)};
+  margin-top: 0;
+  text-align: center;
+
+  ${utils.responsive({
+    lg: `
+      font-size: 4rem;
+    `,
+  })}
+`;
 
 export class Home extends React.PureComponent {
   static propTypes = {
@@ -14,8 +51,7 @@ export class Home extends React.PureComponent {
     user: PropTypes.object.isRequired,
   };
 
-  handleClickLogin = (e) => {
-    e.preventDefault();
+  handleClickLogin = () => {
     const { dispatch } = this.props;
 
     dispatch(login());
@@ -25,26 +61,23 @@ export class Home extends React.PureComponent {
     const { user } = this.props;
 
     return (
-      <div key="Home" className="app__home app__route">
-        <div className="app__container">
-          <div className="app__home__wrapper">
-            <div className="app__home__header">
-              <Logo />
-            </div>
-            <h1>{config.description}</h1>
-            <a
-              href="#login"
-              onClick={this.handleClickLogin}
-              className={cx('btn btn-lg btn-primary btn-icon', {
-                'btn-loading': user.status === 'running',
-              })}
-            >
-              <i className="i-sign-in" />
-              <span>Start</span>
-            </a>
-          </div>
-        </div>
-      </div>
+      <Background key="Home">
+        <Wrapper verticalPadding>
+          <Header>
+            <Logo />
+          </Header>
+          <H1>{config.description}</H1>
+          <Button
+            animate={user.status === 'running'}
+            onClick={this.handleClickLogin}
+            size="xl"
+            textTransform="uppercase"
+          >
+            <Icon name="sign-in" />
+            <Text ml={2}>Start</Text>
+          </Button>
+        </Wrapper>
+      </Background>
     );
   }
 }

@@ -21,7 +21,10 @@ const RoutePrivate = ({ component: Component, isAuthenticated, to, ...rest }) =>
 );
 
 RoutePrivate.propTypes = {
-  component: PropTypes.func.isRequired,
+  component: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.object,
+  ]).isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
   location: PropTypes.object,
   to: PropTypes.string,

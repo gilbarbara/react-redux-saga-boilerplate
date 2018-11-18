@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Switch, Route } from 'react-router-dom';
-import { ConnectedRouter } from 'connected-react-router';
+import { Router, Switch, Route } from 'react-router-dom';
 import Helmet from 'react-helmet';
-import cx from 'classnames';
+import styled, { css, ThemeProvider } from 'styled-components';
 import treeChanges from 'tree-changes';
+
 import history from 'modules/history';
+import theme, { headerHeight } from 'modules/theme';
+import { utils } from 'styled-minimal';
 
 import config from 'config';
 import { showAlert } from 'actions';
@@ -19,12 +21,31 @@ import Header from 'containers/Header';
 import SystemAlerts from 'containers/SystemAlerts';
 
 import Footer from 'components/Footer';
+import GlobalStyles from 'components/GlobalStyles';
 import RoutePublic from 'components/RoutePublic';
 import RoutePrivate from 'components/RoutePrivate';
 
+const StyledApp = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  opacity: 1 !important;
+  position: relative;
+  transition: opacity 0.5s;
+`;
+
+const MainPrivate = ({ isAuthenticated }) => isAuthenticated && css`
+  padding: ${utils.px(headerHeight)} 0 0;
+`;
+
+const Main = styled.main`
+  min-height: 100vh;
+
+  ${MainPrivate};
+`;
+
 export class App extends React.Component {
   static propTypes = {
-    app: PropTypes.object.isRequired,
     dispatch: PropTypes.func.isRequired,
     user: PropTypes.object.isRequired,
   };
@@ -35,40 +56,39 @@ export class App extends React.Component {
 
     /* istanbul ignore else */
     if (changedTo('user.isAuthenticated', true)) {
-      dispatch(showAlert('Hello! And welcome!', { type: 'success', icon: 'i-trophy' }));
+      dispatch(showAlert('Hello! And welcome!', { variant: 'success', icon: 'bell' }));
     }
   }
 
   render() {
-    const { app, dispatch, user } = this.props;
+    const { dispatch, user } = this.props;
 
     return (
-      <ConnectedRouter history={history}>
-        <div
-          className={cx('app', {
-            'app--private': user.isAuthenticated,
-          })}
-        >
-          <Helmet
-            defer={false}
-            htmlAttributes={{ lang: 'pt-br' }}
-            encodeSpecialCharacters={true}
-            defaultTitle={config.title}
-            titleTemplate={`%s | ${config.name}`}
-            titleAttributes={{ itemprop: 'name', lang: 'pt-br' }}
-          />
-          {user.isAuthenticated && <Header dispatch={dispatch} user={user} />}
-          <main className="app__main">
-            <Switch>
-              <RoutePublic isAuthenticated={user.isAuthenticated} path="/" exact component={Home} />
-              <RoutePrivate isAuthenticated={user.isAuthenticated} path="/private" component={Private} />
-              <Route component={NotFound} />
-            </Switch>
-          </main>
-          <Footer />
-          <SystemAlerts alerts={app.alerts} dispatch={dispatch} />
-        </div>
-      </ConnectedRouter>
+      <Router history={history}>
+        <ThemeProvider theme={theme}>
+          <StyledApp logged={user.isAuthenticated}>
+            <Helmet
+              defer={false}
+              htmlAttributes={{ lang: 'pt-br' }}
+              encodeSpecialCharacters={true}
+              defaultTitle={config.title}
+              titleTemplate={`%s | ${config.name}`}
+              titleAttributes={{ itemprop: 'name', lang: 'pt-br' }}
+            />
+            {user.isAuthenticated && <Header dispatch={dispatch} user={user} />}
+            <Main isAuthenticated={user.isAuthenticated}>
+              <Switch>
+                <RoutePublic isAuthenticated={user.isAuthenticated} path="/" exact component={Home} />
+                <RoutePrivate isAuthenticated={user.isAuthenticated} path="/private" component={Private} />
+                <Route component={NotFound} />
+              </Switch>
+            </Main>
+            <Footer />
+            <SystemAlerts />
+            <GlobalStyles />
+          </StyledApp>
+        </ThemeProvider>
+      </Router>
     );
   }
 }
@@ -76,7 +96,6 @@ export class App extends React.Component {
 /* istanbul ignore next */
 function mapStateToProps(state) {
   return {
-    app: state.app,
     user: state.user,
   };
 }

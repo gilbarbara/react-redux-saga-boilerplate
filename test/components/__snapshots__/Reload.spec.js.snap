@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reload should render properly 1`] = `
+.c2 {
+  background-color: #fff;
+  border: 1px solid #212121;
+  color: #212121;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 0px;
+  box-shadow: none;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 14px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 7px 14px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  width: auto;
+}
+
+.c2:disabled {
+  pointer-events: none;
+}
+
+.c2:hover {
+  -webkit-transition: -webkit-transform 0.2s;
+  -webkit-transition: transform 0.2s;
+  transition: transform 0.2s;
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.c2:focus {
+  outline-color: #212121;
+}
+
+.c2 .c3 {
+  margin-left: 5px;
+}
+
+.c1 {
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 16px 0 0;
+  margin-bottom: 16px;
+}
+
+.c1:first-child {
+  margin-top: 0;
+}
+
+.c0 button {
+  pointer-events: all;
+}
+
+<StyledReload>
+  <div
+    className="c0"
+  >
+    <styled.h1
+      as="h6"
+      mb={3}
+    >
+      <h6
+        className="c1"
+      >
+        There's a new version of this app!
+      </h6>
+    </styled.h1>
+    <styled.button
+      animate={false}
+      block={false}
+      disabled={false}
+      onClick={[Function]}
+      outline={true}
+      size="sm"
+      type="button"
+      variant="dark"
+    >
+      <button
+        className="c2"
+        disabled={false}
+        onClick={[Function]}
+        size="sm"
+        type="button"
+      >
+        Reload
+      </button>
+    </styled.button>
+  </div>
+</StyledReload>
+`;

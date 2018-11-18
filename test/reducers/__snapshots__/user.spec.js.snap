@@ -10,7 +10,7 @@ Object {
 exports[`User should handle USER_LOGIN_SUCCESS 1`] = `
 Object {
   "isAuthenticated": true,
-  "status": "idle",
+  "status": "ready",
 }
 `;
 

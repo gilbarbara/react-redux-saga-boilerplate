@@ -16,6 +16,7 @@ export function* switchMenu({ payload }) {
   try {
     const repos = yield select(state => state.github.repos);
 
+    /* istanbul ignore else */
     if (!repos.data[payload.query] || !repos.data[payload.query].length) {
       yield put({
         type: ActionTypes.GITHUB_GET_REPOS,

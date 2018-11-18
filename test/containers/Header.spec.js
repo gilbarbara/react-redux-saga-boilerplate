@@ -1,5 +1,4 @@
 import React from 'react';
-import { mount } from 'enzyme';
 
 import Header from 'containers/Header';
 
@@ -20,17 +19,13 @@ function setup() {
 describe('Header', () => {
   const wrapper = setup();
 
-  it('should be a Component', () => {
-    expect(wrapper.instance() instanceof React.Component).toBe(true);
-  });
-
   it('should render properly', () => {
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should handle clicks', () => {
-    wrapper.find('.app__logout').simulate('click');
-    expect(mockDispatch.mock.calls[0][0]).toEqual({
+    wrapper.find('Logout').simulate('click');
+    expect(mockDispatch).toHaveBeenCalledWith({
       type: 'USER_LOGOUT',
       payload: {},
     });

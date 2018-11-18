@@ -1,35 +1,22 @@
 import React from 'react';
-import { mount } from 'enzyme';
 
 import Loader from 'components/Loader';
 
-const mockDispatch = jest.fn();
-
-function setup() {
-  const props = {
-    app: {},
-    dispatch: mockDispatch,
-  };
-
-  return mount(<Loader {...props} />);
+function setup(type = 'pulse') {
+  return mount(<Loader type={type} />);
 }
 
 describe('Loader', () => {
-  const wrapper = setup();
-
-  it('should be a StatelessComponent', () => {
-    expect(wrapper.instance()).toBeNull();
-  });
+  let wrapper;
 
   it('should render properly with pulse type', () => {
-    expect(wrapper.html()).toMatchSnapshot();
+    wrapper = setup();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should render properly with rotate type', () => {
-    wrapper.setProps({
-      pulse: false,
-    });
+    wrapper = setup('rotate');
 
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 });

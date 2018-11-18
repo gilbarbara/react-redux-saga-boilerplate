@@ -15,7 +15,7 @@ Object {
       "message": "HELLO",
       "position": "bottom-right",
       "timeout": 5,
-      "type": "success",
+      "variant": "dark",
     },
   ],
 }

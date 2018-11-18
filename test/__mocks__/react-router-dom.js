@@ -1,4 +1,5 @@
 import React from 'react';
+import RouterRouter from 'react-router-dom/Router';
 import RouterRoute from 'react-router-dom/Route';
 import RouterSwitch from 'react-router-dom/Switch';
 
@@ -67,4 +68,5 @@ export const NavLink = (props) => {
 export const Redirect = () => (<div id="redirect" />);
 
 export const Route = RouterRoute;
+export const Router = RouterRouter;
 export const Switch = RouterSwitch;

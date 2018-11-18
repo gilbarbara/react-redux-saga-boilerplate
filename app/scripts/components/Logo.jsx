@@ -1,23 +1,24 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import SVG from 'react-inlinesvg';
+import styled from 'styled-components';
 
-import config from 'config';
+import { ReactComponent as Icon } from 'assets/media/brand/icon.svg';
 
-const Logo = ({ file }) => (
-  <div className="app__logo">
-    <SVG src={require(`assets/media/brand/${file}.svg`)}>
-      <img src={require(`assets/media/brand/${file}.png`)} alt={config.title} />
-    </SVG>
-  </div>
+export const StyledLogo = styled.div`
+  align-items: flex-start;
+  display: inline-flex;
+  font-size: 0;
+
+  svg {
+    height: auto;
+    max-height: 100%;
+    width: 4.8rem;
+  }
+`;
+
+const Logo = () => (
+  <StyledLogo>
+    <Icon />
+  </StyledLogo>
 );
-
-Logo.propTypes = {
-  file: PropTypes.string,
-};
-
-Logo.defaultProps = {
-  file: 'icon',
-};
 
 export default Logo;

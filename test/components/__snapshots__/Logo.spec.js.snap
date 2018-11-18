@@ -1,3 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Logo should render properly 1`] = `"<div class=\\"app__logo\\"><span class=\\"isvg failed\\"><img src=\\"\\" alt=\\"react-redux-saga-boilerplate\\"></span></div>"`;
+exports[`Logo should render properly 1`] = `
+.c0 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 0;
+}
+
+.c0 svg {
+  height: auto;
+  max-height: 100%;
+  width: 4.8rem;
+}
+
+<StyledLogo>
+  <div
+    className="c0"
+  >
+    <SvgMock />
+  </div>
+</StyledLogo>
+`;

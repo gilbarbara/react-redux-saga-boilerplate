@@ -2,7 +2,6 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 
-const CleanPlugin = require('clean-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
@@ -24,7 +23,7 @@ const publicPath = '/';
 // `publicUrl` is just like `publicPath`, but we will provide it to our app
 // as %PUBLIC_URL% in `index.html` and `process.env.PUBLIC_URL` in JavaScript.
 // Omit trailing slash as %PUBLIC_PATH%/xyz looks better than %PUBLIC_PATH%xyz.
-const publicUrl = '';
+const publicUrl = publicPath.slice(0, -1);
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
 
@@ -97,7 +96,6 @@ module.exports = merge.smart(webpackConfig, {
     ],
   },
   plugins: [
-    new CleanPlugin(['dist'], { root: paths.root }),
     new HtmlPlugin({
       githash: GITHASH,
       inject: true,
@@ -113,7 +111,7 @@ module.exports = merge.smart(webpackConfig, {
         removeStyleLinkTypeAttributes: true,
         useShortDoctype: true,
       },
-      template: './index.ejs',
+      template: paths.appHtml,
       title: NPMPackage.title,
     }),
     // Inlines the webpack runtime script. This script is too small to warrant

@@ -1,11 +1,10 @@
 import React from 'react';
-import { init } from 'index';
 
 jest.mock('redux-persist/lib/integration/react', () => ({
-  PersistGate: () => (<div />),
+  PersistGate: () => (<div id="persist-gate" />),
 }));
 
-describe('index/init', () => {
+describe('index/app', () => {
   beforeAll(() => {
     process.env.NODE_ENV = 'production';
   });
@@ -14,9 +13,8 @@ describe('index/init', () => {
     process.env.NODE_ENV = 'test';
   });
 
-  it('should initiate the app', () => {
-    init.run().then(environment => {
-      expect(environment).toBe('production');
-    });
+  it('should have mounted the app', () => {
+    require('index');
+    expect(document.getElementById('persist-gate')).not.toBeNull();
   });
 });

@@ -1,7 +1,9 @@
 {
   "linters": {
-    "*.{js,jsx}": ["eslint --fix", "jest --config config/jest.config.js --bail --findRelatedTests"],
-    "*.{scss,sass}": ["stylelint --fix"]
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "jest --bail --findRelatedTests"
+    ]
   },
   "ignore": ["**/dist/*"]
 }

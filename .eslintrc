@@ -86,6 +86,7 @@
     "object-shorthand": ["warn", "always"],
     "one-var": "warn",
     "padded-blocks": "warn",
+    "prefer-arrow-callback": ["error", { "allowNamedFunctions": true }],
     "prefer-const": "warn",
     "prefer-destructuring": "warn",
     "prefer-template": "warn",

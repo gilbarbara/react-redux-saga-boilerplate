@@ -1,0 +1,558 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert should render a error alert with markup 1`] = `
+.c1 {
+  background-color: #fff;
+  border: 1px solid #ff4444;
+  color: #ff4444;
+  border-radius: 3px;
+  font-size: 16px;
+  line-height: 1.4;
+  max-width: 450px;
+  padding: 10px 16px;
+  width: 100%;
+}
+
+.c1 a {
+  color: #ff4444;
+}
+
+.c4 {
+  width: 100%;
+  padding: 8px;
+  padding-right: 8px;
+}
+
+.c3 {
+  display: inline-block;
+  line-height: 0;
+}
+
+.c3 svg {
+  height: auto;
+  max-height: 100%;
+  width: 24px;
+}
+
+.c3 svg path {
+  fill: #fff;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 1;
+  padding: 0;
+  position: relative;
+}
+
+.c2 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  background-color: #ff4444;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 12px;
+}
+
+<StyledAlert
+  outline={true}
+  variant="danger"
+>
+  <styled.div
+    className="c0"
+    outline={true}
+    size="md"
+    variant="danger"
+  >
+    <div
+      className="c0 c1"
+      role="alert"
+      size="md"
+    >
+      <AlertIcon
+        color="#fff"
+        name="times-circle"
+        outline={true}
+        variant="danger"
+        width={24}
+      >
+        <StyledIcon
+          className="c2"
+          color="#fff"
+          outline={true}
+          src="/media/icons/times-circle.svg"
+          variant="danger"
+          width={24}
+        >
+          <span
+            className="isvg loading c2 c3"
+          />
+        </StyledIcon>
+      </AlertIcon>
+      <styled.div
+        p={2}
+        pr={2}
+      >
+        <div
+          className="c4"
+        >
+          <p>
+            This is an error message
+          </p>
+        </div>
+      </styled.div>
+    </div>
+  </styled.div>
+</StyledAlert>
+`;
+
+exports[`Alert should render a info alert 1`] = `
+.c1 {
+  background-color: #fff;
+  border: 1px solid #33b5e5;
+  color: #33b5e5;
+  border-radius: 3px;
+  font-size: 16px;
+  line-height: 1.4;
+  max-width: 450px;
+  padding: 10px 16px;
+  width: 100%;
+}
+
+.c1 a {
+  color: #33b5e5;
+}
+
+.c4 {
+  width: 100%;
+  padding: 8px;
+  padding-right: 8px;
+}
+
+.c3 {
+  display: inline-block;
+  line-height: 0;
+}
+
+.c3 svg {
+  height: auto;
+  max-height: 100%;
+  width: 24px;
+}
+
+.c3 svg path {
+  fill: #fff;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 1;
+  padding: 0;
+  position: relative;
+}
+
+.c2 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  background-color: #33b5e5;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 12px;
+}
+
+<StyledAlert
+  outline={true}
+  variant="info"
+>
+  <styled.div
+    className="c0"
+    outline={true}
+    size="md"
+    variant="info"
+  >
+    <div
+      className="c0 c1"
+      role="alert"
+      size="md"
+    >
+      <AlertIcon
+        color="#fff"
+        name="question-circle"
+        outline={true}
+        variant="info"
+        width={24}
+      >
+        <StyledIcon
+          className="c2"
+          color="#fff"
+          outline={true}
+          src="/media/icons/question-circle.svg"
+          variant="info"
+          width={24}
+        >
+          <span
+            className="isvg loading c2 c3"
+          />
+        </StyledIcon>
+      </AlertIcon>
+      <styled.div
+        p={2}
+        pr={2}
+      >
+        <div
+          className="c4"
+        >
+          This is an info message
+        </div>
+      </styled.div>
+    </div>
+  </styled.div>
+</StyledAlert>
+`;
+
+exports[`Alert should render a success alert 1`] = `
+.c1 {
+  background-color: #fff;
+  border: 1px solid #00C851;
+  color: #00C851;
+  border-radius: 3px;
+  font-size: 16px;
+  line-height: 1.4;
+  max-width: 450px;
+  padding: 10px 16px;
+  width: 100%;
+}
+
+.c1 a {
+  color: #00C851;
+}
+
+.c4 {
+  width: 100%;
+  padding: 8px;
+  padding-right: 8px;
+}
+
+.c3 {
+  display: inline-block;
+  line-height: 0;
+}
+
+.c3 svg {
+  height: auto;
+  max-height: 100%;
+  width: 24px;
+}
+
+.c3 svg path {
+  fill: #fff;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 1;
+  padding: 0;
+  position: relative;
+}
+
+.c2 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  background-color: #00C851;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 12px;
+}
+
+<StyledAlert
+  outline={true}
+  variant="success"
+>
+  <styled.div
+    className="c0"
+    outline={true}
+    size="md"
+    variant="success"
+  >
+    <div
+      className="c0 c1"
+      role="alert"
+      size="md"
+    >
+      <AlertIcon
+        color="#fff"
+        name="check-circle"
+        outline={true}
+        variant="success"
+        width={24}
+      >
+        <StyledIcon
+          className="c2"
+          color="#fff"
+          outline={true}
+          src="/media/icons/check-circle.svg"
+          variant="success"
+          width={24}
+        >
+          <span
+            className="isvg loading c2 c3"
+          />
+        </StyledIcon>
+      </AlertIcon>
+      <styled.div
+        p={2}
+        pr={2}
+      >
+        <div
+          className="c4"
+        >
+          This is a success message
+        </div>
+      </styled.div>
+    </div>
+  </styled.div>
+</StyledAlert>
+`;
+
+exports[`Alert should render a warning alert 1`] = `
+.c1 {
+  background-color: #fff;
+  border: 1px solid #fda509;
+  color: #fda509;
+  border-radius: 3px;
+  font-size: 16px;
+  line-height: 1.4;
+  max-width: 450px;
+  padding: 10px 16px;
+  width: 100%;
+}
+
+.c1 a {
+  color: #fda509;
+}
+
+.c4 {
+  width: 100%;
+  padding: 8px;
+  padding-right: 8px;
+}
+
+.c3 {
+  display: inline-block;
+  line-height: 0;
+}
+
+.c3 svg {
+  height: auto;
+  max-height: 100%;
+  width: 24px;
+}
+
+.c3 svg path {
+  fill: #fff;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 1;
+  padding: 0;
+  position: relative;
+}
+
+.c2 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  background-color: #fda509;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 12px;
+}
+
+<StyledAlert
+  outline={true}
+  variant="warning"
+>
+  <styled.div
+    className="c0"
+    outline={true}
+    size="md"
+    variant="warning"
+  >
+    <div
+      className="c0 c1"
+      role="alert"
+      size="md"
+    >
+      <AlertIcon
+        color="#fff"
+        name="exclamation-circle"
+        outline={true}
+        variant="warning"
+        width={24}
+      >
+        <StyledIcon
+          className="c2"
+          color="#fff"
+          outline={true}
+          src="/media/icons/exclamation-circle.svg"
+          variant="warning"
+          width={24}
+        >
+          <span
+            className="isvg loading c2 c3"
+          />
+        </StyledIcon>
+      </AlertIcon>
+      <styled.div
+        p={2}
+        pr={2}
+      >
+        <div
+          className="c4"
+        >
+          This is a warning message
+        </div>
+      </styled.div>
+    </div>
+  </styled.div>
+</StyledAlert>
+`;
+
+exports[`Alert should render properly 1`] = `
+.c1 {
+  background-color: #fff;
+  border: 1px solid #33b5e5;
+  color: #33b5e5;
+  border-radius: 3px;
+  font-size: 16px;
+  line-height: 1.4;
+  max-width: 450px;
+  padding: 10px 16px;
+  width: 100%;
+}
+
+.c1 a {
+  color: #33b5e5;
+}
+
+.c4 {
+  width: 100%;
+  padding: 8px;
+  padding-right: 8px;
+}
+
+.c3 {
+  display: inline-block;
+  line-height: 0;
+}
+
+.c3 svg {
+  height: auto;
+  max-height: 100%;
+  width: 24px;
+}
+
+.c3 svg path {
+  fill: #fff;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 1;
+  padding: 0;
+  position: relative;
+}
+
+.c2 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  background-color: #33b5e5;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 12px;
+}
+
+<StyledAlert
+  outline={true}
+  variant="info"
+>
+  <styled.div
+    className="c0"
+    outline={true}
+    size="md"
+    variant="info"
+  >
+    <div
+      className="c0 c1"
+      role="alert"
+      size="md"
+    >
+      <AlertIcon
+        color="#fff"
+        name="question-circle"
+        outline={true}
+        variant="info"
+        width={24}
+      >
+        <StyledIcon
+          className="c2"
+          color="#fff"
+          outline={true}
+          src="/media/icons/question-circle.svg"
+          variant="info"
+          width={24}
+        >
+          <span
+            className="isvg loading c2 c3"
+          />
+        </StyledIcon>
+      </AlertIcon>
+      <styled.div
+        p={2}
+        pr={2}
+      >
+        <div
+          className="c4"
+        >
+          Hello World
+        </div>
+      </styled.div>
+    </div>
+  </styled.div>
+</StyledAlert>
+`;

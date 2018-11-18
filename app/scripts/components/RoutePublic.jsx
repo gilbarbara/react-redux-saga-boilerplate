@@ -14,7 +14,10 @@ const RoutePublic = ({ component: Component, isAuthenticated, to, ...rest }) => 
 );
 
 RoutePublic.propTypes = {
-  component: PropTypes.func.isRequired,
+  component: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.object,
+  ]).isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
   to: PropTypes.string,
 };

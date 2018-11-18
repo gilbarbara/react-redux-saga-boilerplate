@@ -1,32 +1,36 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import Github from 'containers/GitHub';
 
-export default class Private extends React.PureComponent {
-  render() {
-    return (
-      <div key="Private" className="app__private app__route">
-        <div className="app__container">
-          <div className="app__private__header">
-            <h1>Oh hai!</h1>
-            <p>You can get this boilerplate{' '}
-              <a
-                href="https://github.com/gilbarbara/react-redux-saga-boilerplate/"
-                target="_blank"
-              >
-                here
-              </a>
-            </p>
-          </div>
-          <div className="app__private__content">
-            <div className="app__private__intro">
-              <h5>Here's some GitHub data</h5>
-              <small className="text-muted"><i>*Just to have some requests in the sagas...</i></small>
-            </div>
-            <Github />
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
+import { Box, Container, Heading, Link, Paragraph, Screen, Text, utils } from 'styled-minimal';
+
+const Header = styled.div`
+  margin-bottom: ${utils.spacer(3)};
+  text-align: center;
+`;
+
+const Private = () => (
+  <Screen key="Private">
+    <Container verticalPadding>
+      <Header>
+        <Heading>Oh hai!</Heading>
+        <Paragraph>You can get this boilerplate{' '}
+          <Link
+            href="https://github.com/gilbarbara/react-redux-saga-boilerplate/"
+            target="_blank"
+          >
+              here
+          </Link>
+        </Paragraph>
+      </Header>
+      <Box textAlign="center" mb={4}>
+        <Heading as="h5">Here's some GitHub data</Heading>
+        <Text fontSize={1}><i>*Just to have some requests in the sagas...</i></Text>
+      </Box>
+      <Github />
+    </Container>
+  </Screen>
+);
+
+export default Private;

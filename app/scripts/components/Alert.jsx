@@ -1,57 +1,86 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import theme from 'modules/theme';
 
-const Alert = ({ children, handleClickClose, id, icon, type }) => {
+import { Alert as AlertComponent, Box, utils } from 'styled-minimal';
+import Icon from 'components/Icon';
+
+const { colors, palette } = utils.themeGet(theme);
+const variants = { ...colors, ...palette };
+
+AlertComponent.displayName = 'AlertComponent';
+
+const StyledAlert = styled(AlertComponent)`
+  display: flex;
+  line-height: 1;
+  padding: 0;
+  position: relative;
+`;
+
+const AlertIcon = styled(Icon)`
+  align-items: flex-start;
+  background-color: ${({ variant }) => variants[variant]};
+  display: flex;
+  padding: ${utils.spacer(3)};
+`;
+
+const AlertButton = styled.button`
+  background-color: ${({ variant }) => variants[variant]};
+  pointer-events: all;
+  position: absolute;
+  right: ${utils.spacer(1)};
+  top: ${utils.spacer(1)};
+`;
+
+const Alert = ({ children, handleClickClose, id, icon, ...rest }) => {
   const output = {};
-  const typeClass = type ? ` is-${type}` : '';
+  let name;
 
-  switch (type) {
+  switch (rest.variant) {
     case 'success': {
-      output.icon = icon || 'i-check-circle';
-      break;
-    }
-    case 'error': {
-      output.icon = icon || 'i-times-circle';
+      name = icon || 'check-circle';
       break;
     }
     case 'warning': {
-      output.icon = icon || 'i-exclamation-circle';
+      name = icon || 'exclamation-circle';
+      break;
+    }
+    case 'danger': {
+      name = icon || 'times-circle';
       break;
     }
     case 'info': {
-      output.icon = icon || 'i-question-circle';
+      name = icon || 'question-circle';
       break;
     }
-    case 'black': {
-      output.icon = icon || 'i-bell-o';
+    case 'dark': {
+      name = icon || 'bell-o';
       break;
     }
     default: {
-      output.icon = icon || 'i-dot-circle-o';
+      name = icon || 'dot-circle-o';
     }
   }
 
   if (handleClickClose) {
     output.button = (
-      <button
-        className="app__alert__close"
+      <AlertButton
         data-id={id}
         onClick={handleClickClose}
         type="button"
       >
-        <i className="i-times" />
-      </button>
+        <Icon name="times" color="#ccc" width={10} />
+      </AlertButton>
     );
   }
 
   return (
-    <div className={`app__alert${typeClass}`}>
-      <div className="app__alert__icon">
-        <i className={output.icon} />
-      </div>
-      <div className="app__alert__content">{children}</div>
+    <StyledAlert {...rest}>
+      <AlertIcon {...rest} name={name} color="#fff" width={24} />
+      <Box p={2} pr={handleClickClose ? 3 : 2}>{children}</Box>
       {output.button}
-    </div>
+    </StyledAlert>
   );
 };
 
@@ -60,7 +89,13 @@ Alert.propTypes = {
   handleClickClose: PropTypes.func,
   icon: PropTypes.string,
   id: PropTypes.string,
-  type: PropTypes.string,
+  outline: PropTypes.bool,
+  variant: PropTypes.string,
+};
+
+Alert.defaultProps = {
+  outline: true,
+  variant: 'info',
 };
 
 export default Alert;

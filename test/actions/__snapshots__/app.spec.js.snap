@@ -9,7 +9,7 @@ Object {
 }
 `;
 
-exports[`App showAlert with type \`error\` should return an action 1`] = `
+exports[`App showAlert with variant \`error\` should return an action 1`] = `
 Object {
   "payload": Object {
     "icon": undefined,
@@ -17,13 +17,13 @@ Object {
     "message": "Alright!",
     "position": "bottom-right",
     "timeout": 0,
-    "type": "error",
+    "variant": "danger",
   },
   "type": "SHOW_ALERT",
 }
 `;
 
-exports[`App showAlert with type \`success\` should return an action 1`] = `
+exports[`App showAlert with variant \`success\` should return an action 1`] = `
 Object {
   "payload": Object {
     "icon": undefined,
@@ -31,7 +31,7 @@ Object {
     "message": "Alright!",
     "position": "bottom-right",
     "timeout": 10,
-    "type": "success",
+    "variant": "success",
   },
   "type": "SHOW_ALERT",
 }

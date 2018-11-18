@@ -1,13 +1,106 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import cx from 'classnames';
+import styled from 'styled-components';
 import treeChanges from 'tree-changes';
+import { appColor } from 'modules/theme';
 
 import { getRepos, showAlert, switchMenu } from 'actions';
 import { STATUS } from 'constants/index';
 
+import {
+  Box,
+  ButtonGroup,
+  Button,
+  Flex,
+  Heading,
+  Link,
+  Image,
+  Paragraph,
+  theme,
+  utils,
+} from 'styled-minimal';
 import Loader from 'components/Loader';
+
+const { responsive, spacer } = utils;
+const { grays } = theme;
+
+const Grid = styled.ul`
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: ${spacer(4)};
+  grid-template-columns: 100%;
+  list-style: none;
+  margin: ${spacer(5)} auto 0;
+  padding: 0;
+  ${/* istanbul ignore next */p => responsive({
+    ix: `
+      grid-gap: ${spacer(6)(p)};
+      width: 90%;
+    `,
+    sm: `
+      grid-gap: ${spacer(4)(p)};
+      grid-template-columns: repeat(2, 1fr);
+      width: 100%;
+    `,
+    md: `
+      grid-gap: ${spacer(5)(p)};
+    `,
+    lg: `
+      grid-template-columns: repeat(3, 1fr);
+    `,
+    xl: `
+      grid-gap: ${spacer(6)(p)};
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: ${spacer(6)(p)};
+    `,
+  })};
+
+  > li {
+    display: flex;
+  }
+`;
+
+const Item = styled(Box)`
+  align-items: center;
+  border: solid 0.1rem ${appColor};
+  border-radius: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding: ${spacer(4)};
+  text-align: center;
+  width: 100%;
+  ${/* istanbul ignore next */p => responsive({
+    md: `
+      padding: ${spacer(2)(p)};
+    `,
+    lg: `
+      padding: ${spacer(5)(p)};
+    `,
+  })};
+
+  > a {
+    margin-bottom: ${spacer(2)};
+  }
+
+  img {
+    height: 8rem;
+  }
+`;
+
+const ItemHeader = styled.div`
+  margin-bottom: ${spacer(3)};
+  
+  a {
+    display: block;
+  }
+
+  small {
+    color: ${grays.gray60};
+  }
+`;
 
 export class GitHub extends React.Component {
   state = {
@@ -31,7 +124,7 @@ export class GitHub extends React.Component {
     const { changedTo } = treeChanges(this.props, nextProps);
 
     if (changedTo('github.repos.status', STATUS.ERROR)) {
-      dispatch(showAlert(nextProps.github.repos.message, { type: 'error' }));
+      dispatch(showAlert(nextProps.github.repos.message, { variant: 'danger' }));
     }
   }
 
@@ -49,28 +142,31 @@ export class GitHub extends React.Component {
   render() {
     const { query } = this.state;
     const { github } = this.props;
+    const data = github.repos.data[query] || [];
     let output;
 
     if (github.repos.status === STATUS.READY) {
-      if (github.repos.data[query]) {
+      if (data.length) {
         output = (
-          <ul className={`app__github__grid app__github__grid--${query}`}>
+          <Grid data-type={query}>
             {github.repos.data[query]
               .map(d => (
                 <li key={d.id}>
-                  <div className="app__github__item">
-                    <img src={d.owner.avatar_url} alt={d.owner.login} />
-                    <div>
-                      <h5>
-                        <a href={d.html_url} target="_blank">{d.name}</a>
+                  <Item>
+                    <Link href={d.html_url}>
+                      <Image src={d.owner.avatar_url} alt={d.owner.login} />
+                    </Link>
+                    <ItemHeader>
+                      <Link href={d.html_url}>
+                        <Heading as="h5" lineHeight={1}>{d.name}</Heading>
                         <small>{d.owner.login}</small>
-                      </h5>
-                      <div>{d.description}</div>
-                    </div>
-                  </div>
+                      </Link>
+                    </ItemHeader>
+                    <Paragraph>{d.description}</Paragraph>
+                  </Item>
                 </li>
               ))}
-          </ul>
+          </Grid>
         );
       }
       else {
@@ -82,35 +178,29 @@ export class GitHub extends React.Component {
     }
 
     return (
-      <div key="GitHub" className="app__github">
-        <div className="app__github__selector">
-          <div className="btn-group" role="group" aria-label="Basic example">
-            <button
-              type="button"
-              className={cx('btn', {
-                'btn-primary': query === 'react',
-                'btn-outline-primary': query !== 'react',
-                'btn-loading': query === 'react' && github.repos.status === 'running',
-              })}
+      <div key="GitHub">
+        <Flex justifyContent="center">
+          <ButtonGroup role="group" aria-label="GitHub Selector">
+            <Button
+              animate={query === 'react' && github.repos.status === 'running'}
+              outline={query !== 'react'}
+              size="lg"
               data-query="react"
               onClick={this.handleClick}
             >
               React
-            </button>
-            <button
-              type="button"
-              className={cx('btn', {
-                'btn-primary': query === 'redux',
-                'btn-outline-primary': query !== 'redux',
-                'btn-loading': query === 'redux' && github.repos.status === 'running',
-              })}
+            </Button>
+            <Button
+              animate={query === 'redux' && github.repos.status === 'running'}
+              outline={query !== 'redux'}
+              size="lg"
               data-query="redux"
               onClick={this.handleClick}
             >
               Redux
-            </button>
-          </div>
-        </div>
+            </Button>
+          </ButtonGroup>
+        </Flex>
         {output}
       </div>
     );

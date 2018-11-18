@@ -2,7 +2,14 @@
   "globals": {
     "getSaga": true,
     "jsdom": false,
-    "navigate": true
+    "navigate": true,
+    "mount": false,
+    "mountWithContext": false,
+    "shallow": false,
+    "shallowWithContext": false,
+    "render": false,
+    "setMockDispatch": false,
+    "store": false
   },
   "rules": {
     "no-console": 0,

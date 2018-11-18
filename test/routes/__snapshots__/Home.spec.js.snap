@@ -1,3 +1,261 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home should render properly 1`] = `"<div class=\\"app__home app__route\\"><div class=\\"app__container\\"><div class=\\"app__home__wrapper\\"><div class=\\"app__home__header\\"><div class=\\"app__logo\\"><span class=\\"isvg failed\\"><img src=\\"\\" alt=\\"react-redux-saga-boilerplate\\"></span></div></div><h1>React-Redux-Saga Boilerplate</h1><a href=\\"#login\\" class=\\"btn btn-lg btn-primary btn-icon\\"><i class=\\"i-sign-in\\"></i><span>Start</span></a></div></div></div>"`;
+exports[`Home should render properly 1`] = `
+.c6 {
+  background-color: #2E2E2E;
+  border: 1px solid #2E2E2E;
+  color: #fff;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 0px;
+  box-shadow: none;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 22px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 14px 20px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  width: auto;
+  text-transform: uppercase;
+}
+
+.c6:disabled {
+  pointer-events: none;
+}
+
+.c6:hover {
+  -webkit-transition: -webkit-transform 0.2s;
+  -webkit-transition: transform 0.2s;
+  transition: transform 0.2s;
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.c6:focus {
+  outline-color: #2E2E2E;
+}
+
+.c6 .c9 {
+  margin-left: 5px;
+}
+
+.c2 {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  max-width: 1440px;
+  position: relative;
+  width: 100%;
+  padding-bottom: 16px;
+  padding-top: 16px;
+}
+
+.c8 {
+  margin-left: 8px;
+}
+
+.c0 {
+  background: #000 linear-gradient(to bottom,#00b4d5 0%,#002529 100%) fixed;
+  color: #fff;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.c0:before {
+  background: linear-gradient(to bottom,#000,#fff);
+  bottom: 0;
+  content: '';
+  left: 0;
+  opacity: 0.4;
+  position: absolute;
+  right: 0;
+  top: 0;
+  -webkit-transform: rotate(-20deg) scale(1.5) translate(0,43%);
+  -ms-transform: rotate(-20deg) scale(1.5) translate(0,43%);
+  transform: rotate(-20deg) scale(1.5) translate(0,43%);
+}
+
+.c7 {
+  display: inline-block;
+  line-height: 0;
+}
+
+.c7 svg {
+  height: auto;
+  max-height: 100%;
+  width: 20px;
+}
+
+.c7 svg path {
+  fill: #fff;
+}
+
+.c4 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 0;
+}
+
+.c4 svg {
+  height: auto;
+  max-height: 100%;
+  width: 4.8rem;
+}
+
+.c1 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.c3 {
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.c3 svg {
+  width: 20rem;
+}
+
+.c5 {
+  color: #fff;
+  font-size: 3.5rem;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  margin-top: 0;
+  text-align: center;
+}
+
+@media (min-width:768px) {
+  .c2 {
+    padding-bottom: 32px;
+    padding-top: 32px;
+  }
+}
+
+@media (min-width:768px) {
+  .c2 {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (min-width:1024px) {
+  .c5 {
+    font-size: 4rem;
+  }
+}
+
+<Background
+  key="Home"
+>
+  <div
+    className="c0"
+  >
+    <Wrapper
+      verticalPadding={true}
+    >
+      <styled.div
+        className="c1"
+        verticalPadding={true}
+      >
+        <div
+          className="c1 c2"
+        >
+          <Header>
+            <div
+              className="c3"
+            >
+              <StyledLogo>
+                <div
+                  className="c4"
+                >
+                  <SvgMock />
+                </div>
+              </StyledLogo>
+            </div>
+          </Header>
+          <H1>
+            <h1
+              className="c5"
+            >
+              React-Redux-Saga Boilerplate
+            </h1>
+          </H1>
+          <styled.button
+            animate={false}
+            block={false}
+            disabled={false}
+            onClick={[Function]}
+            outline={false}
+            size="xl"
+            textTransform="uppercase"
+            type="button"
+            variant="primary"
+          >
+            <button
+              className="c6"
+              disabled={false}
+              onClick={[Function]}
+              size="xl"
+              type="button"
+            >
+              <StyledIcon
+                color="#fff"
+                src="/media/icons/sign-in.svg"
+                width={20}
+              >
+                <span
+                  className="isvg loading c7"
+                />
+              </StyledIcon>
+              <styled.span
+                ml={2}
+              >
+                <span
+                  className="c8"
+                >
+                  Start
+                </span>
+              </styled.span>
+            </button>
+          </styled.button>
+        </div>
+      </styled.div>
+    </Wrapper>
+  </div>
+</Background>
+`;

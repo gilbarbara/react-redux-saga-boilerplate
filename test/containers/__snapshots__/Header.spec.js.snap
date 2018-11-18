@@ -1,3 +1,173 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header should render properly 1`] = `"<header class=\\"app__header\\"><div class=\\"app__container\\"><div class=\\"app__logo\\"><span class=\\"isvg failed\\"><img src=\\"\\" alt=\\"react-redux-saga-boilerplate\\"></span></div><div class=\\"app__header__menu\\"><ul class=\\"list-unstyled\\"><li><a href=\\"#logout\\" class=\\"app__logout\\"><span>logout</span><i class=\\"i-sign-out\\"></i></a></li></ul></div></div></header>"`;
+exports[`Header should render properly 1`] = `
+.c2 {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  max-width: 1440px;
+  position: relative;
+  width: 100%;
+}
+
+.c6 {
+  display: inline-block;
+  line-height: 0;
+}
+
+.c6 svg {
+  height: auto;
+  max-height: 100%;
+  width: 16px;
+}
+
+.c6 svg path {
+  fill: #333;
+}
+
+.c4 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 0;
+}
+
+.c4 svg {
+  height: auto;
+  max-height: 100%;
+  width: 4.8rem;
+}
+
+.c0 {
+  background-color: rgba(0,180,213,0.9);
+  height: 70px;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 200;
+}
+
+.c0:before {
+  background-color: #00b4d5;
+  bottom: 0;
+  content: '';
+  height: 0.2rem;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+
+.c0 .c3 svg {
+  width: 5rem;
+}
+
+.c1 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  height: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  padding-top: 8px;
+}
+
+.c5 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #333;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.3rem;
+}
+
+.c5.active {
+  color: #000;
+}
+
+.c5 span {
+  display: inline-block;
+  margin-right: 4px;
+  text-transform: uppercase;
+}
+
+@media (min-width:768px) {
+  .c2 {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (min-width:1024px) {
+  .c5 {
+    font-size: 1.6rem;
+  }
+}
+
+<StyledHeader>
+  <header
+    className="c0"
+  >
+    <StyledContainer>
+      <styled.div
+        className="c1"
+        verticalPadding={false}
+      >
+        <div
+          className="c1 c2"
+        >
+          <StyledLogo>
+            <div
+              className="c3 c4"
+            >
+              <SvgMock />
+            </div>
+          </StyledLogo>
+          <Logout
+            onClick={[Function]}
+          >
+            <button
+              className="c5"
+              onClick={[Function]}
+            >
+              <span>
+                logout
+              </span>
+              <StyledIcon
+                color="#333"
+                src="/media/icons/sign-out.svg"
+                width={16}
+              >
+                <span
+                  className="isvg loading c6"
+                />
+              </StyledIcon>
+            </button>
+          </Logout>
+        </div>
+      </styled.div>
+    </StyledContainer>
+  </header>
+</StyledHeader>
+`;

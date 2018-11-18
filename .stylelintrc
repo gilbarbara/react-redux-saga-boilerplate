@@ -1,14 +1,21 @@
 {
-  "extends": "stylelint-config-standard",
+  "processors": ["stylelint-processor-styled-components"],
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-styled-components"
+  ],
   "plugins": [
     "stylelint-declaration-strict-value",
-    "stylelint-order",
-    "stylelint-scss"
+    "stylelint-order"
   ],
   "rules": {
     "at-rule-empty-line-before": [
       "always",
-      { "except": ["blockless-after-blockless", "first-nested"], "ignore": ["after-comment"], "ignoreAtRules": ["else"] }
+      {
+        "except": ["blockless-after-blockless", "first-nested"],
+        "ignore": ["after-comment"],
+        "ignoreAtRules": ["else"]
+      }
     ],
     "at-rule-no-unknown": null,
     "color-named": "never",
@@ -22,7 +29,6 @@
     "indentation": [2, { "ignore": ["value"] }],
     "max-nesting-depth": 5,
     "no-duplicate-selectors": true,
-    "no-empty-source": [true, { "severity": "warning" }],
     "no-missing-end-of-source-newline": true,
     "number-max-precision": 4,
     "property-no-vendor-prefix": true,
@@ -55,21 +61,12 @@
     ],
     "order/properties-alphabetical-order": true,
     "scale-unlimited/declaration-strict-value": [
-      ["/colore/"],
+      ["/color/"],
       {
         "ignoreKeywords": {
           "/color/": ["transparent", "inherit"]
         }
       }
-    ],
-    "scss/at-import-no-partial-leading-underscore": true,
-    "scss/at-import-partial-extension-blacklist": ["scss"],
-    "scss/at-rule-no-unknown": true,
-    "scss/dollar-variable-colon-space-after": "always",
-    "scss/dollar-variable-colon-space-before": "never",
-    "scss/dollar-variable-no-missing-interpolation": true,
-    "scss/double-slash-comment-whitespace-inside": "always",
-    "scss/operator-no-unspaced": true,
-    "scss/selector-no-redundant-nesting-selector": true
+    ]
   }
 }

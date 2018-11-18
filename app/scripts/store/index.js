@@ -1,9 +1,7 @@
 import { applyMiddleware, createStore, compose, combineReducers } from 'redux';
-import { connectRouter } from 'connected-react-router';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import history from 'modules/history';
 import rootSaga from 'sagas';
 import rootReducer from 'reducers';
 
@@ -23,7 +21,7 @@ const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 /* istanbul ignore next */
 const configStore = (initialState = {}) => {
   const store = createStore(
-    connectRouter(history)(reducer),
+    reducer,
     initialState,
     composeEnhancer(
       applyMiddleware(...middleware),

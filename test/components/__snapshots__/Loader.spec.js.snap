@@ -1,5 +1,88 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Loader should render properly with pulse type 1`] = `"<div class=\\"app__loader app__loader--pulse\\"><div></div></div>"`;
+exports[`Loader should render properly with pulse type 1`] = `
+.c0 {
+  height: 2rem;
+  margin: 1.5rem auto;
+  position: relative;
+  width: 2rem;
+}
 
-exports[`Loader should render properly with rotate type 1`] = `"<div class=\\"app__loader app__loader--rotate\\"><svg class=\\"loader__svg\\"><circle class=\\"loader__circle\\" cx=\\"50\\" cy=\\"50\\" r=\\"20\\" fill=\\"none\\" stroke-width=\\"2\\"></circle></svg></div>"`;
+.c0 > div {
+  -webkit-animation: hmrJPG 1.15s infinite cubic-bezier(0.215,0.61,0.355,1);
+  animation: hmrJPG 1.15s infinite cubic-bezier(0.215,0.61,0.355,1);
+  border: 0 solid #00b4d5;
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 0;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  width: 0;
+}
+
+<LoaderPulse>
+  <div
+    className="c0"
+  >
+    <div />
+  </div>
+</LoaderPulse>
+`;
+
+exports[`Loader should render properly with rotate type 1`] = `
+.c0 {
+  height: 10rem;
+  margin: 1.5rem auto;
+  width: 10rem;
+}
+
+.c1 {
+  -webkit-animation: cZxgpV 2s linear infinite;
+  animation: cZxgpV 2s linear infinite;
+  height: 10rem;
+  width: 10rem;
+}
+
+.c2 {
+  -webkit-animation: drFgOE 1.5s ease-in-out infinite;
+  animation: drFgOE 1.5s ease-in-out infinite;
+  stroke: #333;
+  stroke-dasharray: 1,200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+}
+
+<LoaderRotate>
+  <div
+    className="c0"
+  >
+    <LoaderRotateSVG>
+      <svg
+        className="c1"
+      >
+        <LoaderRotateCircle
+          cx="50"
+          cy="50"
+          fill="none"
+          r="20"
+          strokeWidth="2"
+        >
+          <circle
+            className="c2"
+            cx="50"
+            cy="50"
+            fill="none"
+            r="20"
+            strokeWidth="2"
+          />
+        </LoaderRotateCircle>
+      </svg>
+    </LoaderRotateSVG>
+  </div>
+</LoaderRotate>
+`;

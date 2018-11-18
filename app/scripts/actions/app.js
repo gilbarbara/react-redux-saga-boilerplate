@@ -9,7 +9,7 @@ import { createActions } from 'redux-actions';
 
 import { ActionTypes } from 'constants/index';
 
-export { goBack, goForward, push, replace } from 'connected-react-router';
+export { goBack, go, push, replace } from 'modules/history';
 
 export const {
   hideAlert,
@@ -19,15 +19,15 @@ export const {
   [ActionTypes.SWITCH_MENU]: (query: string) => ({ query }),
   [ActionTypes.HIDE_ALERT]: (id: string) => ({ id }),
   [ActionTypes.SHOW_ALERT]: (message: string, options: Object) => {
-    const timeout = options.type === 'error' ? 0 : 5;
+    const timeout = options.variant === 'danger' ? 0 : 5;
 
     return {
       id: options.id || uuid(),
       icon: options.icon,
       message,
       position: options.position || 'bottom-right',
-      type: options.type,
-      timeout: !isNaN(options.timeout) ? options.timeout : timeout,
+      variant: options.variant || 'dark',
+      timeout: typeof options.timeout === 'number' ? options.timeout : timeout,
     };
   },
 });

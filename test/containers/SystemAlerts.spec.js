@@ -1,172 +1,94 @@
 import React from 'react';
-import { mount } from 'enzyme';
 
+import { store } from 'store';
+import { hideAlert, showAlert } from 'actions';
 import SystemAlerts from 'containers/SystemAlerts';
+
+jest.mock('components/Transition', () => ({ children }) => (<div className="transition">{children}</div>));
 
 jest.useFakeTimers();
 
-const mockDispatch = jest.fn();
-const props = {
-  alerts: [],
-  dispatch: mockDispatch,
-};
+const mockDispatch = setMockDispatch();
 
-function setup(ownProps = props) {
-  return mount(<SystemAlerts {...ownProps} />);
+function setup() {
+  return mountWithContext(
+    <SystemAlerts />,
+    { attachTo: document.getElementById('react') },
+    { mockDispatch }
+  );
 }
 
 describe('SystemAlerts', () => {
   const wrapper = setup();
 
-  it('should be a Component', () => {
-    expect(wrapper.instance() instanceof React.Component).toBe(true);
+  it('should render all zones', () => {
+    expect(wrapper.find('Alert')).not.toExist();
+    expect(wrapper).toMatchSnapshot();
   });
 
-  it('should render properly', () => {
-    expect(wrapper.find('.app__system-alerts')).toExist();
+  it('should render `top-left` alerts with the default timeout', () => {
+    store.dispatch(showAlert('Hello World', {
+      id: 'ABD11',
+      position: 'top-left',
+      variant: 'success',
+    }));
+    wrapper.update();
+
+    expect(wrapper.find('TopLeft Alert')).toHaveLength(1);
   });
 
-  it('should handle `top` alerts', () => {
-    wrapper.setProps({
-      alerts: [
-        {
-          id: 'ABD10',
-          message: 'Hello World',
-          position: 'top',
-          status: 'success',
-          timeout: 5,
-        },
-      ],
-    });
-
+  it('should hide the `top-left` alert after the timeout runs', () => {
     jest.runOnlyPendingTimers();
+    wrapper.update();
 
-    expect(wrapper.find('.app__system-alerts__top')).toExist();
-    expect(mockDispatch.mock.calls[0][0]).toEqual({
-      type: 'HIDE_ALERT',
-      payload: { id: 'ABD10' },
-    });
-  });
-
-  it('should handle `top-left` alerts', () => {
-    wrapper.setProps({
-      alerts: [
-        {
-          id: 'ABD11',
-          message: 'Hello World',
-          position: 'top-left',
-          status: 'error',
-          timeout: 5,
-        },
-      ],
-    });
-
-    jest.runOnlyPendingTimers();
-
-    expect(wrapper.find('.app__system-alerts__top-left')).toExist();
-    expect(mockDispatch.mock.calls[1][0]).toEqual({
+    expect(mockDispatch).toHaveBeenCalledWith({
       type: 'HIDE_ALERT',
       payload: { id: 'ABD11' },
-    });
+    }, expect.any(Function));
+    expect(wrapper.find('TopLeft Alert')).not.toExist();
   });
 
-  it('should handle `top-right` alerts', () => {
-    wrapper.setProps({
-      alerts: [
-        {
-          id: 'ABD12',
-          message: 'Hello World',
-          position: 'top-right',
-          status: 'info',
-          timeout: 5,
-        },
-      ],
-    });
-
-    jest.runOnlyPendingTimers();
-
-    expect(wrapper.find('.app__system-alerts__top-right')).toExist();
-    expect(mockDispatch.mock.calls[2][0]).toEqual({
-      type: 'HIDE_ALERT',
-      payload: { id: 'ABD12' },
-    });
-  });
-
-  it('should handle `bottom` alerts', () => {
-    wrapper.setProps({
-      alerts: [
-        {
-          id: 'ABD13',
-          message: 'Hello World',
-          position: 'bottom',
-          status: 'help',
-          timeout: 5,
-        },
-      ],
-    });
-
-    jest.runOnlyPendingTimers();
-
-    expect(wrapper.find('.app__system-alerts__bottom')).toExist();
-    expect(mockDispatch.mock.calls[3][0]).toEqual({
-      type: 'HIDE_ALERT',
-      payload: { id: 'ABD13' },
-    });
-  });
-
-  it('should handle `bottom-left` alerts', () => {
-    wrapper.setProps({
-      alerts: [
-        {
-          id: 'ABD14',
-          message: 'Hello World',
-          position: 'bottom-left',
-          status: 'warning',
-          timeout: 5,
-        },
-      ],
-    });
-
-    jest.runOnlyPendingTimers();
-
-    expect(wrapper.find('.app__system-alerts__bottom-left')).toExist();
-    expect(mockDispatch.mock.calls[4][0]).toEqual({
-      type: 'HIDE_ALERT',
-      payload: { id: 'ABD14' },
-    });
-  });
-
-  it('should handle `bottom-right` alerts', () => {
-    wrapper.setProps({
-      alerts: [
-        {
-          id: 'ABD15',
-          message: 'Hello World',
-          position: 'bottom-right',
-          status: '',
-          timeout: 0,
-        },
-      ],
-    });
-
-    jest.runOnlyPendingTimers();
-
-    expect(wrapper.find('.app__system-alerts__bottom-right')).toExist();
-    expect(mockDispatch.mock.calls.length).toBe(5);
-  });
-
-  it('should handle click to close', () => {
+  it('should render `bottom-right` alerts without timeout', () => {
+    store.dispatch(showAlert('Hello Mars', {
+      id: 'ABD13',
+      position: 'bottom-right',
+      variant: 'dark',
+      timeout: 0,
+    }));
     wrapper.update();
-    wrapper.find('.app__alert__close').simulate('click');
 
-    expect(mockDispatch.mock.calls[5][0]).toEqual({
+    expect(wrapper.find('BottomRight Alert')).toHaveLength(1);
+  });
+
+  it('should hide the `bottom-right` alert after the timeout runs', () => {
+    jest.runOnlyPendingTimers();
+    store.dispatch(hideAlert('ABD13'));
+    wrapper.update();
+
+    expect(wrapper.find('BottomRight Alert')).not.toExist();
+  });
+
+  it('should render `bottom-left` alerts without timeout', () => {
+    store.dispatch(showAlert('Hello Jupiter', {
+      id: 'ABD15',
+      position: 'bottom-left',
+      variant: 'dark',
+      timeout: 0,
+    }));
+    wrapper.update();
+
+    expect(wrapper.find('BottomLeft Alert')).toHaveLength(1);
+  });
+
+  it('should handle the `bottom-left` alert to close whne clicking', () => {
+    wrapper.find('AlertButton').simulate('click');
+    wrapper.update();
+
+    expect(mockDispatch).toHaveBeenCalledWith({
       type: 'HIDE_ALERT',
       payload: { id: 'ABD15' },
-    });
-  });
+    }, expect.any(Function));
 
-  it('should be able to unmount the component', () => {
-    wrapper.unmount();
-    expect(wrapper.find('.app__system-alerts').length).toBe(0);
+    expect(wrapper.find('BottomLeft Alert')).not.toExist();
   });
 });

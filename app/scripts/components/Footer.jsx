@@ -1,9 +1,16 @@
 import React from 'react';
+import styled from 'styled-components';
+
+import { Container, Flex } from 'styled-minimal';
+
+const StyledFooter = styled.footer`
+  border-top: 0.1rem solid #ddd;
+`;
 
 const Footer = () => (
-  <footer className="app__footer">
-    <div className="app__container">
-      <div className="app__footer__github">
+  <StyledFooter>
+    <Container py={3}>
+      <Flex justifyContent="space-between">
         <iframe
           title="GitHub Stars"
           src="https://ghbtns.com/github-btn.html?user=gilbarbara&repo=react-redux-saga-boilerplate&type=star&count=true"
@@ -16,9 +23,9 @@ const Footer = () => (
           frameBorder="0"
           scrolling="0" width="130px" height="20px"
         />
-      </div>
-    </div>
-  </footer>
+      </Flex>
+    </Container>
+  </StyledFooter>
 );
 
 export default Footer;

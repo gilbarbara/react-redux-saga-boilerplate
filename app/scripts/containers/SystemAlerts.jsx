@@ -1,12 +1,79 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { connect } from 'react-redux';
+import styled from 'styled-components';
+import { utils } from 'styled-minimal';
 import { hideAlert } from 'actions';
 
 import Transition from 'components/Transition';
 import Alert from 'components/Alert';
 
-export default class SystemAlerts extends React.Component {
+const Base = styled.div`
+  position: fixed;
+  z-index: 1000;
+
+  > div {
+    > * + * {
+      margin-top: ${utils.spacer(3)};
+    }
+  }
+`;
+
+const TopLeft = styled(Base)`
+  left: ${utils.spacer(3)};
+  top: ${utils.spacer(3)};
+  width: 26rem;
+
+  ${utils.responsive({
+    md: `
+      width: 32rem;
+    `,
+  })};
+`;
+
+const TopRight = styled(Base)`
+  right: ${utils.spacer(3)};
+  top: ${utils.spacer(3)};
+  width: 26rem;
+  
+  ${utils.responsive({
+    md: `
+      width: 32rem;
+    `,
+  })};
+`;
+
+const BottomLeft = styled(Base)`
+  bottom: ${utils.spacer(3)};
+  left: ${utils.spacer(3)};
+  width: 26rem;
+  
+  ${utils.responsive({
+    md: `
+      width: 32rem;
+    `,
+  })};
+`;
+
+const BottomRight = styled(Base)`
+  bottom: ${utils.spacer(3)};
+  right: ${utils.spacer(3)};
+  width: 26rem;
+  
+  ${utils.responsive({
+    md: `
+      width: 32rem;
+    `,
+  })};
+`;
+
+const StyledSystemAlerts = styled.div`
+  pointer-events: none;
+  position: fixed;
+  z-index: 1000;
+`;
+
+export class SystemAlerts extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -14,12 +81,12 @@ export default class SystemAlerts extends React.Component {
   }
 
   static propTypes = {
-    alerts: PropTypes.array.isRequired,
+    app: PropTypes.object.isRequired,
     dispatch: PropTypes.func.isRequired,
   };
 
   componentWillReceiveProps(nextProps) {
-    const { alerts: nextAlerts, dispatch } = nextProps;
+    const { app: { alerts: nextAlerts }, dispatch } = nextProps;
 
     /* istanbul ignore else */
     if (nextAlerts.length) {
@@ -48,8 +115,8 @@ export default class SystemAlerts extends React.Component {
   };
 
   renderAlerts(position) {
-    const { alerts } = this.props;
-    const items = alerts.filter(d => d.position === position);
+    const { app } = this.props;
+    const items = app.alerts.filter(d => d.position === position);
 
     if (!items.length) {
       return null;
@@ -61,7 +128,7 @@ export default class SystemAlerts extends React.Component {
         id={d.id}
         icon={d.icon}
         handleClickClose={this.handleClick}
-        type={d.type}
+        variant={d.variant}
       >
         {d.message}
       </Alert>
@@ -70,38 +137,35 @@ export default class SystemAlerts extends React.Component {
 
   render() {
     return (
-      <div key="SystemAlerts" className="app__system-alerts">
-        <div className="app__system-alerts__top">
-          <Transition classNames="transition-slide-down">
-            {this.renderAlerts('top')}
-          </Transition>
-        </div>
-        <div className="app__system-alerts__top-left">
-          <Transition classNames="transition-slide-right">
+      <StyledSystemAlerts key="SystemAlerts">
+        <TopLeft>
+          <Transition transition="slideDown">
             {this.renderAlerts('top-left')}
           </Transition>
-        </div>
-        <div className="app__system-alerts__top-right">
-          <Transition classNames="transition-slide-left">
+        </TopLeft>
+        <TopRight>
+          <Transition transition="slideDown">
             {this.renderAlerts('top-right')}
           </Transition>
-        </div>
-        <div className="app__system-alerts__bottom">
-          <Transition classNames="transition-slide-up">
-            {this.renderAlerts('bottom')}
-          </Transition>
-        </div>
-        <div className="app__system-alerts__bottom-left">
-          <Transition classNames="transition-slide-right">
+        </TopRight>
+        <BottomLeft>
+          <Transition transition="slideUp">
             {this.renderAlerts('bottom-left')}
           </Transition>
-        </div>
-        <div className="app__system-alerts__bottom-right">
-          <Transition classNames="transition-slide-left">
+        </BottomLeft>
+        <BottomRight>
+          <Transition transition="slideUp">
             {this.renderAlerts('bottom-right')}
           </Transition>
-        </div>
-      </div>
+        </BottomRight>
+      </StyledSystemAlerts>
     );
   }
 }
+
+/* istanbul ignore next */
+function mapStateToProps(state) {
+  return { app: state.app };
+}
+
+export default connect(mapStateToProps)(SystemAlerts);
