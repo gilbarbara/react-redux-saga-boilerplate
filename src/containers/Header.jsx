@@ -51,6 +51,7 @@ const Logout = styled.button`
   color: #333;
   display: flex;
   font-size: 1.3rem;
+  padding: ${spacer(2)};
 
   ${responsive({ lg: 'font-size: 1.6rem;' })};
 
