@@ -26,6 +26,7 @@ const printBuildError = require('react-dev-utils/printBuildError');
 const { measureFileSizesBeforeBuild, printFileSizesAfterBuild } = require('react-dev-utils/FileSizeReporter');
 const { checkBrowsers } = require('react-dev-utils/browsersHelper');
 
+const configFactory = require('../config/webpack.config');
 const paths = require('../config/paths');
 
 // These sizes are pretty large. We'll warn for bundles exceeding them.
@@ -46,7 +47,7 @@ const writeStatsJson = argv.indexOf('--stats') !== -1;
 // We require that you explictly set browsers and do not fall back to
 // browserslist defaults.
 
-const config = require('../config/webpack.config.prod');
+const config = configFactory('production');
 
 // Create the production build and print the deployment instructions.
 function build(previousFileSizes) {

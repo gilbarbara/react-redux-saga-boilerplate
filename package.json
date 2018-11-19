@@ -83,7 +83,6 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.1.5",
     "@svgr/webpack": "^4.0.3",
-    "autoprefixer": "^9.3.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
@@ -144,9 +143,12 @@
     "mini-css-extract-plugin": "^0.4.4",
     "modernizr-loader": "^1.0.1",
     "node-sass": "^4.10.0",
-    "offline-plugin": "^5.0.5",
+    "offline-plugin": "^5.0.6",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.4.0",
+    "postcss-safe-parser": "^4.0.1",
     "raw-loader": "^0.5.1",
     "react-dev-utils": "^6.1.1",
     "react-error-overlay": "^5.1.0",
@@ -172,13 +174,13 @@
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10",
     "webpack-merge": "^4.1.4",
-    "yargs": "^12.0.2"
+    "yargs": "^12.0.4"
   },
   "scripts": {
     "start": "node tools/start",
     "build": "node tools/build",
     "build:serve": "npm run build && npm run serve",
-    "analyze": "NODE_ENV=production webpack --config config/webpack.config.prod.js --profile --json > webpack.stats.json",
+    "analyze": "NODE_ENV=production webpack --config config/webpack.config.js --profile --json > webpack.stats.json",
     "lint": "eslint  --ext .js --ext .jsx src config test tools",
     "lint:styles": "stylelint 'src/**/*.{js,jsx}'",
     "test": "jest --bail --coverage",
@@ -199,11 +201,12 @@
   },
   "browserslist": [
     "> 0.2%",
+    "ie >= 11",
     "not dead"
   ],
   "bundlesize": [
     {
-      "path": "./build/scripts/app.*.js",
+      "path": "./build/scripts/bundle.*.js",
       "maxSize": "160 kB"
     },
     {

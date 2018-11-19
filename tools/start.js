@@ -29,9 +29,12 @@ const {
   prepareUrls,
 } = require('react-dev-utils/WebpackDevServerUtils');
 const openBrowser = require('react-dev-utils/openBrowser');
+
 const paths = require('../config/paths');
-const config = require('../config/webpack.config.dev');
+const configFactory = require('../config/webpack.config');
 const createDevServerConfig = require('../config/webpackDevServer');
+
+const config = configFactory('development');
 
 const args = process.argv.slice(2);
 const isInteractive = process.stdout.isTTY;
