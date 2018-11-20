@@ -30,7 +30,7 @@ function publish() {
 
 function deploy() {
   const start = Date.now();
-  console.log(chalk.green('Bundling...'));
+  console.log(chalk.blue('Bundling...'));
 
   return exec('npm run build', errBuild => {
     if (errBuild) {
