@@ -1,13 +1,20 @@
 ---
-engines:
+version: "2"
+plugins:
   eslint:
     enabled: true
-    channel: "eslint-4"
+    channel: eslint-5
     config:
       extensions:
         - .js
         - .jsx
     checks:
+      import/export:
+        enabled: false
+      import/extensions:
+        enabled: false
+      import/no-cycle:
+        enabled: false
       import/no-duplicates:
         enabled: false
       import/no-extraneous-dependencies:
@@ -16,7 +23,7 @@ engines:
         enabled: false
       import/no-unresolved:
         enabled: false
-      import/extensions:
+      import/no-webpack-loader-syntax:
         enabled: false
       redux-saga/yield-effects:
         enabled: false
@@ -24,12 +31,7 @@ engines:
         enabled: false
   stylelint:
     enabled: true
-ratings:
-  paths:
-  - "**.js"
-  - "**.jsx"
-  - "**.scss"
-exclude_paths:
+exclude_patterns:
   - coverage/**/*
   - build/**/*
   - documentation/**/*
