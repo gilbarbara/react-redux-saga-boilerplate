@@ -5,7 +5,7 @@ export const appColor = '#00b4d5';
 export const easing = 'cubic-bezier(0.35, 0.01, 0.77, 0.34);';
 
 export default {
-  breakpoints: [400, 580, 768, 1024, 1280, 1920],
+  breakpoints: [400, 768, 1024, 1280, 1920],
   palette: {
     primary: appColor,
   },

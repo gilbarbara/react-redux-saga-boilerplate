@@ -40,14 +40,14 @@ exports[`Footer should render properly 1`] = `
   <footer
     className="c0"
   >
-    <styled.div
+    <StyledContainer
       py={3}
       verticalPadding={false}
     >
       <div
         className="c1"
       >
-        <styled.div
+        <StyledFlex
           justifyContent="space-between"
         >
           <div
@@ -70,9 +70,9 @@ exports[`Footer should render properly 1`] = `
               width="130px"
             />
           </div>
-        </styled.div>
+        </StyledFlex>
       </div>
-    </styled.div>
+    </StyledContainer>
   </footer>
 </StyledFooter>
 `;

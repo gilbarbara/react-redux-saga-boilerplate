@@ -13,7 +13,9 @@ import Logo from 'components/Logo';
 
 const { spacer } = utils;
 
-const Wrapper = styled(Container)`
+const HomeWrapper = styled(Background)``;
+
+const HomeContainer = styled(Container)`
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -30,7 +32,7 @@ const Header = styled.div`
   }
 `;
 
-const H1 = styled.h1`
+const Heading = styled.h1`
   color: #fff;
   font-size: 3.5rem;
   line-height: 1.4;
@@ -61,12 +63,12 @@ export class Home extends React.PureComponent {
     const { user } = this.props;
 
     return (
-      <Background key="Home">
-        <Wrapper verticalPadding>
+      <HomeWrapper key="Home">
+        <HomeContainer verticalPadding>
           <Header>
             <Logo />
           </Header>
-          <H1>{config.description}</H1>
+          <Heading>{config.description}</Heading>
           <Button
             animate={user.status === 'running'}
             onClick={this.handleClickLogin}
@@ -76,8 +78,8 @@ export class Home extends React.PureComponent {
             <Icon name="sign-in" />
             <Text ml={2}>Start</Text>
           </Button>
-        </Wrapper>
-      </Background>
+        </HomeContainer>
+      </HomeWrapper>
     );
   }
 }

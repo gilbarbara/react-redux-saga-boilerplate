@@ -71,7 +71,7 @@ exports[`Reload should render properly 1`] = `
   <div
     className="c0"
   >
-    <styled.h1
+    <StyledHeading
       as="h6"
       mb={3}
     >
@@ -80,8 +80,8 @@ exports[`Reload should render properly 1`] = `
       >
         There's a new version of this app!
       </h6>
-    </styled.h1>
-    <styled.button
+    </StyledHeading>
+    <StyledButton
       animate={false}
       block={false}
       disabled={false}
@@ -100,7 +100,7 @@ exports[`Reload should render properly 1`] = `
       >
         Reload
       </button>
-    </styled.button>
+    </StyledButton>
   </div>
 </StyledReload>
 `;

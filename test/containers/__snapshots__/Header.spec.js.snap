@@ -131,7 +131,7 @@ exports[`Header should render properly 1`] = `
     className="c0"
   >
     <StyledContainer>
-      <styled.div
+      <StyledContainer
         className="c1"
         verticalPadding={false}
       >
@@ -167,7 +167,7 @@ exports[`Header should render properly 1`] = `
             </button>
           </Logout>
         </div>
-      </styled.div>
+      </StyledContainer>
     </StyledContainer>
   </header>
 </StyledHeader>

@@ -10,8 +10,10 @@ const Header = styled.div`
   text-align: center;
 `;
 
+const PrivateWrapper = styled(Screen)``;
+
 const Private = () => (
-  <Screen key="Private">
+  <PrivateWrapper key="Private">
     <Container verticalPadding>
       <Header>
         <Heading>Oh hai!</Heading>
@@ -20,7 +22,7 @@ const Private = () => (
             href="https://github.com/gilbarbara/react-redux-saga-boilerplate/"
             target="_blank"
           >
-              here
+            here
           </Link>
         </Paragraph>
       </Header>
@@ -30,7 +32,7 @@ const Private = () => (
       </Box>
       <Github />
     </Container>
-  </Screen>
+  </PrivateWrapper>
 );
 
 export default Private;

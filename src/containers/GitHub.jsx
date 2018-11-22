@@ -25,34 +25,31 @@ import Loader from 'components/Loader';
 const { responsive, spacer } = utils;
 const { grays } = theme;
 
-const Grid = styled.ul`
+const GitHubWrapper = styled.div``;
+
+const GitHubGrid = styled.ul`
   display: grid;
   grid-auto-flow: row;
-  grid-gap: ${spacer(4)};
+  grid-gap: ${spacer(2)};
   grid-template-columns: 100%;
   list-style: none;
-  margin: ${spacer(5)} auto 0;
+  margin: ${spacer(4)} auto 0;
   padding: 0;
   ${/* istanbul ignore next */p => responsive({
     ix: `
-      grid-gap: ${spacer(6)(p)};
+      grid-gap: ${spacer(3)(p)};
       width: 90%;
     `,
-    sm: `
-      grid-gap: ${spacer(4)(p)};
+    md: `
       grid-template-columns: repeat(2, 1fr);
       width: 100%;
-    `,
-    md: `
-      grid-gap: ${spacer(5)(p)};
     `,
     lg: `
       grid-template-columns: repeat(3, 1fr);
     `,
     xl: `
-      grid-gap: ${spacer(6)(p)};
+      grid-gap: ${spacer(4)(p)};
       grid-template-columns: repeat(4, 1fr);
-      margin-top: ${spacer(6)(p)};
     `,
   })};
 
@@ -69,15 +66,15 @@ const Item = styled(Box)`
   flex-direction: column;
   justify-content: flex-start;
   overflow: hidden;
-  padding: ${spacer(4)};
+  padding: ${spacer(3)};
   text-align: center;
   width: 100%;
   ${/* istanbul ignore next */p => responsive({
     md: `
-      padding: ${spacer(2)(p)};
+      padding: ${spacer(3)(p)};
     `,
     lg: `
-      padding: ${spacer(5)(p)};
+      padding: ${spacer(4)(p)};
     `,
   })};
 
@@ -148,7 +145,7 @@ export class GitHub extends React.Component {
     if (github.repos.status === STATUS.READY) {
       if (data.length) {
         output = (
-          <Grid data-type={query}>
+          <GitHubGrid data-type={query}>
             {github.repos.data[query]
               .map(d => (
                 <li key={d.id}>
@@ -166,7 +163,7 @@ export class GitHub extends React.Component {
                   </Item>
                 </li>
               ))}
-          </Grid>
+          </GitHubGrid>
         );
       }
       else {
@@ -178,7 +175,7 @@ export class GitHub extends React.Component {
     }
 
     return (
-      <div key="GitHub">
+      <GitHubWrapper key="GitHub">
         <Flex justifyContent="center">
           <ButtonGroup role="group" aria-label="GitHub Selector">
             <Button
@@ -202,7 +199,7 @@ export class GitHub extends React.Component {
           </ButtonGroup>
         </Flex>
         {output}
-      </div>
+      </GitHubWrapper>
     );
   }
 }

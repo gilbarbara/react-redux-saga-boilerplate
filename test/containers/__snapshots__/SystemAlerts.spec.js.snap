@@ -4,49 +4,49 @@ exports[`SystemAlerts should render all zones 1`] = `
 .c1 {
   position: fixed;
   z-index: 1000;
-  left: 12px;
-  top: 12px;
+  left: 16px;
+  top: 16px;
   width: 26rem;
 }
 
 .c1 > div > * + * {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 
 .c2 {
   position: fixed;
   z-index: 1000;
-  right: 12px;
-  top: 12px;
+  right: 16px;
+  top: 16px;
   width: 26rem;
 }
 
 .c2 > div > * + * {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 
 .c3 {
   position: fixed;
   z-index: 1000;
-  bottom: 12px;
-  left: 12px;
+  bottom: 16px;
+  left: 16px;
   width: 26rem;
 }
 
 .c3 > div > * + * {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 
 .c4 {
   position: fixed;
   z-index: 1000;
-  bottom: 12px;
-  right: 12px;
+  bottom: 16px;
+  right: 16px;
   width: 26rem;
 }
 
 .c4 > div > * + * {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 
 .c0 {

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GitHub should render properly 1`] = `
-<div
+<GitHubWrapper
   key="GitHub"
 >
   <Flex
@@ -42,44 +42,7 @@ exports[`GitHub should render properly 1`] = `
   <Loader
     type="pulse"
   />
-</div>
+</GitHubWrapper>
 `;
 
-exports[`GitHub should render the Grid if data exists 1`] = `
-<Grid
-  data-type="react"
->
-  <li
-    key="12"
-  >
-    <Item>
-      <Link
-        href="https://github.com/username/magic-tricks"
-      >
-        <Image
-          alt="username"
-          src="avatar_url"
-        />
-      </Link>
-      <ItemHeader>
-        <Link
-          href="https://github.com/username/magic-tricks"
-        >
-          <Heading
-            as="h5"
-            lineHeight={1}
-          >
-            magic-tricks
-          </Heading>
-          <small>
-            username
-          </small>
-        </Link>
-      </ItemHeader>
-      <Paragraph>
-        nothing much
-      </Paragraph>
-    </Item>
-  </li>
-</Grid>
-`;
+exports[`GitHub should render the Grid if data exists 1`] = `null`;
