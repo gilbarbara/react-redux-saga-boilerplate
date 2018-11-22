@@ -6,60 +6,60 @@ describe('React-Redux-Saga-Boilerplate', () => {
   });
 
   it('should be able to start', () => {
-    cy.get('.btn')
+    cy.get('[class^=StyledButton]')
       .should('contain', 'Start')
       .click();
   });
 
   it('should be able to view the private area', () => {
-    cy.get('.app__private')
+    cy.get('[class^=PrivateWrapper]')
       .should('have.length', 1);
 
-    cy.get('.app__github')
+    cy.get('[class^=GitHubWrapper]')
       .should('have.length', 1);
-    cy.get('.app__github__grid')
+    cy.get('[class^=GitHubGrid]')
       .should('have.length', 1)
-      .should('have.class', 'app__github__grid--react');
+      .should('have.attr', 'data-type', 'react');
 
-    cy.get('.app__github__grid li')
+    cy.get('[class^=GitHubGrid] li')
       .should('have.length', 30);
   });
 
   it('should be able to toggle the selector', () => {
-    cy.get('.app__github__selector .btn:last-child')
+    cy.get('[class^=StyledButtonGroup] button:last-child')
       .not('[disabled]')
       .should('have.text', 'Redux')
       .click();
   });
 
   it('should render the redux repos ', () => {
-    cy.get('.app__github__grid')
+    cy.get('[class^=GitHubGrid]')
       .should('have.length', 1)
-      .should('have.class', 'app__github__grid--redux');
+      .should('have.attr', 'data-type', 'redux');
   });
 
   it('should be able to logout', () => {
-    cy.get('.app__logout')
+    cy.get('[class^=Logout]')
       .click();
   });
 
   it('should have redirected to /', () => {
-    cy.get('.app__home')
+    cy.get('[class^=HomeWrapper]')
       .should('have.length', 1);
   });
 
   it('should be able to start again', () => {
-    cy.get('.btn').should('contain', 'Start').click();
+    cy.get('[class^=HomeWrapper] button').should('contain', 'Start').click();
 
-    cy.get('.app__private')
+    cy.get('[class^=PrivateWrapper]')
       .should('have.length', 1);
   });
 
   it('should be able to logout again', () => {
-    cy.get('.app__logout')
+    cy.get('[class^=Logout]')
       .click();
 
-    cy.get('.app__home')
+    cy.get('[class^=HomeWrapper]')
       .should('have.length', 1);
   });
 });

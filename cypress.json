@@ -1,5 +1,7 @@
 {
+  "baseUrl": "http://localhost:3000",
   "viewportHeight": 800,
   "viewportWidth": 1280,
-  "video": false
+  "video": false,
+  "projectId": "up2gfx"
 }

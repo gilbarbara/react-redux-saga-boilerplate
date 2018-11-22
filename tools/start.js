@@ -82,7 +82,7 @@ choosePort(HOST, DEFAULT_PORT)
       console.log(chalk.yellow(`Duration: ${dateFns.differenceInSeconds(now, start)}s - ${compilation.hash}`));
 
       if (isAutomationTest) {
-        const cypress = spawn(path.join(__dirname, '../node_modules/.bin/cypress'), ['run']);
+        const cypress = spawn(path.join(__dirname, '../node_modules/.bin/cypress'), ['run', '--record', '--key', 'adbe5dd9-10e2-42aa-b679-da6d31ae5d51']);
 
         cypress.stdout.on('data', (data) => {
           process.stdout.write(data.toString());
