@@ -1,9 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Private should render properly 1`] = `
-<Screen
+<PrivateWrapper
   key="Private"
-  minHeight="100vh"
 >
   <Container
     verticalPadding={true}
@@ -44,5 +43,5 @@ exports[`Private should render properly 1`] = `
     </Box>
     <Connect(GitHub) />
   </Container>
-</Screen>
+</PrivateWrapper>
 `;

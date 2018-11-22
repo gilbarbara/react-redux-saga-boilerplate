@@ -58,14 +58,14 @@ exports[`Alert should render a error alert with markup 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 12px;
+  padding: 16px;
 }
 
 <StyledAlert
   outline={true}
   variant="danger"
 >
-  <styled.div
+  <StyledAlert
     className="c0"
     outline={true}
     size="md"
@@ -96,7 +96,7 @@ exports[`Alert should render a error alert with markup 1`] = `
           />
         </StyledIcon>
       </AlertIcon>
-      <styled.div
+      <StyledBox
         p={2}
         pr={2}
       >
@@ -107,9 +107,9 @@ exports[`Alert should render a error alert with markup 1`] = `
             This is an error message
           </p>
         </div>
-      </styled.div>
+      </StyledBox>
     </div>
-  </styled.div>
+  </StyledAlert>
 </StyledAlert>
 `;
 
@@ -171,14 +171,14 @@ exports[`Alert should render a info alert 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 12px;
+  padding: 16px;
 }
 
 <StyledAlert
   outline={true}
   variant="info"
 >
-  <styled.div
+  <StyledAlert
     className="c0"
     outline={true}
     size="md"
@@ -209,7 +209,7 @@ exports[`Alert should render a info alert 1`] = `
           />
         </StyledIcon>
       </AlertIcon>
-      <styled.div
+      <StyledBox
         p={2}
         pr={2}
       >
@@ -218,9 +218,9 @@ exports[`Alert should render a info alert 1`] = `
         >
           This is an info message
         </div>
-      </styled.div>
+      </StyledBox>
     </div>
-  </styled.div>
+  </StyledAlert>
 </StyledAlert>
 `;
 
@@ -282,14 +282,14 @@ exports[`Alert should render a success alert 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 12px;
+  padding: 16px;
 }
 
 <StyledAlert
   outline={true}
   variant="success"
 >
-  <styled.div
+  <StyledAlert
     className="c0"
     outline={true}
     size="md"
@@ -320,7 +320,7 @@ exports[`Alert should render a success alert 1`] = `
           />
         </StyledIcon>
       </AlertIcon>
-      <styled.div
+      <StyledBox
         p={2}
         pr={2}
       >
@@ -329,9 +329,9 @@ exports[`Alert should render a success alert 1`] = `
         >
           This is a success message
         </div>
-      </styled.div>
+      </StyledBox>
     </div>
-  </styled.div>
+  </StyledAlert>
 </StyledAlert>
 `;
 
@@ -393,14 +393,14 @@ exports[`Alert should render a warning alert 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 12px;
+  padding: 16px;
 }
 
 <StyledAlert
   outline={true}
   variant="warning"
 >
-  <styled.div
+  <StyledAlert
     className="c0"
     outline={true}
     size="md"
@@ -431,7 +431,7 @@ exports[`Alert should render a warning alert 1`] = `
           />
         </StyledIcon>
       </AlertIcon>
-      <styled.div
+      <StyledBox
         p={2}
         pr={2}
       >
@@ -440,9 +440,9 @@ exports[`Alert should render a warning alert 1`] = `
         >
           This is a warning message
         </div>
-      </styled.div>
+      </StyledBox>
     </div>
-  </styled.div>
+  </StyledAlert>
 </StyledAlert>
 `;
 
@@ -504,14 +504,14 @@ exports[`Alert should render properly 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 12px;
+  padding: 16px;
 }
 
 <StyledAlert
   outline={true}
   variant="info"
 >
-  <styled.div
+  <StyledAlert
     className="c0"
     outline={true}
     size="md"
@@ -542,7 +542,7 @@ exports[`Alert should render properly 1`] = `
           />
         </StyledIcon>
       </AlertIcon>
-      <styled.div
+      <StyledBox
         p={2}
         pr={2}
       >
@@ -551,8 +551,8 @@ exports[`Alert should render properly 1`] = `
         >
           Hello World
         </div>
-      </styled.div>
+      </StyledBox>
     </div>
-  </styled.div>
+  </StyledAlert>
 </StyledAlert>
 `;

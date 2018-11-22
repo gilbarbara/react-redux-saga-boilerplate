@@ -102,6 +102,13 @@ exports[`NotFound should render properly 1`] = `
   }
 }
 
+@media (min-width:1024px) {
+  .c2 {
+    padding-bottom: 64px;
+    padding-top: 64px;
+  }
+}
+
 @media (min-width:768px) {
   .c2 {
     padding-left: 32px;
@@ -119,7 +126,7 @@ exports[`NotFound should render properly 1`] = `
       layout="fullScreen"
       verticalPadding={true}
     >
-      <styled.div
+      <StyledContainer
         className="c1"
         layout="fullScreen"
         verticalPadding={true}
@@ -127,7 +134,7 @@ exports[`NotFound should render properly 1`] = `
         <div
           className="c1 c2"
         >
-          <styled.h1
+          <StyledHeading
             as="h1"
             fontSize={100}
           >
@@ -137,12 +144,12 @@ exports[`NotFound should render properly 1`] = `
             >
               404
             </h1>
-          </styled.h1>
+          </StyledHeading>
           <a
             href="/"
             onClick={[Function]}
           >
-            <styled.h1
+            <StyledHeading
               as="h2"
             >
               <h2
@@ -150,10 +157,10 @@ exports[`NotFound should render properly 1`] = `
               >
                 go home
               </h2>
-            </styled.h1>
+            </StyledHeading>
           </a>
         </div>
-      </styled.div>
+      </StyledContainer>
     </StyledContainer>
   </div>
 </Background>
