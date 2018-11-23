@@ -10,10 +10,10 @@ describe('RoutePublic', () => {
         <RoutePublic
           exact
           path="/login"
-          component={() => (<div>LOGIN</div>)}
+          component={() => <div>LOGIN</div>}
           isAuthenticated={false}
         />
-      </Router>
+      </Router>,
     );
 
     expect(render).toMatchSnapshot();
@@ -25,10 +25,10 @@ describe('RoutePublic', () => {
         <RoutePublic
           exact
           path="/login"
-          component={() => (<div>LOGIN</div>)}
+          component={() => <div>LOGIN</div>}
           isAuthenticated={true}
         />
-      </Router>
+      </Router>,
     );
 
     expect(render).toMatchSnapshot();

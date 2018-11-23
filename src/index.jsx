@@ -34,7 +34,7 @@ export const app = {
         OfflinePlugin.applyUpdate();
       },
       onUpdated: () => {
-        store.dispatch(showAlert((<Reload />), { id: 'sw-update', icon: 'bolt', timeout: 0 }));
+        store.dispatch(showAlert(<Reload />, { id: 'sw-update', icon: 'bolt', timeout: 0 }));
       },
     });
   },
@@ -46,15 +46,12 @@ export const app = {
       ReactDOM.render(
         <AppContainer>
           <Provider store={store}>
-            <PersistGate
-              loading={<Loader />}
-              persistor={persistor}
-            >
+            <PersistGate loading={<Loader />} persistor={persistor}>
               <Component />
             </PersistGate>
           </Provider>
         </AppContainer>,
-        root
+        root,
       );
     }
   },
@@ -64,8 +61,5 @@ app.run();
 
 /* istanbul ignore next  */
 if (module.hot) {
-  module.hot.accept(
-    'containers/App',
-    () => app.render(App)
-  );
+  module.hot.accept('containers/App', () => app.render(App));
 }

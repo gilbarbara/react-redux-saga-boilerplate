@@ -17,10 +17,7 @@ const props = {
 };
 
 function setup(ownProps = props) {
-  return shallow(
-    <GitHub {...ownProps} />,
-    { attachTo: document.getElementById('react') }
-  );
+  return shallow(<GitHub {...ownProps} />, { attachTo: document.getElementById('react') });
 }
 
 describe('GitHub', () => {
@@ -41,7 +38,7 @@ describe('GitHub', () => {
     });
   });
 
-  it('should not render if selected data doesn\'t exist', () => {
+  it("should not render if selected data doesn't exist", () => {
     wrapper.setProps({
       github: {
         repos: {
@@ -93,20 +90,24 @@ describe('GitHub', () => {
 
     expect(mockDispatch).toHaveBeenCalledWith({
       type: 'SHOW_ALERT',
-      payload:
-        {
-          id: 'ABCDE',
-          icon: undefined,
-          message: 'Noothing found',
-          position: 'bottom-right',
-          variant: 'danger',
-          timeout: 0,
-        },
+      payload: {
+        id: 'ABCDE',
+        icon: undefined,
+        message: 'Noothing found',
+        position: 'bottom-right',
+        variant: 'danger',
+        timeout: 0,
+      },
     });
   });
 
   it('should dispatch an action when click selector button', () => {
-    const button = mount(wrapper.find('ButtonGroup').childAt(1).getElement());
+    const button = mount(
+      wrapper
+        .find('ButtonGroup')
+        .childAt(1)
+        .getElement(),
+    );
 
     button.simulate('click');
 

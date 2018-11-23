@@ -10,10 +10,11 @@ describe('modules/RoutePrivate', () => {
         <RoutePrivate
           exact
           path="/private"
-          component={() => (<div>PRIVATE</div>)}
+          component={() => <div>PRIVATE</div>}
           isAuthenticated={false}
         />
-      </Router>);
+      </Router>,
+    );
 
     expect(render).toMatchSnapshot();
   });
@@ -24,10 +25,10 @@ describe('modules/RoutePrivate', () => {
         <RoutePrivate
           exact
           path="/private"
-          component={() => (<div>PRIVATE</div>)}
+          component={() => <div>PRIVATE</div>}
           isAuthenticated={true}
         />
-      </Router>
+      </Router>,
     );
 
     expect(render).toMatchSnapshot();

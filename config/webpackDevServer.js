@@ -34,7 +34,7 @@ module.exports = function(proxy, allowedHost) {
         `^(?!${path
           .normalize(`${paths.appSrc}/`)
           .replace(/[\\]+/g, '\\\\')}).+[\\\\/]node_modules[\\\\/]`,
-        'g'
+        'g',
       ),
     },
     watchContentBase: true,

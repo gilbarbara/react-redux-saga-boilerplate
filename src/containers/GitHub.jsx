@@ -35,23 +35,24 @@ const GitHubGrid = styled.ul`
   list-style: none;
   margin: ${spacer(4)} auto 0;
   padding: 0;
-  ${/* istanbul ignore next */p => responsive({
-    ix: `
+  ${/* istanbul ignore next */ p =>
+    responsive({
+      ix: `
       grid-gap: ${spacer(3)(p)};
       width: 90%;
     `,
-    md: `
+      md: `
       grid-template-columns: repeat(2, 1fr);
       width: 100%;
     `,
-    lg: `
+      lg: `
       grid-template-columns: repeat(3, 1fr);
     `,
-    xl: `
+      xl: `
       grid-gap: ${spacer(4)(p)};
       grid-template-columns: repeat(4, 1fr);
     `,
-  })};
+    })};
 
   > li {
     display: flex;
@@ -69,14 +70,15 @@ const Item = styled(Box)`
   padding: ${spacer(3)};
   text-align: center;
   width: 100%;
-  ${/* istanbul ignore next */p => responsive({
-    md: `
+  ${/* istanbul ignore next */ p =>
+    responsive({
+      md: `
       padding: ${spacer(3)(p)};
     `,
-    lg: `
+      lg: `
       padding: ${spacer(4)(p)};
     `,
-  })};
+    })};
 
   > a {
     margin-bottom: ${spacer(2)};
@@ -89,7 +91,7 @@ const Item = styled(Box)`
 
 const ItemHeader = styled.div`
   margin-bottom: ${spacer(3)};
-  
+
   a {
     display: block;
   }
@@ -125,7 +127,7 @@ export class GitHub extends React.Component {
     }
   }
 
-  handleClick = (e) => {
+  handleClick = e => {
     const { query } = e.currentTarget.dataset;
     const { dispatch } = this.props;
 
@@ -146,31 +148,30 @@ export class GitHub extends React.Component {
       if (data.length) {
         output = (
           <GitHubGrid data-type={query}>
-            {github.repos.data[query]
-              .map(d => (
-                <li key={d.id}>
-                  <Item>
+            {github.repos.data[query].map(d => (
+              <li key={d.id}>
+                <Item>
+                  <Link href={d.html_url}>
+                    <Image src={d.owner.avatar_url} alt={d.owner.login} />
+                  </Link>
+                  <ItemHeader>
                     <Link href={d.html_url}>
-                      <Image src={d.owner.avatar_url} alt={d.owner.login} />
+                      <Heading as="h5" lineHeight={1}>
+                        {d.name}
+                      </Heading>
+                      <small>{d.owner.login}</small>
                     </Link>
-                    <ItemHeader>
-                      <Link href={d.html_url}>
-                        <Heading as="h5" lineHeight={1}>{d.name}</Heading>
-                        <small>{d.owner.login}</small>
-                      </Link>
-                    </ItemHeader>
-                    <Paragraph>{d.description}</Paragraph>
-                  </Item>
-                </li>
-              ))}
+                  </ItemHeader>
+                  <Paragraph>{d.description}</Paragraph>
+                </Item>
+              </li>
+            ))}
           </GitHubGrid>
         );
-      }
-      else {
+      } else {
         output = <h3>Nothing found</h3>;
       }
-    }
-    else {
+    } else {
       output = <Loader />;
     }
 

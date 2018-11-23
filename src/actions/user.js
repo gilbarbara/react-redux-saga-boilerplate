@@ -7,10 +7,7 @@ import { createActions } from 'redux-actions';
 
 import { ActionTypes } from 'constants/index';
 
-export const {
-  userLogin: login,
-  userLogout: logOut,
-} = createActions({
+export const { userLogin: login, userLogout: logOut } = createActions({
   [ActionTypes.USER_LOGIN]: () => ({}),
   [ActionTypes.USER_LOGOUT]: () => ({}),
 });

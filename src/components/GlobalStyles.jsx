@@ -2,7 +2,7 @@ import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { appColor } from 'modules/theme';
 
-const GlobalStyle =  createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   *,
   *:before,
   *:after {
@@ -51,4 +51,4 @@ const GlobalStyle =  createGlobalStyle`
   }
 `;
 
-export default () => (<GlobalStyle />);
+export default () => <GlobalStyle />;

@@ -7,17 +7,17 @@ describe('Transition', () => {
     const wrapper = mount(
       <Transition transition="fade">
         <div className="transition" />
-      </Transition>
+      </Transition>,
     );
 
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should not render if transition don\'t exist', () => {
+  it("should not render if transition don't exist", () => {
     const wrapper = mount(
       <Transition transition="rotate">
         <div className="transition" />
-      </Transition>
+      </Transition>,
     );
 
     expect(wrapper).toMatchSnapshot();

@@ -1,7 +1,7 @@
 import React from 'react';
 
 jest.mock('redux-persist/lib/integration/react', () => ({
-  PersistGate: () => (<div id="persist-gate" />),
+  PersistGate: () => <div id="persist-gate" />,
 }));
 
 describe('index/app', () => {

@@ -34,9 +34,11 @@ const StyledApp = styled.div`
   transition: opacity 0.5s;
 `;
 
-const MainPrivate = ({ isAuthenticated }) => isAuthenticated && css`
-  padding: ${utils.px(headerHeight)} 0 0;
-`;
+const MainPrivate = ({ isAuthenticated }) =>
+  isAuthenticated &&
+  css`
+    padding: ${utils.px(headerHeight)} 0 0;
+  `;
 
 const Main = styled.main`
   min-height: 100vh;
@@ -78,8 +80,17 @@ export class App extends React.Component {
             {user.isAuthenticated && <Header dispatch={dispatch} user={user} />}
             <Main isAuthenticated={user.isAuthenticated}>
               <Switch>
-                <RoutePublic isAuthenticated={user.isAuthenticated} path="/" exact component={Home} />
-                <RoutePrivate isAuthenticated={user.isAuthenticated} path="/private" component={Private} />
+                <RoutePublic
+                  isAuthenticated={user.isAuthenticated}
+                  path="/"
+                  exact
+                  component={Home}
+                />
+                <RoutePrivate
+                  isAuthenticated={user.isAuthenticated}
+                  path="/private"
+                  component={Private}
+                />
                 <Route component={NotFound} />
               </Switch>
             </Main>

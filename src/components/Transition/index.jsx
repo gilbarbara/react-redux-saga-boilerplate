@@ -18,8 +18,7 @@ const Transition = ({ children, className, style, transition, ...rest }) => {
         <CSSTransition classNames={transition} {...rest}>
           <Component>{child}</Component>
         </CSSTransition>
-      ))
-      }
+      ))}
     </TransitionGroup>
   );
 };

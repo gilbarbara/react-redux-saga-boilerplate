@@ -22,12 +22,11 @@ const StyledContainer = styled(Container)`
 
 const NotFound = () => (
   <Background key="404">
-    <StyledContainer
-      layout="fullScreen"
-      verticalPadding
-    >
+    <StyledContainer layout="fullScreen" verticalPadding>
       <Heading fontSize={100}>404</Heading>
-      <Link to="/"><Heading as="h2">go home</Heading></Link>
+      <Link to="/">
+        <Heading as="h2">go home</Heading>
+      </Link>
     </StyledContainer>
   </Background>
 );

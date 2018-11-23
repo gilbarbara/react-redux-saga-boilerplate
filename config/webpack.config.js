@@ -32,7 +32,7 @@ const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 // makes for a smoother build process.
 const shouldInlineRuntimeChunk = process.env.INLINE_RUNTIME_CHUNK !== 'false';
 
-module.exports = (webpackEnv) => {
+module.exports = webpackEnv => {
   const isProd = webpackEnv === 'production';
   const isDev = webpackEnv === 'development';
 
@@ -146,8 +146,9 @@ module.exports = (webpackEnv) => {
       pathinfo: isDev,
       publicPath,
       // Point sourcemap entries to original disk location (format as URL on Windows)
-      devtoolModuleFilenameTemplate: isProd ? info => path.relative(paths.appSrc, info.absoluteResourcePath)
-        .replace(/\\/g, '/') : (info => path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')),
+      devtoolModuleFilenameTemplate: isProd
+        ? info => path.relative(paths.appSrc, info.absoluteResourcePath).replace(/\\/g, '/')
+        : info => path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
     },
     resolve: {
       alias: {
@@ -333,43 +334,43 @@ module.exports = (webpackEnv) => {
       new HtmlPlugin(htmlPluginOptions),
       new InterpolateHtmlPlugin(HtmlPlugin, env.raw),
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-      isProd && shouldInlineRuntimeChunk && new InlineChunkHtmlPlugin(HtmlPlugin, [/runtime~.+[.]js/]),
-      isProd && new MiniCssExtractPlugin({
-        filename: 'css/bundle.[git-hash].css',
-        chunkFilename: 'css/bundle.[git-hash].chunk.css',
-      }),
-      isProd && new OfflinePlugin({
-        autoUpdate: true,
-        safeToUseOptionalCaches: true,
-        ServiceWorker: {
-          events: true,
-        },
-        AppCache: {
-          events: true,
-        },
-        caches: {
-          main: [
-            '**/*.js',
-            'index.html',
-          ],
-          optional: [
-            ':rest:',
-          ],
-        },
-        cacheMaps: [
-          {
-            match: function match() {
-              return new URL('/', location);
-            },
-            requestTypes: ['navigate'],
+      isProd &&
+        shouldInlineRuntimeChunk &&
+        new InlineChunkHtmlPlugin(HtmlPlugin, [/runtime~.+[.]js/]),
+      isProd &&
+        new MiniCssExtractPlugin({
+          filename: 'css/bundle.[git-hash].css',
+          chunkFilename: 'css/bundle.[git-hash].chunk.css',
+        }),
+      isProd &&
+        new OfflinePlugin({
+          autoUpdate: true,
+          safeToUseOptionalCaches: true,
+          ServiceWorker: {
+            events: true,
           },
-        ],
-      }),
-      isDev && new CircularDependencyPlugin({
-        exclude: /node_modules/,
-        failOnError: true,
-        cwd: process.cwd(),
-      }),
+          AppCache: {
+            events: true,
+          },
+          caches: {
+            main: ['**/*.js', 'index.html'],
+            optional: [':rest:'],
+          },
+          cacheMaps: [
+            {
+              match: function match() {
+                return new URL('/', location);
+              },
+              requestTypes: ['navigate'],
+            },
+          ],
+        }),
+      isDev &&
+        new CircularDependencyPlugin({
+          exclude: /node_modules/,
+          failOnError: true,
+          cwd: process.cwd(),
+        }),
       // Add module names to factory functions so they appear in browser profiler.
       isDev && new webpack.NamedModulesPlugin(),
       // This is necessary to emit hot updates (currently CSS only):
@@ -383,7 +384,6 @@ module.exports = (webpackEnv) => {
       // makes the discovery automatic so you don't have to restart.
       // See https://github.com/facebookincubator/create-react-app/issues/186
       isDev && new WatchMissingNodeModulesPlugin(paths.nodeModules),
-
     ].filter(Boolean),
     // Some libraries import Node modules but don't use them in the browser.
     // Tell Webpack to provide empty mocks for them so importing them works.

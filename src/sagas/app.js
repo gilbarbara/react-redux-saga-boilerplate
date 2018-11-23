@@ -23,8 +23,7 @@ export function* switchMenu({ payload }) {
         payload,
       });
     }
-  }
-  catch (err) {
+  } catch (err) {
     /* istanbul ignore next */
     yield put({
       type: ActionTypes.EXCEPTION,
@@ -37,7 +36,5 @@ export function* switchMenu({ payload }) {
  * App Sagas
  */
 export default function* root() {
-  yield all([
-    takeLatest(ActionTypes.SWITCH_MENU, switchMenu),
-  ]);
+  yield all([takeLatest(ActionTypes.SWITCH_MENU, switchMenu)]);
 }

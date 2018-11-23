@@ -65,11 +65,7 @@ const Alert = ({ children, handleClickClose, id, icon, ...rest }) => {
 
   if (handleClickClose) {
     output.button = (
-      <AlertButton
-        data-id={id}
-        onClick={handleClickClose}
-        type="button"
-      >
+      <AlertButton data-id={id} onClick={handleClickClose} type="button">
         <Icon name="times" color="#ccc" width={10} />
       </AlertButton>
     );
@@ -78,7 +74,9 @@ const Alert = ({ children, handleClickClose, id, icon, ...rest }) => {
   return (
     <StyledAlert {...rest}>
       <AlertIcon {...rest} name={name} color="#fff" width={24} />
-      <Box p={2} pr={handleClickClose ? 3 : 2}>{children}</Box>
+      <Box p={2} pr={handleClickClose ? 3 : 2}>
+        {children}
+      </Box>
       {output.button}
     </StyledAlert>
   );

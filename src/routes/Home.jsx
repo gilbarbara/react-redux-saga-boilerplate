@@ -44,7 +44,7 @@ const Heading = styled.h1`
     lg: `
       font-size: 4rem;
     `,
-  })}
+  })};
 `;
 
 export class Home extends React.PureComponent {

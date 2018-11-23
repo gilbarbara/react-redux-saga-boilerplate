@@ -3,7 +3,10 @@ import Modernizr from 'modernizr';
 const BrowserDetect = {
   init() {
     this.browser = this.searchString(this.dataBrowser) || 'Other';
-    this.version = this.searchVersion(navigator.userAgent) || this.searchVersion(navigator.appVersion) || 'Unknown';
+    this.version =
+      this.searchVersion(navigator.userAgent) ||
+      this.searchVersion(navigator.appVersion) ||
+      'Unknown';
   },
   searchString(data) {
     for (let i = 0; i < data.length; i++) {
@@ -51,7 +54,7 @@ Modernizr.addTest('iphone', Boolean(navigator.userAgent.match(/iPhone/i)));
 
 Modernizr.addTest('ipod', Boolean(navigator.userAgent.match(/iPod/i)));
 
-Modernizr.addTest('ios', (Modernizr.ipad || Modernizr.ipod || Modernizr.iphone));
+Modernizr.addTest('ios', Modernizr.ipad || Modernizr.ipod || Modernizr.iphone);
 
 Modernizr.addTest('ie', Boolean(BrowserDetect.browser === 'Explorer'));
 

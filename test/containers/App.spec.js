@@ -15,10 +15,7 @@ const props = {
 };
 
 function setup(ownProps = props) {
-  return shallow(
-    <App {...ownProps} />,
-    { attachTo: document.getElementById('react') }
-  );
+  return shallow(<App {...ownProps} />, { attachTo: document.getElementById('react') });
 }
 
 describe('App', () => {

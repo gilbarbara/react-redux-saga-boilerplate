@@ -1,9 +1,6 @@
 module.exports = {
   collectCoverage: false,
-  collectCoverageFrom: [
-    'src/**/*.{js,jsx}',
-    '!src/vendor/*',
-  ],
+  collectCoverageFrom: ['src/**/*.{js,jsx}', '!src/vendor/*'],
   coverageThreshold: {
     global: {
       branches: 90,
@@ -12,16 +9,8 @@ module.exports = {
       statements: 90,
     },
   },
-  moduleDirectories: [
-    'node_modules',
-    'src',
-    './',
-  ],
-  moduleFileExtensions: [
-    'js',
-    'jsx',
-    'json',
-  ],
+  moduleDirectories: ['node_modules', 'src', './'],
+  moduleFileExtensions: ['js', 'jsx', 'json'],
   moduleNameMapper: {
     '^app-store': '<rootDir>/src/store',
     '\\.(css|scss)$': '<rootDir>/test/__mocks__/styleMock.js',
@@ -29,13 +18,9 @@ module.exports = {
     '\\.svg$': '<rootDir>/test/__mocks__/svgMock.js',
     '^(expose|bundle)': '<rootDir>/test/__mocks__/moduleMock.js',
   },
-  setupFiles: [
-    '<rootDir>/test/__setup__/setupFiles.js',
-  ],
+  setupFiles: ['<rootDir>/test/__setup__/setupFiles.js'],
   setupTestFrameworkScriptFile: '<rootDir>/test/__setup__/setupTests.js',
-  snapshotSerializers: [
-    'jest-serializer-html',
-  ],
+  snapshotSerializers: ['jest-serializer-html'],
   testEnvironment: 'jest-environment-jsdom-global',
   testEnvironmentOptions: {
     resources: 'usable',
@@ -45,9 +30,7 @@ module.exports = {
   transform: {
     '.*': 'babel-jest',
   },
+
   verbose: true,
-  watchPlugins: [
-    'jest-watch-typeahead/filename',
-    'jest-watch-typeahead/testname',
-  ],
+  watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname'],
 };

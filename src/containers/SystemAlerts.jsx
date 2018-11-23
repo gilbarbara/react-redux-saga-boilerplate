@@ -35,7 +35,7 @@ const TopRight = styled(Base)`
   right: ${utils.spacer(3)};
   top: ${utils.spacer(3)};
   width: 26rem;
-  
+
   ${utils.responsive({
     md: `
       width: 32rem;
@@ -47,7 +47,7 @@ const BottomLeft = styled(Base)`
   bottom: ${utils.spacer(3)};
   left: ${utils.spacer(3)};
   width: 26rem;
-  
+
   ${utils.responsive({
     md: `
       width: 32rem;
@@ -59,7 +59,7 @@ const BottomRight = styled(Base)`
   bottom: ${utils.spacer(3)};
   right: ${utils.spacer(3)};
   width: 26rem;
-  
+
   ${utils.responsive({
     md: `
       width: 32rem;
@@ -86,7 +86,10 @@ export class SystemAlerts extends React.PureComponent {
   };
 
   componentWillReceiveProps(nextProps) {
-    const { app: { alerts: nextAlerts }, dispatch } = nextProps;
+    const {
+      app: { alerts: nextAlerts },
+      dispatch,
+    } = nextProps;
 
     /* istanbul ignore else */
     if (nextAlerts.length) {
@@ -106,7 +109,7 @@ export class SystemAlerts extends React.PureComponent {
     });
   }
 
-  handleClick = (e) => {
+  handleClick = e => {
     e.preventDefault();
     const { dataset } = e.currentTarget;
     const { dispatch } = this.props;
@@ -139,24 +142,16 @@ export class SystemAlerts extends React.PureComponent {
     return (
       <StyledSystemAlerts key="SystemAlerts">
         <TopLeft>
-          <Transition transition="slideDown">
-            {this.renderAlerts('top-left')}
-          </Transition>
+          <Transition transition="slideDown">{this.renderAlerts('top-left')}</Transition>
         </TopLeft>
         <TopRight>
-          <Transition transition="slideDown">
-            {this.renderAlerts('top-right')}
-          </Transition>
+          <Transition transition="slideDown">{this.renderAlerts('top-right')}</Transition>
         </TopRight>
         <BottomLeft>
-          <Transition transition="slideUp">
-            {this.renderAlerts('bottom-left')}
-          </Transition>
+          <Transition transition="slideUp">{this.renderAlerts('bottom-left')}</Transition>
         </BottomLeft>
         <BottomRight>
-          <Transition transition="slideUp">
-            {this.renderAlerts('bottom-right')}
-          </Transition>
+          <Transition transition="slideUp">{this.renderAlerts('bottom-right')}</Transition>
         </BottomRight>
       </StyledSystemAlerts>
     );
