@@ -1,5 +1,5 @@
 {
-  "extends": "airbnb",
+  "extends": ["airbnb", "prettier"],
   "parser": "babel-eslint",
   "env": {
     "browser": true,
@@ -7,6 +7,7 @@
   },
   "globals": {
     "$": true,
+    "Cypress",
     "fetch": false,
     "ga": false,
     "mobileDetect": false,
@@ -38,7 +39,6 @@
     ],
     "arrow-parens": "off",
     "block-spacing": "warn",
-    "brace-style": ["warn", "stroustrup", { "allowSingleLine": true }],
     "camelcase": "off",
     "class-methods-use-this": "off",
     "comma-dangle": [
@@ -57,7 +57,6 @@
     "max-len": "off",
     "newline-per-chained-call": ["warn", { "ignoreChainWithDepth": 5 }],
     "no-case-declarations": "warn",
-    "no-confusing-arrow": ["warn", { "allowParens": true }],
     "no-mixed-spaces-and-tabs": ["warn", "smart-tabs"],
     "no-multi-spaces": [
       "warn", {
@@ -147,7 +146,6 @@
     "react/jsx-indent": ["warn", 2],
     "react/jsx-indent-props": ["warn", 2],
     "react/jsx-key": "warn",
-    "react/jsx-max-props-per-line": ["warn", { "maximum": 4 }],
     "react/jsx-no-target-blank": "off",
     "react/no-array-index-key": "off",
     "react/no-danger": "off",
