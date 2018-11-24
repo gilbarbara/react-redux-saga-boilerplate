@@ -1,6 +1,4 @@
-import {
-  datasetToObject,
-} from 'modules/helpers';
+import { datasetToObject } from 'modules/helpers';
 
 describe('helpers', () => {
   describe('datasetToObject', () => {

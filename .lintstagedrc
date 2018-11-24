@@ -1,8 +1,13 @@
 {
   "linters": {
-    "*.{js,jsx}": [
-      "eslint",
+    "**/*.+(js|jsx)": [
+      "eslint --fix",
+      "git add",
       "jest --findRelatedTests"
+    ],
+    "**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)": [
+      "prettier --write",
+      "git add"
     ]
   },
   "ignore": ["**/dist/*"]

@@ -26,12 +26,13 @@ global.mount = mount;
 global.shallow = shallow;
 global.render = render;
 
-global.getSaga = (sagas, action) => sagas
-  .filter(d => d.FORK.args[0] === action)
-  .map(d => d.FORK.args[1])
-  .reduce((acc, d) => d);
+global.getSaga = (sagas, action) =>
+  sagas
+    .filter(d => d.FORK.args[0] === action)
+    .map(d => d.FORK.args[1])
+    .reduce((acc, d) => d);
 
-global.navigate = (options) => {
+global.navigate = options => {
   const { pathname = location.pathname, search, hash } = options;
   let url = `${location.protocol}//${location.host}${pathname}`;
 

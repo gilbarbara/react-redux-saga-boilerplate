@@ -23,7 +23,10 @@ const checkRequiredFiles = require('react-dev-utils/checkRequiredFiles');
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
 const printHostingInstructions = require('react-dev-utils/printHostingInstructions');
 const printBuildError = require('react-dev-utils/printBuildError');
-const { measureFileSizesBeforeBuild, printFileSizesAfterBuild } = require('react-dev-utils/FileSizeReporter');
+const {
+  measureFileSizesBeforeBuild,
+  printFileSizesAfterBuild,
+} = require('react-dev-utils/FileSizeReporter');
 const { checkBrowsers } = require('react-dev-utils/browsersHelper');
 
 const configFactory = require('../config/webpack.config');
@@ -60,7 +63,7 @@ function build(previousFileSizes) {
         return reject(err);
       }
       const messages = formatWebpackMessages(
-        stats.toJson({ all: false, warnings: true, errors: true })
+        stats.toJson({ all: false, warnings: true, errors: true }),
       );
       if (messages.errors.length) {
         // Only keep the first error. Others are often indicative
@@ -71,16 +74,15 @@ function build(previousFileSizes) {
         return reject(new Error(messages.errors.join('\n\n')));
       }
       if (
-        process.env.CI
-        && (typeof process.env.CI !== 'string'
-        || process.env.CI.toLowerCase() !== 'false')
-        && messages.warnings.length
+        process.env.CI &&
+        (typeof process.env.CI !== 'string' || process.env.CI.toLowerCase() !== 'false') &&
+        messages.warnings.length
       ) {
         console.log(
           chalk.yellow(
-            '\nTreating warnings as errors because process.env.CI = true.\n'
-            + 'Most CI servers set it automatically.\n'
-          )
+            '\nTreating warnings as errors because process.env.CI = true.\n' +
+              'Most CI servers set it automatically.\n',
+          ),
         );
         return reject(new Error(messages.warnings.join('\n\n')));
       }
@@ -110,8 +112,7 @@ function copyPublicFolder() {
 }
 
 checkBrowsers(paths.appPath, isInteractive)
-  .then(() => measureFileSizesBeforeBuild(paths.appBuild)
-  )
+  .then(() => measureFileSizesBeforeBuild(paths.appBuild))
   .then(previousFileSizes => {
     // Remove all content but keep the directory so that
     // if you're in it, you don't end up in Trash
@@ -127,17 +128,14 @@ checkBrowsers(paths.appPath, isInteractive)
         console.log(chalk.yellow('Compiled with warnings.\n'));
         console.log(warnings.join('\n\n'));
         console.log(
-          `\nSearch for the ${
-            chalk.underline(chalk.yellow('keywords'))
-          } to learn more about each warning.`
+          `\nSearch for the ${chalk.underline(
+            chalk.yellow('keywords'),
+          )} to learn more about each warning.`,
         );
         console.log(
-          `To ignore, add ${
-            chalk.cyan('// eslint-disable-next-line')
-          } to the line before.\n`
+          `To ignore, add ${chalk.cyan('// eslint-disable-next-line')} to the line before.\n`,
         );
-      }
-      else {
+      } else {
         console.log(chalk.green('Compiled successfully.\n'));
       }
 
@@ -147,7 +145,7 @@ checkBrowsers(paths.appPath, isInteractive)
         previousFileSizes,
         paths.appBuild,
         WARN_AFTER_BUNDLE_GZIP_SIZE,
-        WARN_AFTER_CHUNK_GZIP_SIZE
+        WARN_AFTER_CHUNK_GZIP_SIZE,
       );
       console.log();
 
@@ -155,18 +153,13 @@ checkBrowsers(paths.appPath, isInteractive)
       const { publicUrl } = paths;
       const { publicPath } = config.output;
       const buildFolder = path.relative(process.cwd(), paths.appBuild);
-      printHostingInstructions(
-        appPackage,
-        publicUrl,
-        publicPath,
-        buildFolder,
-      );
+      printHostingInstructions(appPackage, publicUrl, publicPath, buildFolder);
     },
     err => {
       console.log(chalk.red('Failed to compile.\n'));
       printBuildError(err);
       process.exit(1);
-    }
+    },
   )
   .catch(err => {
     if (err && err.message) {

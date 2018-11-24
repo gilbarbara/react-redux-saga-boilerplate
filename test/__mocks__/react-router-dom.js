@@ -3,15 +3,8 @@ import RouterRouter from 'react-router-dom/Router';
 import RouterRoute from 'react-router-dom/Route';
 import RouterSwitch from 'react-router-dom/Switch';
 
-export const Link = (props) => {
-  const {
-    to,
-    children,
-    onClick,
-    style,
-    className,
-    ...rest
-  } = props;
+export const Link = props => {
+  const { to, children, onClick, style, className, ...rest } = props;
   delete rest.exact;
 
   return (
@@ -37,7 +30,7 @@ export const Link = (props) => {
   );
 };
 
-export const NavLink = (props) => {
+export const NavLink = props => {
   const {
     to,
     style,
@@ -65,7 +58,7 @@ export const NavLink = (props) => {
   );
 };
 
-export const Redirect = () => (<div id="redirect" />);
+export const Redirect = () => <div id="redirect" />;
 
 export const Route = RouterRoute;
 export const Router = RouterRouter;

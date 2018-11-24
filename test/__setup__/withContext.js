@@ -2,7 +2,11 @@
 import PropTypes from 'prop-types';
 
 // shallow() with React Intl context
-global.shallowWithContext = (node, { context, ...options } = {}, { mockDispatch, actions } = {}) => {
+global.shallowWithContext = (
+  node,
+  { context, ...options } = {},
+  { mockDispatch, actions } = {},
+) => {
   let store;
 
   if ((context && !context.store) || !context) {
@@ -14,9 +18,9 @@ global.shallowWithContext = (node, { context, ...options } = {}, { mockDispatch,
 
     if (mockDispatch) {
       const storeDispatch = store.dispatch;
-      mockDispatch.dispatch = (action) => mockDispatch(action, storeDispatch);
+      mockDispatch.dispatch = action => mockDispatch(action, storeDispatch);
 
-      store.dispatch = (action) => mockDispatch(action, storeDispatch);
+      store.dispatch = action => mockDispatch(action, storeDispatch);
     }
   }
 
@@ -30,7 +34,11 @@ global.shallowWithContext = (node, { context, ...options } = {}, { mockDispatch,
 };
 
 // mount() with React Intl context
-global.mountWithContext = (node, { context, childContextTypes, ...options } = {}, { mockDispatch, actions } = {}) => {
+global.mountWithContext = (
+  node,
+  { context, childContextTypes, ...options } = {},
+  { mockDispatch, actions } = {},
+) => {
   let store;
 
   if ((context && !context.store) || !context) {
@@ -42,9 +50,9 @@ global.mountWithContext = (node, { context, childContextTypes, ...options } = {}
 
     if (mockDispatch) {
       const storeDispatch = store.dispatch;
-      mockDispatch.dispatch = (action) => mockDispatch(action, storeDispatch);
+      mockDispatch.dispatch = action => mockDispatch(action, storeDispatch);
 
-      store.dispatch = (action) => mockDispatch(action, storeDispatch);
+      store.dispatch = action => mockDispatch(action, storeDispatch);
     }
   }
 
@@ -61,8 +69,9 @@ global.mountWithContext = (node, { context, childContextTypes, ...options } = {}
   });
 };
 
-global.setMockDispatch = () => jest.fn((action, dispatch) => {
-  const fn = dispatch || this.dispatch;
+global.setMockDispatch = () =>
+  jest.fn((action, dispatch) => {
+    const fn = dispatch || this.dispatch;
 
-  return fn(action);
-});
+    return fn(action);
+  });

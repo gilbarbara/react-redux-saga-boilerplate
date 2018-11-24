@@ -67,29 +67,26 @@ export function request(url: string, options: Object = {}): Promise<*> {
     params.body = JSON.stringify(config.payload);
   }
 
-  return fetch(url, params)
-    .then(async (response) => {
-      const contentType = response.headers.get('content-type');
+  return fetch(url, params).then(async response => {
+    const contentType = response.headers.get('content-type');
 
-      if (response.status > 299) {
-        const error: Object = new ServerError(response.statusText);
-        error.status = response.status;
+    if (response.status > 299) {
+      const error: Object = new ServerError(response.statusText);
+      error.status = response.status;
 
-        if (contentType && contentType.includes('application/json')) {
-          error.response = await response.json();
-        }
-        else {
-          error.response = await response.text();
-        }
-
-        throw error;
+      if (contentType && contentType.includes('application/json')) {
+        error.response = await response.json();
+      } else {
+        error.response = await response.text();
       }
-      else {
-        if (contentType && contentType.includes('application/json')) {
-          return response.json();
-        }
 
-        return response.text();
+      throw error;
+    } else {
+      if (contentType && contentType.includes('application/json')) {
+        return response.json();
       }
-    });
+
+      return response.text();
+    }
+  });
 }

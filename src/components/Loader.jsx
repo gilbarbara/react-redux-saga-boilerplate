@@ -102,18 +102,11 @@ const Loader = ({ type }) => {
     html = (
       <LoaderRotate>
         <LoaderRotateSVG>
-          <LoaderRotateCircle
-            cx="50"
-            cy="50"
-            r="20"
-            fill="none"
-            strokeWidth="2"
-          />
+          <LoaderRotateCircle cx="50" cy="50" r="20" fill="none" strokeWidth="2" />
         </LoaderRotateSVG>
       </LoaderRotate>
     );
-  }
-  else {
+  } else {
     html = (
       <LoaderPulse>
         <div />

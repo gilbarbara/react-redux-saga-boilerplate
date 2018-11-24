@@ -5,19 +5,12 @@ import { Route, Redirect } from 'react-router-dom';
 const RoutePublic = ({ component: Component, isAuthenticated, to, ...rest }) => (
   <Route
     {...rest}
-    render={props => (
-      isAuthenticated
-        ? (<Redirect to={to} />)
-        : (<Component {...props} />)
-    )}
+    render={props => (isAuthenticated ? <Redirect to={to} /> : <Component {...props} />)}
   />
 );
 
 RoutePublic.propTypes = {
-  component: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.object,
-  ]).isRequired,
+  component: PropTypes.oneOfType([PropTypes.func, PropTypes.object]).isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
   to: PropTypes.string,
 };

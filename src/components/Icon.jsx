@@ -20,10 +20,7 @@ const StyledIcon = styled(SVG)`
 `;
 
 const Icon = ({ name, ...rest }) => (
-  <StyledIcon
-    src={`${process.env.PUBLIC_URL}/media/icons/${name}.svg`}
-    {...rest}
-  />
+  <StyledIcon src={`${process.env.PUBLIC_URL}/media/icons/${name}.svg`} {...rest} />
 );
 
 Icon.propTypes = {
