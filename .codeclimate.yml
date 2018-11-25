@@ -1,7 +1,7 @@
 version: '2'
 plugins:
   stylelint:
-    enabled: true
+    enabled: false
 exclude_patterns:
   - coverage/**/*
   - build/**/*
