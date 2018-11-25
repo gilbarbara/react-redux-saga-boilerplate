@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-import transitions from './transitions';
+import transitions, { classNames } from './transitions';
 
 const Transition = ({ children, className, style, transition, ...rest }) => {
   const Component = transitions[transition];
@@ -15,7 +15,7 @@ const Transition = ({ children, className, style, transition, ...rest }) => {
   return (
     <TransitionGroup className={className} style={style}>
       {React.Children.map(children, child => (
-        <CSSTransition classNames={transition} {...rest}>
+        <CSSTransition classNames={classNames[transition]} {...rest}>
           <Component>{child}</Component>
         </CSSTransition>
       ))}

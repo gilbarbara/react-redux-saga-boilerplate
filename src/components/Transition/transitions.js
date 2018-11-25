@@ -171,6 +171,14 @@ const SlideUp = styled.div`
   }
 `;
 
+export const classNames = {
+  fade: 'fade',
+  slideDown: 'slide-down',
+  slideLeft: 'slide-left',
+  slideRight: 'slide-right',
+  slideUp: 'slide-up',
+};
+
 export default {
   fade: Fade,
   slideDown: SlideDown,
