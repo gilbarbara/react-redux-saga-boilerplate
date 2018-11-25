@@ -1,5 +1,33 @@
 version: '2'
 plugins:
+  eslint:
+    enabled: false
+    channel: eslint-5
+    config:
+      extensions:
+        - .js
+        - .jsx
+    checks:
+      import/export:
+        enabled: false
+      import/extensions:
+        enabled: false
+      import/no-cycle:
+        enabled: false
+      import/no-duplicates:
+        enabled: false
+      import/no-extraneous-dependencies:
+        enabled: false
+      import/no-named-as-default-member:
+        enabled: false
+      import/no-unresolved:
+        enabled: false
+      import/no-webpack-loader-syntax:
+        enabled: false
+      redux-saga/yield-effects:
+        enabled: false
+      redux-saga/no-yield-in-race:
+        enabled: false
   stylelint:
     enabled: false
 exclude_patterns:
