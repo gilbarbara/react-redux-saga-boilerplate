@@ -1,8 +1,7 @@
----
-version: "2"
+version: '2'
 plugins:
   eslint:
-    enabled: true
+    enabled: false
     channel: eslint-5
     config:
       extensions:
@@ -30,7 +29,7 @@ plugins:
       redux-saga/no-yield-in-race:
         enabled: false
   stylelint:
-    enabled: true
+    enabled: false
 exclude_patterns:
   - coverage/**/*
   - build/**/*
