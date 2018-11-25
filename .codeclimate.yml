@@ -1,38 +1,33 @@
 version: '2'
-plugins:
-  eslint:
-    enabled: false
-    channel: eslint-5
+checks:
+  argument-count:
     config:
-      extensions:
-        - .js
-        - .jsx
-    checks:
-      import/export:
-        enabled: false
-      import/extensions:
-        enabled: false
-      import/no-cycle:
-        enabled: false
-      import/no-duplicates:
-        enabled: false
-      import/no-extraneous-dependencies:
-        enabled: false
-      import/no-named-as-default-member:
-        enabled: false
-      import/no-unresolved:
-        enabled: false
-      import/no-webpack-loader-syntax:
-        enabled: false
-      redux-saga/yield-effects:
-        enabled: false
-      redux-saga/no-yield-in-race:
-        enabled: false
-  stylelint:
-    enabled: false
+      threshold: 4
+  complex-logic:
+    config:
+      threshold: 4
+  file-lines:
+    config:
+      threshold: 500
+  identical-code:
+    config:
+      threshold: 50
+  method-complexity:
+    config:
+      threshold: 20
+  method-count:
+    config:
+      threshold: 20
+  method-lines:
+    config:
+      threshold: 50
+  similar-code:
+    config:
+      threshold: 100
 exclude_patterns:
   - coverage/**/*
   - build/**/*
+  - cypress/**/*
   - documentation/**/*
   - node_modules/**/*
   - test/**/*
