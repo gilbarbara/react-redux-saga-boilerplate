@@ -5,20 +5,29 @@ describe('React-Redux-Saga-Boilerplate', () => {
   });
 
   it('should be able to start', () => {
-    cy.get('[class^=StyledButton]')
+    cy.getByTestId('Login')
       .should('contain', 'Start')
       .click();
   });
 
   it('should be able to view the private area', () => {
-    cy.get('[class^=PrivateWrapper]').should('have.length', 1);
-
-    cy.get('[class^=GitHubWrapper]').should('have.length', 1);
-    cy.get('[class^=GitHubGrid]')
+    cy.getByTestId('PrivateWrapper')
+      .should('have.length', 1)
+      .getByTestId('GitHubGrid')
       .should('have.length', 1)
       .should('have.attr', 'data-type', 'react');
 
-    cy.get('[class^=GitHubGrid] li').should('have.length', 30);
+    cy.getByTestId('GitHubGrid')
+      .get('li')
+      .should('have.length', 30);
+  });
+
+  it('should be able to dismiss the alert', () => {
+    cy.getByTestId('AlertWrapper').should('have.length', 1);
+    cy.getByTestId('AlertButton').click();
+    cy.wait(300)
+      .queryByTestId('AlertWrapper')
+      .should('not.exist');
   });
 
   it('should be able to toggle the selector', () => {
@@ -29,7 +38,7 @@ describe('React-Redux-Saga-Boilerplate', () => {
   });
 
   it('should render the redux repos ', () => {
-    cy.get('[class^=GitHubGrid]')
+    cy.getByTestId('GitHubGrid')
       .should('have.length', 1)
       .should('have.attr', 'data-type', 'redux');
   });
@@ -39,20 +48,20 @@ describe('React-Redux-Saga-Boilerplate', () => {
   });
 
   it('should have redirected to /', () => {
-    cy.get('[class^=HomeWrapper]').should('have.length', 1);
+    cy.getByTestId('HomeWrapper').should('have.length', 1);
   });
 
   it('should be able to start again', () => {
-    cy.get('[class^=HomeWrapper] button')
+    cy.getByTestId('Login')
       .should('contain', 'Start')
       .click();
 
-    cy.get('[class^=PrivateWrapper]').should('have.length', 1);
+    cy.getByTestId('PrivateWrapper').should('have.length', 1);
   });
 
   it('should be able to logout again', () => {
     cy.get('[class^=Logout]').click();
 
-    cy.get('[class^=HomeWrapper]').should('have.length', 1);
+    cy.getByTestId('HomeWrapper').should('have.length', 1);
   });
 });

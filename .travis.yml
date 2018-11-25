@@ -1,16 +1,15 @@
 language: node_js
 node_js:
-- '8'
+  - '10'
 cache:
   directories:
-    - "node_modules"
+    - 'node_modules'
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 script:
-  - npm run test
-  - npm run test:automation:start
+  - npm run validate
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 addons:

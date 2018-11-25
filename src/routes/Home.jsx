@@ -13,8 +13,6 @@ import Logo from 'components/Logo';
 
 const { spacer } = utils;
 
-const HomeWrapper = styled(Background)``;
-
 const HomeContainer = styled(Container)`
   align-items: center;
   display: flex;
@@ -63,7 +61,7 @@ export class Home extends React.PureComponent {
     const { user } = this.props;
 
     return (
-      <HomeWrapper key="Home">
+      <Background key="Home" data-testid="HomeWrapper">
         <HomeContainer verticalPadding>
           <Header>
             <Logo />
@@ -74,12 +72,13 @@ export class Home extends React.PureComponent {
             onClick={this.handleClickLogin}
             size="xl"
             textTransform="uppercase"
+            data-testid="Login"
           >
             <Icon name="sign-in" />
             <Text ml={2}>Start</Text>
           </Button>
         </HomeContainer>
-      </HomeWrapper>
+      </Background>
     );
   }
 }

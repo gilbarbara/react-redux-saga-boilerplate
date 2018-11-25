@@ -10,10 +10,8 @@ const Header = styled.div`
   text-align: center;
 `;
 
-const PrivateWrapper = styled(Screen)``;
-
 const Private = () => (
-  <PrivateWrapper key="Private">
+  <Screen key="Private" data-testid="PrivateWrapper">
     <Container verticalPadding>
       <Header>
         <Heading>Oh hai!</Heading>
@@ -32,7 +30,7 @@ const Private = () => (
       </Box>
       <Github />
     </Container>
-  </PrivateWrapper>
+  </Screen>
 );
 
 export default Private;

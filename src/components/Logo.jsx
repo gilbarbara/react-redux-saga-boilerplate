@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { ReactComponent as Icon } from 'assets/media/brand/icon.svg';
 
-export const StyledLogo = styled.div`
+export const LogoWrapper = styled.div`
   align-items: flex-start;
   display: inline-flex;
   font-size: 0;
@@ -16,9 +16,9 @@ export const StyledLogo = styled.div`
 `;
 
 const Logo = () => (
-  <StyledLogo>
+  <LogoWrapper>
     <Icon />
-  </StyledLogo>
+  </LogoWrapper>
 );
 
 export default Logo;

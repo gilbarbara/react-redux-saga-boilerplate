@@ -36,7 +36,7 @@ exports[`Footer should render properly 1`] = `
   }
 }
 
-<StyledFooter>
+<FooterWrapper>
   <footer
     className="c0"
   >
@@ -74,5 +74,5 @@ exports[`Footer should render properly 1`] = `
       </div>
     </StyledContainer>
   </footer>
-</StyledFooter>
+</FooterWrapper>
 `;

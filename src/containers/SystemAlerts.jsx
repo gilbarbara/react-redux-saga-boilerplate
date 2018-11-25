@@ -67,7 +67,7 @@ const BottomRight = styled(Base)`
   })};
 `;
 
-const StyledSystemAlerts = styled.div`
+const SystemAlertsWrapper = styled.div`
   pointer-events: none;
   position: fixed;
   z-index: 1000;
@@ -140,7 +140,7 @@ export class SystemAlerts extends React.PureComponent {
 
   render() {
     return (
-      <StyledSystemAlerts key="SystemAlerts">
+      <SystemAlertsWrapper key="SystemAlerts">
         <TopLeft>
           <Transition transition="slideDown">{this.renderAlerts('top-left')}</Transition>
         </TopLeft>
@@ -153,7 +153,7 @@ export class SystemAlerts extends React.PureComponent {
         <BottomRight>
           <Transition transition="slideUp">{this.renderAlerts('bottom-right')}</Transition>
         </BottomRight>
-      </StyledSystemAlerts>
+      </SystemAlertsWrapper>
     );
   }
 }

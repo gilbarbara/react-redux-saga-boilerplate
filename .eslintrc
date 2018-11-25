@@ -3,11 +3,11 @@
   "parser": "babel-eslint",
   "env": {
     "browser": true,
+    "cypress/globals": true,
     "jest": true
   },
   "globals": {
     "$": true,
-    "Cypress",
     "fetch": false,
     "ga": false,
     "mobileDetect": false,
@@ -19,6 +19,7 @@
   },
   "plugins": [
     "babel",
+    "cypress",
     "flowtype",
     "redux-saga"
   ],

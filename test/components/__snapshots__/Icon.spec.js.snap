@@ -16,7 +16,7 @@ exports[`Icon should render properly 1`] = `
   fill: #fff;
 }
 
-<StyledIcon
+<IconWrapper
   color="#fff"
   src="/media/icons/check.svg"
   width={20}
@@ -24,5 +24,5 @@ exports[`Icon should render properly 1`] = `
   <span
     className="isvg loading c0"
   />
-</StyledIcon>
+</IconWrapper>
 `;

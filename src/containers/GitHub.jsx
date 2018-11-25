@@ -25,8 +25,6 @@ import Loader from 'components/Loader';
 const { responsive, spacer } = utils;
 const { grays } = theme;
 
-const GitHubWrapper = styled.div``;
-
 const GitHubGrid = styled.ul`
   display: grid;
   grid-auto-flow: row;
@@ -147,7 +145,7 @@ export class GitHub extends React.Component {
     if (github.repos.status === STATUS.READY) {
       if (data.length) {
         output = (
-          <GitHubGrid data-type={query}>
+          <GitHubGrid data-type={query} data-testid="GitHubGrid">
             {github.repos.data[query].map(d => (
               <li key={d.id}>
                 <Item>
@@ -176,7 +174,7 @@ export class GitHub extends React.Component {
     }
 
     return (
-      <GitHubWrapper key="GitHub">
+      <div key="GitHub" data-testid="GitHubWrapper">
         <Flex justifyContent="center">
           <ButtonGroup role="group" aria-label="GitHub Selector">
             <Button
@@ -200,7 +198,7 @@ export class GitHub extends React.Component {
           </ButtonGroup>
         </Flex>
         {output}
-      </GitHubWrapper>
+      </div>
     );
   }
 }

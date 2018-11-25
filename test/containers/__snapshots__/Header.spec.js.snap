@@ -126,7 +126,7 @@ exports[`Header should render properly 1`] = `
   }
 }
 
-<StyledHeader>
+<HeaderWrapper>
   <header
     className="c0"
   >
@@ -138,13 +138,13 @@ exports[`Header should render properly 1`] = `
         <div
           className="c1 c2"
         >
-          <StyledLogo>
+          <LogoWrapper>
             <div
               className="c3 c4"
             >
               <SvgMock />
             </div>
-          </StyledLogo>
+          </LogoWrapper>
           <Logout
             onClick={[Function]}
           >
@@ -155,7 +155,7 @@ exports[`Header should render properly 1`] = `
               <span>
                 logout
               </span>
-              <StyledIcon
+              <IconWrapper
                 color="#333"
                 src="/media/icons/sign-out.svg"
                 width={16}
@@ -163,12 +163,12 @@ exports[`Header should render properly 1`] = `
                 <span
                   className="isvg loading c6"
                 />
-              </StyledIcon>
+              </IconWrapper>
             </button>
           </Logout>
         </div>
       </StyledContainer>
     </StyledContainer>
   </header>
-</StyledHeader>
+</HeaderWrapper>
 `;

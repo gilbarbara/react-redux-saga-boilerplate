@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GitHub should render properly 1`] = `
-<GitHubWrapper
+<div
+  data-testid="GitHubWrapper"
   key="GitHub"
 >
   <Flex
@@ -42,7 +43,7 @@ exports[`GitHub should render properly 1`] = `
   <Loader
     type="pulse"
   />
-</GitHubWrapper>
+</div>
 `;
 
 exports[`GitHub should render the Grid if data exists 1`] = `null`;

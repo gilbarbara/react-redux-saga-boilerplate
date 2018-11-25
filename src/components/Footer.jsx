@@ -3,12 +3,12 @@ import styled from 'styled-components';
 
 import { Container, Flex } from 'styled-minimal';
 
-const StyledFooter = styled.footer`
+const FooterWrapper = styled.footer`
   border-top: 0.1rem solid #ddd;
 `;
 
 const Footer = () => (
-  <StyledFooter>
+  <FooterWrapper>
     <Container py={3}>
       <Flex justifyContent="space-between">
         <iframe
@@ -29,7 +29,7 @@ const Footer = () => (
         />
       </Flex>
     </Container>
-  </StyledFooter>
+  </FooterWrapper>
 );
 
 export default Footer;

@@ -11,7 +11,7 @@ const variants = { ...colors, ...palette };
 
 AlertComponent.displayName = 'AlertComponent';
 
-const StyledAlert = styled(AlertComponent)`
+const AlertWrapper = styled(AlertComponent)`
   display: flex;
   line-height: 1;
   padding: 0;
@@ -65,20 +65,20 @@ const Alert = ({ children, handleClickClose, id, icon, ...rest }) => {
 
   if (handleClickClose) {
     output.button = (
-      <AlertButton data-id={id} onClick={handleClickClose} type="button">
+      <AlertButton data-id={id} onClick={handleClickClose} type="button" data-testid="AlertButton">
         <Icon name="times" color="#ccc" width={10} />
       </AlertButton>
     );
   }
 
   return (
-    <StyledAlert {...rest}>
+    <AlertWrapper {...rest} data-testid="AlertWrapper">
       <AlertIcon {...rest} name={name} color="#fff" width={24} />
       <Box p={2} pr={handleClickClose ? 3 : 2}>
         {children}
       </Box>
       {output.button}
-    </StyledAlert>
+    </AlertWrapper>
   );
 };
 

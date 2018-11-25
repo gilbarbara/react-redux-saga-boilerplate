@@ -67,7 +67,7 @@ exports[`Reload should render properly 1`] = `
   pointer-events: all;
 }
 
-<StyledReload>
+<ReloadWrapper>
   <div
     className="c0"
   >
@@ -102,5 +102,5 @@ exports[`Reload should render properly 1`] = `
       </button>
     </StyledButton>
   </div>
-</StyledReload>
+</ReloadWrapper>
 `;

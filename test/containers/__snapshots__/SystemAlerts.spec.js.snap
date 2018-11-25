@@ -79,7 +79,7 @@ exports[`SystemAlerts should render all zones 1`] = `
   }
 }
 
-<StyledSystemAlerts
+<SystemAlertsWrapper
   key="SystemAlerts"
 >
   <div
@@ -122,5 +122,5 @@ exports[`SystemAlerts should render all zones 1`] = `
       </div>
     </BottomRight>
   </div>
-</StyledSystemAlerts>
+</SystemAlertsWrapper>
 `;

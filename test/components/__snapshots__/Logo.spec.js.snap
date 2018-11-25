@@ -19,11 +19,11 @@ exports[`Logo should render properly 1`] = `
   width: 4.8rem;
 }
 
-<StyledLogo>
+<LogoWrapper>
   <div
     className="c0"
   >
     <SvgMock />
   </div>
-</StyledLogo>
+</LogoWrapper>
 `;

@@ -4,7 +4,7 @@ import SVG from 'react-inlinesvg';
 import styled from 'styled-components';
 import { utils } from 'styled-minimal';
 
-const StyledIcon = styled(SVG)`
+const IconWrapper = styled(SVG)`
   display: inline-block;
   line-height: 0;
 
@@ -20,7 +20,7 @@ const StyledIcon = styled(SVG)`
 `;
 
 const Icon = ({ name, ...rest }) => (
-  <StyledIcon src={`${process.env.PUBLIC_URL}/media/icons/${name}.svg`} {...rest} />
+  <IconWrapper src={`${process.env.PUBLIC_URL}/media/icons/${name}.svg`} {...rest} />
 );
 
 Icon.propTypes = {

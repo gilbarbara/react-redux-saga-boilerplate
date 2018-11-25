@@ -8,11 +8,11 @@ import { logOut } from 'actions/index';
 
 import { Container, utils } from 'styled-minimal';
 import Icon from 'components/Icon';
-import Logo, { StyledLogo } from 'components/Logo';
+import Logo, { LogoWrapper } from 'components/Logo';
 
 const { responsive, spacer } = utils;
 
-const StyledHeader = styled.header`
+const HeaderWrapper = styled.header`
   background-color: ${rgba(appColor, 0.9)};
   height: ${headerHeight}px;
   left: 0;
@@ -31,7 +31,7 @@ const StyledHeader = styled.header`
     right: 0;
   }
 
-  ${StyledLogo} svg {
+  ${LogoWrapper} svg {
     width: 5rem;
   }
 `;
@@ -79,7 +79,7 @@ export default class Header extends React.PureComponent {
 
   render() {
     return (
-      <StyledHeader>
+      <HeaderWrapper>
         <StyledContainer>
           <Logo />
           <Logout onClick={this.handleClickLogout}>
@@ -87,7 +87,7 @@ export default class Header extends React.PureComponent {
             <Icon name="sign-out" color="#333" width={16} />
           </Logout>
         </StyledContainer>
-      </StyledHeader>
+      </HeaderWrapper>
     );
   }
 }

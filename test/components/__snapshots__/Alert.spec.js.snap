@@ -61,18 +61,21 @@ exports[`Alert should render a error alert with markup 1`] = `
   padding: 16px;
 }
 
-<StyledAlert
+<AlertWrapper
+  data-testid="AlertWrapper"
   outline={true}
   variant="danger"
 >
   <StyledAlert
     className="c0"
+    data-testid="AlertWrapper"
     outline={true}
     size="md"
     variant="danger"
   >
     <div
       className="c0 c1"
+      data-testid="AlertWrapper"
       role="alert"
       size="md"
     >
@@ -83,7 +86,7 @@ exports[`Alert should render a error alert with markup 1`] = `
         variant="danger"
         width={24}
       >
-        <StyledIcon
+        <IconWrapper
           className="c2"
           color="#fff"
           outline={true}
@@ -94,7 +97,7 @@ exports[`Alert should render a error alert with markup 1`] = `
           <span
             className="isvg loading c2 c3"
           />
-        </StyledIcon>
+        </IconWrapper>
       </AlertIcon>
       <StyledBox
         p={2}
@@ -110,7 +113,7 @@ exports[`Alert should render a error alert with markup 1`] = `
       </StyledBox>
     </div>
   </StyledAlert>
-</StyledAlert>
+</AlertWrapper>
 `;
 
 exports[`Alert should render a info alert 1`] = `
@@ -174,18 +177,21 @@ exports[`Alert should render a info alert 1`] = `
   padding: 16px;
 }
 
-<StyledAlert
+<AlertWrapper
+  data-testid="AlertWrapper"
   outline={true}
   variant="info"
 >
   <StyledAlert
     className="c0"
+    data-testid="AlertWrapper"
     outline={true}
     size="md"
     variant="info"
   >
     <div
       className="c0 c1"
+      data-testid="AlertWrapper"
       role="alert"
       size="md"
     >
@@ -196,7 +202,7 @@ exports[`Alert should render a info alert 1`] = `
         variant="info"
         width={24}
       >
-        <StyledIcon
+        <IconWrapper
           className="c2"
           color="#fff"
           outline={true}
@@ -207,7 +213,7 @@ exports[`Alert should render a info alert 1`] = `
           <span
             className="isvg loading c2 c3"
           />
-        </StyledIcon>
+        </IconWrapper>
       </AlertIcon>
       <StyledBox
         p={2}
@@ -221,7 +227,7 @@ exports[`Alert should render a info alert 1`] = `
       </StyledBox>
     </div>
   </StyledAlert>
-</StyledAlert>
+</AlertWrapper>
 `;
 
 exports[`Alert should render a success alert 1`] = `
@@ -285,18 +291,21 @@ exports[`Alert should render a success alert 1`] = `
   padding: 16px;
 }
 
-<StyledAlert
+<AlertWrapper
+  data-testid="AlertWrapper"
   outline={true}
   variant="success"
 >
   <StyledAlert
     className="c0"
+    data-testid="AlertWrapper"
     outline={true}
     size="md"
     variant="success"
   >
     <div
       className="c0 c1"
+      data-testid="AlertWrapper"
       role="alert"
       size="md"
     >
@@ -307,7 +316,7 @@ exports[`Alert should render a success alert 1`] = `
         variant="success"
         width={24}
       >
-        <StyledIcon
+        <IconWrapper
           className="c2"
           color="#fff"
           outline={true}
@@ -318,7 +327,7 @@ exports[`Alert should render a success alert 1`] = `
           <span
             className="isvg loading c2 c3"
           />
-        </StyledIcon>
+        </IconWrapper>
       </AlertIcon>
       <StyledBox
         p={2}
@@ -332,7 +341,7 @@ exports[`Alert should render a success alert 1`] = `
       </StyledBox>
     </div>
   </StyledAlert>
-</StyledAlert>
+</AlertWrapper>
 `;
 
 exports[`Alert should render a warning alert 1`] = `
@@ -396,18 +405,21 @@ exports[`Alert should render a warning alert 1`] = `
   padding: 16px;
 }
 
-<StyledAlert
+<AlertWrapper
+  data-testid="AlertWrapper"
   outline={true}
   variant="warning"
 >
   <StyledAlert
     className="c0"
+    data-testid="AlertWrapper"
     outline={true}
     size="md"
     variant="warning"
   >
     <div
       className="c0 c1"
+      data-testid="AlertWrapper"
       role="alert"
       size="md"
     >
@@ -418,7 +430,7 @@ exports[`Alert should render a warning alert 1`] = `
         variant="warning"
         width={24}
       >
-        <StyledIcon
+        <IconWrapper
           className="c2"
           color="#fff"
           outline={true}
@@ -429,7 +441,7 @@ exports[`Alert should render a warning alert 1`] = `
           <span
             className="isvg loading c2 c3"
           />
-        </StyledIcon>
+        </IconWrapper>
       </AlertIcon>
       <StyledBox
         p={2}
@@ -443,7 +455,7 @@ exports[`Alert should render a warning alert 1`] = `
       </StyledBox>
     </div>
   </StyledAlert>
-</StyledAlert>
+</AlertWrapper>
 `;
 
 exports[`Alert should render properly 1`] = `
@@ -507,18 +519,21 @@ exports[`Alert should render properly 1`] = `
   padding: 16px;
 }
 
-<StyledAlert
+<AlertWrapper
+  data-testid="AlertWrapper"
   outline={true}
   variant="info"
 >
   <StyledAlert
     className="c0"
+    data-testid="AlertWrapper"
     outline={true}
     size="md"
     variant="info"
   >
     <div
       className="c0 c1"
+      data-testid="AlertWrapper"
       role="alert"
       size="md"
     >
@@ -529,7 +544,7 @@ exports[`Alert should render properly 1`] = `
         variant="info"
         width={24}
       >
-        <StyledIcon
+        <IconWrapper
           className="c2"
           color="#fff"
           outline={true}
@@ -540,7 +555,7 @@ exports[`Alert should render properly 1`] = `
           <span
             className="isvg loading c2 c3"
           />
-        </StyledIcon>
+        </IconWrapper>
       </AlertIcon>
       <StyledBox
         p={2}
@@ -554,5 +569,5 @@ exports[`Alert should render properly 1`] = `
       </StyledBox>
     </div>
   </StyledAlert>
-</StyledAlert>
+</AlertWrapper>
 `;

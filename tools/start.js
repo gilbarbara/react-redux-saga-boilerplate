@@ -14,8 +14,6 @@ process.on('unhandledRejection', err => {
 // Ensure environment variables are read.
 require('../config/env');
 
-const path = require('path');
-const { spawn } = require('child_process');
 const chalk = require('chalk');
 const dateFns = require('date-fns');
 const webpack = require('webpack');
@@ -28,7 +26,6 @@ const {
   prepareProxy,
   prepareUrls,
 } = require('react-dev-utils/WebpackDevServerUtils');
-const openBrowser = require('react-dev-utils/openBrowser');
 
 const paths = require('../config/paths');
 const configFactory = require('../config/webpack.config');
@@ -36,9 +33,7 @@ const createDevServerConfig = require('../config/webpackDevServer');
 
 const config = configFactory('development');
 
-const args = process.argv.slice(2);
 const isInteractive = process.stdout.isTTY;
-const isAutomationTest = args[0] && args[0] === 'automation';
 
 // Warn and crash if required files are missing
 if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
@@ -80,27 +75,6 @@ choosePort(HOST, DEFAULT_PORT)
         chalk.yellow(`Duration: ${dateFns.differenceInSeconds(now, start)}s - ${compilation.hash}`),
       );
 
-      if (isAutomationTest) {
-        const cypress = spawn(path.join(__dirname, '../node_modules/.bin/cypress'), [
-          'run',
-          '--record',
-          '--key',
-          'adbe5dd9-10e2-42aa-b679-da6d31ae5d51',
-        ]);
-
-        cypress.stdout.on('data', data => {
-          process.stdout.write(data.toString());
-        });
-
-        cypress.stderr.on('data', data => {
-          process.stdout.write(data.toString());
-        });
-
-        cypress.on('close', () => {
-          process.exit(0);
-        });
-      }
-
       callback();
     });
 
@@ -117,10 +91,6 @@ choosePort(HOST, DEFAULT_PORT)
       }
 
       console.log(chalk.cyan('Starting the development server...'));
-
-      if (!isAutomationTest) {
-        openBrowser(urls.localUrlForBrowser);
-      }
     });
 
     ['SIGINT', 'SIGTERM'].forEach(function(sig) {

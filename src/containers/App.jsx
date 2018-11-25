@@ -25,7 +25,7 @@ import GlobalStyles from 'components/GlobalStyles';
 import RoutePublic from 'components/RoutePublic';
 import RoutePrivate from 'components/RoutePrivate';
 
-const StyledApp = styled.div`
+const AppWrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -68,7 +68,7 @@ export class App extends React.Component {
     return (
       <Router history={history}>
         <ThemeProvider theme={theme}>
-          <StyledApp logged={user.isAuthenticated}>
+          <AppWrapper logged={user.isAuthenticated}>
             <Helmet
               defer={false}
               htmlAttributes={{ lang: 'pt-br' }}
@@ -97,7 +97,7 @@ export class App extends React.Component {
             <Footer />
             <SystemAlerts />
             <GlobalStyles />
-          </StyledApp>
+          </AppWrapper>
         </ThemeProvider>
       </Router>
     );
