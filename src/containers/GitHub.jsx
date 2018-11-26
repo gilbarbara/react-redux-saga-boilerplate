@@ -33,6 +33,7 @@ const GitHubGrid = styled.ul`
   list-style: none;
   margin: ${spacer(4)} auto 0;
   padding: 0;
+  /* stylelint-disable */
   ${/* istanbul ignore next */ p =>
     responsive({
       ix: `
@@ -51,6 +52,7 @@ const GitHubGrid = styled.ul`
       grid-template-columns: repeat(4, 1fr);
     `,
     })};
+  /* stylelint-enable */
 
   > li {
     display: flex;
@@ -68,6 +70,7 @@ const Item = styled(Box)`
   padding: ${spacer(3)};
   text-align: center;
   width: 100%;
+  /* stylelint-disable */
   ${/* istanbul ignore next */ p =>
     responsive({
       md: `
@@ -77,6 +80,7 @@ const Item = styled(Box)`
       padding: ${spacer(4)(p)};
     `,
     })};
+  /* stylelint-enable */
 
   > a {
     margin-bottom: ${spacer(2)};

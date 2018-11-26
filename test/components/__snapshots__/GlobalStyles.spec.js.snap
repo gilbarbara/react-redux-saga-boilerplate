@@ -2,17 +2,17 @@
 
 exports[`GlobalStyles should render properly 1`] = `
 GlobalStyle {
-  "componentId": "sc-global-3341412336",
+  "componentId": "sc-global-3983640001",
   "isStatic": true,
   "rules": Array [
     "
+  @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
   *,
   *:before,
   *:after {
     box-sizing: border-box;
   }
-
-  @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 
   html {
     font-size: 62.5%;

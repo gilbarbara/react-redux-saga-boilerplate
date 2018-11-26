@@ -38,11 +38,13 @@ const Heading = styled.h1`
   margin-top: 0;
   text-align: center;
 
+  /* stylelint-disable */
   ${utils.responsive({
     lg: `
       font-size: 4rem;
     `,
   })};
+  /* stylelint-enable */
 `;
 
 export class Home extends React.PureComponent {

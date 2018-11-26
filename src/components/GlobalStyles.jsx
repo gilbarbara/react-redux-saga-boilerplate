@@ -3,13 +3,13 @@ import { createGlobalStyle } from 'styled-components';
 import { appColor } from 'modules/theme';
 
 const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
   *,
   *:before,
   *:after {
     box-sizing: border-box;
   }
-
-  @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 
   html {
     font-size: 62.5%;
