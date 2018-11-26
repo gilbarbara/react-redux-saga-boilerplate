@@ -11,22 +11,22 @@ exports[`Header should render properly 1`] = `
   width: 100%;
 }
 
-.c6 {
+.c5 {
   display: inline-block;
   line-height: 0;
 }
 
-.c6 svg {
+.c5 svg {
   height: auto;
   max-height: 100%;
   width: 16px;
 }
 
-.c6 svg path {
+.c5 svg path {
   fill: #333;
 }
 
-.c4 {
+.c3 {
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
@@ -38,7 +38,7 @@ exports[`Header should render properly 1`] = `
   font-size: 0;
 }
 
-.c4 svg {
+.c3 svg {
   height: auto;
   max-height: 100%;
   width: 4.8rem;
@@ -64,10 +64,6 @@ exports[`Header should render properly 1`] = `
   right: 0;
 }
 
-.c0 .c3 svg {
-  width: 5rem;
-}
-
 .c1 {
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -89,7 +85,7 @@ exports[`Header should render properly 1`] = `
   padding-top: 8px;
 }
 
-.c5 {
+.c4 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -103,13 +99,13 @@ exports[`Header should render properly 1`] = `
   padding: 8px;
 }
 
-.c5.active {
+.c4.active {
   color: #000;
 }
 
-.c5 span {
+.c4 span {
   display: inline-block;
-  margin-right: 4px;
+  margin-right: 0.4rem;
   text-transform: uppercase;
 }
 
@@ -121,7 +117,7 @@ exports[`Header should render properly 1`] = `
 }
 
 @media (min-width:1024px) {
-  .c5 {
+  .c4 {
     font-size: 1.6rem;
   }
 }
@@ -138,18 +134,20 @@ exports[`Header should render properly 1`] = `
         <div
           className="c1 c2"
         >
-          <LogoWrapper>
-            <div
-              className="c3 c4"
-            >
-              <SvgMock />
-            </div>
-          </LogoWrapper>
+          <HeaderLogo>
+            <LogoWrapper>
+              <div
+                className="c3"
+              >
+                <SvgMock />
+              </div>
+            </LogoWrapper>
+          </HeaderLogo>
           <Logout
             onClick={[Function]}
           >
             <button
-              className="c5"
+              className="c4"
               onClick={[Function]}
             >
               <span>
@@ -161,7 +159,7 @@ exports[`Header should render properly 1`] = `
                 width={16}
               >
                 <span
-                  className="isvg loading c6"
+                  className="isvg loading c5"
                 />
               </IconWrapper>
             </button>

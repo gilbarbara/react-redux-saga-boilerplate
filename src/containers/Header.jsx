@@ -8,7 +8,7 @@ import { logOut } from 'actions/index';
 
 import { Container, utils } from 'styled-minimal';
 import Icon from 'components/Icon';
-import Logo, { LogoWrapper } from 'components/Logo';
+import Logo from 'components/Logo';
 
 const { responsive, spacer } = utils;
 
@@ -30,8 +30,10 @@ const HeaderWrapper = styled.header`
     position: absolute;
     right: 0;
   }
+`;
 
-  ${LogoWrapper} svg {
+const HeaderLogo = styled(Logo)`
+  svg {
     width: 5rem;
   }
 `;
@@ -53,7 +55,7 @@ const Logout = styled.button`
   font-size: 1.3rem;
   padding: ${spacer(2)};
 
-  ${responsive({ lg: 'font-size: 1.6rem;' })};
+  ${responsive({ lg: 'font-size: 1.6rem;' })}; /* stylelint-disable-line */
 
   &.active {
     color: #000;
@@ -61,7 +63,7 @@ const Logout = styled.button`
 
   span {
     display: inline-block;
-    margin-right: 4px;
+    margin-right: 0.4rem;
     text-transform: uppercase;
   }
 `;
@@ -81,7 +83,7 @@ export default class Header extends React.PureComponent {
     return (
       <HeaderWrapper>
         <StyledContainer>
-          <Logo />
+          <HeaderLogo />
           <Logout onClick={this.handleClickLogout}>
             <span>logout</span>
             <Icon name="sign-out" color="#333" width={16} />

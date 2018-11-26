@@ -5,7 +5,6 @@
     "stylelint-config-styled-components"
   ],
   "plugins": [
-    "stylelint-declaration-strict-value",
     "stylelint-order"
   ],
   "rules": {
@@ -46,6 +45,7 @@
       }
     ],
     "order/order": [
+      { "type": "at-rule", "name": "import" },
       "custom-properties",
       "dollar-variables",
       { "type": "at-rule", "name": "extend" },
@@ -59,14 +59,6 @@
       "rules",
       "at-rules"
     ],
-    "order/properties-alphabetical-order": true,
-    "scale-unlimited/declaration-strict-value": [
-      ["/color/"],
-      {
-        "ignoreKeywords": {
-          "/color/": ["transparent", "inherit"]
-        }
-      }
-    ]
+    "order/properties-alphabetical-order": true
   }
 }
