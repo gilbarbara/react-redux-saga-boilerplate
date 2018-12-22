@@ -1,7 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Alert should render a error alert with markup 1`] = `
-.c1 {
+.c3 {
+  box-sizing: border-box;
+  padding: 8px;
+  padding-right: 8px;
+}
+
+.c2 {
+  display: inline-block;
+  line-height: 0;
+}
+
+.c2 svg {
+  height: auto;
+  max-height: 100%;
+  width: 24px;
+}
+
+.c0 {
+  box-sizing: border-box;
   background-color: #fff;
   border: 1px solid #ff4444;
   color: #ff4444;
@@ -11,34 +29,6 @@ exports[`Alert should render a error alert with markup 1`] = `
   max-width: 450px;
   padding: 10px 16px;
   width: 100%;
-}
-
-.c1 a {
-  color: #ff4444;
-}
-
-.c4 {
-  width: 100%;
-  padding: 8px;
-  padding-right: 8px;
-}
-
-.c3 {
-  display: inline-block;
-  line-height: 0;
-}
-
-.c3 svg {
-  height: auto;
-  max-height: 100%;
-  width: 24px;
-}
-
-.c3 svg path {
-  fill: #fff;
-}
-
-.c0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -48,12 +38,17 @@ exports[`Alert should render a error alert with markup 1`] = `
   position: relative;
 }
 
-.c2 {
+.c0 a {
+  color: #ff4444;
+}
+
+.c1 {
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
   background-color: #ff4444;
+  color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -64,60 +59,68 @@ exports[`Alert should render a error alert with markup 1`] = `
 <AlertWrapper
   data-testid="AlertWrapper"
   outline={true}
+  size="md"
   variant="danger"
 >
-  <StyledAlert
+  <div
     className="c0"
     data-testid="AlertWrapper"
-    outline={true}
+    role="alert"
     size="md"
-    variant="danger"
   >
-    <div
-      className="c0 c1"
-      data-testid="AlertWrapper"
-      role="alert"
-      size="md"
+    <AlertIcon
+      outline={true}
+      variant="danger"
     >
-      <AlertIcon
-        color="#fff"
-        name="times-circle"
-        outline={true}
-        variant="danger"
-        width={24}
+      <div
+        className="c1"
       >
         <IconWrapper
-          className="c2"
-          color="#fff"
-          outline={true}
           src="/media/icons/times-circle.svg"
-          variant="danger"
           width={24}
         >
           <span
-            className="isvg loading c2 c3"
+            className="isvg loading c2"
           />
         </IconWrapper>
-      </AlertIcon>
-      <StyledBox
-        p={2}
-        pr={2}
+      </div>
+    </AlertIcon>
+    <Box
+      p={2}
+      pr={2}
+    >
+      <div
+        className="c3"
       >
-        <div
-          className="c4"
-        >
-          <p>
-            This is an error message
-          </p>
-        </div>
-      </StyledBox>
-    </div>
-  </StyledAlert>
+        <p>
+          This is an error message
+        </p>
+      </div>
+    </Box>
+  </div>
 </AlertWrapper>
 `;
 
 exports[`Alert should render a info alert 1`] = `
-.c1 {
+.c3 {
+  box-sizing: border-box;
+  padding: 8px;
+  padding-right: 8px;
+}
+
+.c2 {
+  display: inline-block;
+  line-height: 0;
+}
+
+.c2 svg {
+  height: auto;
+  max-height: 100%;
+  width: 24px;
+}
+
+.c0 {
+  box-sizing: border-box;
   background-color: #fff;
   border: 1px solid #33b5e5;
   color: #33b5e5;
@@ -127,34 +130,6 @@ exports[`Alert should render a info alert 1`] = `
   max-width: 450px;
   padding: 10px 16px;
   width: 100%;
-}
-
-.c1 a {
-  color: #33b5e5;
-}
-
-.c4 {
-  width: 100%;
-  padding: 8px;
-  padding-right: 8px;
-}
-
-.c3 {
-  display: inline-block;
-  line-height: 0;
-}
-
-.c3 svg {
-  height: auto;
-  max-height: 100%;
-  width: 24px;
-}
-
-.c3 svg path {
-  fill: #fff;
-}
-
-.c0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -164,12 +139,17 @@ exports[`Alert should render a info alert 1`] = `
   position: relative;
 }
 
-.c2 {
+.c0 a {
+  color: #33b5e5;
+}
+
+.c1 {
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
   background-color: #33b5e5;
+  color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -180,58 +160,66 @@ exports[`Alert should render a info alert 1`] = `
 <AlertWrapper
   data-testid="AlertWrapper"
   outline={true}
+  size="md"
   variant="info"
 >
-  <StyledAlert
+  <div
     className="c0"
     data-testid="AlertWrapper"
-    outline={true}
+    role="alert"
     size="md"
-    variant="info"
   >
-    <div
-      className="c0 c1"
-      data-testid="AlertWrapper"
-      role="alert"
-      size="md"
+    <AlertIcon
+      outline={true}
+      variant="info"
     >
-      <AlertIcon
-        color="#fff"
-        name="question-circle"
-        outline={true}
-        variant="info"
-        width={24}
+      <div
+        className="c1"
       >
         <IconWrapper
-          className="c2"
-          color="#fff"
-          outline={true}
           src="/media/icons/question-circle.svg"
-          variant="info"
           width={24}
         >
           <span
-            className="isvg loading c2 c3"
+            className="isvg loading c2"
           />
         </IconWrapper>
-      </AlertIcon>
-      <StyledBox
-        p={2}
-        pr={2}
+      </div>
+    </AlertIcon>
+    <Box
+      p={2}
+      pr={2}
+    >
+      <div
+        className="c3"
       >
-        <div
-          className="c4"
-        >
-          This is an info message
-        </div>
-      </StyledBox>
-    </div>
-  </StyledAlert>
+        This is an info message
+      </div>
+    </Box>
+  </div>
 </AlertWrapper>
 `;
 
 exports[`Alert should render a success alert 1`] = `
-.c1 {
+.c3 {
+  box-sizing: border-box;
+  padding: 8px;
+  padding-right: 8px;
+}
+
+.c2 {
+  display: inline-block;
+  line-height: 0;
+}
+
+.c2 svg {
+  height: auto;
+  max-height: 100%;
+  width: 24px;
+}
+
+.c0 {
+  box-sizing: border-box;
   background-color: #fff;
   border: 1px solid #00C851;
   color: #00C851;
@@ -241,34 +229,6 @@ exports[`Alert should render a success alert 1`] = `
   max-width: 450px;
   padding: 10px 16px;
   width: 100%;
-}
-
-.c1 a {
-  color: #00C851;
-}
-
-.c4 {
-  width: 100%;
-  padding: 8px;
-  padding-right: 8px;
-}
-
-.c3 {
-  display: inline-block;
-  line-height: 0;
-}
-
-.c3 svg {
-  height: auto;
-  max-height: 100%;
-  width: 24px;
-}
-
-.c3 svg path {
-  fill: #fff;
-}
-
-.c0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -278,12 +238,17 @@ exports[`Alert should render a success alert 1`] = `
   position: relative;
 }
 
-.c2 {
+.c0 a {
+  color: #00C851;
+}
+
+.c1 {
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
   background-color: #00C851;
+  color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -294,58 +259,66 @@ exports[`Alert should render a success alert 1`] = `
 <AlertWrapper
   data-testid="AlertWrapper"
   outline={true}
+  size="md"
   variant="success"
 >
-  <StyledAlert
+  <div
     className="c0"
     data-testid="AlertWrapper"
-    outline={true}
+    role="alert"
     size="md"
-    variant="success"
   >
-    <div
-      className="c0 c1"
-      data-testid="AlertWrapper"
-      role="alert"
-      size="md"
+    <AlertIcon
+      outline={true}
+      variant="success"
     >
-      <AlertIcon
-        color="#fff"
-        name="check-circle"
-        outline={true}
-        variant="success"
-        width={24}
+      <div
+        className="c1"
       >
         <IconWrapper
-          className="c2"
-          color="#fff"
-          outline={true}
           src="/media/icons/check-circle.svg"
-          variant="success"
           width={24}
         >
           <span
-            className="isvg loading c2 c3"
+            className="isvg loading c2"
           />
         </IconWrapper>
-      </AlertIcon>
-      <StyledBox
-        p={2}
-        pr={2}
+      </div>
+    </AlertIcon>
+    <Box
+      p={2}
+      pr={2}
+    >
+      <div
+        className="c3"
       >
-        <div
-          className="c4"
-        >
-          This is a success message
-        </div>
-      </StyledBox>
-    </div>
-  </StyledAlert>
+        This is a success message
+      </div>
+    </Box>
+  </div>
 </AlertWrapper>
 `;
 
 exports[`Alert should render a warning alert 1`] = `
-.c1 {
+.c3 {
+  box-sizing: border-box;
+  padding: 8px;
+  padding-right: 8px;
+}
+
+.c2 {
+  display: inline-block;
+  line-height: 0;
+}
+
+.c2 svg {
+  height: auto;
+  max-height: 100%;
+  width: 24px;
+}
+
+.c0 {
+  box-sizing: border-box;
   background-color: #fff;
   border: 1px solid #fda509;
   color: #fda509;
@@ -355,34 +328,6 @@ exports[`Alert should render a warning alert 1`] = `
   max-width: 450px;
   padding: 10px 16px;
   width: 100%;
-}
-
-.c1 a {
-  color: #fda509;
-}
-
-.c4 {
-  width: 100%;
-  padding: 8px;
-  padding-right: 8px;
-}
-
-.c3 {
-  display: inline-block;
-  line-height: 0;
-}
-
-.c3 svg {
-  height: auto;
-  max-height: 100%;
-  width: 24px;
-}
-
-.c3 svg path {
-  fill: #fff;
-}
-
-.c0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -392,12 +337,17 @@ exports[`Alert should render a warning alert 1`] = `
   position: relative;
 }
 
-.c2 {
+.c0 a {
+  color: #fda509;
+}
+
+.c1 {
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
   background-color: #fda509;
+  color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -408,58 +358,66 @@ exports[`Alert should render a warning alert 1`] = `
 <AlertWrapper
   data-testid="AlertWrapper"
   outline={true}
+  size="md"
   variant="warning"
 >
-  <StyledAlert
+  <div
     className="c0"
     data-testid="AlertWrapper"
-    outline={true}
+    role="alert"
     size="md"
-    variant="warning"
   >
-    <div
-      className="c0 c1"
-      data-testid="AlertWrapper"
-      role="alert"
-      size="md"
+    <AlertIcon
+      outline={true}
+      variant="warning"
     >
-      <AlertIcon
-        color="#fff"
-        name="exclamation-circle"
-        outline={true}
-        variant="warning"
-        width={24}
+      <div
+        className="c1"
       >
         <IconWrapper
-          className="c2"
-          color="#fff"
-          outline={true}
           src="/media/icons/exclamation-circle.svg"
-          variant="warning"
           width={24}
         >
           <span
-            className="isvg loading c2 c3"
+            className="isvg loading c2"
           />
         </IconWrapper>
-      </AlertIcon>
-      <StyledBox
-        p={2}
-        pr={2}
+      </div>
+    </AlertIcon>
+    <Box
+      p={2}
+      pr={2}
+    >
+      <div
+        className="c3"
       >
-        <div
-          className="c4"
-        >
-          This is a warning message
-        </div>
-      </StyledBox>
-    </div>
-  </StyledAlert>
+        This is a warning message
+      </div>
+    </Box>
+  </div>
 </AlertWrapper>
 `;
 
 exports[`Alert should render properly 1`] = `
-.c1 {
+.c3 {
+  box-sizing: border-box;
+  padding: 8px;
+  padding-right: 8px;
+}
+
+.c2 {
+  display: inline-block;
+  line-height: 0;
+}
+
+.c2 svg {
+  height: auto;
+  max-height: 100%;
+  width: 24px;
+}
+
+.c0 {
+  box-sizing: border-box;
   background-color: #fff;
   border: 1px solid #33b5e5;
   color: #33b5e5;
@@ -469,34 +427,6 @@ exports[`Alert should render properly 1`] = `
   max-width: 450px;
   padding: 10px 16px;
   width: 100%;
-}
-
-.c1 a {
-  color: #33b5e5;
-}
-
-.c4 {
-  width: 100%;
-  padding: 8px;
-  padding-right: 8px;
-}
-
-.c3 {
-  display: inline-block;
-  line-height: 0;
-}
-
-.c3 svg {
-  height: auto;
-  max-height: 100%;
-  width: 24px;
-}
-
-.c3 svg path {
-  fill: #fff;
-}
-
-.c0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -506,12 +436,17 @@ exports[`Alert should render properly 1`] = `
   position: relative;
 }
 
-.c2 {
+.c0 a {
+  color: #33b5e5;
+}
+
+.c1 {
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
   background-color: #33b5e5;
+  color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -522,52 +457,42 @@ exports[`Alert should render properly 1`] = `
 <AlertWrapper
   data-testid="AlertWrapper"
   outline={true}
+  size="md"
   variant="info"
 >
-  <StyledAlert
+  <div
     className="c0"
     data-testid="AlertWrapper"
-    outline={true}
+    role="alert"
     size="md"
-    variant="info"
   >
-    <div
-      className="c0 c1"
-      data-testid="AlertWrapper"
-      role="alert"
-      size="md"
+    <AlertIcon
+      outline={true}
+      variant="info"
     >
-      <AlertIcon
-        color="#fff"
-        name="question-circle"
-        outline={true}
-        variant="info"
-        width={24}
+      <div
+        className="c1"
       >
         <IconWrapper
-          className="c2"
-          color="#fff"
-          outline={true}
           src="/media/icons/question-circle.svg"
-          variant="info"
           width={24}
         >
           <span
-            className="isvg loading c2 c3"
+            className="isvg loading c2"
           />
         </IconWrapper>
-      </AlertIcon>
-      <StyledBox
-        p={2}
-        pr={2}
+      </div>
+    </AlertIcon>
+    <Box
+      p={2}
+      pr={2}
+    >
+      <div
+        className="c3"
       >
-        <div
-          className="c4"
-        >
-          Hello World
-        </div>
-      </StyledBox>
-    </div>
-  </StyledAlert>
+        Hello World
+      </div>
+    </Box>
+  </div>
 </AlertWrapper>
 `;

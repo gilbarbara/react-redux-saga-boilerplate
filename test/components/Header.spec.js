@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Header from 'containers/Header';
+import Header from 'components/Header';
 
 const mockDispatch = jest.fn();
 
@@ -13,7 +13,7 @@ function setup() {
     },
   };
 
-  return mount(<Header {...props} />);
+  return mount(<Header suppressClassNameWarning {...props} />);
 }
 
 describe('Header', () => {
@@ -25,6 +25,7 @@ describe('Header', () => {
 
   it('should handle clicks', () => {
     wrapper.find('Logout').simulate('click');
+
     expect(mockDispatch).toHaveBeenCalledWith({
       type: 'USER_LOGOUT',
       payload: {},

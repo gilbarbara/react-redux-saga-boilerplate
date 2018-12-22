@@ -1,32 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header should render properly 1`] = `
-.c2 {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 16px;
-  padding-right: 16px;
-  max-width: 1440px;
-  position: relative;
-  width: 100%;
-}
-
-.c5 {
+.c4 {
   display: inline-block;
   line-height: 0;
 }
 
-.c5 svg {
+.c4 svg {
   height: auto;
   max-height: 100%;
   width: 16px;
 }
 
-.c5 svg path {
-  fill: #333;
-}
-
-.c3 {
+.c2 {
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
@@ -38,7 +24,7 @@ exports[`Header should render properly 1`] = `
   font-size: 0;
 }
 
-.c3 svg {
+.c2 svg {
   height: auto;
   max-height: 100%;
   width: 4.8rem;
@@ -65,6 +51,14 @@ exports[`Header should render properly 1`] = `
 }
 
 .c1 {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  max-width: 1440px;
+  position: relative;
+  width: 100%;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -85,7 +79,7 @@ exports[`Header should render properly 1`] = `
   padding-top: 8px;
 }
 
-.c4 {
+.c3 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -99,25 +93,25 @@ exports[`Header should render properly 1`] = `
   padding: 8px;
 }
 
-.c4.active {
+.c3.active {
   color: #000;
 }
 
-.c4 span {
+.c3 span {
   display: inline-block;
   margin-right: 0.4rem;
   text-transform: uppercase;
 }
 
 @media (min-width:768px) {
-  .c2 {
+  .c1 {
     padding-left: 32px;
     padding-right: 32px;
   }
 }
 
 @media (min-width:1024px) {
-  .c4 {
+  .c3 {
     font-size: 1.6rem;
   }
 }
@@ -126,47 +120,41 @@ exports[`Header should render properly 1`] = `
   <header
     className="c0"
   >
-    <StyledContainer>
-      <StyledContainer
+    <HeaderContainer
+      verticalPadding={false}
+    >
+      <div
         className="c1"
-        verticalPadding={false}
       >
-        <div
-          className="c1 c2"
+        <Logo>
+          <div
+            className="c2"
+          >
+            <SVGMock />
+          </div>
+        </Logo>
+        <Logout
+          onClick={[Function]}
         >
-          <HeaderLogo>
-            <LogoWrapper>
-              <div
-                className="c3"
-              >
-                <SvgMock />
-              </div>
-            </LogoWrapper>
-          </HeaderLogo>
-          <Logout
+          <button
+            className="c3"
             onClick={[Function]}
           >
-            <button
-              className="c4"
-              onClick={[Function]}
+            <span>
+              logout
+            </span>
+            <IconWrapper
+              src="/media/icons/sign-out.svg"
+              width={16}
             >
-              <span>
-                logout
-              </span>
-              <IconWrapper
-                color="#333"
-                src="/media/icons/sign-out.svg"
-                width={16}
-              >
-                <span
-                  className="isvg loading c5"
-                />
-              </IconWrapper>
-            </button>
-          </Logout>
-        </div>
-      </StyledContainer>
-    </StyledContainer>
+              <span
+                className="isvg loading c4"
+              />
+            </IconWrapper>
+          </button>
+        </Logout>
+      </div>
+    </HeaderContainer>
   </header>
 </HeaderWrapper>
 `;

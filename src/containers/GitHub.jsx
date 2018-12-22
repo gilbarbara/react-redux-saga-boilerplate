@@ -180,7 +180,7 @@ export class GitHub extends React.Component {
     return (
       <div key="GitHub" data-testid="GitHubWrapper">
         <Flex justifyContent="center">
-          <ButtonGroup role="group" aria-label="GitHub Selector">
+          <ButtonGroup role="group" aria-label="GitHub Selector" data-testid="GitHubSelector">
             <Button
               animate={query === 'react' && github.repos.status === 'running'}
               outline={query !== 'react'}

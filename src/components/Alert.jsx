@@ -18,15 +18,17 @@ const AlertWrapper = styled(AlertComponent)`
   position: relative;
 `;
 
-const AlertIcon = styled(Icon)`
+const AlertIcon = styled.div`
   align-items: flex-start;
   background-color: ${({ variant }) => variants[variant]};
+  color: #fff;
   display: flex;
   padding: ${utils.spacer(3)};
 `;
 
 const AlertButton = styled.button`
   background-color: ${({ variant }) => variants[variant]};
+  color: #ccc;
   pointer-events: all;
   position: absolute;
   right: ${utils.spacer(1)};
@@ -66,14 +68,16 @@ const Alert = ({ children, handleClickClose, id, icon, ...rest }) => {
   if (handleClickClose) {
     output.button = (
       <AlertButton data-id={id} onClick={handleClickClose} type="button" data-testid="AlertButton">
-        <Icon name="times" color="#ccc" width={10} />
+        <Icon name="times" width={10} />
       </AlertButton>
     );
   }
 
   return (
     <AlertWrapper {...rest} data-testid="AlertWrapper">
-      <AlertIcon {...rest} name={name} color="#fff" width={24} />
+      <AlertIcon {...rest}>
+        <Icon name={name} width={24} />
+      </AlertIcon>
       <Box p={2} pr={handleClickClose ? 3 : 2}>
         {children}
       </Box>

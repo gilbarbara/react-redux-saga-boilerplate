@@ -12,12 +12,7 @@ exports[`Icon should render properly 1`] = `
   width: 20px;
 }
 
-.c0 svg path {
-  fill: #fff;
-}
-
 <IconWrapper
-  color="#fff"
   src="/media/icons/check.svg"
   width={20}
 >

@@ -6,14 +6,17 @@ exports[`GitHub should render properly 1`] = `
   key="GitHub"
 >
   <Flex
+    alignItems="center"
     justifyContent="center"
   >
     <ButtonGroup
       aria-label="GitHub Selector"
+      data-testid="GitHubSelector"
       role="group"
     >
       <Button
         animate={false}
+        as="button"
         block={false}
         data-query="react"
         disabled={false}
@@ -27,6 +30,7 @@ exports[`GitHub should render properly 1`] = `
       </Button>
       <Button
         animate={false}
+        as="button"
         block={false}
         data-query="redux"
         disabled={false}

@@ -2,6 +2,7 @@
 
 exports[`Reload should render properly 1`] = `
 .c2 {
+  box-sizing: border-box;
   background-color: #fff;
   border: 1px solid #212121;
   color: #212121;
@@ -51,12 +52,14 @@ exports[`Reload should render properly 1`] = `
 }
 
 .c1 {
+  box-sizing: border-box;
+  margin-bottom: 16px;
   font-size: 16px;
   font-family: inherit;
   font-weight: 700;
   line-height: 1.4;
-  margin: 16px 0 0;
-  margin-bottom: 16px;
+  margin-bottom: 3px;
+  margin-top: 16px;
 }
 
 .c1:first-child {
@@ -71,7 +74,7 @@ exports[`Reload should render properly 1`] = `
   <div
     className="c0"
   >
-    <StyledHeading
+    <Heading
       as="h6"
       mb={3}
     >
@@ -80,9 +83,10 @@ exports[`Reload should render properly 1`] = `
       >
         There's a new version of this app!
       </h6>
-    </StyledHeading>
-    <StyledButton
+    </Heading>
+    <Button
       animate={false}
+      as="button"
       block={false}
       disabled={false}
       onClick={[Function]}
@@ -100,7 +104,7 @@ exports[`Reload should render properly 1`] = `
       >
         Reload
       </button>
-    </StyledButton>
+    </Button>
   </div>
 </ReloadWrapper>
 `;

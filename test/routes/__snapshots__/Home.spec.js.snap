@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Home should render properly 1`] = `
-.c6 {
+.c5 {
+  box-sizing: border-box;
+  text-transform: uppercase;
   background-color: #2E2E2E;
   border: 1px solid #2E2E2E;
   color: #fff;
@@ -27,14 +29,13 @@ exports[`Home should render properly 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   width: auto;
-  text-transform: uppercase;
 }
 
-.c6:disabled {
+.c5:disabled {
   pointer-events: none;
 }
 
-.c6:hover {
+.c5:hover {
   -webkit-transition: -webkit-transform 0.2s;
   -webkit-transition: transform 0.2s;
   transition: transform 0.2s;
@@ -43,27 +44,16 @@ exports[`Home should render properly 1`] = `
   transform: scale(1.05);
 }
 
-.c6:focus {
+.c5:focus {
   outline-color: #2E2E2E;
 }
 
-.c6 .c9 {
+.c5 .c8 {
   margin-left: 5px;
 }
 
-.c2 {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 16px;
-  padding-right: 16px;
-  max-width: 1440px;
-  position: relative;
-  width: 100%;
-  padding-bottom: 16px;
-  padding-top: 16px;
-}
-
-.c8 {
+.c7 {
+  box-sizing: border-box;
   margin-left: 8px;
 }
 
@@ -89,22 +79,18 @@ exports[`Home should render properly 1`] = `
   transform: rotate(-20deg) scale(1.5) translate(0,43%);
 }
 
-.c7 {
+.c6 {
   display: inline-block;
   line-height: 0;
 }
 
-.c7 svg {
+.c6 svg {
   height: auto;
   max-height: 100%;
   width: 20px;
 }
 
-.c7 svg path {
-  fill: #fff;
-}
-
-.c4 {
+.c3 {
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
@@ -116,13 +102,23 @@ exports[`Home should render properly 1`] = `
   font-size: 0;
 }
 
-.c4 svg {
+.c3 svg {
   height: auto;
   max-height: 100%;
   width: 4.8rem;
 }
 
 .c1 {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  max-width: 1440px;
+  position: relative;
+  width: 100%;
+  padding-bottom: 16px;
+  padding-top: 16px;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -141,16 +137,16 @@ exports[`Home should render properly 1`] = `
   min-height: 100vh;
 }
 
-.c3 {
+.c2 {
   margin-bottom: 16px;
   text-align: center;
 }
 
-.c3 svg {
+.c2 svg {
   width: 20rem;
 }
 
-.c5 {
+.c4 {
   color: #fff;
   font-size: 3.5rem;
   line-height: 1.4;
@@ -160,28 +156,28 @@ exports[`Home should render properly 1`] = `
 }
 
 @media (min-width:768px) {
-  .c2 {
+  .c1 {
     padding-bottom: 32px;
     padding-top: 32px;
   }
 }
 
 @media (min-width:1024px) {
-  .c2 {
+  .c1 {
     padding-bottom: 64px;
     padding-top: 64px;
   }
 }
 
 @media (min-width:768px) {
-  .c2 {
+  .c1 {
     padding-left: 32px;
     padding-right: 32px;
   }
 }
 
 @media (min-width:1024px) {
-  .c5 {
+  .c4 {
     font-size: 4rem;
   }
 }
@@ -197,75 +193,71 @@ exports[`Home should render properly 1`] = `
     <HomeContainer
       verticalPadding={true}
     >
-      <StyledContainer
+      <div
         className="c1"
-        verticalPadding={true}
       >
-        <div
-          className="c1 c2"
+        <Header>
+          <div
+            className="c2"
+          >
+            <Logo>
+              <div
+                className="c3"
+              >
+                <SVGMock />
+              </div>
+            </Logo>
+          </div>
+        </Header>
+        <Heading>
+          <h1
+            className="c4"
+          >
+            React-Redux-Saga Boilerplate
+          </h1>
+        </Heading>
+        <Button
+          animate={false}
+          as="button"
+          block={false}
+          data-testid="Login"
+          disabled={false}
+          onClick={[Function]}
+          outline={false}
+          size="xl"
+          textTransform="uppercase"
+          type="button"
+          variant="primary"
         >
-          <Header>
-            <div
-              className="c3"
-            >
-              <LogoWrapper>
-                <div
-                  className="c4"
-                >
-                  <SvgMock />
-                </div>
-              </LogoWrapper>
-            </div>
-          </Header>
-          <Heading>
-            <h1
-              className="c5"
-            >
-              React-Redux-Saga Boilerplate
-            </h1>
-          </Heading>
-          <StyledButton
-            animate={false}
-            block={false}
+          <button
+            className="c5"
             data-testid="Login"
             disabled={false}
             onClick={[Function]}
-            outline={false}
             size="xl"
-            textTransform="uppercase"
             type="button"
-            variant="primary"
           >
-            <button
-              className="c6"
-              data-testid="Login"
-              disabled={false}
-              onClick={[Function]}
-              size="xl"
-              type="button"
+            <IconWrapper
+              src="/media/icons/sign-in.svg"
+              width={20}
             >
-              <IconWrapper
-                color="#fff"
-                src="/media/icons/sign-in.svg"
-                width={20}
+              <span
+                className="isvg loading c6"
+              />
+            </IconWrapper>
+            <Text
+              as="span"
+              ml={2}
+            >
+              <span
+                className="c7"
               >
-                <span
-                  className="isvg loading c7"
-                />
-              </IconWrapper>
-              <StyledText
-                ml={2}
-              >
-                <span
-                  className="c8"
-                >
-                  Start
-                </span>
-              </StyledText>
-            </button>
-          </StyledButton>
-        </div>
-      </StyledContainer>
+                Start
+              </span>
+            </Text>
+          </button>
+        </Button>
+      </div>
     </HomeContainer>
   </div>
 </Background>

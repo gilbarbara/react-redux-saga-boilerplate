@@ -12,10 +12,6 @@ const IconWrapper = styled(SVG)`
     height: auto;
     max-height: 100%;
     width: ${({ width }) => utils.px(width)};
-
-    path {
-      fill: ${({ color }) => color};
-    }
   }
 `;
 
@@ -24,7 +20,6 @@ const Icon = ({ name, ...rest }) => (
 );
 
 Icon.propTypes = {
-  color: PropTypes.string,
   name: PropTypes.oneOf([
     'bell-o',
     'bell',
@@ -46,7 +41,6 @@ Icon.propTypes = {
 };
 
 Icon.defaultProps = {
-  color: '#fff',
   width: 20,
 };
 

@@ -2,6 +2,9 @@
 
 exports[`Footer should render properly 1`] = `
 .c1 {
+  box-sizing: border-box;
+  padding-top: 16px;
+  padding-bottom: 16px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 16px;
@@ -9,20 +12,22 @@ exports[`Footer should render properly 1`] = `
   max-width: 1440px;
   position: relative;
   width: 100%;
-  padding-top: 16px;
-  padding-bottom: 16px;
 }
 
 .c2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
+  box-sizing: border-box;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .c0 {
@@ -40,14 +45,15 @@ exports[`Footer should render properly 1`] = `
   <footer
     className="c0"
   >
-    <StyledContainer
+    <Container
       py={3}
       verticalPadding={false}
     >
       <div
         className="c1"
       >
-        <StyledFlex
+        <Flex
+          alignItems="center"
           justifyContent="space-between"
         >
           <div
@@ -70,9 +76,9 @@ exports[`Footer should render properly 1`] = `
               width="130px"
             />
           </div>
-        </StyledFlex>
+        </Flex>
       </div>
-    </StyledContainer>
+    </Container>
   </footer>
 </FooterWrapper>
 `;

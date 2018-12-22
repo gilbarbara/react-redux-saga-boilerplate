@@ -17,7 +17,7 @@ import Home from 'routes/Home';
 import Private from 'routes/Private';
 import NotFound from 'routes/NotFound';
 
-import Header from 'containers/Header';
+import Header from 'components/Header';
 import SystemAlerts from 'containers/SystemAlerts';
 
 import Footer from 'components/Footer';

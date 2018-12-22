@@ -15,10 +15,13 @@ exports[`Private should render properly 1`] = `
       >
         Oh hai!
       </Heading>
-      <Paragraph>
+      <Paragraph
+        as="p"
+      >
         You can get this boilerplate
          
         <Link
+          as="a"
           href="https://github.com/gilbarbara/react-redux-saga-boilerplate/"
           target="_blank"
         >
@@ -36,6 +39,7 @@ exports[`Private should render properly 1`] = `
         Here's some GitHub data
       </Heading>
       <Text
+        as="span"
         fontSize={1}
       >
         <i>

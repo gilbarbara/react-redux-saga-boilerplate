@@ -2,55 +2,31 @@
 
 exports[`NotFound should render properly 1`] = `
 .c2 {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 16px;
-  padding-right: 16px;
-  max-width: 1440px;
-  position: relative;
-  width: 100%;
-  -webkit-align-items: stretch;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  min-height: 100vh;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  padding-bottom: 16px;
-  padding-top: 16px;
-}
-
-.c3 {
-  font-size: 40px;
+  box-sizing: border-box;
+  font-size: 100px;
+  font-size: 100px;
   font-family: inherit;
   font-weight: 700;
   line-height: 1.4;
-  margin: 16px 0 0;
-  font-size: 100px;
+  margin-bottom: 0;
+  margin-top: 16px;
 }
 
-.c3:first-child {
+.c2:first-child {
   margin-top: 0;
 }
 
-.c4 {
+.c3 {
+  box-sizing: border-box;
   font-size: 32px;
   font-family: inherit;
   font-weight: 700;
   line-height: 1.4;
-  margin: 16px 0 0;
+  margin-bottom: 0;
+  margin-top: 16px;
 }
 
-.c4:first-child {
+.c3:first-child {
   margin-top: 0;
 }
 
@@ -77,6 +53,32 @@ exports[`NotFound should render properly 1`] = `
 }
 
 .c1 {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  max-width: 1440px;
+  position: relative;
+  width: 100%;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-height: 100vh;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding-bottom: 16px;
+  padding-top: 16px;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -96,21 +98,21 @@ exports[`NotFound should render properly 1`] = `
 }
 
 @media (min-width:768px) {
-  .c2 {
+  .c1 {
     padding-bottom: 32px;
     padding-top: 32px;
   }
 }
 
 @media (min-width:1024px) {
-  .c2 {
+  .c1 {
     padding-bottom: 64px;
     padding-top: 64px;
   }
 }
 
 @media (min-width:768px) {
-  .c2 {
+  .c1 {
     padding-left: 32px;
     padding-right: 32px;
   }
@@ -126,41 +128,35 @@ exports[`NotFound should render properly 1`] = `
       layout="fullScreen"
       verticalPadding={true}
     >
-      <StyledContainer
+      <div
         className="c1"
-        layout="fullScreen"
-        verticalPadding={true}
       >
-        <div
-          className="c1 c2"
+        <Heading
+          as="h1"
+          fontSize={100}
         >
-          <StyledHeading
-            as="h1"
+          <h1
+            className="c2"
             fontSize={100}
           >
-            <h1
-              className="c3"
-              fontSize={100}
-            >
-              404
-            </h1>
-          </StyledHeading>
-          <a
-            href="/"
-            onClick={[Function]}
+            404
+          </h1>
+        </Heading>
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          <Heading
+            as="h2"
           >
-            <StyledHeading
-              as="h2"
+            <h2
+              className="c3"
             >
-              <h2
-                className="c4"
-              >
-                go home
-              </h2>
-            </StyledHeading>
-          </a>
-        </div>
-      </StyledContainer>
+              go home
+            </h2>
+          </Heading>
+        </a>
+      </div>
     </StyledContainer>
   </div>
 </Background>
