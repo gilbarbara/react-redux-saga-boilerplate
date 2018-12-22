@@ -31,7 +31,8 @@ describe('React-Redux-Saga-Boilerplate', () => {
   });
 
   it('should be able to toggle the selector', () => {
-    cy.get('[class^=StyledButtonGroup] button:last-child')
+    cy.getByTestId('GitHubSelector')
+      .find('button:last-child')
       .not('[disabled]')
       .should('have.text', 'Redux')
       .click();
