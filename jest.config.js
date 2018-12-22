@@ -31,6 +31,6 @@ module.exports = {
     '.*': 'babel-jest',
   },
 
-  verbose: true,
+  verbose: false,
   watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname'],
 };

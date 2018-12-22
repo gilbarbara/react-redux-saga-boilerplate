@@ -1,1 +1,1 @@
-module.exports = { ReactComponent: 'SvgMock' };
+module.exports = { ReactComponent: 'SVGMock' };
