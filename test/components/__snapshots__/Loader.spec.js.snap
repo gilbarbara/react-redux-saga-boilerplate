@@ -1,16 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Loader should render properly with pulse type 1`] = `
+exports[`Loader with type \`grow\` (default) should render properly 1`] = `
 .c0 {
-  height: 2rem;
-  margin: 1.5rem auto;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  height: 32px;
+  margin: 0 auto;
   position: relative;
-  width: 2rem;
+  width: 32px;
 }
 
 .c0 > div {
-  -webkit-animation: hmrJPG 1.15s infinite cubic-bezier(0.215,0.61,0.355,1);
-  animation: hmrJPG 1.15s infinite cubic-bezier(0.215,0.61,0.355,1);
+  -webkit-animation: ioPNPm 1.15s infinite cubic-bezier(0.2,0.6,0.36,1);
+  animation: ioPNPm 1.15s infinite cubic-bezier(0.2,0.6,0.36,1);
   border: 0 solid #00b4d5;
   border-radius: 50%;
   box-sizing: border-box;
@@ -24,61 +28,316 @@ exports[`Loader should render properly with pulse type 1`] = `
   width: 0;
 }
 
-<LoaderPulse>
+<LoaderGrow
+  block={false}
+  color="#00b4d5"
+  size={32}
+  type="grow"
+>
   <div
     className="c0"
+    color="#00b4d5"
+    size={32}
+    type="grow"
   >
+    <div />
+  </div>
+</LoaderGrow>
+`;
+
+exports[`Loader with type \`grow\` (default) should render properly with options 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 10rem;
+  margin: 2rem auto;
+  position: relative;
+  width: 10rem;
+}
+
+.c0 > div {
+  -webkit-animation: bfrbSd 1.15s infinite cubic-bezier(0.2,0.6,0.36,1);
+  animation: bfrbSd 1.15s infinite cubic-bezier(0.2,0.6,0.36,1);
+  border: 0 solid #00b4d5;
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 0;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  width: 0;
+}
+
+<LoaderGrow
+  block={true}
+  color="#00b4d5"
+  size="10rem"
+  type="grow"
+>
+  <div
+    className="c0"
+    color="#00b4d5"
+    size="10rem"
+    type="grow"
+  >
+    <div />
+  </div>
+</LoaderGrow>
+`;
+
+exports[`Loader with type \`pulse\` should render properly 1`] = `
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  height: 32px;
+  margin: 0 auto;
+  position: relative;
+  width: 32px;
+}
+
+.c0 > div {
+  -webkit-animation: iAvehu 1.2s cubic-bezier(0,0.2,0.8,1) infinite;
+  animation: iAvehu 1.2s cubic-bezier(0,0.2,0.8,1) infinite;
+  border: 2px solid #00b4d5;
+  border-radius: 50%;
+  opacity: 1;
+  position: absolute;
+}
+
+.c0 > div:nth-child(2) {
+  -webkit-animation-delay: -0.5s;
+  animation-delay: -0.5s;
+}
+
+<LoaderPulse
+  block={false}
+  color="#00b4d5"
+  size={32}
+  type="pulse"
+>
+  <div
+    className="c0"
+    color="#00b4d5"
+    size={32}
+    type="pulse"
+  >
+    <div />
     <div />
   </div>
 </LoaderPulse>
 `;
 
-exports[`Loader should render properly with rotate type 1`] = `
+exports[`Loader with type \`pulse\` should render properly with options 1`] = `
 .c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   height: 10rem;
-  margin: 1.5rem auto;
+  margin: 2rem auto;
+  position: relative;
   width: 10rem;
+}
+
+.c0 > div {
+  -webkit-animation: gBBCwz 1.2s cubic-bezier(0,0.2,0.8,1) infinite;
+  animation: gBBCwz 1.2s cubic-bezier(0,0.2,0.8,1) infinite;
+  border: NaNpx solid #00b4d5;
+  border-radius: 50%;
+  opacity: 1;
+  position: absolute;
+}
+
+.c0 > div:nth-child(2) {
+  -webkit-animation-delay: -0.5s;
+  animation-delay: -0.5s;
+}
+
+<LoaderPulse
+  block={true}
+  color="#00b4d5"
+  size="10rem"
+  type="pulse"
+>
+  <div
+    className="c0"
+    color="#00b4d5"
+    size="10rem"
+    type="pulse"
+  >
+    <div />
+    <div />
+  </div>
+</LoaderPulse>
+`;
+
+exports[`Loader with type \`rotate\` should render properly 1`] = `
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.c1 {
+  -webkit-animation: cZxgpV 2s linear infinite;
+  animation: cZxgpV 2s linear infinite;
+  height: 32px;
+  margin: auto;
+  -webkit-transform-origin: center center;
+  -ms-transform-origin: center center;
+  transform-origin: center center;
+  width: 32px;
+}
+
+.c2 {
+  -webkit-animation: jVqWEn 1.5s ease-in-out infinite;
+  animation: jVqWEn 1.5s ease-in-out infinite;
+  stroke: #00b4d5;
+  stroke-dasharray: 1,200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+}
+
+<LoaderRotate
+  block={false}
+  color="#00b4d5"
+  size={32}
+  type="rotate"
+>
+  <div
+    className="c0"
+    color="#00b4d5"
+    size={32}
+    type="rotate"
+  >
+    <LoaderRotateSVG
+      block={false}
+      color="#00b4d5"
+      size={32}
+      type="rotate"
+    >
+      <svg
+        className="c1"
+        color="#00b4d5"
+        size={32}
+        type="rotate"
+        viewBox="25 25 50 50"
+      >
+        <LoaderRotateCircle
+          block={false}
+          color="#00b4d5"
+          cx="50"
+          cy="50"
+          fill="none"
+          r="20"
+          size={32}
+          strokeWidth={2}
+          type="rotate"
+        >
+          <circle
+            className="c2"
+            color="#00b4d5"
+            cx="50"
+            cy="50"
+            fill="none"
+            r="20"
+            size={32}
+            strokeWidth={2}
+            type="rotate"
+          />
+        </LoaderRotateCircle>
+      </svg>
+    </LoaderRotateSVG>
+  </div>
+</LoaderRotate>
+`;
+
+exports[`Loader with type \`rotate\` should render properly with options 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 2rem auto;
+  text-align: center;
 }
 
 .c1 {
   -webkit-animation: cZxgpV 2s linear infinite;
   animation: cZxgpV 2s linear infinite;
   height: 10rem;
+  margin: auto;
+  -webkit-transform-origin: center center;
+  -ms-transform-origin: center center;
+  transform-origin: center center;
   width: 10rem;
 }
 
 .c2 {
-  -webkit-animation: drFgOE 1.5s ease-in-out infinite;
-  animation: drFgOE 1.5s ease-in-out infinite;
-  stroke: #333;
+  -webkit-animation: jVqWEn 1.5s ease-in-out infinite;
+  animation: jVqWEn 1.5s ease-in-out infinite;
+  stroke: #00b4d5;
   stroke-dasharray: 1,200;
   stroke-dashoffset: 0;
   stroke-linecap: round;
-  stroke-miterlimit: 10;
 }
 
-<LoaderRotate>
+<LoaderRotate
+  block={true}
+  color="#00b4d5"
+  size="10rem"
+  type="rotate"
+>
   <div
     className="c0"
+    color="#00b4d5"
+    size="10rem"
+    type="rotate"
   >
-    <LoaderRotateSVG>
+    <LoaderRotateSVG
+      block={true}
+      color="#00b4d5"
+      size="10rem"
+      type="rotate"
+    >
       <svg
         className="c1"
+        color="#00b4d5"
+        size="10rem"
+        type="rotate"
+        viewBox="25 25 50 50"
       >
         <LoaderRotateCircle
+          block={true}
+          color="#00b4d5"
           cx="50"
           cy="50"
           fill="none"
           r="20"
-          strokeWidth="2"
+          size="10rem"
+          strokeWidth={2}
+          type="rotate"
         >
           <circle
             className="c2"
+            color="#00b4d5"
             cx="50"
             cy="50"
             fill="none"
             r="20"
-            strokeWidth="2"
+            size="10rem"
+            strokeWidth={2}
+            type="rotate"
           />
         </LoaderRotateCircle>
       </svg>

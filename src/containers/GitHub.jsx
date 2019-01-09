@@ -37,20 +37,20 @@ const GitHubGrid = styled.ul`
   ${/* istanbul ignore next */ p =>
     responsive({
       ix: `
-      grid-gap: ${spacer(3)(p)};
-      width: 90%;
-    `,
+        grid-gap: ${spacer(3)(p)};
+        width: 90%;
+      `,
       md: `
-      grid-template-columns: repeat(2, 1fr);
-      width: 100%;
-    `,
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+      `,
       lg: `
-      grid-template-columns: repeat(3, 1fr);
-    `,
+        grid-template-columns: repeat(3, 1fr);
+      `,
       xl: `
-      grid-gap: ${spacer(4)(p)};
-      grid-template-columns: repeat(4, 1fr);
-    `,
+        grid-gap: ${spacer(4)(p)};
+        grid-template-columns: repeat(4, 1fr);
+      `,
     })};
   /* stylelint-enable */
 
@@ -74,11 +74,11 @@ const Item = styled(Box)`
   ${/* istanbul ignore next */ p =>
     responsive({
       md: `
-      padding: ${spacer(3)(p)};
-    `,
+        padding: ${spacer(3)(p)};
+      `,
       lg: `
-      padding: ${spacer(4)(p)};
-    `,
+        padding: ${spacer(4)(p)};
+      `,
     })};
   /* stylelint-enable */
 
@@ -174,7 +174,7 @@ export class GitHub extends React.Component {
         output = <h3>Nothing found</h3>;
       }
     } else {
-      output = <Loader />;
+      output = <Loader block />;
     }
 
     return (

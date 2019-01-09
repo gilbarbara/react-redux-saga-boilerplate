@@ -83,7 +83,7 @@ describe('GitHub', () => {
         repos: {
           data: {},
           status: STATUS.ERROR,
-          message: 'Noothing found',
+          message: 'Nothing found',
         },
       },
     });
@@ -93,7 +93,7 @@ describe('GitHub', () => {
       payload: {
         id: 'ABCDE',
         icon: undefined,
-        message: 'Noothing found',
+        message: 'Nothing found',
         position: 'bottom-right',
         variant: 'danger',
         timeout: 0,

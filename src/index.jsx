@@ -46,7 +46,7 @@ export const app = {
       ReactDOM.render(
         <AppContainer>
           <Provider store={store}>
-            <PersistGate loading={<Loader />} persistor={persistor}>
+            <PersistGate loading={<Loader size={100} block />} persistor={persistor}>
               <Component />
             </PersistGate>
           </Provider>

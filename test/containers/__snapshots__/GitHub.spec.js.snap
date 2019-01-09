@@ -45,7 +45,10 @@ exports[`GitHub should render properly 1`] = `
     </ButtonGroup>
   </Flex>
   <Loader
-    type="pulse"
+    block={true}
+    color="#00b4d5"
+    size={32}
+    type="grow"
   />
 </div>
 `;
