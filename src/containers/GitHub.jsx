@@ -9,7 +9,6 @@ import { getRepos, showAlert, switchMenu } from 'actions/index';
 import { STATUS } from 'constants/index';
 
 import {
-  Box,
   ButtonGroup,
   Button,
   Flex,
@@ -59,13 +58,10 @@ const GitHubGrid = styled.ul`
   }
 `;
 
-const Item = styled(Box)`
+const Item = styled(Link)`
   align-items: center;
   border: solid 0.1rem ${appColor};
   border-radius: 0.4rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   overflow: hidden;
   padding: ${spacer(3)};
   text-align: center;
@@ -82,21 +78,18 @@ const Item = styled(Box)`
     })};
   /* stylelint-enable */
 
-  > a {
-    margin-bottom: ${spacer(2)};
+  p {
+    color: #000;
   }
 
   img {
     height: 8rem;
+    margin-bottom: ${spacer(2)};
   }
 `;
 
 const ItemHeader = styled.div`
   margin-bottom: ${spacer(3)};
-
-  a {
-    display: block;
-  }
 
   small {
     color: ${grays.gray60};
@@ -152,17 +145,13 @@ export class GitHub extends React.Component {
           <GitHubGrid data-type={query} data-testid="GitHubGrid">
             {github.repos.data[query].map(d => (
               <li key={d.id}>
-                <Item>
-                  <Link href={d.html_url}>
-                    <Image src={d.owner.avatar_url} alt={d.owner.login} />
-                  </Link>
+                <Item href={d.html_url} target="_blank">
+                  <Image src={d.owner.avatar_url} alt={d.owner.login} />
                   <ItemHeader>
-                    <Link href={d.html_url}>
-                      <Heading as="h5" lineHeight={1}>
-                        {d.name}
-                      </Heading>
-                      <small>{d.owner.login}</small>
-                    </Link>
+                    <Heading as="h5" lineHeight={1}>
+                      {d.name}
+                    </Heading>
+                    <small>{d.owner.login}</small>
                   </ItemHeader>
                   <Paragraph>{d.description}</Paragraph>
                 </Item>
@@ -183,7 +172,7 @@ export class GitHub extends React.Component {
           <ButtonGroup role="group" aria-label="GitHub Selector" data-testid="GitHubSelector">
             <Button
               animate={query === 'react' && github.repos.status === 'running'}
-              outline={query !== 'react'}
+              bordered={query !== 'react'}
               size="lg"
               data-query="react"
               onClick={this.handleClick}
@@ -192,7 +181,7 @@ export class GitHub extends React.Component {
             </Button>
             <Button
               animate={query === 'redux' && github.repos.status === 'running'}
-              outline={query !== 'redux'}
+              bordered={query !== 'redux'}
               size="lg"
               data-query="redux"
               onClick={this.handleClick}

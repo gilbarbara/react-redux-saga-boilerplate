@@ -6,7 +6,7 @@ import theme from 'modules/theme';
 import { Alert as AlertComponent, Box, utils } from 'styled-minimal';
 import Icon from 'components/Icon';
 
-const { colors, palette } = utils.themeGet(theme);
+const { colors, palette } = utils.getTheme(theme);
 const variants = { ...colors, ...palette };
 
 AlertComponent.displayName = 'AlertComponent';

@@ -20,9 +20,9 @@ exports[`Alert should render a error alert with markup 1`] = `
 
 .c0 {
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: #ff4444;
   border: 1px solid #ff4444;
-  color: #ff4444;
+  color: #fff;
   border-radius: 3px;
   font-size: 16px;
   line-height: 1.4;
@@ -57,6 +57,8 @@ exports[`Alert should render a error alert with markup 1`] = `
 }
 
 <AlertWrapper
+  bordered={false}
+  dark={false}
   data-testid="AlertWrapper"
   outline={true}
   size="md"
@@ -121,9 +123,9 @@ exports[`Alert should render a info alert 1`] = `
 
 .c0 {
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: #33b5e5;
   border: 1px solid #33b5e5;
-  color: #33b5e5;
+  color: #fff;
   border-radius: 3px;
   font-size: 16px;
   line-height: 1.4;
@@ -158,6 +160,8 @@ exports[`Alert should render a info alert 1`] = `
 }
 
 <AlertWrapper
+  bordered={false}
+  dark={false}
   data-testid="AlertWrapper"
   outline={true}
   size="md"
@@ -220,9 +224,9 @@ exports[`Alert should render a success alert 1`] = `
 
 .c0 {
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: #00C851;
   border: 1px solid #00C851;
-  color: #00C851;
+  color: #fff;
   border-radius: 3px;
   font-size: 16px;
   line-height: 1.4;
@@ -257,6 +261,8 @@ exports[`Alert should render a success alert 1`] = `
 }
 
 <AlertWrapper
+  bordered={false}
+  dark={false}
   data-testid="AlertWrapper"
   outline={true}
   size="md"
@@ -319,9 +325,9 @@ exports[`Alert should render a warning alert 1`] = `
 
 .c0 {
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: #fda509;
   border: 1px solid #fda509;
-  color: #fda509;
+  color: #fff;
   border-radius: 3px;
   font-size: 16px;
   line-height: 1.4;
@@ -356,6 +362,8 @@ exports[`Alert should render a warning alert 1`] = `
 }
 
 <AlertWrapper
+  bordered={false}
+  dark={false}
   data-testid="AlertWrapper"
   outline={true}
   size="md"
@@ -418,9 +426,9 @@ exports[`Alert should render properly 1`] = `
 
 .c0 {
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: #33b5e5;
   border: 1px solid #33b5e5;
-  color: #33b5e5;
+  color: #fff;
   border-radius: 3px;
   font-size: 16px;
   line-height: 1.4;
@@ -455,6 +463,8 @@ exports[`Alert should render properly 1`] = `
 }
 
 <AlertWrapper
+  bordered={false}
+  dark={false}
   data-testid="AlertWrapper"
   outline={true}
   size="md"

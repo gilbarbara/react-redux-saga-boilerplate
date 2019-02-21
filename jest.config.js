@@ -19,7 +19,7 @@ module.exports = {
     '^(expose|bundle)': '<rootDir>/test/__mocks__/moduleMock.js',
   },
   setupFiles: ['<rootDir>/test/__setup__/setupFiles.js'],
-  setupTestFrameworkScriptFile: '<rootDir>/test/__setup__/setupTests.js',
+  setupFilesAfterEnv: ['<rootDir>/test/__setup__/setupTests.js'],
   snapshotSerializers: ['jest-serializer-html'],
   testEnvironment: 'jest-environment-jsdom-global',
   testEnvironmentOptions: {

@@ -4,7 +4,7 @@ exports[`NotFound should render properly 1`] = `
 .c2 {
   box-sizing: border-box;
   font-size: 100px;
-  font-size: 100px;
+  font-size: 100;
   font-family: inherit;
   font-weight: 700;
   line-height: 1.4;

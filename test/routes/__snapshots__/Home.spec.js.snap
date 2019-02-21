@@ -33,15 +33,7 @@ exports[`Home should render properly 1`] = `
 
 .c5:disabled {
   pointer-events: none;
-}
-
-.c5:hover {
-  -webkit-transition: -webkit-transform 0.2s;
-  -webkit-transition: transform 0.2s;
-  transition: transform 0.2s;
-  -webkit-transform: scale(1.05);
-  -ms-transform: scale(1.05);
-  transform: scale(1.05);
+  opacity: 0.7;
 }
 
 .c5:focus {
@@ -220,10 +212,11 @@ exports[`Home should render properly 1`] = `
           animate={false}
           as="button"
           block={false}
+          bordered={false}
+          dark={false}
           data-testid="Login"
           disabled={false}
           onClick={[Function]}
-          outline={false}
           size="xl"
           textTransform="uppercase"
           type="button"

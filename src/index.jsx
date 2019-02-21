@@ -3,7 +3,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Provider } from 'react-redux';
-import { AppContainer } from 'react-hot-loader';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 
 import { store, persistor } from 'store/index';
@@ -44,13 +43,11 @@ export const app = {
     /* istanbul ignore next */
     if (root) {
       ReactDOM.render(
-        <AppContainer>
-          <Provider store={store}>
-            <PersistGate loading={<Loader size={100} block />} persistor={persistor}>
-              <Component />
-            </PersistGate>
-          </Provider>
-        </AppContainer>,
+        <Provider store={store}>
+          <PersistGate loading={<Loader size={100} block />} persistor={persistor}>
+            <Component />
+          </PersistGate>
+        </Provider>,
         root,
       );
     }
@@ -58,8 +55,3 @@ export const app = {
 };
 
 app.run();
-
-/* istanbul ignore next  */
-if (module.hot) {
-  module.hot.accept('containers/App', () => app.render(App));
-}

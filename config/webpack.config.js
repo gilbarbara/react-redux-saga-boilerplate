@@ -133,7 +133,6 @@ module.exports = webpackEnv => {
       'scripts/modernizr': paths.appModernizr,
       'scripts/bundle': [
         isProd && paths.appPolyfills,
-        isDev && 'react-hot-loader/patch',
         isDev && 'react-dev-utils/webpackHotDevClient',
         isDev && 'react-error-overlay',
         paths.appIndexJs,
@@ -155,6 +154,7 @@ module.exports = webpackEnv => {
         assets: paths.appAssets,
         modernizr$: paths.appModernizrrc,
         test: paths.test,
+        'react-dom': '@hot-loader/react-dom',
       },
       modules: [paths.appSrc, paths.nodeModules],
       extensions: ['.js', '.jsx', '.json'],

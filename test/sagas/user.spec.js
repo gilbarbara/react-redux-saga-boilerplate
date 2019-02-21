@@ -1,4 +1,3 @@
-import { delay } from 'redux-saga';
 import { expectSaga } from 'redux-saga-test-plan';
 
 import user, { login, logout } from 'sagas/user';
@@ -16,7 +15,7 @@ describe('user', () => {
 
   it('should match the login saga', () =>
     expectSaga(login)
-      .call(delay, 400)
+      .delay(400)
       .put({
         type: ActionTypes.USER_LOGIN_SUCCESS,
       })
@@ -24,7 +23,7 @@ describe('user', () => {
 
   it('should match the logout saga', () =>
     expectSaga(logout)
-      .call(delay, 200)
+      .delay(200)
       .put({
         type: ActionTypes.USER_LOGOUT_SUCCESS,
       })

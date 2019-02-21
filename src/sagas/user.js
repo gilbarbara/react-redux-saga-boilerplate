@@ -3,8 +3,7 @@
  * @desc User
  */
 
-import { delay } from 'redux-saga';
-import { all, call, put, takeLatest } from 'redux-saga/effects';
+import { all, delay, put, takeLatest } from 'redux-saga/effects';
 
 import { ActionTypes } from 'constants/index';
 
@@ -13,7 +12,7 @@ import { ActionTypes } from 'constants/index';
  */
 export function* login() {
   try {
-    yield call(delay, 400);
+    yield delay(400);
 
     yield put({
       type: ActionTypes.USER_LOGIN_SUCCESS,
@@ -32,7 +31,7 @@ export function* login() {
  */
 export function* logout() {
   try {
-    yield call(delay, 200);
+    yield delay(200);
 
     yield put({
       type: ActionTypes.USER_LOGOUT_SUCCESS,

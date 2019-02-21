@@ -3,9 +3,9 @@
 exports[`Reload should render properly 1`] = `
 .c2 {
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: #212121;
   border: 1px solid #212121;
-  color: #212121;
+  color: #fff;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -32,15 +32,7 @@ exports[`Reload should render properly 1`] = `
 
 .c2:disabled {
   pointer-events: none;
-}
-
-.c2:hover {
-  -webkit-transition: -webkit-transform 0.2s;
-  -webkit-transition: transform 0.2s;
-  transition: transform 0.2s;
-  -webkit-transform: scale(1.05);
-  -ms-transform: scale(1.05);
-  transform: scale(1.05);
+  opacity: 0.7;
 }
 
 .c2:focus {
@@ -88,6 +80,8 @@ exports[`Reload should render properly 1`] = `
       animate={false}
       as="button"
       block={false}
+      bordered={false}
+      dark={false}
       disabled={false}
       onClick={[Function]}
       outline={true}
