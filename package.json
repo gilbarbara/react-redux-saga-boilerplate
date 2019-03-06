@@ -28,7 +28,7 @@
     "immutability-helper": "^3.0.0",
     "lodash": "^4.17.11",
     "mobile-detect": "^1.4.3",
-    "modernizr": "^3.6.0",
+    "modernizr": "^3.7.0",
     "polished": "^3.0.0",
     "prop-types": "^15.7.2",
     "qs": "^6.6.0",
