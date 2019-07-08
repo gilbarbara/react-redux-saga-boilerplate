@@ -52,7 +52,8 @@
     "styled-components": "^4.1.3",
     "styled-minimal": "^0.9.0",
     "tree-changes": "^0.4.0",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "snyk": "^1.192.3"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",
@@ -204,7 +205,9 @@
     "deploy": "node tools deploy",
     "publish": "node tools publish",
     "bundlesize": "bundlesize",
-    "precommit": "node tools upstream && lint-staged && flow"
+    "precommit": "node tools upstream && lint-staged && flow",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "husky": {
     "hooks": {
@@ -225,5 +228,6 @@
       "path": "./build/scripts/modernizr.*.js",
       "maxSize": "25 kB"
     }
-  ]
+  ],
+  "snyk": true
 }
