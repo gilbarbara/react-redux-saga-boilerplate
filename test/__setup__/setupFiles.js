@@ -54,7 +54,8 @@ console.error = jest.fn(message => {
   const skipMessages = [
     'Warning: <%s /> is using incorrect casing.',
     'The tag <%s> is unrecognized in this browser.',
-    'Warning: Failed prop type',
+    // 'Warning: Failed prop type',
+    '`transition` of value `rotate`',
     'Invalid transition: rotate',
   ];
   let shouldSkip = false;

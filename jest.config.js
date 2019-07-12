@@ -20,7 +20,7 @@ module.exports = {
   },
   setupFiles: ['<rootDir>/test/__setup__/setupFiles.js'],
   setupFilesAfterEnv: ['<rootDir>/test/__setup__/setupTests.js'],
-  snapshotSerializers: ['jest-serializer-html'],
+  snapshotSerializers: ['enzyme-to-json/serializer', 'jest-serializer-html'],
   testEnvironment: 'jest-environment-jsdom-global',
   testEnvironmentOptions: {
     resources: 'usable',

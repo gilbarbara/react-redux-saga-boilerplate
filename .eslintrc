@@ -1,10 +1,5 @@
 {
-  "extends": [
-    "airbnb",
-    "plugin:prettier/recommended",
-    "prettier/flowtype",
-    "prettier/react"
-  ],
+  "extends": ["airbnb", "plugin:prettier/recommended", "prettier/flowtype", "prettier/react"],
   "parser": "babel-eslint",
   "env": {
     "browser": true,
@@ -22,12 +17,7 @@
     "APP__GITHASH": false,
     "APP__VERSION": false
   },
-  "plugins": [
-    "babel",
-    "cypress",
-    "flowtype",
-    "redux-saga"
-  ],
+  "plugins": ["babel", "cypress", "flowtype", "redux-saga"],
   "settings": {
     "import/resolver": {
       "webpack": {
@@ -39,16 +29,14 @@
     }
   },
   "rules": {
-    "arrow-body-style": [
-      "warn",
-      "as-needed"
-    ],
+    "arrow-body-style": ["warn", "as-needed"],
     "arrow-parens": "off",
     "block-spacing": "warn",
     "camelcase": "off",
     "class-methods-use-this": "off",
     "comma-dangle": [
-      "warn", {
+      "warn",
+      {
         "arrays": "always-multiline",
         "imports": "always-multiline",
         "objects": "always-multiline",
@@ -59,13 +47,13 @@
     "function-paren-newline": "off",
     "generator-star-spacing": "off",
     "global-require": "off",
-    "indent": ["warn", 2, { "SwitchCase": 1 }],
     "max-len": "off",
     "newline-per-chained-call": ["warn", { "ignoreChainWithDepth": 5 }],
     "no-case-declarations": "warn",
     "no-mixed-spaces-and-tabs": ["warn", "smart-tabs"],
     "no-multi-spaces": [
-      "warn", {
+      "warn",
+      {
         "exceptions": {
           "VariableDeclarator": true,
           "Property": false
@@ -76,17 +64,15 @@
     "no-param-reassign": ["warn", { "props": false }],
     "no-plusplus": "off",
     "no-restricted-globals": ["error", "fdescribe", "fit"],
-    "no-restricted-syntax": [
-      "error",
-      "DebuggerStatement",
-      "LabeledStatement",
-      "WithStatement"
-    ],
+    "no-restricted-syntax": ["error", "DebuggerStatement", "LabeledStatement", "WithStatement"],
     "no-return-assign": ["error", "except-parens"],
     "no-template-curly-in-string": "warn",
     "no-trailing-spaces": "warn",
     "no-underscore-dangle": "off",
-    "no-unused-vars": ["error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
+    "no-unused-vars": [
+      "error",
+      { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }
+    ],
     "object-curly-newline": "off",
     "object-shorthand": ["warn", "always"],
     "one-var": "warn",
@@ -98,7 +84,8 @@
     "prefer-promise-reject-errors": "off",
     "quotes": ["warn", "single", "avoid-escape"],
     "require-jsdoc": [
-      "off", {
+      "off",
+      {
         "require": {
           "FunctionDeclaration": true,
           "MethodDefinition": false,
@@ -107,7 +94,8 @@
       }
     ],
     "space-before-function-paren": [
-      "warn", {
+      "warn",
+      {
         "anonymous": "never",
         "named": "never",
         "asyncArrow": "always"
@@ -116,10 +104,9 @@
     "space-in-parens": "warn",
     "spaced-comment": [
       "warn",
-      "always", {
-        "exceptions": [
-          "-+"
-        ],
+      "always",
+      {
+        "exceptions": ["-+"],
         "markers": [
           "eslint-disable",
           "eslint-disable-line",
@@ -130,10 +117,7 @@
     ],
     "flowtype/require-parameter-type": ["warn", { "excludeArrowFunctions": true }],
     "flowtype/require-return-type": ["warn", "always", { "excludeArrowFunctions": true }],
-    "flowtype/space-after-type-colon": [
-      "error",
-      "always"
-    ],
+    "flowtype/space-after-type-colon": ["error", "always"],
     "import/no-dynamic-require": "off",
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "import/no-unresolved": "warn",
@@ -172,12 +156,7 @@
     "react/sort-comp": [
       "warn",
       {
-        "order": [
-          "constructor",
-          "lifecycle",
-          "everything-else",
-          "render"
-        ],
+        "order": ["constructor", "lifecycle", "everything-else", "render"],
         "groups": {
           "lifecycle": [
             "state",

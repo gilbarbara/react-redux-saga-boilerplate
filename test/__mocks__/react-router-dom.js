@@ -1,7 +1,8 @@
 import React from 'react';
-import RouterRouter from 'react-router-dom/Router';
-import RouterRoute from 'react-router-dom/Route';
-import RouterSwitch from 'react-router-dom/Switch';
+import hoistNonReactStatics from 'hoist-non-react-statics';
+import { matchPath, MemoryRouter, Route, Switch } from 'react-router-dom/index';
+
+export { matchPath, MemoryRouter, Route, Switch };
 
 export const Link = props => {
   const { to, children, onClick, style, className, ...rest } = props;
@@ -14,10 +15,9 @@ export const Link = props => {
       style={style}
       onClick={e => {
         e.preventDefault();
+        const [pathname, search] = e.currentTarget.getAttribute('href').split('?');
 
-        jsdom.reconfigure({
-          url: e.currentTarget.href,
-        });
+        navigate({ pathname, search });
 
         if (typeof onClick === 'function') {
           onClick(e);
@@ -42,11 +42,11 @@ export const NavLink = props => {
   } = props;
   let match = null;
 
-  if ((to.pathname || to) === location.pathname) {
-    match = { path: location.pathname };
+  if ((to.pathname || to) === window.location.pathname) {
+    match = { path: window.location.pathname };
   }
 
-  const isActive = typeof getIsActive === 'function' ? getIsActive(match, location) : null;
+  const isActive = typeof getIsActive === 'function' ? getIsActive(match, window.location) : null;
 
   return (
     <Link
@@ -58,8 +58,37 @@ export const NavLink = props => {
   );
 };
 
-export const Redirect = () => <div id="redirect" />;
+export const Redirect = () => <div>REDIRECT</div>;
 
-export const Route = RouterRoute;
-export const Router = RouterRouter;
-export const Switch = RouterSwitch;
+function getDisplayName(Component) {
+  let name = Component.displayName || Component.name || 'Component';
+
+  if (name.includes('(')) {
+    name = name.replace(/.*?\((.*)\)/, '$1');
+  }
+
+  return name;
+}
+
+export function withRouter(WrappedComponent) {
+  class WithRouter extends React.Component {
+    static displayName = `WithRouter(${getDisplayName(WrappedComponent)})`;
+
+    static WrappedComponent = WrappedComponent;
+
+    render() {
+      return (
+        <WrappedComponent
+          {...this.props}
+          location={{
+            ...window.location,
+            state: {},
+          }}
+          match={window.match || {}}
+        />
+      );
+    }
+  }
+
+  return hoistNonReactStatics(WithRouter, WrappedComponent);
+}

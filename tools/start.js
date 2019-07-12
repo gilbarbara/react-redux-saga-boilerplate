@@ -56,7 +56,7 @@ choosePort(HOST, DEFAULT_PORT)
     const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
     const appName = require(paths.packageJson).name;
     const urls = prepareUrls(protocol, HOST, port);
-    const compiler = createCompiler(webpack, config, appName, urls);
+    const compiler = createCompiler({ webpack, config, appName, urls });
 
     // Load proxy config
     const proxySetting = require(paths.packageJson).proxy;

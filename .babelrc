@@ -3,6 +3,7 @@
     [
       "@babel/preset-env",
       {
+        "corejs": 3,
         "useBuiltIns": "entry",
         "modules": false
       }
@@ -80,15 +81,10 @@
       ]
     },
     "development": {
-      "plugins": [
-        "react-hot-loader/babel"
-      ]
+      "plugins": ["react-hot-loader/babel"]
     },
     "test": {
-      "plugins": [
-        "@babel/transform-modules-commonjs",
-        "dynamic-import-node"
-      ],
+      "plugins": ["@babel/transform-modules-commonjs", "dynamic-import-node"],
       "sourceMaps": "both"
     }
   }
