@@ -1,18 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RoutePrivate should allow navigation for authenticated access 1`] = `
-
-<div data-reactroot>
+<div>
   PRIVATE
 </div>
-
 `;
 
 exports[`RoutePrivate should redirect for unauthenticated access 1`] = `
-
-<div id="redirect"
-     data-reactroot
->
+<div>
+  REDIRECT
 </div>
-
 `;

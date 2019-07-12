@@ -164,7 +164,7 @@ const Loader = props => {
 Loader.propTypes = {
   block: PropTypes.bool,
   color: PropTypes.string,
-  size: PropTypes.number,
+  size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   type: PropTypes.oneOf(['grow', 'pulse', 'rotate']),
 };
 

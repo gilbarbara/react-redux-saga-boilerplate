@@ -196,7 +196,7 @@ exports[`Home should render properly 1`] = `
               <div
                 className="c3"
               >
-                <SVGMock />
+                SVG
               </div>
             </Logo>
           </div>
@@ -205,7 +205,7 @@ exports[`Home should render properly 1`] = `
           <h1
             className="c4"
           >
-            React-Redux-Saga Boilerplate
+            React Redux Saga Boilerplate
           </h1>
         </Heading>
         <Button

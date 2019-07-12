@@ -24,13 +24,11 @@ const TopLeft = styled(Base)`
   top: ${utils.spacer(3)};
   width: 26rem;
 
-  /* stylelint-disable */
-  ${utils.responsive({
+  ${/* sc-custom '@media-query' */ utils.responsive({
     md: `
       width: 32rem;
     `,
   })};
-  /* stylelint-enable */
 `;
 
 const TopRight = styled(Base)`
@@ -38,13 +36,11 @@ const TopRight = styled(Base)`
   top: ${utils.spacer(3)};
   width: 26rem;
 
-  /* stylelint-disable */
-  ${utils.responsive({
+  ${/* sc-custom '@media-query' */ utils.responsive({
     md: `
       width: 32rem;
     `,
   })};
-  /* stylelint-enable */
 `;
 
 const BottomLeft = styled(Base)`
@@ -52,13 +48,11 @@ const BottomLeft = styled(Base)`
   left: ${utils.spacer(3)};
   width: 26rem;
 
-  /* stylelint-disable */
-  ${utils.responsive({
+  ${/* sc-custom '@media-query' */ utils.responsive({
     md: `
       width: 32rem;
     `,
   })};
-  /* stylelint-enable */
 `;
 
 const BottomRight = styled(Base)`
@@ -66,13 +60,11 @@ const BottomRight = styled(Base)`
   right: ${utils.spacer(3)};
   width: 26rem;
 
-  /* stylelint-disable */
-  ${utils.responsive({
+  ${/* sc-custom '@media-query' */ utils.responsive({
     md: `
       width: 32rem;
     `,
   })};
-  /* stylelint-enable */
 `;
 
 const SystemAlertsWrapper = styled.div`

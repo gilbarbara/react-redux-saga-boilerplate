@@ -74,7 +74,7 @@ export class App extends React.Component {
               defer={false}
               htmlAttributes={{ lang: 'pt-br' }}
               encodeSpecialCharacters={true}
-              defaultTitle={config.title}
+              defaultTitle={config.name}
               titleTemplate={`%s | ${config.name}`}
               titleAttributes={{ itemprop: 'name', lang: 'pt-br' }}
             />

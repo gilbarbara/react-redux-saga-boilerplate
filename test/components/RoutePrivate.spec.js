@@ -1,5 +1,5 @@
 import React from 'react';
-import Router from 'react-router-dom/MemoryRouter';
+import { MemoryRouter as Router } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 import RoutePrivate from 'components/RoutePrivate';
 

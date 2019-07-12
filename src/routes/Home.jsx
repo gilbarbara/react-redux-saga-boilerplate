@@ -38,8 +38,7 @@ const Heading = styled.h1`
   margin-top: 0;
   text-align: center;
 
-  /* stylelint-disable */
-  ${utils.responsive({
+  ${/* sc-custom '@media-query' */ utils.responsive({
     lg: `
       font-size: 4rem;
     `,
@@ -68,7 +67,7 @@ export class Home extends React.PureComponent {
           <Header>
             <Logo />
           </Header>
-          <Heading>{config.description}</Heading>
+          <Heading>{config.name}</Heading>
           <Button
             animate={user.status === 'running'}
             onClick={this.handleClickLogin}
