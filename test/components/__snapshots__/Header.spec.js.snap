@@ -25,13 +25,13 @@ exports[`Header should render properly 1`] = `
 }
 
 .c2 svg {
-  height: auto;
+  height: 4.2rem;
   max-height: 100%;
-  width: 4.8rem;
+  width: auto;
 }
 
 .c0 {
-  background-color: rgba(0,180,213,0.9);
+  background-color: #113740;
   height: 70px;
   left: 0;
   position: fixed;
@@ -84,7 +84,7 @@ exports[`Header should render properly 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  color: #333;
+  color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -94,7 +94,7 @@ exports[`Header should render properly 1`] = `
 }
 
 .c3.active {
-  color: #000;
+  color: #fff;
 }
 
 .c3 span {
@@ -126,13 +126,13 @@ exports[`Header should render properly 1`] = `
       <div
         className="c1"
       >
-        <Logo>
+        <Wrapper>
           <div
             className="c2"
           >
             SVG
           </div>
-        </Logo>
+        </Wrapper>
         <Logout
           onClick={[Function]}
         >

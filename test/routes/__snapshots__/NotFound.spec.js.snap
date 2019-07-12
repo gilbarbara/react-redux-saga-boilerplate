@@ -31,7 +31,7 @@ exports[`NotFound should render properly 1`] = `
 }
 
 .c0 {
-  background: #000 linear-gradient(to bottom,#00b4d5 0%,#002529 100%) fixed;
+  background: #000 linear-gradient(to bottom,#00657e 0%,#002529 100%) fixed;
   color: #fff;
   min-height: 100vh;
   overflow: hidden;
@@ -47,9 +47,9 @@ exports[`NotFound should render properly 1`] = `
   position: absolute;
   right: 0;
   top: 0;
-  -webkit-transform: rotate(-20deg) scale(1.5) translate(0,43%);
-  -ms-transform: rotate(-20deg) scale(1.5) translate(0,43%);
-  transform: rotate(-20deg) scale(1.5) translate(0,43%);
+  -webkit-transform: rotate(-20deg) scale(2) translate(0,45%);
+  -ms-transform: rotate(-20deg) scale(2) translate(0,45%);
+  transform: rotate(-20deg) scale(2) translate(0,45%);
 }
 
 .c1 {

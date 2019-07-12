@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import rgba from 'polished/lib/color/rgba';
 import { appColor, headerHeight } from 'modules/theme';
 
 import { logOut } from 'actions';
@@ -13,7 +12,7 @@ import Logo from 'components/Logo';
 const { responsive, spacer } = utils;
 
 const HeaderWrapper = styled.header`
-  background-color: ${rgba(appColor, 0.9)};
+  background-color: #113740;
   height: ${headerHeight}px;
   left: 0;
   position: fixed;
@@ -44,7 +43,7 @@ const HeaderContainer = styled(Container)`
 
 const Logout = styled.button`
   align-items: center;
-  color: #333;
+  color: #fff;
   display: flex;
   font-size: 1.3rem;
   padding: ${spacer(2)};
@@ -52,7 +51,7 @@ const Logout = styled.button`
   ${responsive({ lg: 'font-size: 1.6rem;' })}; /* stylelint-disable-line */
 
   &.active {
-    color: #000;
+    color: #fff;
   }
 
   span {
@@ -77,7 +76,7 @@ export default class Header extends React.PureComponent {
     return (
       <HeaderWrapper>
         <HeaderContainer>
-          <Logo />
+          <Logo type="logo" />
           <Logout onClick={this.handleClickLogout}>
             <span>logout</span>
             <Icon name="sign-out" width={16} />

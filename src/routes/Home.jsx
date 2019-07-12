@@ -26,7 +26,14 @@ const Header = styled.div`
   text-align: center;
 
   svg {
-    width: 20rem;
+    height: 10rem;
+    width: auto;
+
+    ${/* sc-custom '@media-query' */ utils.responsive({
+      lg: `
+        height: 15rem;
+     `,
+    })};
   }
 `;
 
@@ -43,7 +50,6 @@ const Heading = styled.h1`
       font-size: 4rem;
     `,
   })};
-  /* stylelint-enable */
 `;
 
 export class Home extends React.PureComponent {
@@ -65,7 +71,7 @@ export class Home extends React.PureComponent {
       <Background key="Home" data-testid="HomeWrapper">
         <HomeContainer verticalPadding>
           <Header>
-            <Logo />
+            <Logo type="logo" />
           </Header>
           <Heading>{config.name}</Heading>
           <Button

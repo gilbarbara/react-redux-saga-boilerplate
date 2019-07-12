@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Background = styled.div`
-  background: #000 linear-gradient(to bottom, #00b4d5 0%, #002529 100%) fixed;
+  background: #000 linear-gradient(to bottom, #00657e 0%, #002529 100%) fixed;
   color: #fff;
   min-height: 100vh;
   overflow: hidden;
@@ -16,7 +16,7 @@ const Background = styled.div`
     position: absolute;
     right: 0;
     top: 0;
-    transform: rotate(-20deg) scale(1.5) translate(0, 43%);
+    transform: rotate(-20deg) scale(2) translate(0, 45%);
   }
 `;
 

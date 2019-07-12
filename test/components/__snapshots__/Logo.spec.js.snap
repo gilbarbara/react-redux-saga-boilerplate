@@ -14,16 +14,16 @@ exports[`Logo should render properly 1`] = `
 }
 
 .c0 svg {
-  height: auto;
+  height: 4.2rem;
   max-height: 100%;
-  width: 4.8rem;
+  width: auto;
 }
 
-<Logo>
+<Wrapper>
   <div
     className="c0"
   >
     SVG
   </div>
-</Logo>
+</Wrapper>
 `;
