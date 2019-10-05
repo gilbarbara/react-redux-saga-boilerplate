@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { utils } from 'styled-minimal';
-import { hideAlert } from 'actions/index';
 
-import Transition from 'components/Transition/index';
+import { hideAlert } from 'actions';
+
+import Transition from 'components/Transition';
 import Alert from 'components/Alert';
 
 const Base = styled.div`
@@ -85,15 +86,15 @@ export class SystemAlerts extends React.PureComponent {
     dispatch: PropTypes.func.isRequired,
   };
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate() {
     const {
-      app: { alerts: nextAlerts },
+      app: { alerts },
       dispatch,
-    } = nextProps;
+    } = this.props;
 
     /* istanbul ignore else */
-    if (nextAlerts.length) {
-      nextAlerts.forEach(d => {
+    if (alerts.length) {
+      alerts.forEach(d => {
         if (d.timeout && !this.timeouts[d.id]) {
           this.timeouts[d.id] = setTimeout(() => {
             dispatch(hideAlert(d.id));

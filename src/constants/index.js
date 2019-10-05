@@ -1,4 +1,4 @@
-import keyMirror from 'fbjs/lib/keyMirror';
+import { keyMirror } from 'modules/helpers';
 
 /**
  * @namespace Constants

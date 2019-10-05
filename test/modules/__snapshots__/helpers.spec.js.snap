@@ -6,3 +6,14 @@ Object {
   "rule": "yes",
 }
 `;
+
+exports[`helpers keyMirror should return an object with mirrored keys 1`] = `
+Object {
+  "EXCEPTION": "EXCEPTION",
+  "SWITCH_MENU": "SWITCH_MENU",
+  "USER_LOGIN": "USER_LOGIN",
+  "USER_LOGIN_FAILURE": "USER_LOGIN_FAILURE",
+  "USER_LOGIN_SUCCESS": "USER_LOGIN_SUCCESS",
+  "USER_LOGOUT": "USER_LOGOUT",
+}
+`;

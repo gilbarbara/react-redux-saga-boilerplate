@@ -1,9 +1,9 @@
+import { hot } from 'react-hot-loader/root';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { hot } from 'react-hot-loader/root';
 import { connect } from 'react-redux';
 import { Router, Switch, Route } from 'react-router-dom';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import styled, { css, ThemeProvider } from 'styled-components';
 import treeChanges from 'tree-changes';
 
@@ -12,14 +12,14 @@ import theme, { headerHeight } from 'modules/theme';
 import { utils } from 'styled-minimal';
 
 import config from 'config';
-import { showAlert } from 'actions/index';
+import { showAlert } from 'actions';
 
 import Home from 'routes/Home';
 import Private from 'routes/Private';
 import NotFound from 'routes/NotFound';
 
 import Header from 'components/Header';
-import SystemAlerts from 'containers/SystemAlerts';
+import SystemAlerts from 'components/SystemAlerts';
 
 import Footer from 'components/Footer';
 import GlobalStyles from 'components/GlobalStyles';
@@ -53,9 +53,9 @@ export class App extends React.Component {
     user: PropTypes.object.isRequired,
   };
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(prevProps) {
     const { dispatch } = this.props;
-    const { changedTo } = treeChanges(this.props, nextProps);
+    const { changedTo } = treeChanges(prevProps, this.props);
 
     /* istanbul ignore else */
     if (changedTo('user.isAuthenticated', true)) {

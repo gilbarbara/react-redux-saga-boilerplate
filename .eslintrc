@@ -20,6 +20,7 @@
   "plugins": ["babel", "cypress", "flowtype", "redux-saga"],
   "settings": {
     "import/resolver": {
+      "node": {},
       "webpack": {
         "config": "config/webpack.config.js"
       }
@@ -69,6 +70,14 @@
     "no-template-curly-in-string": "warn",
     "no-trailing-spaces": "warn",
     "no-underscore-dangle": "off",
+    "no-useless-rename": [
+      "error",
+      {
+        "ignoreDestructuring": true,
+        "ignoreImport": false,
+        "ignoreExport": false
+      }
+    ],
     "no-unused-vars": [
       "error",
       { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }
@@ -119,7 +128,10 @@
     "flowtype/require-return-type": ["warn", "always", { "excludeArrowFunctions": true }],
     "flowtype/space-after-type-colon": ["error", "always"],
     "import/no-dynamic-require": "off",
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "import/no-extraneous-dependencies": [
+      "error",
+      { "devDependencies": true, "optionalDependencies": false }
+    ],
     "import/no-unresolved": "warn",
     "import/no-webpack-loader-syntax": "off",
     "import/no-named-as-default": "off",
@@ -145,6 +157,7 @@
     "react/jsx-no-duplicate-props": "warn",
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-pascal-case": "warn",
+    "react/jsx-props-no-spreading": "off",
     "react/no-direct-mutation-state": "warn",
     "react/no-unused-prop-types": "warn",
     "react/no-unused-state": "warn",
@@ -156,27 +169,38 @@
     "react/sort-comp": [
       "warn",
       {
-        "order": ["constructor", "lifecycle", "everything-else", "render"],
+        "order": [
+          "type-annotations",
+          "instance-variables",
+          "constructor",
+          "lifecycle",
+          "everything-else",
+          "render"
+        ],
         "groups": {
           "lifecycle": [
             "state",
-            "statics",
+            "static-methods",
+            "propTypes",
+            "defaultProps",
             "contextTypes",
             "childContextTypes",
             "getChildContext",
-            "propTypes",
-            "defaultProps",
-            "shouldComponentUpdate",
-            "componentWillMount",
+            "getDerivedStateFromProps",
+            "UNSAFE_componentWillMount",
             "componentDidMount",
-            "componentWillReceiveProps",
-            "componentWillUpdate",
+            "UNSAFE_componentWillReceiveProps",
+            "shouldComponentUpdate",
+            "UNSAFE_componentWillUpdate",
+            "getSnapshotBeforeUpdate",
             "componentDidUpdate",
+            "componentDidCatch",
             "componentWillUnmount"
           ]
         }
       }
     ],
+    "react/static-property-placement": "off",
     "redux-saga/no-yield-in-race": "error",
     "redux-saga/yield-effects": "error"
   }

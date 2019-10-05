@@ -1,17 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header should render properly 1`] = `
-.c4 {
-  display: inline-block;
-  line-height: 0;
-}
-
-.c4 svg {
-  height: auto;
-  max-height: 100%;
-  width: 16px;
-}
-
 .c2 {
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
@@ -146,11 +135,7 @@ exports[`Header should render properly 1`] = `
             <IconWrapper
               src="/media/icons/sign-out.svg"
               width={16}
-            >
-              <span
-                className="isvg loading c4"
-              />
-            </IconWrapper>
+            />
           </button>
         </Logout>
       </div>

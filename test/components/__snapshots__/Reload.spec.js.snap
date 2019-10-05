@@ -3,9 +3,9 @@
 exports[`Reload should render properly 1`] = `
 .c2 {
   box-sizing: border-box;
-  background-color: #212121;
+  background-color: #fff;
   border: 1px solid #212121;
-  color: #fff;
+  color: #212121;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -80,11 +80,10 @@ exports[`Reload should render properly 1`] = `
       animate={false}
       as="button"
       block={false}
-      bordered={false}
+      bordered={true}
       dark={false}
       disabled={false}
       onClick={[Function]}
-      outline={true}
       size="sm"
       type="button"
       variant="dark"

@@ -5,33 +5,33 @@ describe('React-Redux-Saga-Boilerplate', () => {
   });
 
   it('should be able to start', () => {
-    cy.getByTestId('Login')
+    cy.findByTestId('Login')
       .should('contain', 'Start')
       .click();
   });
 
   it('should be able to view the private area', () => {
-    cy.getByTestId('PrivateWrapper')
+    cy.findByTestId('PrivateWrapper')
       .should('have.length', 1)
-      .getByTestId('GitHubGrid')
+      .findByTestId('GitHubGrid')
       .should('have.length', 1)
       .should('have.attr', 'data-type', 'react');
 
-    cy.getByTestId('GitHubGrid')
+    cy.findByTestId('GitHubGrid')
       .get('li')
       .should('have.length', 30);
   });
 
   it('should be able to dismiss the alert', () => {
-    cy.getByTestId('AlertWrapper').should('have.length', 1);
-    cy.getByTestId('AlertButton').click();
+    cy.findByTestId('AlertWrapper').should('have.length', 1);
+    cy.findByTestId('AlertButton').click();
     cy.wait(300)
       .queryByTestId('AlertWrapper')
       .should('not.exist');
   });
 
   it('should be able to toggle the selector', () => {
-    cy.getByTestId('GitHubSelector')
+    cy.findByTestId('GitHubSelector')
       .find('button:last-child')
       .not('[disabled]')
       .should('have.text', 'Redux')
@@ -39,7 +39,7 @@ describe('React-Redux-Saga-Boilerplate', () => {
   });
 
   it('should render the redux repos ', () => {
-    cy.getByTestId('GitHubGrid')
+    cy.findByTestId('GitHubGrid')
       .should('have.length', 1)
       .should('have.attr', 'data-type', 'redux');
   });
@@ -49,20 +49,20 @@ describe('React-Redux-Saga-Boilerplate', () => {
   });
 
   it('should have redirected to /', () => {
-    cy.getByTestId('HomeWrapper').should('have.length', 1);
+    cy.findByTestId('HomeWrapper').should('have.length', 1);
   });
 
   it('should be able to start again', () => {
-    cy.getByTestId('Login')
+    cy.findByTestId('Login')
       .should('contain', 'Start')
       .click();
 
-    cy.getByTestId('PrivateWrapper').should('have.length', 1);
+    cy.findByTestId('PrivateWrapper').should('have.length', 1);
   });
 
   it('should be able to logout again', () => {
     cy.get('[class^=Logout]').click();
 
-    cy.getByTestId('HomeWrapper').should('have.length', 1);
+    cy.findByTestId('HomeWrapper').should('have.length', 1);
   });
 });

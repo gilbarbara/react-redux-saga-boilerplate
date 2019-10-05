@@ -7,10 +7,15 @@ Enzyme.configure({ adapter: new Adapter() });
 
 process.env.PUBLIC_URL = '';
 
-const react = document.createElement('div');
-react.id = 'react';
-react.style.height = '100vh';
-document.body.appendChild(react);
+const root = document.createElement('div');
+root.id = 'root';
+root.style.height = '100vh';
+document.body.appendChild(root);
+
+process.on('uncaughtException', err => {
+  console.error(`${new Date().toUTCString()} uncaughtException:`, err.message);
+  console.error(err.stack);
+});
 
 global.navigate = options => {
   const { pathname = location.pathname, search, hash } = options;
@@ -50,13 +55,15 @@ global.matchMedia = () => ({
 });
 
 const consoleError = console.error;
-console.error = jest.fn(message => {
+console.error = jest.fn(error => {
+  const message = error instanceof Error ? error.message : error;
   const skipMessages = [
     'Warning: <%s /> is using incorrect casing.',
     'The tag <%s> is unrecognized in this browser.',
     // 'Warning: Failed prop type',
     '`transition` of value `rotate`',
     'Invalid transition: rotate',
+    "Content type isn't valid:",
   ];
   let shouldSkip = false;
 
@@ -67,6 +74,6 @@ console.error = jest.fn(message => {
   }
 
   if (!shouldSkip) {
-    consoleError(message);
+    consoleError(error);
   }
 });

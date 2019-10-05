@@ -1,30 +1,28 @@
 /*eslint-disable no-console */
 const path = require('path');
 const webpack = require('webpack');
-const dateFns = require('date-fns');
+const { format } = require('date-fns');
 
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
-const GitInfoPlugin = require('git-info-webpack-plugin');
+const GitRevPlugin = require('git-rev-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
-const OfflinePlugin = require('offline-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 
 const NPMPackage = require(paths.packageJson);
-const gitInfoPlugin = new GitInfoPlugin({
-  hashCommand: 'rev-parse --short HEAD',
-});
+const gitRevPlugin = new GitRevPlugin();
 
-const GITHASH = gitInfoPlugin.hash() || '';
+const GITHASH = gitRevPlugin.hash() || '';
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
@@ -327,13 +325,13 @@ module.exports = webpackEnv => {
     plugins: [
       new webpack.DefinePlugin({
         ...env.stringified,
-        APP__BRANCH: JSON.stringify(gitInfoPlugin.branch()),
-        APP__BUILD_DATE: JSON.stringify(dateFns.format(new Date(), 'DD/MM/YYYY')),
-        APP__GITHASH: JSON.stringify(gitInfoPlugin.hash()),
+        APP__BRANCH: JSON.stringify(gitRevPlugin.branch()),
+        APP__BUILD_DATE: JSON.stringify(format(new Date(), 'dd/MM/yyyy')),
+        APP__GITHASH: JSON.stringify(gitRevPlugin.hash()),
         APP__VERSION: JSON.stringify(NPMPackage.version),
       }),
       new ModuleNotFoundPlugin(paths.appPath),
-      gitInfoPlugin,
+      gitRevPlugin,
       new HtmlPlugin(htmlPluginOptions),
       new InterpolateHtmlPlugin(HtmlPlugin, env.raw),
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
@@ -346,26 +344,19 @@ module.exports = webpackEnv => {
           chunkFilename: 'css/bundle.[git-hash].chunk.css',
         }),
       isProd &&
-        new OfflinePlugin({
-          autoUpdate: true,
-          safeToUseOptionalCaches: true,
-          ServiceWorker: {
-            events: true,
-          },
-          AppCache: {
-            events: true,
-          },
-          caches: {
-            main: ['**/*.js', 'index.html'],
-            optional: [':rest:'],
-          },
-          cacheMaps: [
-            {
-              match: function match() {
-                return new URL('/', location);
-              },
-              requestTypes: ['navigate'],
-            },
+        new WorkboxWebpackPlugin.GenerateSW({
+          clientsClaim: true,
+          exclude: [/\.map$/, /asset-manifest\.json$/],
+          importWorkboxFrom: 'cdn',
+          navigateFallback: `${publicUrl}/index.html`,
+          navigateFallbackBlacklist: [
+            // Exclude URLs starting with /_, as they're likely an API call
+            new RegExp('^/_'),
+            // Exclude any URLs whose last part seems to be a file extension
+            // as they're likely a resource and not a SPA route.
+            // URLs containing a "?" character won't be blacklisted as they're likely
+            // a route with query params (e.g. auth callbacks).
+            new RegExp('/[^/?]+\\.[^/]+$'),
           ],
         }),
       isDev &&

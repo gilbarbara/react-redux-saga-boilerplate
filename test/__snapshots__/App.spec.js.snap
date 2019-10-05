@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should render properly for anonymous users 1`] = `
+<Router history="{{...}}">
+  <ThemeProvider theme="{{...}}">
+    <AppWrapper logged="{false}">
+      <Helmet defer="{false}"
+              htmlattributes="{{...}}"
+              encodespecialcharacters="{true}"
+              defaulttitle="React Redux Saga Boilerplate"
+              titletemplate="%s | React Redux Saga Boilerplate"
+              titleattributes="{{...}}"
+      >
+      </Helmet>
+      <Main isauthenticated="{false}">
+        <Switch>
+          <RoutePublic isauthenticated="{false}"
+                       path="/"
+                       exact="{true}"
+                       component="{{...}}"
+                       to="/private"
+          >
+          </RoutePublic>
+          <RoutePrivate isauthenticated="{false}"
+                        path="/private"
+                        component="{[Function:"
+                        private]}
+                        to="/"
+          >
+          </RoutePrivate>
+          <Route component="{[Function:"
+                 notfound]}
+          >
+          </Route>
+        </Switch>
+      </Main>
+      <Footer>
+      </Footer>
+      <Connect(SystemAlerts)>
+      </Connect(SystemAlerts)>
+      <_default>
+      </_default>
+    </AppWrapper>
+  </ThemeProvider>
+</Router>
+`;

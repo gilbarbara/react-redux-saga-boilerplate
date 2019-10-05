@@ -2,9 +2,9 @@ import React from 'react';
 
 import { STATUS } from 'constants/index';
 
-import { GitHub } from 'containers/GitHub';
+import { GitHub } from 'components/GitHub';
 
-jest.mock('uuid/v4', () => () => 'ABCDE');
+jest.mock('nanoid', () => () => 'ABCDE');
 
 const mockDispatch = jest.fn();
 const props = {
@@ -24,7 +24,7 @@ describe('GitHub', () => {
   const wrapper = setup();
 
   it('should render properly', () => {
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should render a Loader without data', () => {
@@ -43,7 +43,7 @@ describe('GitHub', () => {
       github: {
         repos: {
           data: {},
-          status: STATUS.READY,
+          status: STATUS.SUCCESS,
         },
       },
     });
@@ -69,7 +69,7 @@ describe('GitHub', () => {
               },
             ],
           },
-          status: STATUS.READY,
+          status: STATUS.SUCCESS,
         },
       },
     });

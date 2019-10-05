@@ -59,7 +59,8 @@
       }
     ],
     "@babel/plugin-proposal-json-strings",
-    "@babel/plugin-transform-runtime"
+    "@babel/plugin-transform-runtime",
+    "react-hot-loader/babel"
   ],
   "compact": true,
   "env": {
@@ -67,21 +68,8 @@
       "plugins": [
         "@babel/plugin-transform-flow-strip-types",
         "@babel/plugin-transform-object-assign",
-        "array-includes",
-        "lodash",
-        [
-          "transform-imports",
-          {
-            "lodash": {
-              "transform": "lodash/${member}",
-              "preventFullImport": true
-            }
-          }
-        ]
+        "array-includes"
       ]
-    },
-    "development": {
-      "plugins": ["react-hot-loader/babel"]
     },
     "test": {
       "plugins": ["@babel/transform-modules-commonjs", "dynamic-import-node"],

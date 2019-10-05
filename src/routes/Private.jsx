@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Github from 'containers/GitHub';
+import Github from 'components/GitHub';
 
 import { Box, Container, Heading, Link, Paragraph, Screen, Text, utils } from 'styled-minimal';
 

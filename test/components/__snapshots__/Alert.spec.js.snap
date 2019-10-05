@@ -1,21 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Alert should render a error alert with markup 1`] = `
-.c3 {
+.c2 {
   box-sizing: border-box;
   padding: 8px;
   padding-right: 8px;
-}
-
-.c2 {
-  display: inline-block;
-  line-height: 0;
-}
-
-.c2 svg {
-  height: auto;
-  max-height: 100%;
-  width: 24px;
 }
 
 .c0 {
@@ -80,11 +69,7 @@ exports[`Alert should render a error alert with markup 1`] = `
         <IconWrapper
           src="/media/icons/times-circle.svg"
           width={24}
-        >
-          <span
-            className="isvg loading c2"
-          />
-        </IconWrapper>
+        />
       </div>
     </AlertIcon>
     <Box
@@ -92,7 +77,7 @@ exports[`Alert should render a error alert with markup 1`] = `
       pr={2}
     >
       <div
-        className="c3"
+        className="c2"
       >
         <p>
           This is an error message
@@ -104,21 +89,10 @@ exports[`Alert should render a error alert with markup 1`] = `
 `;
 
 exports[`Alert should render a info alert 1`] = `
-.c3 {
+.c2 {
   box-sizing: border-box;
   padding: 8px;
   padding-right: 8px;
-}
-
-.c2 {
-  display: inline-block;
-  line-height: 0;
-}
-
-.c2 svg {
-  height: auto;
-  max-height: 100%;
-  width: 24px;
 }
 
 .c0 {
@@ -183,11 +157,7 @@ exports[`Alert should render a info alert 1`] = `
         <IconWrapper
           src="/media/icons/question-circle.svg"
           width={24}
-        >
-          <span
-            className="isvg loading c2"
-          />
-        </IconWrapper>
+        />
       </div>
     </AlertIcon>
     <Box
@@ -195,7 +165,7 @@ exports[`Alert should render a info alert 1`] = `
       pr={2}
     >
       <div
-        className="c3"
+        className="c2"
       >
         This is an info message
       </div>
@@ -205,21 +175,10 @@ exports[`Alert should render a info alert 1`] = `
 `;
 
 exports[`Alert should render a success alert 1`] = `
-.c3 {
+.c2 {
   box-sizing: border-box;
   padding: 8px;
   padding-right: 8px;
-}
-
-.c2 {
-  display: inline-block;
-  line-height: 0;
-}
-
-.c2 svg {
-  height: auto;
-  max-height: 100%;
-  width: 24px;
 }
 
 .c0 {
@@ -284,11 +243,7 @@ exports[`Alert should render a success alert 1`] = `
         <IconWrapper
           src="/media/icons/check-circle.svg"
           width={24}
-        >
-          <span
-            className="isvg loading c2"
-          />
-        </IconWrapper>
+        />
       </div>
     </AlertIcon>
     <Box
@@ -296,7 +251,7 @@ exports[`Alert should render a success alert 1`] = `
       pr={2}
     >
       <div
-        className="c3"
+        className="c2"
       >
         This is a success message
       </div>
@@ -306,21 +261,10 @@ exports[`Alert should render a success alert 1`] = `
 `;
 
 exports[`Alert should render a warning alert 1`] = `
-.c3 {
+.c2 {
   box-sizing: border-box;
   padding: 8px;
   padding-right: 8px;
-}
-
-.c2 {
-  display: inline-block;
-  line-height: 0;
-}
-
-.c2 svg {
-  height: auto;
-  max-height: 100%;
-  width: 24px;
 }
 
 .c0 {
@@ -385,11 +329,7 @@ exports[`Alert should render a warning alert 1`] = `
         <IconWrapper
           src="/media/icons/exclamation-circle.svg"
           width={24}
-        >
-          <span
-            className="isvg loading c2"
-          />
-        </IconWrapper>
+        />
       </div>
     </AlertIcon>
     <Box
@@ -397,7 +337,7 @@ exports[`Alert should render a warning alert 1`] = `
       pr={2}
     >
       <div
-        className="c3"
+        className="c2"
       >
         This is a warning message
       </div>
@@ -407,21 +347,10 @@ exports[`Alert should render a warning alert 1`] = `
 `;
 
 exports[`Alert should render properly 1`] = `
-.c3 {
+.c2 {
   box-sizing: border-box;
   padding: 8px;
   padding-right: 8px;
-}
-
-.c2 {
-  display: inline-block;
-  line-height: 0;
-}
-
-.c2 svg {
-  height: auto;
-  max-height: 100%;
-  width: 24px;
 }
 
 .c0 {
@@ -486,11 +415,7 @@ exports[`Alert should render properly 1`] = `
         <IconWrapper
           src="/media/icons/question-circle.svg"
           width={24}
-        >
-          <span
-            className="isvg loading c2"
-          />
-        </IconWrapper>
+        />
       </div>
     </AlertIcon>
     <Box
@@ -498,7 +423,7 @@ exports[`Alert should render properly 1`] = `
       pr={2}
     >
       <div
-        className="c3"
+        className="c2"
       >
         Hello World
       </div>

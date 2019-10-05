@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import treeChanges from 'tree-changes';
 import { appColor } from 'modules/theme';
 
-import { getRepos, showAlert, switchMenu } from 'actions/index';
+import { getRepos, showAlert, switchMenu } from 'actions';
 import { STATUS } from 'constants/index';
 
 import {
@@ -97,9 +97,13 @@ const ItemHeader = styled.div`
 `;
 
 export class GitHub extends React.Component {
-  state = {
-    query: 'react',
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      query: 'react',
+    };
+  }
 
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
@@ -113,12 +117,12 @@ export class GitHub extends React.Component {
     dispatch(getRepos(query));
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { dispatch } = this.props;
-    const { changedTo } = treeChanges(this.props, nextProps);
+  componentDidUpdate(prevProps) {
+    const { dispatch, github } = this.props;
+    const { changedTo } = treeChanges(prevProps, this.props);
 
     if (changedTo('github.repos.status', STATUS.ERROR)) {
-      dispatch(showAlert(nextProps.github.repos.message, { variant: 'danger' }));
+      dispatch(showAlert(github.repos.message, { variant: 'danger' }));
     }
   }
 
@@ -139,7 +143,7 @@ export class GitHub extends React.Component {
     const data = github.repos.data[query] || [];
     let output;
 
-    if (github.repos.status === STATUS.READY) {
+    if (github.repos.status === STATUS.SUCCESS) {
       if (data.length) {
         output = (
           <GitHubGrid data-type={query} data-testid="GitHubGrid">

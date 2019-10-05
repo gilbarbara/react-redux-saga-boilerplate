@@ -32,7 +32,7 @@ Object {
     },
     "message": "",
     "query": "",
-    "status": "ready",
+    "status": "success",
   },
 }
 `;

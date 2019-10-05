@@ -15,7 +15,7 @@ process.on('unhandledRejection', err => {
 require('../config/env');
 
 const chalk = require('chalk');
-const dateFns = require('date-fns');
+const { differenceInSeconds } = require('date-fns');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const clearConsole = require('react-dev-utils/clearConsole');
@@ -73,7 +73,7 @@ choosePort(HOST, DEFAULT_PORT)
     compiler.plugin('emit', function(compilation, callback) {
       const now = new Date();
       console.log(
-        chalk.yellow(`Duration: ${dateFns.differenceInSeconds(now, start)}s - ${compilation.hash}`),
+        chalk.yellow(`Duration: ${differenceInSeconds(now, start)}s - ${compilation.hash}`),
       );
 
       callback();

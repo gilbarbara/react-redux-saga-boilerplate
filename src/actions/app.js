@@ -4,7 +4,7 @@
  * @desc App Actions
  */
 
-import uuid from 'uuid/v4';
+import uid from 'nanoid';
 import { createActions } from 'redux-actions';
 
 import { ActionTypes } from 'constants/index';
@@ -18,7 +18,7 @@ export const { hideAlert, showAlert, switchMenu } = createActions({
     const timeout = options.variant === 'danger' ? 0 : 5;
 
     return {
-      id: options.id || uuid(),
+      id: options.id || uid(),
       icon: options.icon,
       message,
       position: options.position || 'bottom-right',

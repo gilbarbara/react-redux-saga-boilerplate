@@ -1,4 +1,3 @@
-/*eslint-disable no-console, no-var, vars-on-top, func-names, prefer-destructuring */
 /**
  * @module Polyfills
  * @desc Add support for older browsers.

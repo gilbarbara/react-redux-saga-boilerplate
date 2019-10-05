@@ -1,8 +1,8 @@
 import React from 'react';
 import hoistNonReactStatics from 'hoist-non-react-statics';
-import { matchPath, MemoryRouter, Route, Switch } from 'react-router-dom/index';
+import { matchPath, MemoryRouter, Route, Router, Switch } from 'react-router-dom/index';
 
-export { matchPath, MemoryRouter, Route, Switch };
+export { matchPath, MemoryRouter, Route, Router, Switch };
 
 export const Link = props => {
   const { to, children, onClick, style, className, ...rest } = props;

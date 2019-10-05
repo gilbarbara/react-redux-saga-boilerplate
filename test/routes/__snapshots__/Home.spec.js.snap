@@ -40,11 +40,11 @@ exports[`Home should render properly 1`] = `
   outline-color: #2E2E2E;
 }
 
-.c5 .c8 {
+.c5 .c7 {
   margin-left: 5px;
 }
 
-.c7 {
+.c6 {
   box-sizing: border-box;
   margin-left: 8px;
 }
@@ -69,17 +69,6 @@ exports[`Home should render properly 1`] = `
   -webkit-transform: rotate(-20deg) scale(2) translate(0,45%);
   -ms-transform: rotate(-20deg) scale(2) translate(0,45%);
   transform: rotate(-20deg) scale(2) translate(0,45%);
-}
-
-.c6 {
-  display: inline-block;
-  line-height: 0;
-}
-
-.c6 svg {
-  height: auto;
-  max-height: 100%;
-  width: 20px;
 }
 
 .c3 {
@@ -240,17 +229,13 @@ exports[`Home should render properly 1`] = `
             <IconWrapper
               src="/media/icons/sign-in.svg"
               width={20}
-            >
-              <span
-                className="isvg loading c6"
-              />
-            </IconWrapper>
+            />
             <Text
               as="span"
               ml={2}
             >
               <span
-                className="c7"
+                className="c6"
               >
                 Start
               </span>

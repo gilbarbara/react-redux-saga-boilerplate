@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { showAlert } from 'actions';
-import { SystemAlerts } from 'containers/SystemAlerts';
+import { SystemAlerts } from 'components/SystemAlerts';
 
 jest.mock('components/Transition', () => ({ children }) => (
   <div className="transition">{children}</div>

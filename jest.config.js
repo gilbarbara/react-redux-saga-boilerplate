@@ -1,6 +1,6 @@
 module.exports = {
   collectCoverage: false,
-  collectCoverageFrom: ['src/**/*.{js,jsx}', '!src/vendor/*'],
+  collectCoverageFrom: ['src/**/*.{js,jsx}', '!src/vendor/*', '!src/serviceWorker.js'],
   coverageThreshold: {
     global: {
       branches: 90,
@@ -20,7 +20,7 @@ module.exports = {
   },
   setupFiles: ['<rootDir>/test/__setup__/setupFiles.js'],
   setupFilesAfterEnv: ['<rootDir>/test/__setup__/setupTests.js'],
-  snapshotSerializers: ['enzyme-to-json/serializer', 'jest-serializer-html'],
+  snapshotSerializers: ['jest-serializer-html'],
   testEnvironment: 'jest-environment-jsdom-global',
   testEnvironmentOptions: {
     resources: 'usable',

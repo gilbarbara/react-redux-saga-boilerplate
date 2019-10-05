@@ -14,7 +14,7 @@ const Reload = () => (
     <Heading as="h6" mb={3}>
       There's a new version of this app!
     </Heading>
-    <Button variant="dark" outline size="sm" onClick={() => window.location.reload()}>
+    <Button variant="dark" bordered size="sm" onClick={() => window.location.reload()}>
       Reload
     </Button>
   </ReloadWrapper>
