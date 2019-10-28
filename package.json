@@ -23,7 +23,7 @@
     "history": "^4.10.1",
     "immer": "^4.0.1",
     "mobile-detect": "^1.4.4",
-    "modernizr": "^3.7.1",
+    "modernizr": "^3.8.0",
     "nanoid": "^2.1.2",
     "polished": "^3.4.1",
     "prop-types": "^15.7.2",
