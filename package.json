@@ -42,7 +42,8 @@
     "redux-saga": "^1.1.1",
     "styled-components": "^4.4.0",
     "styled-minimal": "^0.9.0",
-    "tree-changes": "^0.5.1"
+    "tree-changes": "^0.5.1",
+    "snyk": "^1.317.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
@@ -191,7 +192,9 @@
     "serve": "serve --listen 3000 build",
     "deploy": "node tools/deploy",
     "publish": "node tools/publish",
-    "size": "npm run build && size-limit"
+    "size": "npm run build && size-limit",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "prettier": {
     "printWidth": 100,
@@ -225,5 +228,6 @@
       "path": "./build/scripts/*.js",
       "limit": "220 kb"
     }
-  ]
+  ],
+  "snyk": true
 }
