@@ -1,5 +1,4 @@
-/*eslint-disable no-console */
-const chalk = require('chalk');
+const chalk = require('react-dev-utils/chalk');
 const Rsync = require('rsync');
 
 const paths = require('../config/paths');

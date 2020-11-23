@@ -1,6 +1,5 @@
-/*eslint-disable no-console */
 const { exec } = require('child_process');
-const chalk = require('chalk');
+const chalk = require('react-dev-utils/chalk');
 const publish = require('./publish');
 
 function deploy() {

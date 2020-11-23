@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reducers/app should handle HIDE_ALERT 1`] = `
+Object {
+  "alerts": Array [],
+}
+`;
+
+exports[`reducers/app should handle SHOW_ALERT 1`] = `
+Object {
+  "alerts": Array [
+    Object {
+      "icon": undefined,
+      "id": "test",
+      "message": "HELLO",
+      "position": "bottom-right",
+      "timeout": 5,
+      "variant": "success",
+    },
+  ],
+}
+`;
+
+exports[`reducers/app should return the initial state 1`] = `
+Object {
+  "alerts": Array [],
+}
+`;

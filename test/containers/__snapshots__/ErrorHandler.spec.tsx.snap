@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorHandler should handle the error 1`] = `
+.c0 {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+}
+
+.c2 {
+  box-sizing: border-box;
+  font-size: 32px;
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0;
+  margin-top: 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.c2:first-child {
+  margin-top: 0;
+}
+
+.c1 {
+  box-sizing: border-box;
+  max-width: 100%;
+  width: 128px;
+}
+
+@media screen and (min-width:1024px) {
+  .c0 {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+<div
+  class="c0"
+  data-testid="ErrorHandler"
+>
+  <img
+    alt="Error"
+    class="c1"
+    src="/media/images/error.gif"
+    width="128"
+  />
+  <h3
+    class="c2"
+  >
+    Error: Oh no!
+  </h3>
+</div>
+`;

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`actions/github getRepos 1`] = `
+Object {
+  "payload": Object {
+    "query": "react",
+  },
+  "type": "GITHUB_GET_REPOS_REQUEST",
+}
+`;

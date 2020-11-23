@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`modules/client request should handle a GET request 1`] = `
+Object {
+  "hello": "world",
+}
+`;
+
+exports[`modules/client request should handle a POST request 1`] = `Object {}`;
+
+exports[`modules/client request should handle a fetch error 1`] = `[Error: Failed to Fetch]`;

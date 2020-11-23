@@ -1,34 +1,142 @@
 {
-  "extends": ["airbnb", "plugin:prettier/recommended", "prettier/flowtype", "prettier/react"],
-  "parser": "babel-eslint",
+  "extends": [
+    "airbnb",
+    "plugin:jest-dom/recommended",
+    "plugin:jest/recommended",
+    "plugin:prettier/recommended",
+    "plugin:testing-library/react",
+    "plugin:testing-library/recommended",
+    "prettier/react",
+    "prettier/standard"
+  ],
   "env": {
     "browser": true,
     "cypress/globals": true,
-    "jest": true
+    "es6": true,
+    "jest": true,
+    "node": true
   },
+  "settings": {
+    "import/resolver": {
+      "node": {},
+      "typescript": {},
+      "webpack": {
+        "config": "config/webpack.config.js"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts?(x)"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module",
+        "ecmaFeatures": {
+          "jsx": true
+        },
+        "project": "./tsconfig.json",
+        "tsconfigRootDir": "./",
+        "warnOnUnsupportedTypeScriptVersion": true
+      },
+      "extends": ["plugin:import/typescript", "plugin:@typescript-eslint/recommended"],
+      "plugins": ["@typescript-eslint"],
+      "rules": {
+        // TypeScript's `noFallthroughCasesInSwitch` option is more robust (#6906)
+        "default-case": "off",
+        // 'tsc' already handles this (https://github.com/typescript-eslint/typescript-eslint/issues/291)
+        "no-dupe-class-members": "off",
+        // 'tsc' already handles this (https://github.com/typescript-eslint/typescript-eslint/issues/477)
+        "no-undef": "off",
+        "no-use-before-define": "off",
+        "space-before-function-paren": "off",
+        "@typescript-eslint/ban-ts-comment": "off",
+
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/no-inferrable-types": ["error", { "ignoreParameters": true }],
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/consistent-type-assertions": "warn",
+        "no-array-constructor": "off",
+        "@typescript-eslint/no-array-constructor": "warn",
+        "@typescript-eslint/no-use-before-define": [
+          "warn",
+          {
+            "functions": false,
+            "classes": false,
+            "variables": false,
+            "typedefs": false
+          }
+        ],
+        "no-unused-expressions": "off",
+        "@typescript-eslint/no-unused-expressions": [
+          "error",
+          {
+            "allowShortCircuit": true,
+            "allowTernary": true,
+            "allowTaggedTemplates": true
+          }
+        ],
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": [
+          "warn",
+          {
+            "args": "none",
+            "ignoreRestSiblings": true
+          }
+        ],
+        "no-useless-constructor": "off",
+        "@typescript-eslint/no-useless-constructor": "warn"
+      }
+    },
+    {
+      "files": ["**/*.js?(x)"],
+      "parser": "babel-eslint"
+    },
+    {
+      "files": ["test/**/*.ts?(x)"],
+      "globals": {
+        "jsdom": false,
+        "navigate": true,
+        "renderWithRedux": true
+      },
+      "parserOptions": {
+        "project": "./tsconfig.json",
+        "tsconfigRootDir": "./test/"
+      },
+      "rules": {
+        "no-console": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-non-null-asserted-optional-chain": "off",
+        "react/function-component-definition": "off"
+      }
+    },
+    {
+      "files": ["tools/**/*"],
+      "rules": {
+        "no-console": "off"
+      }
+    }
+  ],
   "globals": {
-    "$": true,
     "fetch": false,
     "ga": false,
-    "mobileDetect": false,
-    "Modernizr": false,
     "APP__BRANCH": false,
     "APP__BUILD_DATE": false,
     "APP__GITHASH": false,
     "APP__VERSION": false
   },
-  "plugins": ["babel", "cypress", "flowtype", "redux-saga"],
-  "settings": {
-    "import/resolver": {
-      "node": {},
-      "webpack": {
-        "config": "config/webpack.config.js"
-      }
-    },
-    "flowtype": {
-      "onlyFilesWithFlowAnnotation": true
-    }
-  },
+  "plugins": [
+    "cypress",
+    "jest",
+    "jest-dom",
+    "react-hooks",
+    "redux-saga",
+    "simple-import-sort",
+    "testing-library"
+  ],
   "rules": {
     "arrow-body-style": ["warn", "as-needed"],
     "arrow-parens": "off",
@@ -51,6 +159,7 @@
     "max-len": "off",
     "newline-per-chained-call": ["warn", { "ignoreChainWithDepth": 5 }],
     "no-case-declarations": "warn",
+    "no-empty": "off",
     "no-mixed-spaces-and-tabs": ["warn", "smart-tabs"],
     "no-multi-spaces": [
       "warn",
@@ -92,16 +201,6 @@
     "prefer-template": "warn",
     "prefer-promise-reject-errors": "off",
     "quotes": ["warn", "single", "avoid-escape"],
-    "require-jsdoc": [
-      "off",
-      {
-        "require": {
-          "FunctionDeclaration": true,
-          "MethodDefinition": false,
-          "ClassDeclaration": false
-        }
-      }
-    ],
     "space-before-function-paren": [
       "warn",
       {
@@ -124,9 +223,16 @@
         ]
       }
     ],
-    "flowtype/require-parameter-type": ["warn", { "excludeArrowFunctions": true }],
-    "flowtype/require-return-type": ["warn", "always", { "excludeArrowFunctions": true }],
-    "flowtype/space-after-type-colon": ["error", "always"],
+    "import/extensions": [
+      "warn",
+      "never",
+      {
+        "json": "always"
+      }
+    ],
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
     "import/no-dynamic-require": "off",
     "import/no-extraneous-dependencies": [
       "error",
@@ -142,30 +248,32 @@
     "jsx-a11y/label-has-for": "off",
     "jsx-a11y/no-static-element-interactions": "off",
     "jsx-quotes": "warn",
+    "react/default-props-match-prop-types": "off",
     "react/forbid-prop-types": "off",
+    "react/function-component-definition": ["error", { "namedComponents": "function-declaration" }],
+    "react/jsx-boolean-value": "off",
     "react/jsx-closing-bracket-location": ["warn", "line-aligned"],
+    "react/jsx-filename-extension": "off",
     "react/jsx-first-prop-new-line": ["warn", "multiline"],
+    "react/jsx-fragments": ["error", "element"],
     "react/jsx-indent": ["warn", 2],
     "react/jsx-indent-props": ["warn", 2],
     "react/jsx-key": "warn",
+    "react/jsx-no-duplicate-props": "warn",
     "react/jsx-no-target-blank": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-pascal-case": "warn",
+    "react/jsx-props-no-spreading": "off",
     "react/no-array-index-key": "off",
     "react/no-danger": "off",
     "react/no-did-mount-set-state": "warn",
     "react/no-did-update-set-state": "warn",
-    "react/jsx-boolean-value": "off",
-    "react/jsx-no-duplicate-props": "warn",
-    "react/jsx-one-expression-per-line": "off",
-    "react/jsx-pascal-case": "warn",
-    "react/jsx-props-no-spreading": "off",
     "react/no-direct-mutation-state": "warn",
-    "react/no-unused-prop-types": "warn",
     "react/no-unused-state": "warn",
     "react/no-unescaped-entities": "off",
     "react/prefer-stateless-function": "off",
-    "react/prop-types": "error",
+    "react/prop-types": "off",
     "react/require-default-props": "off",
-    "react/sort-prop-types": "warn",
     "react/sort-comp": [
       "warn",
       {
@@ -200,8 +308,38 @@
         }
       }
     ],
+    "react/state-in-constructor": "off",
     "react/static-property-placement": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "redux-saga/no-yield-in-race": "error",
-    "redux-saga/yield-effects": "error"
+    "redux-saga/yield-effects": "error",
+    "simple-import-sort/exports": "error",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^\\u0000"], // Side effect imports
+          [
+            "^react$",
+            "^react-dom$",
+            "^react",
+            "^redux",
+            "^@?\\w"
+          ],
+          ["\\.s?css$"],
+          ["^modules"],
+          ["^config$", "^routes$"],
+          ["^actions", "^literals", "^reducers", "^sagas", "^store$"],
+          ["^routes/"],
+          ["^containers"],
+          ["^components"],
+          ["^types"],
+          ["^test"],
+          ["^\\./[^.]"], // './*'
+          ["^\\.\\./"] // '../*'
+        ]
+      }
+    ]
   }
 }

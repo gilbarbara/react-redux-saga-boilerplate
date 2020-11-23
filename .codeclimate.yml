@@ -28,6 +28,5 @@ exclude_patterns:
   - coverage/**/*
   - build/**/*
   - cypress/**/*
-  - documentation/**/*
   - node_modules/**/*
   - test/**/*

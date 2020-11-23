@@ -1,5 +1,3 @@
-/*eslint-disable no-console */
-
 // Do this as the first thing so that any code reading it knows the right env.
 process.env.BABEL_ENV = 'production';
 process.env.NODE_ENV = 'production';
@@ -16,17 +14,17 @@ require('../config/env');
 
 const path = require('path');
 const fs = require('fs-extra');
-const chalk = require('chalk');
+const chalk = require('react-dev-utils/chalk');
 const webpack = require('webpack');
 const bfj = require('bfj');
 const checkRequiredFiles = require('react-dev-utils/checkRequiredFiles');
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
 const printHostingInstructions = require('react-dev-utils/printHostingInstructions');
-const printBuildError = require('react-dev-utils/printBuildError');
 const {
   measureFileSizesBeforeBuild,
   printFileSizesAfterBuild,
 } = require('react-dev-utils/FileSizeReporter');
+const printBuildError = require('react-dev-utils/printBuildError');
 const { checkBrowsers } = require('react-dev-utils/browsersHelper');
 
 const configFactory = require('../config/webpack.config');
@@ -39,17 +37,14 @@ const WARN_AFTER_CHUNK_GZIP_SIZE = 1024 * 1024;
 const isInteractive = process.stdout.isTTY;
 
 // Warn and crash if required files are missing
-if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
+if (!checkRequiredFiles([paths.appHtml, paths.appIndex])) {
   process.exit(1);
 }
 
-// Process CLI arguments
 const argv = process.argv.slice(2);
 const writeStatsJson = argv.indexOf('--stats') !== -1;
 
-// We require that you explictly set browsers and do not fall back to
-// browserslist defaults.
-
+// Generate configuration
 const config = configFactory('production');
 
 // Create the production build and print the deployment instructions.
@@ -156,9 +151,19 @@ checkBrowsers(paths.appPath, isInteractive)
       printHostingInstructions(appPackage, publicUrl, publicPath, buildFolder);
     },
     err => {
-      console.log(chalk.red('Failed to compile.\n'));
-      printBuildError(err);
-      process.exit(1);
+      const tscCompileOnError = process.env.TSC_COMPILE_ON_ERROR === 'true';
+      if (tscCompileOnError) {
+        console.log(
+          chalk.yellow(
+            'Compiled with the following type errors (you may want to check these before deploying your app):\n',
+          ),
+        );
+        printBuildError(err);
+      } else {
+        console.log(chalk.red('Failed to compile.\n'));
+        printBuildError(err);
+        process.exit(1);
+      }
     },
   )
   .catch(err => {

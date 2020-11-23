@@ -1,8 +1,9 @@
 {
   "baseUrl": "http://localhost:3000",
-  "integrationFolder": "cypress/e2e",
-  "viewportHeight": 800,
-  "viewportWidth": 1280,
+  "chromeWebSecurity": false,
+  "integrationFolder": "cypress/integration",
+  "projectId": "up2gfx",
   "video": false,
-  "projectId": "up2gfx"
+  "viewportHeight": 800,
+  "viewportWidth": 1280
 }
