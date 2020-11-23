@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`index/app should have mounted the app 1`] = `
+<div>
+  <div data-testid="app"
+       class="AppWrapper-sc-11ytvmm-0 sDDFB"
+  >
+    <main class="Main-sc-11ytvmm-1 hpTlqE">
+      <div data-testid="Home"
+           class="Background-dd6dxc-0 dELMDG"
+      >
+        <div class="sc-jrAGrp bKiHOC">
+          <div class="Header-vz2az5-0 bQanNZ">
+            <div class="Wrapper-ckpwlu-0 ejrfTs">
+              <svg src="/media/brand/icon.svg">
+              </svg>
+            </div>
+          </div>
+          <h1 class="Heading-vz2az5-1 fKEaaT">
+            React Redux Saga Boilerplate
+          </h1>
+          <button data-testid="Login"
+                  type="button"
+                  class="sc-hKgILt dkfutT"
+          >
+            <svg src="/media/icons/sign-in.svg"
+                 width="20px"
+                 height="100%"
+                 class="IconWrapper-oqx6ge-0 bZoDVw"
+            >
+            </svg>
+            <span class="sc-kstrdz hvhPGr">
+              Start
+            </span>
+          </button>
+        </div>
+      </div>
+    </main>
+    <footer class="sc-bdfBwQ hVuCfA">
+      <div class="sc-jrAGrp JynLc">
+        <div class="sc-iqHYGH gSFlTb">
+          <iframe title="GitHub Stars"
+                  src="https://ghbtns.com/github-btn.html?user=gilbarbara&amp;repo=react-redux-saga-boilerplate&amp;type=star&amp;count=true"
+                  frameborder="0"
+                  scrolling="0"
+                  width="110px"
+                  height="20px"
+          >
+          </iframe>
+          <iframe title="GitHub Follow"
+                  src="https://ghbtns.com/github-btn.html?user=gilbarbara&amp;type=follow&amp;count=true"
+                  frameborder="0"
+                  scrolling="0"
+                  width="130px"
+                  height="20px"
+          >
+          </iframe>
+        </div>
+      </div>
+    </footer>
+    <div class="SystemAlertsWrapper-sc-1eg1hzx-5 lfPNKy">
+      <div class="Base-sc-1eg1hzx-0 TopLeft-sc-1eg1hzx-1 fkwoKt iqoDTS">
+        <div>
+        </div>
+      </div>
+      <div class="Base-sc-1eg1hzx-0 TopRight-sc-1eg1hzx-2 fkwoKt fuTXGi">
+        <div>
+        </div>
+      </div>
+      <div class="Base-sc-1eg1hzx-0 BottomLeft-sc-1eg1hzx-3 fkwoKt ifriRQ">
+        <div>
+        </div>
+      </div>
+      <div class="Base-sc-1eg1hzx-0 BottomRight-sc-1eg1hzx-4 fkwoKt hpcskY">
+        <div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

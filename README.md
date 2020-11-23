@@ -6,18 +6,18 @@
 
 ### Provides
 
-- react ^16.x
-- react-router 4.x
-- react-helmet 5.x
-- styled-components 4.x
+- react ^17.x
+- React-router-dom 5.x
+- react-helmet-async 1.x
+- styled-components 5.x
 - redux 4.x
-- redux-saga 0.16.x
-- redux-persist 5.x
+- redux-saga 1.x
+- redux-persist 6.x
 
 ### Development
 
 - webpack-dev-server 3.x
-- react-hot-loader 4.x
+- react-refresh 0.9
 - redux-devtools (with browser plugin)
 
 `npm start`
@@ -31,20 +31,20 @@
 
 ### Code Quality
 
-- eslint 5.x
-- stylelint 9.x
+- eslint 7.x
+- stylelint 13.x
 
 `npm run lint` / `npm run lint:styles`
 
 ### Unit Testing
 
-- jest 23.x
-- enzyme 3.x
+- jest 26.x
+- @testing-library/react 11.x
 
-`npm test`
+`npm test` / `npm run test:watch`
 
 ### End 2 End Testing
 
-- cypress 3.0.x
+- cypress 6.x
 
 `npm run test:e2e`

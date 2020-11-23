@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`store should be able to create a new store 1`] = `
+Object {
+  "_persist": Object {
+    "rehydrated": false,
+    "version": -1,
+  },
+  "app": Object {
+    "alerts": Array [],
+  },
+  "github": Object {
+    "query": "",
+    "topics": Object {},
+  },
+  "user": Object {
+    "isAuthenticated": false,
+    "status": "idle",
+  },
+}
+`;

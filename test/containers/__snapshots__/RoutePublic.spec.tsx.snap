@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RoutePublic should redirect to /private for authenticated access 1`] = `
+<div>
+  <div>
+    REDIRECT
+  </div>
+</div>
+`;
+
+exports[`RoutePublic should render the Login component for unauthenticated access 1`] = `
+<div>
+  <div>
+    LOGIN
+  </div>
+</div>
+`;
