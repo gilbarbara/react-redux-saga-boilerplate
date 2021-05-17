@@ -1,7 +1,7 @@
 {
   "name": "react-redux-saga-boilerplate",
   "description": "Boilerplate with React and Redux with Redux Saga",
-  "version": "2021.1.0",
+  "version": "2021.5.0",
   "author": "Gil Barbara <gilbarbara@gmail.com>",
   "repository": {
     "type": "git",
