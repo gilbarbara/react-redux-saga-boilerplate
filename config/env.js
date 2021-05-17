@@ -6,6 +6,7 @@ const paths = require('./paths');
 delete require.cache[require.resolve('./paths')];
 
 const { NODE_ENV = 'development' } = process.env;
+
 if (!NODE_ENV) {
   throw new Error('The NODE_ENV environment variable is required but was not specified.');
 }
@@ -46,6 +47,7 @@ dotenvFiles.forEach(dotenvFile => {
 // https://github.com/facebook/create-react-app/issues/1023#issuecomment-265344421
 // We also resolve them to make sure all tools using them work consistently.
 const appDirectory = fs.realpathSync(process.cwd());
+
 process.env.NODE_PATH = (process.env.NODE_PATH || '')
   .split(path.delimiter)
   .filter(folder => folder && !path.isAbsolute(folder))
@@ -61,7 +63,9 @@ function getClientEnvironment(publicUrl) {
     .filter(key => REACT_APP.test(key))
     .reduce(
       (env, key) => {
+        // eslint-disable-next-line no-param-reassign
         env[key] = process.env[key];
+
         return env;
       },
       {
@@ -91,7 +95,9 @@ function getClientEnvironment(publicUrl) {
   // Stringify all values so we can feed into webpack DefinePlugin
   const stringified = {
     'process.env': Object.keys(raw).reduce((env, key) => {
+      // eslint-disable-next-line no-param-reassign
       env[key] = JSON.stringify(raw[key]);
+
       return env;
     }, {}),
   };

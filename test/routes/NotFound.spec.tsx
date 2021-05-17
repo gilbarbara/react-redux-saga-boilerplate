@@ -18,6 +18,6 @@ describe('NotFound', () => {
 
     fireEvent.click(screen.getByRole('link'));
 
-    expect(location.pathname).toBe('/');
+    expect(window.location.pathname).toBe('/');
   });
 });

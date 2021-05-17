@@ -13,6 +13,7 @@ describe('ErrorHandler', () => {
 
   it('should handle the error', () => {
     const spy = jest.spyOn(console, 'error');
+
     spy.mockImplementation(() => undefined);
 
     render(

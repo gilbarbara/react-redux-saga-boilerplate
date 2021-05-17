@@ -2,7 +2,7 @@
 
 exports[`GlobalStyles should render properly 1`] = `
 <style data-styled="active"
-       data-styled-version="5.2.1"
+       data-styled-version="5.3.0"
 >
   *,*:before,*:after{box-sizing:border-box;}html{font-size:62.5%;-webkit-font-smoothing:antialiased;height:100%;}body{font-family:Lato,sans-serif;font-size:16px;margin:0;min-height:100vh;padding:0;}img{height:auto;max-width:100%;}a{color:#00b4d5;-webkit-text-decoration:none;text-decoration:none;}a.disabled{pointer-events:none;}button{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:transparent;border:0;cursor:pointer;display:inline-block;font-family:inherit;line-height:1;padding:0;}
 </style>

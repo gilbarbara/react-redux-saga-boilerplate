@@ -44,7 +44,7 @@ exports[`Root should render properly for anonymous users 1`] = `
   outline-color: #fff;
 }
 
-.c7 .sc-dlfnbm {
+.c7 .sc-dlnjwi {
   margin-left: 5px;
 }
 
@@ -106,28 +106,6 @@ exports[`Root should render properly for anonymous users 1`] = `
   margin-left: 8px;
 }
 
-.c2 {
-  background: #000 linear-gradient(to bottom,#00657e 0%,#002529 100%) fixed;
-  color: #fff;
-  min-height: 100vh;
-  overflow: hidden;
-  position: relative;
-}
-
-.c2:before {
-  background: linear-gradient(to bottom,#000,#fff);
-  bottom: 0;
-  content: '';
-  left: 0;
-  opacity: 0.4;
-  position: absolute;
-  right: 0;
-  top: 0;
-  -webkit-transform: rotate(-20deg) scale(2) translate(0,45%);
-  -ms-transform: rotate(-20deg) scale(2) translate(0,45%);
-  transform: rotate(-20deg) scale(2) translate(0,45%);
-}
-
 .c8 {
   display: inline-block;
   line-height: 0;
@@ -155,25 +133,6 @@ exports[`Root should render properly for anonymous users 1`] = `
   height: 4.2rem;
   max-height: 100%;
   width: auto;
-}
-
-.c4 {
-  margin-bottom: 16px;
-  text-align: center;
-}
-
-.c4 svg {
-  height: 10rem;
-  width: auto;
-}
-
-.c6 {
-  color: #fff;
-  font-size: 3.5rem;
-  line-height: 1.4;
-  margin-bottom: 16px;
-  margin-top: 0;
-  text-align: center;
 }
 
 .c14 {
@@ -215,6 +174,47 @@ exports[`Root should render properly for anonymous users 1`] = `
   z-index: 1000;
 }
 
+.c2 {
+  background: #000 linear-gradient(to bottom,#00657e 0%,#002529 100%) fixed;
+  color: #fff;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.c2:before {
+  background: linear-gradient(to bottom,#000,#fff);
+  bottom: 0;
+  content: '';
+  left: 0;
+  opacity: 0.4;
+  position: absolute;
+  right: 0;
+  top: 0;
+  -webkit-transform: rotate(-20deg) scale(2) translate(0,45%);
+  -ms-transform: rotate(-20deg) scale(2) translate(0,45%);
+  transform: rotate(-20deg) scale(2) translate(0,45%);
+}
+
+.c4 {
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.c4 svg {
+  height: 10rem;
+  width: auto;
+}
+
+.c6 {
+  color: #fff;
+  font-size: 3.5rem;
+  line-height: 1.4;
+  margin-bottom: 16px;
+  margin-top: 0;
+  text-align: center;
+}
+
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -249,18 +249,6 @@ exports[`Root should render properly for anonymous users 1`] = `
   }
 }
 
-@media screen and (min-width:1024px) {
-  .c4 svg {
-    height: 15rem;
-  }
-}
-
-@media screen and (min-width:1024px) {
-  .c6 {
-    font-size: 4rem;
-  }
-}
-
 @media screen and (min-width:768px) {
   .c15 {
     width: 32rem;
@@ -282,6 +270,18 @@ exports[`Root should render properly for anonymous users 1`] = `
 @media screen and (min-width:768px) {
   .c18 {
     width: 32rem;
+  }
+}
+
+@media screen and (min-width:1024px) {
+  .c4 svg {
+    height: 15rem;
+  }
+}
+
+@media screen and (min-width:1024px) {
+  .c6 {
+    font-size: 4rem;
   }
 }
 
@@ -515,6 +515,71 @@ exports[`Root should render properly for logged users 1`] = `
   width: auto;
 }
 
+.c1 {
+  background-color: #113740;
+  height: 70px;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 200;
+}
+
+.c1:before {
+  background-color: #00b4d5;
+  bottom: 0;
+  content: '';
+  height: 0.2rem;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+
+.c3 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  height: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  padding-top: 8px;
+}
+
+.c5 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.3rem;
+  padding: 8px;
+}
+
+.c5.active {
+  color: #fff;
+}
+
+.c5 span {
+  display: inline-block;
+  margin-right: 0.4rem;
+  text-transform: uppercase;
+}
+
 .c19 {
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
@@ -626,71 +691,6 @@ exports[`Root should render properly for logged users 1`] = `
   z-index: 1000;
 }
 
-.c1 {
-  background-color: #113740;
-  height: 70px;
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 200;
-}
-
-.c1:before {
-  background-color: #00b4d5;
-  bottom: 0;
-  content: '';
-  height: 0.2rem;
-  left: 0;
-  position: absolute;
-  right: 0;
-}
-
-.c3 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  height: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding-bottom: 8px;
-  padding-top: 8px;
-}
-
-.c5 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  color: #fff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 1.3rem;
-  padding: 8px;
-}
-
-.c5.active {
-  color: #fff;
-}
-
-.c5 span {
-  display: inline-block;
-  margin-right: 0.4rem;
-  text-transform: uppercase;
-}
-
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -725,6 +725,12 @@ exports[`Root should render properly for logged users 1`] = `
   }
 }
 
+@media screen and (min-width:1024px) {
+  .c5 {
+    font-size: 1.6rem;
+  }
+}
+
 @media screen and (min-width:768px) {
   .c13 {
     width: 32rem;
@@ -746,12 +752,6 @@ exports[`Root should render properly for logged users 1`] = `
 @media screen and (min-width:768px) {
   .c16 {
     width: 32rem;
-  }
-}
-
-@media screen and (min-width:1024px) {
-  .c5 {
-    font-size: 1.6rem;
   }
 }
 

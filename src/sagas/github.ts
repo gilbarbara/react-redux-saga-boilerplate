@@ -3,10 +3,10 @@
  * @desc GitHub
  */
 
+import { now, request } from '@gilbarbara/helpers';
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 
-import { request } from 'modules/client';
-import { getUnixtime, hasValidCache } from 'modules/helpers';
+import { hasValidCache } from 'modules/helpers';
 
 import { ActionTypes } from 'literals';
 
@@ -36,7 +36,7 @@ export function* getRepos({ payload }: StoreAction) {
     yield put({
       type: ActionTypes.GITHUB_GET_REPOS_SUCCESS,
       payload: items || data,
-      meta: { cached: hasCache, query, updatedAt: getUnixtime() },
+      meta: { cached: hasCache, query, updatedAt: now() },
     });
   } catch (err) {
     yield put({

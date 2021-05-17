@@ -1,27 +1,22 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Middleware, Store } from 'redux';
-import { render, RenderResult } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import deepmerge from 'deepmerge';
+import { Middleware } from 'redux';
+import { configStore } from 'store';
 import { PartialDeep } from 'type-fest';
 
 import { initialState } from 'reducers';
-import { configStore } from 'store';
 
 import { StoreState } from 'types';
 
 type NavigateOptions = {
+  hash?: string;
   pathname?: string;
   search?: string;
-  hash?: string;
 };
 
-function customRender(
-  ui: React.ReactElement,
-  options: Record<string, any> = {},
-): RenderResult & {
-  store: Store<StoreState>;
-} {
+function customRender(ui: React.ReactElement, options: Record<string, any> = {}) {
   const { actions = [], mockDispatch, ...rest } = options;
 
   const middleware: Middleware[] = [];
@@ -35,6 +30,7 @@ function customRender(
       next(action);
     });
   }
+
   const { store } = configStore({}, middleware);
 
   actions.forEach(d => store.dispatch(d));
@@ -52,6 +48,8 @@ function customRender(
 export const emptyAction = { type: '', payload: {} };
 
 export function navigate(options: NavigateOptions): void {
+  const { location } = window;
+
   const { pathname = location.pathname, search, hash } = options;
   let url = `${location.protocol}//${location.host}${pathname}`;
 

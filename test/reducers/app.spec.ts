@@ -1,5 +1,6 @@
-import { hideAlert, showAlert } from 'actions/app';
 import { ActionTypes } from 'literals';
+
+import { hideAlert, showAlert } from 'actions/app';
 import reducer from 'reducers/app';
 
 import { emptyAction } from 'test-utils';

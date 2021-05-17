@@ -6,14 +6,14 @@ import { navigate } from 'test-utils';
 export { matchPath, MemoryRouter, Route, Router, Switch };
 
 export function Link(props) {
-  const { to, children, onClick, style, className, ...rest } = props;
+  const { children, className, onClick, style, to, ...rest } = props;
+
   delete rest.exact;
 
   return (
     <a
-      href={to.pathname || to}
       className={className}
-      style={style}
+      href={to.pathname || to}
       onClick={e => {
         e.preventDefault();
         const [pathname, search] = (e.currentTarget.getAttribute('href') || '').split('?');
@@ -24,6 +24,7 @@ export function Link(props) {
           onClick(e);
         }
       }}
+      style={style}
       {...rest}
     >
       {children}
@@ -33,12 +34,12 @@ export function Link(props) {
 
 export function NavLink(props) {
   const {
-    to,
-    style,
+    activeClassName,
     activeStyle,
     className,
-    activeClassName,
     isActive: getIsActive,
+    style,
+    to,
     ...rest
   } = props;
   let match;
@@ -51,9 +52,9 @@ export function NavLink(props) {
 
   return (
     <Link
-      to={to}
       className={isActive ? [activeClassName, className].join(' ') : className}
       style={isActive ? { ...style, ...activeStyle } : style}
+      to={to}
       {...rest}
     />
   );

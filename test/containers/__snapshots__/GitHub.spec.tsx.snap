@@ -38,7 +38,7 @@ exports[`GitHub should render a loader and dispatch the action 1`] = `
   outline-color: #4e4141;
 }
 
-.c3 .sc-dlfnbm {
+.c3 .sc-dlnjwi {
   margin-left: 5px;
 }
 
@@ -86,7 +86,7 @@ exports[`GitHub should render a loader and dispatch the action 1`] = `
   outline-color: #4e4141;
 }
 
-.c2 .sc-dlfnbm {
+.c2 .sc-dlnjwi {
   margin-left: 5px;
 }
 
@@ -204,48 +204,48 @@ exports[`GitHub should render a message if there's no data 1`] = `
 `;
 
 exports[`GitHub should render the repos 1`] = `
-<div width="[object Object]"
-     data-testid="GitHubGrid"
+<div data-testid="GitHubGrid"
      data-topic="react"
-     class="sc-bkzZxe hCRExp"
+     width="[object Object]"
+     class="sc-bkbkJK dTsyls"
 >
   <a href="https://github.com/freeCodeCamp/freeCodeCamp"
      target="_blank"
-     class="sc-cxFLnm fzApH Item-jn8jzz-0 glNZp"
+     class="sc-cxNHIi VZZdw Item-jn8jzz-0 fClvZV"
   >
-    <img src="https://avatars0.githubusercontent.com/u/9892522?v=4"
-         alt="freeCodeCamp"
-         class="sc-hHftDr kbLFNX"
+    <img alt="freeCodeCamp"
+         src="https://avatars0.githubusercontent.com/u/9892522?v=4"
+         class="sc-hHEiqL iKjVWO"
     >
-    <div class="ItemHeader-jn8jzz-1 fVHzPK">
-      <h5 class="sc-dIUggk ehlbcj">
+    <div class="ItemHeader-jn8jzz-1 gnDUVC">
+      <h5 class="sc-dIvrsQ jPhMuj">
         freeCodeCamp
       </h5>
       <small>
         freeCodeCamp
       </small>
     </div>
-    <p class="sc-giIncl dPrGcf">
+    <p class="sc-giAqHp huEiYf">
       freeCodeCamp.org's open source codebase and curriculum. Learn to code at home.
     </p>
   </a>
   <a href="https://github.com/facebook/react"
      target="_blank"
-     class="sc-cxFLnm fzApH Item-jn8jzz-0 glNZp"
+     class="sc-cxNHIi VZZdw Item-jn8jzz-0 fClvZV"
   >
-    <img src="https://avatars3.githubusercontent.com/u/69631?v=4"
-         alt="facebook"
-         class="sc-hHftDr kbLFNX"
+    <img alt="facebook"
+         src="https://avatars3.githubusercontent.com/u/69631?v=4"
+         class="sc-hHEiqL iKjVWO"
     >
-    <div class="ItemHeader-jn8jzz-1 fVHzPK">
-      <h5 class="sc-dIUggk ehlbcj">
+    <div class="ItemHeader-jn8jzz-1 gnDUVC">
+      <h5 class="sc-dIvrsQ jPhMuj">
         react
       </h5>
       <small>
         facebook
       </small>
     </div>
-    <p class="sc-giIncl dPrGcf">
+    <p class="sc-giAqHp huEiYf">
       A declarative, efficient, and flexible JavaScript library for building user interfaces.
     </p>
   </a>

@@ -18,7 +18,7 @@ function Reload() {
       <Heading as="h6" mb={3}>
         There's a new version of this app!
       </Heading>
-      <Button variant="dark" invert size="sm" onClick={handleClick}>
+      <Button invert onClick={handleClick} size="sm" variant="dark">
         Reload
       </Button>
     </ReloadWrapper>

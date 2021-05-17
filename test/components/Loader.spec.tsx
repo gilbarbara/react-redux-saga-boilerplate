@@ -27,7 +27,7 @@ describe('Loader', () => {
     });
 
     it('should render properly with options', () => {
-      render(<Loader type="pulse" block />);
+      render(<Loader block type="pulse" />);
 
       expect(screen.getByTestId('Loader')).toMatchSnapshot();
     });
@@ -41,7 +41,7 @@ describe('Loader', () => {
     });
 
     it('should render properly with options', () => {
-      render(<Loader type="rotate" block />);
+      render(<Loader block type="rotate" />);
 
       expect(screen.getByTestId('Loader')).toMatchSnapshot();
     });

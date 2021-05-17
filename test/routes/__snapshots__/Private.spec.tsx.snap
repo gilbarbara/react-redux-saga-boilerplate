@@ -7,8 +7,8 @@ exports[`Private should render properly 1`] = `
 
 .c7 {
   box-sizing: border-box;
-  text-align: center;
   margin-bottom: 32px;
+  text-align: center;
 }
 
 .c13 {
@@ -48,7 +48,7 @@ exports[`Private should render properly 1`] = `
   outline-color: #4e4141;
 }
 
-.c13 .sc-dlfnbm {
+.c13 .sc-dlnjwi {
   margin-left: 5px;
 }
 
@@ -96,7 +96,7 @@ exports[`Private should render properly 1`] = `
   outline-color: #4e4141;
 }
 
-.c12 .sc-dlfnbm {
+.c12 .sc-dlnjwi {
   margin-left: 5px;
 }
 

@@ -145,7 +145,7 @@ const Loader = (props: Props) => {
     output = (
       <LoaderRotate {...props} data-testid="Loader">
         <LoaderRotateSVG {...props}>
-          <LoaderRotateCircle {...props} cx="50" cy="50" r="20" fill="none" strokeWidth={2} />
+          <LoaderRotateCircle {...props} cx="50" cy="50" fill="none" r="20" strokeWidth={2} />
         </LoaderRotateSVG>
       </LoaderRotate>
     );

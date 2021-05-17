@@ -6,6 +6,7 @@ import { fireEvent, render, screen } from 'test-utils';
 
 describe('Reload', () => {
   const { location } = window;
+
   beforeAll(() => {
     // @ts-ignore
     delete window.location;

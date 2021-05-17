@@ -45,8 +45,8 @@ export default class ErrorHandler extends React.Component<Props, State> {
     const message = error.toString();
 
     return (
-      <Container bg="#000" cl="#fff" fullScreen textAlign="center" data-testid="ErrorHandler">
-        <Image src={`${process.env.PUBLIC_URL}/media/images/error.gif`} alt="Error" width={128} />
+      <Container bg="#000" cl="#fff" data-testid="ErrorHandler" fullScreen textAlign="center">
+        <Image alt="Error" src={`${process.env.PUBLIC_URL}/media/images/error.gif`} width={128} />
         <Heading as="h3" my={3}>
           {message}
         </Heading>

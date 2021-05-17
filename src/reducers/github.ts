@@ -1,4 +1,3 @@
-import { parseError } from 'modules/client';
 import { createReducer } from 'modules/helpers';
 
 import { ActionTypes, STATUS } from 'literals';
@@ -23,6 +22,7 @@ export default {
     {
       [ActionTypes.GITHUB_GET_REPOS_REQUEST]: (draft, { payload }) => {
         const { query } = payload;
+
         draft.query = query;
 
         draft.topics[query] = draft.topics[query] || { ...topic };
@@ -45,7 +45,7 @@ export default {
 
         draft.topics[query] = draft.topics[query] || { ...topic };
 
-        draft.topics[query].message = parseError(payload);
+        draft.topics[query].message = payload;
         draft.topics[query].status = STATUS.ERROR;
         draft.topics[query].updatedAt = 0;
       },

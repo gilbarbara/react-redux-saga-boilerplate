@@ -26,8 +26,8 @@ export interface AppState {
 }
 
 export interface GitHubState {
-  topics: Record<string, Topic>;
   query: string;
+  topics: Record<string, Topic>;
 }
 
 export interface UserState {

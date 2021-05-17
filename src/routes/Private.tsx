@@ -27,7 +27,7 @@ function Private() {
             </Link>
           </Paragraph>
         </Header>
-        <Box textAlign="center" mb={4}>
+        <Box mb={4} textAlign="center">
           <Heading as="h5">Here's some GitHub data</Heading>
           <Text fontSize={1}>
             <i>*Just to have some requests in the sagas...</i>

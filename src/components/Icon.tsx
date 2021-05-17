@@ -24,9 +24,9 @@ const IconWrapper = styled(SVG)`
 function Icon({ name, width = 20 }: Props) {
   return (
     <IconWrapper
+      height="100%"
       src={`${process.env.PUBLIC_URL}/media/icons/${name}.svg`}
       width={px(width)}
-      height="100%"
     />
   );
 }

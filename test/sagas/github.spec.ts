@@ -1,6 +1,7 @@
 import { expectSaga } from 'redux-saga-test-plan';
 
 import { ActionTypes } from 'literals';
+
 import githubReducer from 'reducers/github';
 import github, { getRepos } from 'sagas/github';
 

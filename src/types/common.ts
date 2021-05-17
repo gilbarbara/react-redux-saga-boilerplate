@@ -34,13 +34,6 @@ export type Icons =
   | 'times-circle'
   | 'times';
 
-export interface LoggerOptions {
-  collapsed?: boolean;
-  hideTimestamp?: boolean;
-  skip?: boolean;
-  typeColor?: string;
-}
-
 export type PlainObject<T = any> = Record<string, T>;
 
 export interface RouteProps {
@@ -49,11 +42,6 @@ export interface RouteProps {
   isAuthenticated: boolean;
   path: string;
   to?: string;
-}
-
-export interface SortFunction {
-  (left: PlainObject, right: PlainObject): number;
-  (left: string, right: string): number;
 }
 
 export interface Status {
@@ -65,10 +53,10 @@ export interface Status {
 }
 
 export interface StoreAction<T = any> {
-  type: string;
-  payload?: T;
-  meta?: PlainObject;
   error?: boolean;
+  meta?: PlainObject;
+  payload?: T;
+  type: string;
 }
 
 export interface ShowAlertOptions {

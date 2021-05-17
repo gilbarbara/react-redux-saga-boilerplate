@@ -36,7 +36,7 @@ const AlertButton = styled.button`
   top: ${spacer(1)};
 `;
 
-function Alert({ children, handleClickClose, id, icon, variant = 'gray', ...rest }: Props) {
+function Alert({ children, handleClickClose, icon, id, variant = 'gray', ...rest }: Props) {
   const output: Record<string, any> = {};
   let name: Icons;
 

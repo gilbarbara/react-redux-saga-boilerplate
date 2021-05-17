@@ -1,4 +1,5 @@
 import { ActionTypes } from 'literals';
+
 import reducer from 'reducers/user';
 
 import { emptyAction } from 'test-utils';

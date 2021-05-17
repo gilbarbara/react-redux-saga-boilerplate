@@ -5,7 +5,7 @@ import { ActionTypes } from 'literals';
 import GitHub from 'containers/GitHub';
 
 import githubRepos from 'test/__fixtures__/github-repos.json';
-import { fireEvent, render, waitFor } from 'test-utils';
+import { fireEvent, render, screen, waitFor } from 'test-utils';
 
 const mockDispatch = jest.fn();
 
@@ -28,8 +28,8 @@ describe('GitHub', () => {
   it('should render the repos', async () => {
     fetchMock.mockResponse(JSON.stringify({ items: githubRepos.items.slice(0, 2) }));
 
-    const { findByTestId } = render(<GitHub />);
-    const repos = await findByTestId('GitHubGrid');
+    render(<GitHub />);
+    const repos = await screen.findByTestId('GitHubGrid');
 
     expect(repos.outerHTML).toMatchSnapshot();
   });
@@ -37,18 +37,18 @@ describe('GitHub', () => {
   it("should render a message if there's no data", async () => {
     fetchMock.mockResponse(JSON.stringify({ items: [] }));
 
-    const { findByText } = render(<GitHub />);
+    render(<GitHub />);
 
-    const repos = await findByText('Nothing found');
+    const repos = await screen.findByText('Nothing found');
 
     expect(repos).toMatchSnapshot();
   });
 
   it('should dispatch an action when click selector button', async () => {
     fetchMock.mockResponse(JSON.stringify({ items: [] }));
-    const { getByRole } = render(<GitHub />, { mockDispatch });
+    render(<GitHub />, { mockDispatch });
 
-    fireEvent.click(getByRole('button', { name: 'Redux' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Redux' }));
 
     expect(mockDispatch).toHaveBeenCalledWith({
       type: 'GITHUB_GET_REPOS_REQUEST',

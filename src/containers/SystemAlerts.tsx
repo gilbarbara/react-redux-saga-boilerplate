@@ -133,9 +133,9 @@ export default function SystemAlerts() {
       return items.map(d => (
         <Alert
           key={d.id}
-          id={d.id}
-          icon={d.icon}
           handleClickClose={handleClick}
+          icon={d.icon}
+          id={d.id}
           variant={d.variant}
         >
           {d.message}

@@ -14,16 +14,14 @@ import config from 'config';
 
 import { showAlert } from 'actions';
 
-import Home from 'routes/Home';
-import NotFound from 'routes/NotFound';
-import Private from 'routes/Private';
-
+import Footer from 'components/Footer';
+import Header from 'components/Header';
 import RoutePrivate from 'containers/RoutePrivate';
 import RoutePublic from 'containers/RoutePublic';
 import SystemAlerts from 'containers/SystemAlerts';
-
-import Footer from 'components/Footer';
-import Header from 'components/Header';
+import Home from 'routes/Home';
+import NotFound from 'routes/NotFound';
+import Private from 'routes/Private';
 
 import { StoreState, UserState } from 'types';
 
@@ -57,12 +55,12 @@ function Root() {
       <ThemeProvider theme={theme}>
         <AppWrapper data-testid="app">
           <Helmet
-            defer={false}
-            htmlAttributes={{ lang: 'pt-br' }}
-            encodeSpecialCharacters={true}
             defaultTitle={config.name}
-            titleTemplate={`%s | ${config.name}`}
+            defer={false}
+            encodeSpecialCharacters
+            htmlAttributes={{ lang: 'pt-br' }}
             titleAttributes={{ itemprop: 'name', lang: 'pt-br' }}
+            titleTemplate={`%s | ${config.name}`}
           >
             <link
               href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
@@ -73,13 +71,13 @@ function Root() {
           <Main isAuthenticated={isAuthenticated}>
             <Switch>
               <RoutePublic
+                component={Home}
+                exact
                 isAuthenticated={isAuthenticated}
                 path="/"
-                exact
                 to="/private"
-                component={Home}
               />
-              <RoutePrivate isAuthenticated={isAuthenticated} path="/private" component={Private} />
+              <RoutePrivate component={Private} isAuthenticated={isAuthenticated} path="/private" />
               <Route component={NotFound} />
             </Switch>
           </Main>

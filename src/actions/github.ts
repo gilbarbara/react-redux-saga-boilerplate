@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 /**
  * @module Actions/User
  * @desc User Actions

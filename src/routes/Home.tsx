@@ -6,9 +6,9 @@ import { Button, Container, responsive, Text } from 'styled-minimal';
 import { spacer } from 'modules/theme';
 
 import config from 'config';
+import { STATUS } from 'literals';
 
 import { login } from 'actions';
-import { STATUS } from 'literals';
 
 import Background from 'components/Background';
 import Icon from 'components/Icon';
@@ -67,12 +67,12 @@ function Home() {
         </Header>
         <Heading>{config.name}</Heading>
         <Button
-          variant="white"
           busy={status === STATUS.RUNNING}
+          data-testid="Login"
           onClick={handleClickLogin}
           size="xl"
           textTransform="uppercase"
-          data-testid="Login"
+          variant="white"
         >
           <Icon name="sign-in" />
           <Text ml={2}>Start</Text>

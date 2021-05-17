@@ -1,4 +1,4 @@
-import { keyMirror } from 'modules/helpers';
+import { keyMirror } from '@gilbarbara/helpers';
 
 import { Status } from 'types';
 

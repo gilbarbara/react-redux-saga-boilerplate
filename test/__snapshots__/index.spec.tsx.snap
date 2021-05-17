@@ -3,75 +3,75 @@
 exports[`index/app should have mounted the app 1`] = `
 <div>
   <div data-testid="app"
-       class="AppWrapper-sc-11ytvmm-0 sDDFB"
+       class="AppWrapper-sc-11ytvmm-0 fBzUHJ"
   >
-    <main class="Main-sc-11ytvmm-1 hpTlqE">
+    <main class="Main-sc-11ytvmm-1 kONFGE">
       <div data-testid="Home"
-           class="Background-dd6dxc-0 dELMDG"
+           class="Background-dd6dxc-0 hdGgTG"
       >
-        <div class="sc-jrAGrp bKiHOC">
-          <div class="Header-vz2az5-0 bQanNZ">
-            <div class="Wrapper-ckpwlu-0 ejrfTs">
+        <div class="sc-jrsJWt ksZcRw">
+          <div class="Header-vz2az5-0 bfCkCF">
+            <div class="Wrapper-ckpwlu-0 kQwYGM">
               <svg src="/media/brand/icon.svg">
               </svg>
             </div>
           </div>
-          <h1 class="Heading-vz2az5-1 fKEaaT">
+          <h1 class="Heading-vz2az5-1 iUMFxr">
             React Redux Saga Boilerplate
           </h1>
           <button data-testid="Login"
                   type="button"
-                  class="sc-hKgILt dkfutT"
+                  class="sc-hKFxyN dCNtMJ"
           >
-            <svg src="/media/icons/sign-in.svg"
+            <svg height="100%"
+                 src="/media/icons/sign-in.svg"
                  width="20px"
-                 height="100%"
-                 class="IconWrapper-oqx6ge-0 bZoDVw"
+                 class="IconWrapper-oqx6ge-0 irLJro"
             >
             </svg>
-            <span class="sc-kstrdz hvhPGr">
+            <span class="sc-ksluID ihgDFX">
               Start
             </span>
           </button>
         </div>
       </div>
     </main>
-    <footer class="sc-bdfBwQ hVuCfA">
-      <div class="sc-jrAGrp JynLc">
-        <div class="sc-iqHYGH gSFlTb">
-          <iframe title="GitHub Stars"
-                  src="https://ghbtns.com/github-btn.html?user=gilbarbara&amp;repo=react-redux-saga-boilerplate&amp;type=star&amp;count=true"
-                  frameborder="0"
-                  scrolling="0"
-                  width="110px"
+    <footer class="sc-bdnxRM eMiFrX">
+      <div class="sc-jrsJWt hbVsEW">
+        <div class="sc-iqAclL iDusPv">
+          <iframe frameborder="0"
                   height="20px"
+                  scrolling="0"
+                  src="https://ghbtns.com/github-btn.html?user=gilbarbara&amp;repo=react-redux-saga-boilerplate&amp;type=star&amp;count=true"
+                  title="GitHub Stars"
+                  width="110px"
           >
           </iframe>
-          <iframe title="GitHub Follow"
-                  src="https://ghbtns.com/github-btn.html?user=gilbarbara&amp;type=follow&amp;count=true"
-                  frameborder="0"
-                  scrolling="0"
-                  width="130px"
+          <iframe frameborder="0"
                   height="20px"
+                  scrolling="0"
+                  src="https://ghbtns.com/github-btn.html?user=gilbarbara&amp;type=follow&amp;count=true"
+                  title="GitHub Follow"
+                  width="130px"
           >
           </iframe>
         </div>
       </div>
     </footer>
-    <div class="SystemAlertsWrapper-sc-1eg1hzx-5 lfPNKy">
-      <div class="Base-sc-1eg1hzx-0 TopLeft-sc-1eg1hzx-1 fkwoKt iqoDTS">
+    <div class="SystemAlertsWrapper-sc-1eg1hzx-5 beGXka">
+      <div class="Base-sc-1eg1hzx-0 TopLeft-sc-1eg1hzx-1 jElLEB lbzRu">
         <div>
         </div>
       </div>
-      <div class="Base-sc-1eg1hzx-0 TopRight-sc-1eg1hzx-2 fkwoKt fuTXGi">
+      <div class="Base-sc-1eg1hzx-0 TopRight-sc-1eg1hzx-2 jElLEB jjENDe">
         <div>
         </div>
       </div>
-      <div class="Base-sc-1eg1hzx-0 BottomLeft-sc-1eg1hzx-3 fkwoKt ifriRQ">
+      <div class="Base-sc-1eg1hzx-0 BottomLeft-sc-1eg1hzx-3 jElLEB euXyyg">
         <div>
         </div>
       </div>
-      <div class="Base-sc-1eg1hzx-0 BottomRight-sc-1eg1hzx-4 fkwoKt hpcskY">
+      <div class="Base-sc-1eg1hzx-0 BottomRight-sc-1eg1hzx-4 jElLEB jygNZo">
         <div>
         </div>
       </div>

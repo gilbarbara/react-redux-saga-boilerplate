@@ -17,8 +17,9 @@ import {
 import { useShallowEqualSelector } from 'modules/hooks';
 import theme, { appColor, spacer } from 'modules/theme';
 
-import { getRepos, showAlert } from 'actions';
 import { STATUS } from 'literals';
+
+import { getRepos, showAlert } from 'actions';
 
 import Loader from 'components/Loader';
 
@@ -79,7 +80,7 @@ function GitHub() {
     if (previousStatus !== status && status === STATUS.ERROR) {
       dispatch(showAlert(message, { variant: 'danger' }));
     }
-  }, [message, previousStatus, status]);
+  }, [dispatch, message, previousStatus, status]);
 
   const handleClick = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -97,6 +98,8 @@ function GitHub() {
     if (data.length) {
       output = (
         <Grid
+          data-testid="GitHubGrid"
+          data-topic={query}
           gridGap={{
             _: spacer(2),
             sm: spacer(3),
@@ -115,12 +118,10 @@ function GitHub() {
             _: '100%',
             sm: '90%',
           }}
-          data-testid="GitHubGrid"
-          data-topic={query}
         >
           {data.map((d: Record<string, any>) => (
             <Item key={d.id} href={d.html_url} target="_blank">
-              <Image src={d.owner.avatar_url} alt={d.owner.login} />
+              <Image alt={d.owner.login} src={d.owner.avatar_url} />
               <ItemHeader>
                 <Heading as="h5" h={100} lineHeight={1}>
                   {d.name}
@@ -142,7 +143,7 @@ function GitHub() {
   return (
     <div key="GitHub" data-testid="GitHubWrapper">
       <Flex justifyContent="center">
-        <ButtonGroup role="group" aria-label="GitHub Selector" data-testid="GitHubSelector">
+        <ButtonGroup aria-label="GitHub Selector" data-testid="GitHubSelector" role="group">
           <Button
             busy={query === 'react' && isRunning}
             data-topic="react"

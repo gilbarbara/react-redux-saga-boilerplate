@@ -1,5 +1,6 @@
-import { getRepos } from 'actions';
 import { ActionTypes } from 'literals';
+
+import { getRepos } from 'actions';
 import reducer from 'reducers/github';
 
 import { emptyAction } from 'test-utils';

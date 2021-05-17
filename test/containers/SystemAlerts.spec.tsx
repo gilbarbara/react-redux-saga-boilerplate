@@ -1,8 +1,9 @@
 import React from 'react';
 import { config } from 'react-transition-group';
 
-import { showAlert } from 'actions';
 import { ActionTypes } from 'literals';
+
+import { showAlert } from 'actions';
 
 import SystemAlerts from 'containers/SystemAlerts';
 
@@ -26,7 +27,7 @@ describe('SystemAlerts', () => {
   });
 
   it('should render an alert and hide itself after the timeout', async () => {
-    const { queryByRole } = render(<SystemAlerts />, {
+    render(<SystemAlerts />, {
       actions: [
         showAlert('Hello World', {
           position: 'top-left',
@@ -36,7 +37,7 @@ describe('SystemAlerts', () => {
       mockDispatch,
     });
 
-    expect(queryByRole('alert')).toBeInTheDocument();
+    expect(screen.queryByRole('alert')).toBeInTheDocument();
 
     jest.runOnlyPendingTimers();
 
@@ -45,7 +46,7 @@ describe('SystemAlerts', () => {
       payload: { id: 'ABCDEF' },
     });
 
-    expect(queryByRole('alert')).not.toBeInTheDocument();
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
   });
 
   it('should render an alert without timeout and close it', () => {

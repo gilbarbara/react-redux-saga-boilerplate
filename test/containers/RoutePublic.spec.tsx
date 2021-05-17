@@ -10,10 +10,10 @@ describe('RoutePublic', () => {
     const { container } = render(
       <Router initialEntries={['/login']}>
         <RoutePublic
-          exact
-          path="/login"
           component={() => <div>LOGIN</div>}
+          exact
           isAuthenticated={false}
+          path="/login"
         />
       </Router>,
     );
@@ -24,12 +24,7 @@ describe('RoutePublic', () => {
   it('should redirect to /private for authenticated access', () => {
     const { container } = render(
       <Router initialEntries={['/login']}>
-        <RoutePublic
-          exact
-          path="/login"
-          component={() => <div>LOGIN</div>}
-          isAuthenticated={true}
-        />
+        <RoutePublic component={() => <div>LOGIN</div>} exact isAuthenticated path="/login" />
       </Router>,
     );
 

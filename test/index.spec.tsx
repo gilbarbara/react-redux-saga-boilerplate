@@ -19,6 +19,7 @@ describe('index/app', () => {
   beforeAll(() => {
     process.env.NODE_ENV = 'production';
     const root = document.createElement('div');
+
     root.id = 'root';
     root.style.height = '100vh';
     document.body.appendChild(root);

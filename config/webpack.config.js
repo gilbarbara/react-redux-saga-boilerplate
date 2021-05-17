@@ -1,4 +1,3 @@
-/*eslint-disable no-console */
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
@@ -171,9 +170,6 @@ module.exports = webpackEnv => {
       devtoolModuleFilenameTemplate: isEnvProduction
         ? info => path.relative(paths.appSrc, info.absoluteResourcePath).replace(/\\/g, '/')
         : info => path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
-      // Prevents conflicts when multiple webpack runtimes (from different apps)
-      // are used on the same page.
-      jsonpFunction: `webpackJsonp${NPMPackage.name}`,
       // this defaults to 'window', but by setting it to 'this' then
       // module chunks which are built will work in web workers as well.
       globalObject: 'this',
@@ -351,11 +347,11 @@ module.exports = webpackEnv => {
               use: [
                 {
                   loader: 'file-loader',
-                  query: { name: 'static/[name].[ext]' },
+                  options: { name: 'static/[name].[ext]' },
                 },
                 {
                   loader: 'image-webpack-loader',
-                  query: {
+                  options: {
                     optipng: {
                       optimizationLevel: 5,
                     },
@@ -477,7 +473,9 @@ module.exports = webpackEnv => {
         publicPath: paths.publicUrlOrPath,
         generate: (seed, files, entrypoints) => {
           const manifestFiles = files.reduce((manifest, file) => {
+            // eslint-disable-next-line no-param-reassign
             manifest[file.name] = file.path;
+
             return manifest;
           }, seed);
           const entrypointFiles = entrypoints.main.filter(fileName => !fileName.endsWith('.map'));
@@ -523,18 +521,6 @@ module.exports = webpackEnv => {
         formatter: isEnvProduction ? typescriptFormatter : undefined,
       }),
     ].filter(Boolean),
-    // Some libraries import Node modules but don't use them in the browser.
-    // Tell Webpack to provide empty mocks for them so importing them works.
-    node: {
-      module: 'empty',
-      dgram: 'empty',
-      dns: 'mock',
-      fs: 'empty',
-      http2: 'empty',
-      net: 'empty',
-      tls: 'empty',
-      child_process: 'empty',
-    },
     // Turn off performance processing because we utilize
     // our own hints via the FileSizeReporter
     performance: false,

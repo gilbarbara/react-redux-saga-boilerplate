@@ -10,10 +10,10 @@ describe('RoutePrivate', () => {
     const { container } = render(
       <Router initialEntries={['/private']}>
         <RoutePrivate
-          exact
-          path="/private"
           component={() => <div>PRIVATE</div>}
+          exact
           isAuthenticated={false}
+          path="/private"
         />
       </Router>,
     );
@@ -24,12 +24,7 @@ describe('RoutePrivate', () => {
   it('should allow navigation for authenticated access', () => {
     const { container } = render(
       <Router initialEntries={['/private']}>
-        <RoutePrivate
-          exact
-          path="/private"
-          component={() => <div>PRIVATE</div>}
-          isAuthenticated={true}
-        />
+        <RoutePrivate component={() => <div>PRIVATE</div>} exact isAuthenticated path="/private" />
       </Router>,
     );
 

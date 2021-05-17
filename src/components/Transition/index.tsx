@@ -20,7 +20,8 @@ function Transition({ children, className, style, transition, ...rest }: Props) 
   const Component = transitions[transition];
 
   if (!Component) {
-    console.error(`Invalid transition: ${transition}`); //eslint-disable-line no-console
+    console.error(`Invalid transition: ${transition}`); // eslint-disable-line no-console
+
     return null;
   }
 
