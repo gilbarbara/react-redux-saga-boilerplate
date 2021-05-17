@@ -1,20 +1,10 @@
 {
   "extends": [
-    "airbnb",
-    "plugin:jest-dom/recommended",
-    "plugin:jest/recommended",
-    "plugin:prettier/recommended",
-    "plugin:testing-library/react",
-    "plugin:testing-library/recommended",
-    "prettier/react",
-    "prettier/standard"
+    "@gilbarbara/eslint-config"
   ],
   "env": {
     "browser": true,
-    "cypress/globals": true,
-    "es6": true,
-    "jest": true,
-    "node": true
+    "cypress/globals": true
   },
   "settings": {
     "import/resolver": {
@@ -25,75 +15,19 @@
       }
     }
   },
+  "globals": {
+    "fetch": false,
+    "ga": false,
+    "APP__BRANCH": false,
+    "APP__BUILD_DATE": false,
+    "APP__GITHASH": false,
+    "APP__VERSION": false
+  },
+  "plugins": [
+    "cypress",
+    "redux-saga"
+  ],
   "overrides": [
-    {
-      "files": ["**/*.ts?(x)"],
-      "parser": "@typescript-eslint/parser",
-      "parserOptions": {
-        "ecmaVersion": 2020,
-        "sourceType": "module",
-        "ecmaFeatures": {
-          "jsx": true
-        },
-        "project": "./tsconfig.json",
-        "tsconfigRootDir": "./",
-        "warnOnUnsupportedTypeScriptVersion": true
-      },
-      "extends": ["plugin:import/typescript", "plugin:@typescript-eslint/recommended"],
-      "plugins": ["@typescript-eslint"],
-      "rules": {
-        // TypeScript's `noFallthroughCasesInSwitch` option is more robust (#6906)
-        "default-case": "off",
-        // 'tsc' already handles this (https://github.com/typescript-eslint/typescript-eslint/issues/291)
-        "no-dupe-class-members": "off",
-        // 'tsc' already handles this (https://github.com/typescript-eslint/typescript-eslint/issues/477)
-        "no-undef": "off",
-        "no-use-before-define": "off",
-        "space-before-function-paren": "off",
-        "@typescript-eslint/ban-ts-comment": "off",
-
-        "@typescript-eslint/explicit-function-return-type": "off",
-        "@typescript-eslint/explicit-module-boundary-types": "off",
-        "@typescript-eslint/no-inferrable-types": ["error", { "ignoreParameters": true }],
-        "@typescript-eslint/no-var-requires": "off",
-        "@typescript-eslint/no-explicit-any": "off",
-        "@typescript-eslint/consistent-type-assertions": "warn",
-        "no-array-constructor": "off",
-        "@typescript-eslint/no-array-constructor": "warn",
-        "@typescript-eslint/no-use-before-define": [
-          "warn",
-          {
-            "functions": false,
-            "classes": false,
-            "variables": false,
-            "typedefs": false
-          }
-        ],
-        "no-unused-expressions": "off",
-        "@typescript-eslint/no-unused-expressions": [
-          "error",
-          {
-            "allowShortCircuit": true,
-            "allowTernary": true,
-            "allowTaggedTemplates": true
-          }
-        ],
-        "no-unused-vars": "off",
-        "@typescript-eslint/no-unused-vars": [
-          "warn",
-          {
-            "args": "none",
-            "ignoreRestSiblings": true
-          }
-        ],
-        "no-useless-constructor": "off",
-        "@typescript-eslint/no-useless-constructor": "warn"
-      }
-    },
-    {
-      "files": ["**/*.js?(x)"],
-      "parser": "babel-eslint"
-    },
     {
       "files": ["test/**/*.ts?(x)"],
       "globals": {
@@ -114,232 +48,15 @@
       }
     },
     {
-      "files": ["tools/**/*"],
+      "files": ["config/**/*", "tools/**/*"],
       "rules": {
-        "no-console": "off"
+        "no-console": "off",
+        "import/no-dynamic-require": "off"
       }
     }
   ],
-  "globals": {
-    "fetch": false,
-    "ga": false,
-    "APP__BRANCH": false,
-    "APP__BUILD_DATE": false,
-    "APP__GITHASH": false,
-    "APP__VERSION": false
-  },
-  "plugins": [
-    "cypress",
-    "jest",
-    "jest-dom",
-    "react-hooks",
-    "redux-saga",
-    "simple-import-sort",
-    "testing-library"
-  ],
   "rules": {
-    "arrow-body-style": ["warn", "as-needed"],
-    "arrow-parens": "off",
-    "block-spacing": "warn",
-    "camelcase": "off",
-    "class-methods-use-this": "off",
-    "comma-dangle": [
-      "warn",
-      {
-        "arrays": "always-multiline",
-        "imports": "always-multiline",
-        "objects": "always-multiline",
-        "functions": "only-multiline"
-      }
-    ],
-    "dot-notation": "warn",
-    "function-paren-newline": "off",
-    "generator-star-spacing": "off",
-    "global-require": "off",
-    "max-len": "off",
-    "newline-per-chained-call": ["warn", { "ignoreChainWithDepth": 5 }],
-    "no-case-declarations": "warn",
-    "no-empty": "off",
-    "no-mixed-spaces-and-tabs": ["warn", "smart-tabs"],
-    "no-multi-spaces": [
-      "warn",
-      {
-        "exceptions": {
-          "VariableDeclarator": true,
-          "Property": false
-        }
-      }
-    ],
-    "no-nested-ternary": "warn",
-    "no-param-reassign": ["warn", { "props": false }],
-    "no-plusplus": "off",
-    "no-restricted-globals": ["error", "fdescribe", "fit"],
-    "no-restricted-syntax": ["error", "DebuggerStatement", "LabeledStatement", "WithStatement"],
-    "no-return-assign": ["error", "except-parens"],
-    "no-template-curly-in-string": "warn",
-    "no-trailing-spaces": "warn",
-    "no-underscore-dangle": "off",
-    "no-useless-rename": [
-      "error",
-      {
-        "ignoreDestructuring": true,
-        "ignoreImport": false,
-        "ignoreExport": false
-      }
-    ],
-    "no-unused-vars": [
-      "error",
-      { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }
-    ],
-    "object-curly-newline": "off",
-    "object-shorthand": ["warn", "always"],
-    "one-var": "warn",
-    "padded-blocks": "warn",
-    "prefer-arrow-callback": ["error", { "allowNamedFunctions": true }],
-    "prefer-const": "warn",
-    "prefer-destructuring": "warn",
-    "prefer-template": "warn",
-    "prefer-promise-reject-errors": "off",
-    "quotes": ["warn", "single", "avoid-escape"],
-    "space-before-function-paren": [
-      "warn",
-      {
-        "anonymous": "never",
-        "named": "never",
-        "asyncArrow": "always"
-      }
-    ],
-    "space-in-parens": "warn",
-    "spaced-comment": [
-      "warn",
-      "always",
-      {
-        "exceptions": ["-+"],
-        "markers": [
-          "eslint-disable",
-          "eslint-disable-line",
-          "eslint-disable-next-line",
-          "eslint-enable"
-        ]
-      }
-    ],
-    "import/extensions": [
-      "warn",
-      "never",
-      {
-        "json": "always"
-      }
-    ],
-    "import/first": "error",
-    "import/newline-after-import": "error",
-    "import/no-duplicates": "error",
-    "import/no-dynamic-require": "off",
-    "import/no-extraneous-dependencies": [
-      "error",
-      { "devDependencies": true, "optionalDependencies": false }
-    ],
-    "import/no-unresolved": "warn",
-    "import/no-webpack-loader-syntax": "off",
-    "import/no-named-as-default": "off",
-    "import/prefer-default-export": "off",
-    "jsx-a11y/anchor-has-content": "off",
-    "jsx-a11y/anchor-is-valid": "off",
-    "jsx-a11y/click-events-have-key-events": "off",
-    "jsx-a11y/label-has-for": "off",
-    "jsx-a11y/no-static-element-interactions": "off",
-    "jsx-quotes": "warn",
-    "react/default-props-match-prop-types": "off",
-    "react/forbid-prop-types": "off",
-    "react/function-component-definition": ["error", { "namedComponents": "function-declaration" }],
-    "react/jsx-boolean-value": "off",
-    "react/jsx-closing-bracket-location": ["warn", "line-aligned"],
-    "react/jsx-filename-extension": "off",
-    "react/jsx-first-prop-new-line": ["warn", "multiline"],
-    "react/jsx-fragments": ["error", "element"],
-    "react/jsx-indent": ["warn", 2],
-    "react/jsx-indent-props": ["warn", 2],
-    "react/jsx-key": "warn",
-    "react/jsx-no-duplicate-props": "warn",
-    "react/jsx-no-target-blank": "off",
-    "react/jsx-one-expression-per-line": "off",
-    "react/jsx-pascal-case": "warn",
-    "react/jsx-props-no-spreading": "off",
-    "react/no-array-index-key": "off",
-    "react/no-danger": "off",
-    "react/no-did-mount-set-state": "warn",
-    "react/no-did-update-set-state": "warn",
-    "react/no-direct-mutation-state": "warn",
-    "react/no-unused-state": "warn",
     "react/no-unescaped-entities": "off",
-    "react/prefer-stateless-function": "off",
-    "react/prop-types": "off",
-    "react/require-default-props": "off",
-    "react/sort-comp": [
-      "warn",
-      {
-        "order": [
-          "type-annotations",
-          "instance-variables",
-          "constructor",
-          "lifecycle",
-          "everything-else",
-          "render"
-        ],
-        "groups": {
-          "lifecycle": [
-            "state",
-            "static-methods",
-            "propTypes",
-            "defaultProps",
-            "contextTypes",
-            "childContextTypes",
-            "getChildContext",
-            "getDerivedStateFromProps",
-            "UNSAFE_componentWillMount",
-            "componentDidMount",
-            "UNSAFE_componentWillReceiveProps",
-            "shouldComponentUpdate",
-            "UNSAFE_componentWillUpdate",
-            "getSnapshotBeforeUpdate",
-            "componentDidUpdate",
-            "componentDidCatch",
-            "componentWillUnmount"
-          ]
-        }
-      }
-    ],
-    "react/state-in-constructor": "off",
-    "react/static-property-placement": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "redux-saga/no-yield-in-race": "error",
-    "redux-saga/yield-effects": "error",
-    "simple-import-sort/exports": "error",
-    "simple-import-sort/imports": [
-      "error",
-      {
-        "groups": [
-          ["^\\u0000"], // Side effect imports
-          [
-            "^react$",
-            "^react-dom$",
-            "^react",
-            "^redux",
-            "^@?\\w"
-          ],
-          ["\\.s?css$"],
-          ["^modules"],
-          ["^config$", "^routes$"],
-          ["^actions", "^literals", "^reducers", "^sagas", "^store$"],
-          ["^routes/"],
-          ["^containers"],
-          ["^components"],
-          ["^types"],
-          ["^test"],
-          ["^\\./[^.]"], // './*'
-          ["^\\.\\./"] // '../*'
-        ]
-      }
-    ]
+    "react/state-in-constructor": "off"
   }
 }
