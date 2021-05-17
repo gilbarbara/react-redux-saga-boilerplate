@@ -11,7 +11,7 @@ function publish() {
     .flags('az')
     .source(`${paths.appBuild}/`)
     .destination(
-      'reactboilerplate@react-boilerplate.com:/home/reactboilerplate/public_html/redux-saga',
+      'reactboilerplate@react-boilerplate.com:/srv/users/reactboilerplate/apps/redux-saga/public',
     );
 
   rsync.execute((error, code, cmd) => {

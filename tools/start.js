@@ -70,6 +70,7 @@ checkBrowsers(paths.appPath, isInteractive)
       // We have not found a port.
       return;
     }
+
     const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
     const appName = require(paths.packageJson).name;
     const urls = prepareUrls(protocol, HOST, port);
@@ -83,24 +84,25 @@ checkBrowsers(paths.appPath, isInteractive)
 
     let start;
 
-    compiler.plugin('compile', () => {
+    compiler.hooks.compile.tap('compile', () => {
       start = new Date();
     });
 
-    compiler.plugin('emit', (compilation, callback) => {
+    compiler.hooks.emit.tap('emit', compilation => {
       const now = new Date();
+
       console.log(
         chalk.yellow(`Duration: ${differenceInSeconds(now, start)}s - ${compilation.hash}`),
       );
-
-      callback();
     });
 
     const devServer = new WebpackDevServer(compiler, serverConfig);
+
     // Launch WebpackDevServer.
     devServer.listen(port, HOST, err => {
       if (err) {
         console.log(err);
+
         return;
       }
 
@@ -123,5 +125,6 @@ checkBrowsers(paths.appPath, isInteractive)
     if (err && err.message) {
       console.log(err.message);
     }
+
     process.exit(1);
   });

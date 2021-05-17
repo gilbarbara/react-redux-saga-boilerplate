@@ -52,22 +52,27 @@ function build(previousFileSizes) {
   console.log(chalk.cyan('Creating an optimized production build...'));
 
   const compiler = webpack(config);
+
   return new Promise((resolve, reject) => {
     compiler.run((err, stats) => {
       if (err) {
         return reject(err);
       }
+
       const messages = formatWebpackMessages(
         stats.toJson({ all: false, warnings: true, errors: true }),
       );
+
       if (messages.errors.length) {
         // Only keep the first error. Others are often indicative
         // of the same problem, but confuse the reader with noise.
         if (messages.errors.length > 1) {
           messages.errors.length = 1;
         }
+
         return reject(new Error(messages.errors.join('\n\n')));
       }
+
       if (
         process.env.CI &&
         (typeof process.env.CI !== 'string' || process.env.CI.toLowerCase() !== 'false') &&
@@ -79,6 +84,7 @@ function build(previousFileSizes) {
               'Most CI servers set it automatically.\n',
           ),
         );
+
         return reject(new Error(messages.warnings.join('\n\n')));
       }
 
@@ -87,6 +93,7 @@ function build(previousFileSizes) {
         previousFileSizes,
         warnings: messages.warnings,
       };
+
       if (writeStatsJson) {
         return bfj
           .write(`${paths.appBuild}/bundle-stats.json`, stats.toJson())
@@ -114,11 +121,12 @@ checkBrowsers(paths.appPath, isInteractive)
     fs.emptyDirSync(paths.appBuild);
     // Merge with the public folder
     copyPublicFolder();
+
     // Start the webpack build
     return build(previousFileSizes);
   })
   .then(
-    ({ stats, previousFileSizes, warnings }) => {
+    ({ previousFileSizes, stats, warnings }) => {
       if (warnings.length) {
         console.log(chalk.yellow('Compiled with warnings.\n'));
         console.log(warnings.join('\n\n'));
@@ -148,10 +156,12 @@ checkBrowsers(paths.appPath, isInteractive)
       const { publicUrl } = paths;
       const { publicPath } = config.output;
       const buildFolder = path.relative(process.cwd(), paths.appBuild);
+
       printHostingInstructions(appPackage, publicUrl, publicPath, buildFolder);
     },
     err => {
       const tscCompileOnError = process.env.TSC_COMPILE_ON_ERROR === 'true';
+
       if (tscCompileOnError) {
         console.log(
           chalk.yellow(
@@ -170,5 +180,6 @@ checkBrowsers(paths.appPath, isInteractive)
     if (err && err.message) {
       console.log(err.message);
     }
+
     process.exit(1);
   });

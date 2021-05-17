@@ -4,6 +4,7 @@ const publish = require('./publish');
 
 function deploy() {
   const start = Date.now();
+
   console.log(chalk.blue('Bundling...'));
 
   return exec('npm run build', errBuild => {
