@@ -1,7 +1,7 @@
 import React from 'react';
 
 export interface ActionCreator<P extends any[] = any[], A = any> {
-  (...args: P): StoreAction<A>;
+  (...arguments_: P): StoreAction<A>;
 }
 
 export interface ActionsMapReducer<State> {
@@ -15,7 +15,7 @@ export interface AsyncFlow {
   status: Status;
 }
 
-export type GenericFunction<T = any> = (...args: any[]) => T;
+export type GenericFunction<T = any> = (...arguments_: any[]) => T;
 
 export type Icons =
   | 'bell-o'

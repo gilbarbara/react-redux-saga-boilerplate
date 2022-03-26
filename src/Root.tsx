@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useDispatch } from 'react-redux';
-import { Route, Router, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { usePrevious } from 'react-use';
 import styled, { ThemeProvider } from 'styled-components';
 import { px } from 'styled-minimal';
 
-import history from 'modules/history';
 import { useShallowEqualSelector } from 'modules/hooks';
 import theme, { headerHeight } from 'modules/theme';
 
@@ -16,8 +15,8 @@ import { showAlert } from 'actions';
 
 import Footer from 'components/Footer';
 import Header from 'components/Header';
-import RoutePrivate from 'containers/RoutePrivate';
-import RoutePublic from 'containers/RoutePublic';
+import PrivateRoute from 'components/PrivateRoute';
+import PublicRoute from 'components/PublicRoute';
 import SystemAlerts from 'containers/SystemAlerts';
 import Home from 'routes/Home';
 import NotFound from 'routes/NotFound';
@@ -51,7 +50,7 @@ function Root() {
   }, [dispatch, isAuthenticated, previousIsAuthenticated]);
 
   return (
-    <Router history={history}>
+    <BrowserRouter>
       <ThemeProvider theme={theme}>
         <AppWrapper data-testid="app">
           <Helmet
@@ -69,23 +68,31 @@ function Root() {
           </Helmet>
           {isAuthenticated && <Header />}
           <Main isAuthenticated={isAuthenticated}>
-            <Switch>
-              <RoutePublic
-                component={Home}
-                exact
-                isAuthenticated={isAuthenticated}
+            <Routes>
+              <Route
+                element={
+                  <PublicRoute isAuthenticated={isAuthenticated} to="/private">
+                    <Home />
+                  </PublicRoute>
+                }
                 path="/"
-                to="/private"
               />
-              <RoutePrivate component={Private} isAuthenticated={isAuthenticated} path="/private" />
-              <Route component={NotFound} />
-            </Switch>
+              <Route
+                element={
+                  <PrivateRoute isAuthenticated={isAuthenticated} to="/">
+                    <Private />
+                  </PrivateRoute>
+                }
+                path="/private"
+              />
+              <Route element={<NotFound />} path="*" />
+            </Routes>
           </Main>
           <Footer />
           <SystemAlerts />
         </AppWrapper>
       </ThemeProvider>
-    </Router>
+    </BrowserRouter>
   );
 }
 

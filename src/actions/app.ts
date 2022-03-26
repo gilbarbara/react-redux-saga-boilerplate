@@ -11,8 +11,6 @@ import { ActionTypes } from 'literals';
 
 import { ShowAlertOptions } from 'types';
 
-export { go, goBack, push, replace } from 'modules/history';
-
 export const hideAlert = createAction(ActionTypes.HIDE_ALERT, (id: string) => ({ id }));
 
 export const showAlert = createAction(

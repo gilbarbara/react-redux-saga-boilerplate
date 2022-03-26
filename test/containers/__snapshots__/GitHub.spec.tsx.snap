@@ -38,10 +38,6 @@ exports[`GitHub should render a loader and dispatch the action 1`] = `
   outline-color: #4e4141;
 }
 
-.c3 .sc-dlnjwi {
-  margin-left: 5px;
-}
-
 .c2 {
   box-sizing: border-box;
   -webkit-appearance: none;
@@ -84,10 +80,6 @@ exports[`GitHub should render a loader and dispatch the action 1`] = `
 
 .c2:focus {
   outline-color: #4e4141;
-}
-
-.c2 .sc-dlnjwi {
-  margin-left: 5px;
 }
 
 .c1 {
@@ -207,45 +199,45 @@ exports[`GitHub should render the repos 1`] = `
 <div data-testid="GitHubGrid"
      data-topic="react"
      width="[object Object]"
-     class="sc-bkbkJK dTsyls"
+     class="sc-bjUoiL fMZXtX"
 >
   <a href="https://github.com/freeCodeCamp/freeCodeCamp"
      target="_blank"
-     class="sc-cxNHIi VZZdw Item-jn8jzz-0 fClvZV"
+     class="sc-cxabCf gJbJSN Item-sc-jn8jzz-0 eHJsUR"
   >
     <img alt="freeCodeCamp"
          src="https://avatars0.githubusercontent.com/u/9892522?v=4"
-         class="sc-hHEiqL iKjVWO"
+         class="sc-hHLeRK bOPpni"
     >
-    <div class="ItemHeader-jn8jzz-1 gnDUVC">
-      <h5 class="sc-dIvrsQ jPhMuj">
+    <div class="ItemHeader-sc-jn8jzz-1 ikJHPS">
+      <h5 class="sc-dIouRR kcAabS">
         freeCodeCamp
       </h5>
       <small>
         freeCodeCamp
       </small>
     </div>
-    <p class="sc-giAqHp huEiYf">
+    <p class="sc-gicCDI RpExH">
       freeCodeCamp.org's open source codebase and curriculum. Learn to code at home.
     </p>
   </a>
   <a href="https://github.com/facebook/react"
      target="_blank"
-     class="sc-cxNHIi VZZdw Item-jn8jzz-0 fClvZV"
+     class="sc-cxabCf gJbJSN Item-sc-jn8jzz-0 eHJsUR"
   >
     <img alt="facebook"
          src="https://avatars3.githubusercontent.com/u/69631?v=4"
-         class="sc-hHEiqL iKjVWO"
+         class="sc-hHLeRK bOPpni"
     >
-    <div class="ItemHeader-jn8jzz-1 gnDUVC">
-      <h5 class="sc-dIvrsQ jPhMuj">
+    <div class="ItemHeader-sc-jn8jzz-1 ikJHPS">
+      <h5 class="sc-dIouRR kcAabS">
         react
       </h5>
       <small>
         facebook
       </small>
     </div>
-    <p class="sc-giAqHp huEiYf">
+    <p class="sc-gicCDI RpExH">
       A declarative, efficient, and flexible JavaScript library for building user interfaces.
     </p>
   </a>

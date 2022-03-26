@@ -38,10 +38,10 @@ export function* getRepos({ payload }: StoreAction) {
       payload: items || data,
       meta: { cached: hasCache, query, updatedAt: now() },
     });
-  } catch (err) {
+  } catch (error) {
     yield put({
       type: ActionTypes.GITHUB_GET_REPOS_FAILURE,
-      payload: err,
+      payload: error,
       meta: { query },
     });
   }

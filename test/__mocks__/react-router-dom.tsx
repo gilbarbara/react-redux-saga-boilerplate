@@ -1,27 +1,26 @@
 import React from 'react';
-import { matchPath, MemoryRouter, Route, Router, Switch } from 'react-router-dom/index';
 
 import { navigate } from 'test-utils';
 
-export { matchPath, MemoryRouter, Route, Router, Switch };
+export * from 'react-router-dom/umd/react-router-dom.development';
 
 export function Link(props) {
   const { children, className, onClick, style, to, ...rest } = props;
 
-  delete rest.exact;
+  delete rest.end;
 
   return (
     <a
-      className={className}
+      className={typeof className === 'function' ? undefined : className}
       href={to.pathname || to}
-      onClick={e => {
-        e.preventDefault();
-        const [pathname, search] = (e.currentTarget.getAttribute('href') || '').split('?');
+      onClick={event => {
+        event.preventDefault();
+        const [pathname, search] = (event.currentTarget.getAttribute('href') || '').split('?');
 
         navigate({ pathname, search });
 
         if (typeof onClick === 'function') {
-          onClick(e);
+          onClick(event);
         }
       }}
       style={style}
@@ -60,6 +59,18 @@ export function NavLink(props) {
   );
 }
 
-export function Redirect() {
-  return <div>REDIRECT</div>;
+export function Navigate({ to }) {
+  return (
+    <div data-component-name="Navigate" data-to={to.pathname}>
+      NAVIGATE
+    </div>
+  );
+}
+
+export function useParams() {
+  return {};
+}
+
+export function useLocation() {
+  return {};
 }

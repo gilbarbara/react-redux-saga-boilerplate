@@ -15,7 +15,9 @@ jest.mock('react-helmet-async', () => ({
   },
 }));
 
-describe('index/app', () => {
+jest.mock('../src/Root', () => () => <div>root</div>);
+
+describe('src/index', () => {
   beforeAll(() => {
     process.env.NODE_ENV = 'production';
     const root = document.createElement('div');
@@ -23,6 +25,8 @@ describe('index/app', () => {
     root.id = 'root';
     root.style.height = '100vh';
     document.body.appendChild(root);
+
+    require('../src/index');
   });
 
   afterAll(() => {
@@ -31,8 +35,6 @@ describe('index/app', () => {
   });
 
   it('should have mounted the app', () => {
-    require('index');
-
     expect(document.getElementById('root')?.innerHTML).toMatchSnapshot();
   });
 });

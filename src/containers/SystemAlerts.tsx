@@ -113,9 +113,9 @@ export default function SystemAlerts() {
   });
 
   const handleClick = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>) => {
-      e.preventDefault();
-      const { id = '' } = e.currentTarget.dataset;
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      event.preventDefault();
+      const { id = '' } = event.currentTarget.dataset;
 
       dispatch(hideAlert(id));
     },

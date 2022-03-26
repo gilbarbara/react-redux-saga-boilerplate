@@ -37,7 +37,7 @@ describe('SystemAlerts', () => {
       mockDispatch,
     });
 
-    expect(screen.queryByRole('alert')).toBeInTheDocument();
+    expect(screen.getByRole('alert')).toBeInTheDocument();
 
     jest.runOnlyPendingTimers();
 
@@ -62,7 +62,7 @@ describe('SystemAlerts', () => {
       mockDispatch,
     });
 
-    expect(screen.queryByRole('alert')).toBeInTheDocument();
+    expect(screen.getByRole('alert')).toBeInTheDocument();
 
     fireEvent.click(screen.queryByRole('alert')?.querySelector('button')!);
 

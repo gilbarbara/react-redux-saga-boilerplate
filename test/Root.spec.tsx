@@ -9,7 +9,7 @@ const mockDispatch = jest.fn();
 
 describe('Root', () => {
   afterEach(() => {
-    mockDispatch.mockClear();
+    jest.clearAllMocks();
   });
 
   it('should render properly for anonymous users', () => {

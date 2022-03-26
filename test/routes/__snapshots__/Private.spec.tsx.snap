@@ -48,10 +48,6 @@ exports[`Private should render properly 1`] = `
   outline-color: #4e4141;
 }
 
-.c13 .sc-dlnjwi {
-  margin-left: 5px;
-}
-
 .c12 {
   box-sizing: border-box;
   -webkit-appearance: none;
@@ -94,10 +90,6 @@ exports[`Private should render properly 1`] = `
 
 .c12:focus {
   outline-color: #4e4141;
-}
-
-.c12 .sc-dlnjwi {
-  margin-left: 5px;
 }
 
 .c11 {

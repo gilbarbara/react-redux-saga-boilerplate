@@ -44,10 +44,6 @@ exports[`Root should render properly for anonymous users 1`] = `
   outline-color: #fff;
 }
 
-.c7 .sc-dlnjwi {
-  margin-left: 5px;
-}
-
 .c3 {
   box-sizing: border-box;
   margin-left: auto;
@@ -794,8 +790,10 @@ exports[`Root should render properly for logged users 1`] = `
   <main
     class="c7"
   >
-    <div>
-      REDIRECT
+    <div
+      data-component-name="Navigate"
+    >
+      NAVIGATE
     </div>
   </main>
   <footer

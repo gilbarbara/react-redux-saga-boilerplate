@@ -15,9 +15,9 @@ export function createAction<T extends GenericFunction>(
     throw new TypeError('Expected a function');
   }
 
-  return (...args: any[]) => ({
+  return (...arguments_: any[]) => ({
     type,
-    payload: payloadCreator(...args),
+    payload: payloadCreator(...arguments_),
   });
 }
 

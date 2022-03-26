@@ -83,8 +83,8 @@ function GitHub() {
   }, [dispatch, message, previousStatus, status]);
 
   const handleClick = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>) => {
-      const { topic = '' } = e.currentTarget.dataset;
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      const { topic = '' } = event.currentTarget.dataset;
 
       dispatch(getRepos(topic));
     },
@@ -95,47 +95,45 @@ function GitHub() {
   let output;
 
   if (status === STATUS.SUCCESS) {
-    if (data.length) {
-      output = (
-        <Grid
-          data-testid="GitHubGrid"
-          data-topic={query}
-          gridGap={{
-            _: spacer(2),
-            sm: spacer(3),
-            xl: spacer(4),
-          }}
-          gridTemplateColumns={{
-            _: '100%',
-            md: 'repeat(2, 1fr)',
-            lg: 'repeat(3, 1fr)',
-            xl: 'repeat(4, 1fr)',
-          }}
-          m="0 auto"
-          mt={5}
-          padding={0}
-          width={{
-            _: '100%',
-            sm: '90%',
-          }}
-        >
-          {data.map((d: Record<string, any>) => (
-            <Item key={d.id} href={d.html_url} target="_blank">
-              <Image alt={d.owner.login} src={d.owner.avatar_url} />
-              <ItemHeader>
-                <Heading as="h5" h={100} lineHeight={1}>
-                  {d.name}
-                </Heading>
-                <small>{d.owner.login}</small>
-              </ItemHeader>
-              <Paragraph>{d.description}</Paragraph>
-            </Item>
-          ))}
-        </Grid>
-      );
-    } else {
-      output = <h3>Nothing found</h3>;
-    }
+    output = data.length ? (
+      <Grid
+        data-testid="GitHubGrid"
+        data-topic={query}
+        gridGap={{
+          _: spacer(2),
+          sm: spacer(3),
+          xl: spacer(4),
+        }}
+        gridTemplateColumns={{
+          _: '100%',
+          md: 'repeat(2, 1fr)',
+          lg: 'repeat(3, 1fr)',
+          xl: 'repeat(4, 1fr)',
+        }}
+        m="0 auto"
+        mt={5}
+        padding={0}
+        width={{
+          _: '100%',
+          sm: '90%',
+        }}
+      >
+        {data.map((d: Record<string, any>) => (
+          <Item key={d.id} href={d.html_url} target="_blank">
+            <Image alt={d.owner.login} src={d.owner.avatar_url} />
+            <ItemHeader>
+              <Heading as="h5" h={100} lineHeight={1}>
+                {d.name}
+              </Heading>
+              <small>{d.owner.login}</small>
+            </ItemHeader>
+            <Paragraph>{d.description}</Paragraph>
+          </Item>
+        ))}
+      </Grid>
+    ) : (
+      <h3>Nothing found</h3>
+    );
   } else {
     output = <Loader block />;
   }

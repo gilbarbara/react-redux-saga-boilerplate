@@ -11,7 +11,7 @@ import { Icons } from 'types';
 
 interface Props {
   children: React.ReactNode;
-  handleClickClose?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  handleClickClose?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   icon?: Icons;
   id?: string;
   variant?: string;
