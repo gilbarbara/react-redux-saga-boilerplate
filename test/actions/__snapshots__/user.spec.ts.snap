@@ -2,14 +2,14 @@
 
 exports[`actions/user logOut 1`] = `
 Object {
-  "payload": Object {},
+  "payload": undefined,
   "type": "USER_LOGOUT_REQUEST",
 }
 `;
 
 exports[`actions/user login 1`] = `
 Object {
-  "payload": Object {},
+  "payload": undefined,
   "type": "USER_LOGIN_REQUEST",
 }
 `;

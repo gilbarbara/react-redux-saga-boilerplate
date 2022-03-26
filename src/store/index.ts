@@ -7,11 +7,11 @@ import storage from 'redux-persist/lib/storage';
 import reducers from 'reducers';
 import rootSaga from 'sagas';
 
-import { StoreState } from 'types';
+import { RootState } from 'types';
 
 import middleware, { sagaMiddleware } from './middleware';
 
-const rootReducer = persistCombineReducers<StoreState>(
+const rootReducer = persistCombineReducers<RootState>(
   {
     key: 'rrsb',
     stateReconciler: autoMergeLevel2,

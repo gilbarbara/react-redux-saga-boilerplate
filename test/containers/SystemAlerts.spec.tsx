@@ -43,7 +43,7 @@ describe('SystemAlerts', () => {
 
     expect(mockDispatch).toHaveBeenCalledWith({
       type: ActionTypes.HIDE_ALERT,
-      payload: { id: 'ABCDEF' },
+      payload: 'ABCDEF',
     });
 
     expect(screen.queryByRole('alert')).not.toBeInTheDocument();

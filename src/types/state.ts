@@ -1,3 +1,4 @@
+import React from 'react';
 import { Dispatch } from 'redux';
 import { Variants } from 'styled-minimal/lib/types';
 import { ValueOf } from 'type-fest';
@@ -7,7 +8,7 @@ import { AlertPosition, Icons, Status } from './common';
 export interface AlertData {
   icon: Icons;
   id: string;
-  message: string;
+  message: React.ReactNode;
   position: AlertPosition;
   timeout: number;
   variant: Variants;
@@ -35,7 +36,7 @@ export interface UserState {
   status: ValueOf<Status>;
 }
 
-export interface StoreState {
+export interface RootState {
   app: AppState;
   github: GitHubState;
   user: UserState;

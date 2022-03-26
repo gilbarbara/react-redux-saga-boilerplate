@@ -14,7 +14,7 @@ import Background from 'components/Background';
 import Icon from 'components/Icon';
 import Logo from 'components/Logo';
 
-import { StoreState } from 'types';
+import { RootState } from 'types';
 
 const Header = styled.div`
   margin-bottom: ${spacer(3)};
@@ -53,7 +53,7 @@ const Heading = styled.h1`
 
 function Home() {
   const dispatch = useDispatch();
-  const status = useSelector<StoreState>(({ user }) => user.status);
+  const status = useSelector<RootState>(({ user }) => user.status);
 
   const handleClickLogin = () => {
     dispatch(login());

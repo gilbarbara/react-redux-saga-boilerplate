@@ -21,7 +21,6 @@ describe('Header', () => {
 
     expect(mockDispatch).toHaveBeenCalledWith({
       type: ActionTypes.USER_LOGOUT_REQUEST,
-      payload: {},
     });
   });
 });

@@ -2,17 +2,16 @@
 
 exports[`actions/app hideAlert 1`] = `
 Object {
-  "payload": Object {
-    "id": "test",
-  },
+  "payload": "test",
   "type": "HIDE_ALERT",
 }
 `;
 
 exports[`actions/app showAlert with variant \`error\` 1`] = `
 Object {
+  "meta": undefined,
   "payload": Object {
-    "icon": undefined,
+    "icon": "dot-circle-o",
     "id": "test",
     "message": "Alright!",
     "position": "bottom-right",
@@ -25,8 +24,9 @@ Object {
 
 exports[`actions/app showAlert with variant \`success\` 1`] = `
 Object {
+  "meta": undefined,
   "payload": Object {
-    "icon": undefined,
+    "icon": "dot-circle-o",
     "id": "test",
     "message": "Alright!",
     "position": "bottom-right",

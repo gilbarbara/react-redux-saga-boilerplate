@@ -22,6 +22,7 @@ Object {
       "combinator": false,
       "payload": Object {
         "action": Object {
+          "payload": undefined,
           "type": "USER_LOGIN_SUCCESS",
         },
         "channel": undefined,
@@ -54,6 +55,7 @@ Object {
       "combinator": false,
       "payload": Object {
         "action": Object {
+          "payload": undefined,
           "type": "USER_LOGOUT_SUCCESS",
         },
         "channel": undefined,
@@ -73,7 +75,7 @@ Object {
       "payload": Object {
         "args": Array [
           "USER_LOGIN_REQUEST",
-          "@@redux-saga-test-plan/json/function/login",
+          "@@redux-saga-test-plan/json/function/loginSaga",
         ],
         "context": null,
         "fn": "@@redux-saga-test-plan/json/function/takeLatest",
@@ -86,7 +88,7 @@ Object {
       "payload": Object {
         "args": Array [
           "USER_LOGOUT_REQUEST",
-          "@@redux-saga-test-plan/json/function/logout",
+          "@@redux-saga-test-plan/json/function/logoutSaga",
         ],
         "context": null,
         "fn": "@@redux-saga-test-plan/json/function/takeLatest",

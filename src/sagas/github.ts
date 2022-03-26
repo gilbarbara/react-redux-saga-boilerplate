@@ -1,8 +1,3 @@
-/**
- * @module Sagas/GitHub
- * @desc GitHub
- */
-
 import { now, request } from '@gilbarbara/helpers';
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 
@@ -10,7 +5,7 @@ import { hasValidCache } from 'modules/helpers';
 
 import { ActionTypes } from 'literals';
 
-import { StoreAction } from 'types';
+import { getRepos, getReposFailure, getReposSuccess } from 'actions';
 
 /**
  * Get Repos
@@ -18,32 +13,24 @@ import { StoreAction } from 'types';
  * @param {Object} action
  *
  */
-export function* getRepos({ payload }: StoreAction) {
-  const { query } = payload;
-
+export function* getReposSaga({ payload }: ReturnType<typeof getRepos>) {
   try {
-    const { data = [], updatedAt = 0 } = yield select(s => s.github.topics?.[query] || {});
+    const { data = [], updatedAt = 0 } = yield select(s => s.github.topics?.[payload] || {});
     const hasCache = hasValidCache(updatedAt);
     let items;
 
     if (!hasCache) {
       ({ items = [] } = yield call(
         request,
-        `https://api.github.com/search/repositories?q=${query}&sort=stars`,
+        `https://api.github.com/search/repositories?q=${payload}&sort=stars`,
       ));
     }
 
-    yield put({
-      type: ActionTypes.GITHUB_GET_REPOS_SUCCESS,
-      payload: items || data,
-      meta: { cached: hasCache, query, updatedAt: now() },
-    });
-  } catch (error) {
-    yield put({
-      type: ActionTypes.GITHUB_GET_REPOS_FAILURE,
-      payload: error,
-      meta: { query },
-    });
+    yield put(
+      getReposSuccess(items || data, { cached: hasCache, query: payload, updatedAt: now() }),
+    );
+  } catch (error: any) {
+    yield put(getReposFailure(error.message, payload));
   }
 }
 
@@ -51,5 +38,5 @@ export function* getRepos({ payload }: StoreAction) {
  * GitHub Sagas
  */
 export default function* root() {
-  yield all([takeLatest(ActionTypes.GITHUB_GET_REPOS_REQUEST, getRepos)]);
+  yield all([takeLatest(ActionTypes.GITHUB_GET_REPOS_REQUEST, getReposSaga)]);
 }

@@ -10,7 +10,7 @@ exports[`reducers/app should handle SHOW_ALERT 1`] = `
 Object {
   "alerts": Array [
     Object {
-      "icon": undefined,
+      "icon": "dot-circle-o",
       "id": "test",
       "message": "HELLO",
       "position": "bottom-right",

@@ -18,7 +18,6 @@ describe('Home', () => {
 
     expect(mockDispatch).toHaveBeenCalledWith({
       type: 'USER_LOGIN_REQUEST',
-      payload: {},
     });
   });
 });

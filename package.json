@@ -19,6 +19,7 @@
   ],
   "dependencies": {
     "@gilbarbara/helpers": "^0.5.1",
+    "@reduxjs/toolkit": "^1.8.0",
     "immer": "^9.0.12",
     "is-lite": "^0.8.1",
     "nanoid": "^3.3.1",

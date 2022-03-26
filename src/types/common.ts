@@ -1,13 +1,5 @@
 import React from 'react';
 
-export interface ActionCreator<P extends any[] = any[], A = any> {
-  (...arguments_: P): StoreAction<A>;
-}
-
-export interface ActionsMapReducer<State> {
-  [type: string]: (draft: State, action: StoreAction) => any;
-}
-
 export type AlertPosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 
 export interface AsyncFlow {
@@ -50,13 +42,6 @@ export interface Status {
   READY: 'ready';
   RUNNING: 'running';
   SUCCESS: 'success';
-}
-
-export interface StoreAction<T = any> {
-  error?: boolean;
-  meta?: PlainObject;
-  payload?: T;
-  type: string;
 }
 
 export interface ShowAlertOptions {

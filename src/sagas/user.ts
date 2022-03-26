@@ -1,40 +1,24 @@
-/**
- * @module Sagas/User
- * @desc User
- */
-
 import { all, delay, put, takeLatest } from 'redux-saga/effects';
 
 import { ActionTypes } from 'literals';
 
-/**
- * Login
- */
-export function* login() {
+import { loginSuccess, logOutSuccess } from 'actions';
+
+export function* loginSaga() {
   yield delay(400);
 
-  yield put({
-    type: ActionTypes.USER_LOGIN_SUCCESS,
-  });
+  yield put(loginSuccess());
 }
 
-/**
- * Logout
- */
-export function* logout() {
+export function* logoutSaga() {
   yield delay(200);
 
-  yield put({
-    type: ActionTypes.USER_LOGOUT_SUCCESS,
-  });
+  yield put(logOutSuccess());
 }
 
-/**
- * User Sagas
- */
 export default function* root() {
   yield all([
-    takeLatest(ActionTypes.USER_LOGIN_REQUEST, login),
-    takeLatest(ActionTypes.USER_LOGOUT_REQUEST, logout),
+    takeLatest(ActionTypes.USER_LOGIN_REQUEST, loginSaga),
+    takeLatest(ActionTypes.USER_LOGOUT_REQUEST, logoutSaga),
   ]);
 }

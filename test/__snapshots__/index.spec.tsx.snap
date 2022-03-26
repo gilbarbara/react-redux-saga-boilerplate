@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`index/app should have mounted the app 1`] = `
+exports[`src/index should have mounted the app 1`] = `
 <div>
   <div>
     root

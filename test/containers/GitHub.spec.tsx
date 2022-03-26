@@ -21,7 +21,7 @@ describe('GitHub', () => {
     expect(container).toMatchSnapshot();
     expect(mockDispatch).toHaveBeenCalledWith({
       type: ActionTypes.GITHUB_GET_REPOS_REQUEST,
-      payload: { query: 'react' },
+      payload: 'react',
     });
   });
 
@@ -52,7 +52,7 @@ describe('GitHub', () => {
 
     expect(mockDispatch).toHaveBeenCalledWith({
       type: 'GITHUB_GET_REPOS_REQUEST',
-      payload: { query: 'redux' },
+      payload: 'redux',
     });
   });
 
@@ -66,8 +66,8 @@ describe('GitHub', () => {
         type: 'SHOW_ALERT',
         payload: {
           id: 'ABCDEF',
-          icon: undefined,
-          message: new Error('Nothing found'),
+          icon: 'dot-circle-o',
+          message: 'Nothing found',
           position: 'bottom-right',
           variant: 'danger',
           timeout: 0,

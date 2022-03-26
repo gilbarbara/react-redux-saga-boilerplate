@@ -8,7 +8,7 @@ import { PartialDeep } from 'type-fest';
 
 import { initialState } from 'reducers';
 
-import { StoreState } from 'types';
+import { RootState } from 'types';
 
 type NavigateOptions = {
   hash?: string;
@@ -22,6 +22,7 @@ function customRender(ui: React.ReactElement, options: Record<string, any> = {})
   const middleware: Middleware[] = [];
 
   if (mockDispatch) {
+    // eslint-disable-next-line unicorn/consistent-function-scoping
     middleware.push(() => next => action => {
       if (!action.type.startsWith('persist/')) {
         mockDispatch(action);
@@ -69,7 +70,7 @@ function getProviders(store): React.FC {
   return ({ children }) => <Provider store={store}>{children}</Provider>;
 }
 
-export function mergeState(patch: PartialDeep<StoreState> = {}) {
+export function mergeState(patch: PartialDeep<RootState> = {}) {
   return () => deepmerge(initialState, patch);
 }
 

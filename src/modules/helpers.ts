@@ -1,43 +1,11 @@
 import { now } from '@gilbarbara/helpers';
-import produce from 'immer';
-import { Reducer } from 'redux';
+import { createAction } from '@reduxjs/toolkit';
+import { REHYDRATE } from 'redux-persist';
 
-import { ActionCreator, ActionsMapReducer, GenericFunction, StoreAction } from 'types';
+import { RootState } from 'types';
 
-/**
- * Create an action
- */
-export function createAction<T extends GenericFunction>(
-  type: string,
-  payloadCreator: T,
-): ActionCreator<Parameters<T>, ReturnType<T>> {
-  if (!payloadCreator) {
-    throw new TypeError('Expected a function');
-  }
-
-  return (...arguments_: any[]) => ({
-    type,
-    payload: payloadCreator(...arguments_),
-  });
-}
-
-/**
- * Create a reducer
- */
-export function createReducer<State>(
-  actionsMap: ActionsMapReducer<State>,
-  defaultState: State,
-): Reducer<State, StoreAction> {
-  return (state = defaultState, action: StoreAction) =>
-    produce(state, (draft: State) => {
-      const fn = actionsMap[action.type];
-
-      if (fn) {
-        return fn(draft, action);
-      }
-
-      return draft;
-    });
+export function actionPayload<T = any, M = Record<string, string>>(payload: T, meta?: M) {
+  return { payload, meta };
 }
 
 /**
@@ -50,3 +18,5 @@ export function hasValidCache(lastUpdated: number, max = 10): boolean {
 
   return lastUpdated + max * 60 > now();
 }
+
+export const rehydrateAction = createAction<RootState>(REHYDRATE);

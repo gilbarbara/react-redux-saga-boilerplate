@@ -1,6 +1,8 @@
-import { createReducer } from 'modules/helpers';
+import { createReducer } from '@reduxjs/toolkit';
 
-import { ActionTypes, STATUS } from 'literals';
+import { STATUS } from 'literals';
+
+import { login, loginSuccess, logOut, logOutSuccess } from 'actions';
 
 import { UserState } from 'types';
 
@@ -10,23 +12,23 @@ export const userState = {
 };
 
 export default {
-  user: createReducer<UserState>(
-    {
-      [ActionTypes.USER_LOGIN_REQUEST]: draft => {
+  user: createReducer<UserState>(userState, builder => {
+    builder
+      .addCase(login, draft => {
         draft.status = STATUS.RUNNING;
-      },
-      [ActionTypes.USER_LOGIN_SUCCESS]: draft => {
+      })
+      .addCase(loginSuccess, draft => {
         draft.isAuthenticated = true;
         draft.status = STATUS.READY;
-      },
-      [ActionTypes.USER_LOGOUT_REQUEST]: draft => {
+      });
+
+    builder
+      .addCase(logOut, draft => {
         draft.status = STATUS.RUNNING;
-      },
-      [ActionTypes.USER_LOGOUT_SUCCESS]: draft => {
+      })
+      .addCase(logOutSuccess, draft => {
         draft.isAuthenticated = false;
         draft.status = STATUS.IDLE;
-      },
-    },
-    userState,
-  ),
+      });
+  }),
 };

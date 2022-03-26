@@ -3,7 +3,7 @@ import { expectSaga } from 'redux-saga-test-plan';
 import * as matchers from 'redux-saga-test-plan/matchers';
 import { throwError } from 'redux-saga-test-plan/providers';
 
-import user, { login, logout } from 'sagas/user';
+import user, { loginSaga, logoutSaga } from 'sagas/user';
 
 describe('user', () => {
   it('should have the expected watchers', () =>
@@ -15,7 +15,7 @@ describe('user', () => {
 
   describe('login', () => {
     it('should handle SUCCESS', () =>
-      expectSaga(login)
+      expectSaga(loginSaga)
         .provide([[matchers.call.fn(delay), throwError(new Error('fail'))]])
         .run(400)
         .then(result => {
@@ -25,7 +25,7 @@ describe('user', () => {
 
   describe('logout', () => {
     it('should handle SUCCESS', () =>
-      expectSaga(logout)
+      expectSaga(logoutSaga)
         .run({ silenceTimeout: true })
         .then(result => {
           expect(result.toJSON()).toMatchSnapshot();

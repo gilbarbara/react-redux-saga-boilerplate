@@ -1,8 +1,8 @@
-import { REHYDRATE } from 'redux-persist';
+import { createReducer, original } from '@reduxjs/toolkit';
 
-import { createReducer } from 'modules/helpers';
+import { rehydrateAction } from 'modules/helpers';
 
-import { ActionTypes } from 'literals';
+import { hideAlert, showAlert } from 'actions';
 
 import { AppState } from 'types';
 
@@ -11,18 +11,17 @@ export const appState: AppState = {
 };
 
 export default {
-  app: createReducer<AppState>(
-    {
-      [REHYDRATE]: draft => {
-        draft.alerts = [];
-      },
-      [ActionTypes.HIDE_ALERT]: (draft, { payload: { id } }) => {
-        draft.alerts = draft.alerts.filter(d => d.id !== id);
-      },
-      [ActionTypes.SHOW_ALERT]: (draft, { payload }) => {
+  app: createReducer<AppState>(appState, builder => {
+    builder.addCase(rehydrateAction, (draft, { payload }) => {
+      return { ...original(draft), ...payload?.app, alerts: [] } as AppState;
+    });
+
+    builder
+      .addCase(hideAlert, (draft, { payload }) => {
+        draft.alerts = draft.alerts.filter(d => d.id !== payload);
+      })
+      .addCase(showAlert, (draft, { payload }) => {
         draft.alerts.push(payload);
-      },
-    },
-    appState,
-  ),
+      });
+  }),
 };

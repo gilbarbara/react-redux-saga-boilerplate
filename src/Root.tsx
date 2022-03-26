@@ -22,7 +22,7 @@ import Home from 'routes/Home';
 import NotFound from 'routes/NotFound';
 import Private from 'routes/Private';
 
-import { StoreState, UserState } from 'types';
+import { RootState, UserState } from 'types';
 
 const AppWrapper = styled.div`
   display: flex;
@@ -40,7 +40,7 @@ const Main = styled.main<Pick<UserState, 'isAuthenticated'>>`
 
 function Root() {
   const dispatch = useDispatch();
-  const { isAuthenticated } = useShallowEqualSelector((s: StoreState) => s.user);
+  const { isAuthenticated } = useShallowEqualSelector((s: RootState) => s.user);
   const previousIsAuthenticated = usePrevious(isAuthenticated);
 
   useEffect(() => {

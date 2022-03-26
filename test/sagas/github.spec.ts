@@ -3,7 +3,7 @@ import { expectSaga } from 'redux-saga-test-plan';
 import { ActionTypes } from 'literals';
 
 import githubReducer from 'reducers/github';
-import github, { getRepos } from 'sagas/github';
+import github, { getReposSaga } from 'sagas/github';
 
 import githubRepos from 'test/__fixtures__/github-repos.json';
 import { mergeState } from 'test-utils';
@@ -19,7 +19,7 @@ describe('github', () => {
   describe('getRepos', () => {
     const initialAction = {
       type: ActionTypes.GITHUB_GET_REPOS_REQUEST,
-      payload: { query: 'react' },
+      payload: 'react',
     };
     const initialState = () => ({
       github: githubReducer.github(undefined, initialAction),
@@ -28,9 +28,9 @@ describe('github', () => {
     it('should handle SUCCESS', () => {
       fetchMock.mockResponse(JSON.stringify({ items: githubRepos.items.slice(0, 2) }));
 
-      return expectSaga(getRepos, {
+      return expectSaga(getReposSaga, {
         type: ActionTypes.GITHUB_GET_REPOS_REQUEST,
-        payload: { query: 'react' },
+        payload: 'react',
       })
         .withReducer(initialState)
         .run()
@@ -42,9 +42,9 @@ describe('github', () => {
     it('should handle SUCCESS with cache', () => {
       fetchMock.mockResponse(JSON.stringify({ items: githubRepos.items.slice(0, 2) }));
 
-      return expectSaga(getRepos, {
+      return expectSaga(getReposSaga, {
         type: ActionTypes.GITHUB_GET_REPOS_REQUEST,
-        payload: { query: 'react' },
+        payload: 'react',
       })
         .withReducer(
           mergeState({
@@ -68,9 +68,9 @@ describe('github', () => {
     it('should handle FAILURE', () => {
       fetchMock.mockReject(new Error('Failed to fetch'));
 
-      return expectSaga(getRepos, {
+      return expectSaga(getReposSaga, {
         type: ActionTypes.GITHUB_GET_REPOS_REQUEST,
-        payload: { query: 'react' },
+        payload: 'react',
       })
         .withReducer(initialState)
         .run()

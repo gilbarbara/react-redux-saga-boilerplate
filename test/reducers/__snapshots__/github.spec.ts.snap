@@ -37,7 +37,7 @@ Object {
   "query": "react",
   "topics": Object {
     "react": Object {
-      "cached": undefined,
+      "cached": false,
       "data": Object {
         "data": Array [
           Object {
