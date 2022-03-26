@@ -1,4 +1,5 @@
 {
+  "customSyntax": "postcss",
   "processors": ["stylelint-processor-styled-components"],
   "extends": [
     "stylelint-config-standard",
@@ -26,6 +27,7 @@
     },
     "function-url-quotes": "always",
     "indentation": [2, { "ignore": ["value"] }],
+    "keyframes-name-pattern": null,
     "max-nesting-depth": 5,
     "no-duplicate-selectors": true,
     "no-missing-end-of-source-newline": true,
@@ -33,7 +35,7 @@
     "property-no-vendor-prefix": true,
     "selector-class-pattern": "^((?:-{1,2}|_{2})?[a-z0-9]+(?:(?:-{1,2}|_{2})[a-z0-9]+)*)(?:-{1,2}|_{2})?$",
     "selector-max-compound-selectors": 5,
-    "selector-max-specificity": ["1,6,4"],
+    "selector-max-specificity": "0,5,4",
     "selector-no-qualifying-type": [true, { "ignore": ["class"] }],
     "selector-pseudo-element-colon-notation": "single",
     "string-quotes": "single",
