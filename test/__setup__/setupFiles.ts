@@ -18,7 +18,7 @@ console.error = jest.fn(error => {
   }
 });
 
-process.on('uncaughtException', err => {
-  console.error(`${new Date().toUTCString()} uncaughtException:`, err.message);
-  console.error(err.stack);
+process.on('uncaughtException', error => {
+  console.error(`${new Date().toUTCString()} uncaughtException:`, error.message);
+  console.error(error.stack);
 });

@@ -7,9 +7,9 @@ function deploy() {
 
   console.log(chalk.blue('Bundling...'));
 
-  return exec('npm run build', errBuild => {
-    if (errBuild) {
-      console.log(chalk.red(errBuild));
+  return exec('npm run build', errorBuild => {
+    if (errorBuild) {
+      console.log(chalk.red(errorBuild));
       process.exit(1);
     }
 

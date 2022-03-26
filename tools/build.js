@@ -5,8 +5,8 @@ process.env.NODE_ENV = 'production';
 // Makes the script crash on unhandled rejections instead of silently
 // ignoring them. In the future, promise rejections that are not handled will
 // terminate the Node.js process with a non-zero exit code.
-process.on('unhandledRejection', err => {
-  throw err;
+process.on('unhandledRejection', error => {
+  throw error;
 });
 
 // Ensure environment variables are read.
@@ -42,7 +42,7 @@ if (!checkRequiredFiles([paths.appHtml, paths.appIndex])) {
 }
 
 const argv = process.argv.slice(2);
-const writeStatsJson = argv.indexOf('--stats') !== -1;
+const writeStatsJson = argv.includes('--stats');
 
 // Generate configuration
 const config = configFactory('production');
@@ -54,9 +54,9 @@ function build(previousFileSizes) {
   const compiler = webpack(config);
 
   return new Promise((resolve, reject) => {
-    compiler.run((err, stats) => {
-      if (err) {
-        return reject(err);
+    compiler.run((error, stats) => {
+      if (error) {
+        return reject(error);
       }
 
       const messages = formatWebpackMessages(
@@ -88,7 +88,7 @@ function build(previousFileSizes) {
         return reject(new Error(messages.warnings.join('\n\n')));
       }
 
-      const resolveArgs = {
+      const resolveArguments = {
         stats,
         previousFileSizes,
         warnings: messages.warnings,
@@ -97,11 +97,11 @@ function build(previousFileSizes) {
       if (writeStatsJson) {
         return bfj
           .write(`${paths.appBuild}/bundle-stats.json`, stats.toJson())
-          .then(() => resolve(resolveArgs))
-          .catch(error => reject(new Error(error)));
+          .then(() => resolve(resolveArguments))
+          .catch(error_ => reject(new Error(error_)));
       }
 
-      return resolve(resolveArgs);
+      return resolve(resolveArguments);
     });
   });
 }
@@ -159,7 +159,7 @@ checkBrowsers(paths.appPath, isInteractive)
 
       printHostingInstructions(appPackage, publicUrl, publicPath, buildFolder);
     },
-    err => {
+    error => {
       const tscCompileOnError = process.env.TSC_COMPILE_ON_ERROR === 'true';
 
       if (tscCompileOnError) {
@@ -168,17 +168,17 @@ checkBrowsers(paths.appPath, isInteractive)
             'Compiled with the following type errors (you may want to check these before deploying your app):\n',
           ),
         );
-        printBuildError(err);
+        printBuildError(error);
       } else {
         console.log(chalk.red('Failed to compile.\n'));
-        printBuildError(err);
+        printBuildError(error);
         process.exit(1);
       }
     },
   )
-  .catch(err => {
-    if (err && err.message) {
-      console.log(err.message);
+  .catch(error => {
+    if (error && error.message) {
+      console.log(error.message);
     }
 
     process.exit(1);

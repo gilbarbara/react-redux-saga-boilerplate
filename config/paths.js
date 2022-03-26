@@ -29,9 +29,7 @@ const moduleFileExtensions = [
 
 // Resolve file paths in the same order as webpack
 const resolveModule = (resolveFn, filePath) => {
-  const extension = moduleFileExtensions.find(ext =>
-    fs.existsSync(resolveFn(`${filePath}.${ext}`)),
-  );
+  const extension = moduleFileExtensions.find(d => fs.existsSync(resolveFn(`${filePath}.${d}`)));
 
   if (extension) {
     return resolveFn(`${filePath}.${extension}`);
@@ -55,6 +53,7 @@ module.exports = {
   publicUrlOrPath,
   swSrc: resolveModule(resolveApp, 'src/service-worker'),
   test: resolveApp('test'),
+  webpackCache: resolveApp('node_modules/.cache'),
 };
 
 module.exports.moduleFileExtensions = moduleFileExtensions;

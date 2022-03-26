@@ -22,9 +22,9 @@ module.exports = yargs
   .help()
   .version(false)
   .strict()
-  .fail((msg, err, instance) => {
-    if (err) {
-      throw new Error(err);
+  .fail((message, error, instance) => {
+    if (error) {
+      throw new Error(error);
     }
 
     console.log(instance.help());
