@@ -16,7 +16,7 @@ const rootReducer = persistCombineReducers<RootState>(
     key: 'rrsb',
     stateReconciler: autoMergeLevel2,
     storage,
-    whitelist: ['app', 'user'],
+    blacklist: ['alerts'],
     timeout: 0,
   },
   reducers,

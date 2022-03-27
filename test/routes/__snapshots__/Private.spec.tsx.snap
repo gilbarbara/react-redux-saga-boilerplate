@@ -312,14 +312,14 @@ exports[`Private should render properly 1`] = `
         >
           <button
             class="c12"
-            data-topic="react"
+            data-value="react"
             type="button"
           >
             React
           </button>
           <button
             class="c13"
-            data-topic="redux"
+            data-value="redux"
             type="button"
           >
             Redux

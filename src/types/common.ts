@@ -44,6 +44,10 @@ export interface Status {
   SUCCESS: 'success';
 }
 
+export interface SetAppOOptions {
+  query: string;
+}
+
 export interface ShowAlertOptions {
   icon?: Icons;
   id?: string;

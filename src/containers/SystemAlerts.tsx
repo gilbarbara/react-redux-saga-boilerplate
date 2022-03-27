@@ -87,7 +87,7 @@ const SystemAlertsWrapper = styled.div`
 
 export default function SystemAlerts() {
   const dispatch = useDispatch();
-  const alerts = useShallowEqualSelector(s => s.app.alerts);
+  const alerts = useShallowEqualSelector(s => s.alerts.data);
   const timeouts: Record<string, any> = useRef({});
 
   useEffect(() => {

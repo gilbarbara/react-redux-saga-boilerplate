@@ -22,8 +22,12 @@ export interface Topic {
   updatedAt: number;
 }
 
+export interface AlertsState {
+  data: AlertData[];
+}
+
 export interface AppState {
-  alerts: AlertData[];
+  query: string;
 }
 
 export interface GitHubState {
@@ -37,6 +41,7 @@ export interface UserState {
 }
 
 export interface RootState {
+  alerts: AlertsState;
   app: AppState;
   github: GitHubState;
   user: UserState;

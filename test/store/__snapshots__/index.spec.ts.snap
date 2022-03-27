@@ -6,8 +6,11 @@ Object {
     "rehydrated": false,
     "version": -1,
   },
+  "alerts": Object {
+    "data": Array [],
+  },
   "app": Object {
-    "alerts": Array [],
+    "query": "react",
   },
   "github": Object {
     "query": "",

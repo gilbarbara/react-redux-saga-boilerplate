@@ -162,14 +162,14 @@ exports[`GitHub should render a loader and dispatch the action 1`] = `
       >
         <button
           class="c2"
-          data-topic="react"
+          data-value="react"
           type="button"
         >
           React
         </button>
         <button
           class="c3"
-          data-topic="redux"
+          data-value="redux"
           type="button"
         >
           Redux
@@ -197,7 +197,7 @@ exports[`GitHub should render a message if there's no data 1`] = `
 
 exports[`GitHub should render the repos 1`] = `
 <div data-testid="GitHubGrid"
-     data-topic="react"
+     data-value="react"
      width="[object Object]"
      class="sc-bjUoiL fMZXtX"
 >

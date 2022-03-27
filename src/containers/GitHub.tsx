@@ -1,6 +1,6 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useMount, usePrevious, useUpdateEffect } from 'react-use';
+import { usePrevious, useUpdateEffect } from 'react-use';
 import styled from 'styled-components';
 import {
   Button,
@@ -19,7 +19,7 @@ import theme, { appColor, spacer } from 'modules/theme';
 
 import { STATUS } from 'literals';
 
-import { getRepos, showAlert } from 'actions';
+import { getRepos, setAppOptions, showAlert } from 'actions';
 
 import Loader from 'components/Loader';
 
@@ -64,17 +64,17 @@ const ItemHeader = styled.div`
 
 function GitHub() {
   const dispatch = useDispatch();
-  const { data, message, query, status } = useShallowEqualSelector(({ github }) => ({
-    data: github.topics[github.query]?.data || [],
-    message: github.topics[github.query]?.message || '',
-    query: github.query,
-    status: github.topics[github.query]?.status || STATUS.IDLE,
+  const { data, message, query, status } = useShallowEqualSelector(({ app, github }) => ({
+    data: github.topics[app.query]?.data || [],
+    message: github.topics[app.query]?.message || '',
+    query: app.query,
+    status: github.topics[app.query]?.status || STATUS.IDLE,
   }));
   const previousStatus = usePrevious(status);
 
-  useMount(() => {
-    dispatch(getRepos(query || 'react'));
-  });
+  useEffect(() => {
+    dispatch(getRepos(query));
+  }, [dispatch, query]);
 
   useUpdateEffect(() => {
     if (previousStatus !== status && status === STATUS.ERROR) {
@@ -84,9 +84,9 @@ function GitHub() {
 
   const handleClick = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
-      const { topic = '' } = event.currentTarget.dataset;
+      const { value = '' } = event.currentTarget.dataset;
 
-      dispatch(getRepos(topic));
+      dispatch(setAppOptions({ query: value }));
     },
     [dispatch],
   );
@@ -98,7 +98,7 @@ function GitHub() {
     output = data.length ? (
       <Grid
         data-testid="GitHubGrid"
-        data-topic={query}
+        data-value={query}
         gridGap={{
           _: spacer(2),
           sm: spacer(3),
@@ -144,7 +144,7 @@ function GitHub() {
         <ButtonGroup aria-label="GitHub Selector" data-testid="GitHubSelector" role="group">
           <Button
             busy={query === 'react' && isRunning}
-            data-topic="react"
+            data-value="react"
             invert={query !== 'react'}
             onClick={handleClick}
             size="lg"
@@ -153,7 +153,7 @@ function GitHub() {
           </Button>
           <Button
             busy={query === 'redux' && isRunning}
-            data-topic="redux"
+            data-value="redux"
             invert={query !== 'redux'}
             onClick={handleClick}
             size="lg"

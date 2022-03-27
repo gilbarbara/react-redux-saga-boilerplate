@@ -1,38 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`actions/app hideAlert 1`] = `
+exports[`actions/app setAppOptions should return an action 1`] = `
 Object {
-  "payload": "test",
-  "type": "HIDE_ALERT",
-}
-`;
-
-exports[`actions/app showAlert with variant \`error\` 1`] = `
-Object {
-  "meta": undefined,
   "payload": Object {
-    "icon": "dot-circle-o",
-    "id": "test",
-    "message": "Alright!",
-    "position": "bottom-right",
-    "timeout": 0,
-    "variant": "danger",
+    "query": "react",
   },
-  "type": "SHOW_ALERT",
-}
-`;
-
-exports[`actions/app showAlert with variant \`success\` 1`] = `
-Object {
-  "meta": undefined,
-  "payload": Object {
-    "icon": "dot-circle-o",
-    "id": "test",
-    "message": "Alright!",
-    "position": "bottom-right",
-    "timeout": 10,
-    "variant": "success",
-  },
-  "type": "SHOW_ALERT",
+  "type": "SET_APP_OPTIONS",
 }
 `;
