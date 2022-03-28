@@ -65,7 +65,7 @@ describe('GitHub', () => {
       expect(mockDispatch).toHaveBeenCalledWith({
         type: 'SHOW_ALERT',
         payload: {
-          id: 'ABCDEF',
+          id: '8cdee72f-28d4-4441-91f0-c61f6e3d9684',
           icon: 'dot-circle-o',
           message: 'Nothing found',
           position: 'bottom-right',

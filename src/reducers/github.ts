@@ -1,30 +1,20 @@
 import { createReducer } from '@reduxjs/toolkit';
 
+import { topic } from 'config';
 import { STATUS } from 'literals';
 
 import { getRepos, getReposFailure, getReposSuccess } from 'actions';
 
-import { GitHubState, Topic } from 'types';
-
-const topic: Topic = {
-  cached: false,
-  data: [],
-  message: '',
-  status: STATUS.IDLE,
-  updatedAt: 0,
-};
+import { GitHubState } from 'types';
 
 export const githubState: GitHubState = {
   topics: {},
-  query: '',
 };
 
 export default {
   github: createReducer<GitHubState>(githubState, builder => {
     builder
       .addCase(getRepos, (draft, { payload }) => {
-        draft.query = payload;
-
         draft.topics[payload] = draft.topics[payload] || { ...topic };
 
         draft.topics[payload].message = '';

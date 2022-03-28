@@ -426,16 +426,6 @@ exports[`Root should render properly for logged users 1`] = `
   color: #fff;
 }
 
-.c2 {
-  box-sizing: border-box;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 16px;
-  padding-right: 16px;
-  position: relative;
-  width: 100%;
-}
-
 .c9 {
   box-sizing: border-box;
   margin-left: auto;
@@ -446,6 +436,16 @@ exports[`Root should render properly for logged users 1`] = `
   width: 100%;
   padding-top: 16px;
   padding-bottom: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  width: 100%;
 }
 
 .c10 {
@@ -708,14 +708,18 @@ exports[`Root should render properly for logged users 1`] = `
 }
 
 @media screen and (min-width:1024px) {
-  .c2 {
+
+}
+
+@media screen and (min-width:1024px) {
+  .c9 {
     padding-left: 32px;
     padding-right: 32px;
   }
 }
 
 @media screen and (min-width:1024px) {
-  .c9 {
+  .c2 {
     padding-left: 32px;
     padding-right: 32px;
   }
@@ -749,6 +753,14 @@ exports[`Root should render properly for logged users 1`] = `
   .c16 {
     width: 32rem;
   }
+}
+
+@media screen and (min-width:1024px) {
+
+}
+
+@media screen and (min-width:1024px) {
+
 }
 
 <div
@@ -872,7 +884,7 @@ exports[`Root should render properly for logged users 1`] = `
             </div>
             <button
               class="c22"
-              data-id="ABCDEF"
+              data-id="8cdee72f-28d4-4441-91f0-c61f6e3d9684"
               type="button"
             >
               <svg

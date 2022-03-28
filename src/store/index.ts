@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import { applyMiddleware, compose, createStore, Middleware, Store } from 'redux';
 import { persistCombineReducers, persistStore } from 'redux-persist';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';

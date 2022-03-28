@@ -1,6 +1,6 @@
 import React from 'react';
+import { uuid } from '@gilbarbara/helpers';
 import { createAction } from '@reduxjs/toolkit';
-import { nanoid } from 'nanoid';
 
 import { actionPayload } from 'modules/helpers';
 
@@ -16,7 +16,7 @@ export const showAlert = createAction(
     const timeout = options.variant === 'danger' ? 0 : 5;
 
     return actionPayload({
-      id: options.id || nanoid(),
+      id: options.id || uuid(),
       icon: options.icon || 'dot-circle-o',
       message,
       position: options.position || 'bottom-right',

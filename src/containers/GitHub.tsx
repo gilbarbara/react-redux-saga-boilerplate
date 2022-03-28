@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { usePrevious, useUpdateEffect } from 'react-use';
+import { useUpdateEffect } from 'react-use';
+import { selectApp, selectGitHub } from 'selectors';
 import styled from 'styled-components';
 import {
   Button,
@@ -13,10 +14,12 @@ import {
   Paragraph,
   responsive,
 } from 'styled-minimal';
+import useTreeChanges from 'tree-changes-hook';
 
-import { useShallowEqualSelector } from 'modules/hooks';
+import { useAppSelector } from 'modules/hooks';
 import theme, { appColor, spacer } from 'modules/theme';
 
+import { topic } from 'config';
 import { STATUS } from 'literals';
 
 import { getRepos, setAppOptions, showAlert } from 'actions';
@@ -64,23 +67,22 @@ const ItemHeader = styled.div`
 
 function GitHub() {
   const dispatch = useDispatch();
-  const { data, message, query, status } = useShallowEqualSelector(({ app, github }) => ({
-    data: github.topics[app.query]?.data || [],
-    message: github.topics[app.query]?.message || '',
-    query: app.query,
-    status: github.topics[app.query]?.status || STATUS.IDLE,
-  }));
-  const previousStatus = usePrevious(status);
+  const gitHub = useAppSelector(selectGitHub);
+  const { query } = useAppSelector(selectApp);
+
+  const { changed } = useTreeChanges(gitHub.topics[query] || topic);
+
+  const { data = [], message = '', status = STATUS.IDLE } = gitHub.topics[query] || topic;
 
   useEffect(() => {
     dispatch(getRepos(query));
   }, [dispatch, query]);
 
   useUpdateEffect(() => {
-    if (previousStatus !== status && status === STATUS.ERROR) {
+    if (changed('status', STATUS.ERROR)) {
       dispatch(showAlert(message, { variant: 'danger' }));
     }
-  }, [dispatch, message, previousStatus, status]);
+  }, [changed, dispatch, message]);
 
   const handleClick = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {

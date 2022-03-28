@@ -2,7 +2,6 @@
 
 exports[`Github GITHUB_GET_REPOS should handle FAILURE 1`] = `
 Object {
-  "query": "react",
   "topics": Object {
     "react": Object {
       "cached": false,
@@ -19,7 +18,6 @@ Object {
 
 exports[`Github GITHUB_GET_REPOS should handle REQUEST 1`] = `
 Object {
-  "query": "react",
   "topics": Object {
     "react": Object {
       "cached": false,
@@ -34,7 +32,6 @@ Object {
 
 exports[`Github GITHUB_GET_REPOS should handle SUCCESS 1`] = `
 Object {
-  "query": "react",
   "topics": Object {
     "react": Object {
       "cached": false,
@@ -55,7 +52,6 @@ Object {
 
 exports[`Github should return the initial state 1`] = `
 Object {
-  "query": "",
   "topics": Object {},
 }
 `;

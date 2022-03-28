@@ -4,7 +4,7 @@ import { useUnmount } from 'react-use';
 import styled from 'styled-components';
 import { responsive } from 'styled-minimal';
 
-import { useShallowEqualSelector } from 'modules/hooks';
+import { useAppSelector } from 'modules/hooks';
 import { spacer } from 'modules/theme';
 
 import { hideAlert } from 'actions';
@@ -87,7 +87,7 @@ const SystemAlertsWrapper = styled.div`
 
 export default function SystemAlerts() {
   const dispatch = useDispatch();
-  const alerts = useShallowEqualSelector(s => s.alerts.data);
+  const alerts = useAppSelector(s => s.alerts.data);
   const timeouts: Record<string, any> = useRef({});
 
   useEffect(() => {

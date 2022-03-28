@@ -5,7 +5,7 @@ import { Button, Container, responsive, Text } from 'styled-minimal';
 
 import { spacer } from 'modules/theme';
 
-import config from 'config';
+import { name } from 'config';
 import { STATUS } from 'literals';
 
 import { login } from 'actions';
@@ -65,7 +65,7 @@ function Home() {
         <Header>
           <Logo />
         </Header>
-        <Heading>{config.name}</Heading>
+        <Heading>{name}</Heading>
         <Button
           busy={status === STATUS.RUNNING}
           data-testid="Login"

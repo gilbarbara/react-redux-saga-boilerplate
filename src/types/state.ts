@@ -31,7 +31,6 @@ export interface AppState {
 }
 
 export interface GitHubState {
-  query: string;
   topics: Record<string, Topic>;
 }
 
