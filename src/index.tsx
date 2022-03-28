@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { ErrorBoundary } from 'react-error-boundary';
 import { HelmetProvider } from 'react-helmet-async';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
@@ -7,9 +8,9 @@ import { configStore } from 'store';
 
 import { showAlert } from 'actions';
 
+import ErrorHandler from 'components/ErrorHandler';
 import Loader from 'components/Loader';
 import Reload from 'components/Reload';
-import ErrorHandler from 'containers/ErrorHandler';
 import GlobalStyles from 'containers/GlobalStyles';
 
 import reportWebVitals from './reportWebVitals';
@@ -23,11 +24,11 @@ window.store = store;
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={<Loader block size={100} />} persistor={persistor}>
-      <ErrorHandler>
+      <ErrorBoundary FallbackComponent={ErrorHandler}>
         <HelmetProvider>
           <Root />
         </HelmetProvider>
-      </ErrorHandler>
+      </ErrorBoundary>
       <GlobalStyles />
     </PersistGate>
   </Provider>,
