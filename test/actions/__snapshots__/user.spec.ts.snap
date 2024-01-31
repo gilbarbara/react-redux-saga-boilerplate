@@ -1,14 +1,14 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`actions/user logOut 1`] = `
-Object {
+exports[`actions/user > logOut 1`] = `
+{
   "payload": undefined,
   "type": "USER_LOGOUT_REQUEST",
 }
 `;
 
-exports[`actions/user login 1`] = `
-Object {
+exports[`actions/user > login 1`] = `
+{
   "payload": undefined,
   "type": "USER_LOGIN_REQUEST",
 }

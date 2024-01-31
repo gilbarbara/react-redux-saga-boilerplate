@@ -1,8 +1,7 @@
 import React from 'react';
-
-import Footer from 'components/Footer';
-
 import { render } from 'test-utils';
+
+import Footer from '~/components/Footer';
 
 describe('Footer', () => {
   it('should render properly', () => {

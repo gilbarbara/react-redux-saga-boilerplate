@@ -1,5 +1,5 @@
-import { selectApp, selectGitHub, selectUser } from 'selectors';
-import { configStore } from 'store';
+import { selectApp, selectGitHub, selectUser } from '~/selectors';
+import { configStore } from '~/store';
 
 describe('selectors', () => {
   const { store } = configStore();

@@ -1,7 +1,7 @@
 declare global {
   interface Window {
-    HIDE_LOGS: boolean;
     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any;
+    HIDE_LOGS: boolean;
     store: any;
   }
 

@@ -2,7 +2,7 @@ import { now } from '@gilbarbara/helpers';
 import { createAction } from '@reduxjs/toolkit';
 import { REHYDRATE } from 'redux-persist';
 
-import { RootState } from 'types';
+import { RootState } from '~/types';
 
 export function actionPayload<T = any, M = Record<string, string>>(payload: T, meta?: M) {
   return { payload, meta };

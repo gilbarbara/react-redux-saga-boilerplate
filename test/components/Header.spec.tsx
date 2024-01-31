@@ -1,12 +1,11 @@
 import React from 'react';
-
-import { ActionTypes } from 'literals';
-
-import Header from 'components/Header';
-
 import { fireEvent, render, screen } from 'test-utils';
 
-const mockDispatch = jest.fn();
+import { ActionTypes } from '~/literals';
+
+import Header from '~/components/Header';
+
+const mockDispatch = vi.fn();
 
 describe('Header', () => {
   it('should render properly', () => {

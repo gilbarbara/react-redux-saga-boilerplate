@@ -1,12 +1,11 @@
 import { expectSaga } from 'redux-saga-test-plan';
+import { mergeState } from 'test-utils';
 
-import { ActionTypes } from 'literals';
-
-import githubReducer from 'reducers/github';
-import github, { getReposSaga } from 'sagas/github';
+import { ActionTypes } from '~/literals';
+import githubReducer from '~/reducers/github';
+import github, { getReposSaga } from '~/sagas/github';
 
 import githubRepos from 'test/__fixtures__/github-repos.json';
-import { mergeState } from 'test-utils';
 
 describe('github', () => {
   it('should have the expected watchers', () =>
@@ -25,24 +24,23 @@ describe('github', () => {
       github: githubReducer.github(undefined, initialAction),
     });
 
-    it('should handle SUCCESS', () => {
+    it('should handle SUCCESS', async () => {
       fetchMock.mockResponse(JSON.stringify({ items: githubRepos.items.slice(0, 2) }));
 
-      return expectSaga(getReposSaga, {
+      const result = await expectSaga(getReposSaga, {
         type: ActionTypes.GITHUB_GET_REPOS_REQUEST,
         payload: 'react',
       })
         .withReducer(initialState)
-        .run()
-        .then(result => {
-          expect(result.toJSON()).toMatchSnapshot();
-        });
+        .run();
+
+      expect(result.toJSON()).toMatchSnapshot();
     });
 
-    it('should handle SUCCESS with cache', () => {
+    it('should handle SUCCESS with cache', async () => {
       fetchMock.mockResponse(JSON.stringify({ items: githubRepos.items.slice(0, 2) }));
 
-      return expectSaga(getReposSaga, {
+      const result = await expectSaga(getReposSaga, {
         type: ActionTypes.GITHUB_GET_REPOS_REQUEST,
         payload: 'react',
       })
@@ -59,24 +57,22 @@ describe('github', () => {
             },
           }),
         )
-        .run()
-        .then(result => {
-          expect(result.toJSON()).toMatchSnapshot();
-        });
+        .run();
+
+      expect(result.toJSON()).toMatchSnapshot();
     });
 
-    it('should handle FAILURE', () => {
+    it('should handle FAILURE', async () => {
       fetchMock.mockReject(new Error('Failed to fetch'));
 
-      return expectSaga(getReposSaga, {
+      const result = await expectSaga(getReposSaga, {
         type: ActionTypes.GITHUB_GET_REPOS_REQUEST,
         payload: 'react',
       })
         .withReducer(initialState)
-        .run()
-        .then(result => {
-          expect(result.toJSON()).toMatchSnapshot();
-        });
+        .run();
+
+      expect(result.toJSON()).toMatchSnapshot();
     });
   });
 });

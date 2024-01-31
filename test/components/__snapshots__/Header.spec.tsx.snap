@@ -1,149 +1,43 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Header should render properly 1`] = `
-.c1 {
-  box-sizing: border-box;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 16px;
-  padding-right: 16px;
-  position: relative;
-  width: 100%;
-}
-
-.c5 {
-  display: inline-block;
-  line-height: 0;
-}
-
-.c5 svg {
-  height: auto;
-  max-height: 100%;
-  width: 16px;
-}
-
-.c3 {
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  font-size: 0;
-}
-
-.c3 svg {
-  height: 4.2rem;
-  max-height: 100%;
-  width: auto;
-}
-
-.c0 {
-  background-color: #113740;
-  height: 70px;
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 200;
-}
-
-.c0:before {
-  background-color: #00b4d5;
-  bottom: 0;
-  content: '';
-  height: 0.2rem;
-  left: 0;
-  position: absolute;
-  right: 0;
-}
-
-.c2 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  height: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding-bottom: 8px;
-  padding-top: 8px;
-}
-
-.c4 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  color: #fff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 1.3rem;
-  padding: 8px;
-}
-
-.c4.active {
-  color: #fff;
-}
-
-.c4 span {
-  display: inline-block;
-  margin-right: 0.4rem;
-  text-transform: uppercase;
-}
-
-@media screen and (min-width:1024px) {
-  .c1 {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-}
-
-@media screen and (min-width:1024px) {
-  .c4 {
-    font-size: 1.6rem;
-  }
-}
-
+exports[`Header > should render properly 1`] = `
 <header
-  class="c0"
-  data-testid="Header"
+  class="css-157to9t"
+  data-component-name="Header"
 >
   <div
-    class="c1 c2"
+    class="css-1ejvhcb"
+    data-component-name="Container"
   >
     <div
-      class="c3"
+      class="css-11mttn6"
     >
       <svg
         src="/media/brand/icon.svg"
       />
     </div>
     <button
-      class="c4"
+      class="css-17rt720"
+      data-component-name="Logout"
     >
-      <span>
+      <span
+        class="css-lo0v0o"
+        data-component-name="Text"
+      >
         logout
       </span>
-      <svg
-        class="c5"
-        height="100%"
-        src="/media/icons/sign-out.svg"
-        width="16px"
-      />
+      <span
+        class="css-10mt42n"
+        data-component-name="Icon"
+        name="sign-out"
+      >
+        <svg
+          height="16"
+          src="https://files.gilbarbara.dev/icons/sign-out.svg"
+          title="sign-out"
+          width="16"
+        />
+      </span>
     </button>
   </div>
 </header>

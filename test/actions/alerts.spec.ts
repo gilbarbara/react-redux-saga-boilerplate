@@ -1,15 +1,13 @@
-import { hideAlert, showAlert } from 'actions/alerts';
+import { hideAlert, showAlert } from '~/actions/alerts';
 
 describe('actions/alerts', () => {
   describe('showAlert', () => {
-    it('should return an action with variant `error`', () => {
-      expect(showAlert('Alright!', { id: 'test', variant: 'danger' })).toMatchSnapshot();
+    it('should return an action with type `error`', () => {
+      expect(showAlert('Alright!', { id: 'test', type: 'error' })).toMatchSnapshot();
     });
 
-    it('should return an action with variant `success`', () => {
-      expect(
-        showAlert('Alright!', { id: 'test', variant: 'success', timeout: 10 }),
-      ).toMatchSnapshot();
+    it('should return an action with type `success`', () => {
+      expect(showAlert('Alright!', { id: 'test', type: 'success', timeout: 10 })).toMatchSnapshot();
     });
   });
 

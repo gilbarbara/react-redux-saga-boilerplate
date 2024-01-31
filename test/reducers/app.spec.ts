@@ -1,9 +1,8 @@
-import { ActionTypes } from 'literals';
-
-import { setAppOptions } from 'actions';
-import reducer from 'reducers/app';
-
 import { emptyAction } from 'test-utils';
+
+import { setAppOptions } from '~/actions';
+import { ActionTypes } from '~/literals';
+import reducer from '~/reducers/app';
 
 describe('reducers/app', () => {
   let app = reducer.app(undefined, emptyAction);

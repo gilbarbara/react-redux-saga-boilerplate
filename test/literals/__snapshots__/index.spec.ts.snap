@@ -1,13 +1,13 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`literals should match the snapshot 1`] = `
-Object {
+exports[`literals > should match the snapshot 1`] = `
+{
+  "ALERTS_HIDE": "ALERTS_HIDE",
+  "ALERTS_SHOW": "ALERTS_SHOW",
   "GITHUB_GET_REPOS_FAILURE": "GITHUB_GET_REPOS_FAILURE",
   "GITHUB_GET_REPOS_REQUEST": "GITHUB_GET_REPOS_REQUEST",
   "GITHUB_GET_REPOS_SUCCESS": "GITHUB_GET_REPOS_SUCCESS",
-  "HIDE_ALERT": "HIDE_ALERT",
   "SET_APP_OPTIONS": "SET_APP_OPTIONS",
-  "SHOW_ALERT": "SHOW_ALERT",
   "USER_LOGIN_FAILURE": "USER_LOGIN_FAILURE",
   "USER_LOGIN_REQUEST": "USER_LOGIN_REQUEST",
   "USER_LOGIN_SUCCESS": "USER_LOGIN_SUCCESS",
@@ -17,8 +17,8 @@ Object {
 }
 `;
 
-exports[`literals should match the snapshot 2`] = `
-Object {
+exports[`literals > should match the snapshot 2`] = `
+{
   "ERROR": "error",
   "IDLE": "idle",
   "READY": "ready",

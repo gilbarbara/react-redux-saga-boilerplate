@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`PrivateRoute should allow navigation for authenticated access 1`] = `
+exports[`PrivateRoute > should allow navigation for authenticated access 1`] = `
 <div>
   <div>
     PRIVATE
@@ -8,10 +8,10 @@ exports[`PrivateRoute should allow navigation for authenticated access 1`] = `
 </div>
 `;
 
-exports[`PrivateRoute should redirect for unauthenticated access 1`] = `
+exports[`PrivateRoute > should redirect for unauthenticated access 1`] = `
 <div>
   <div
-    data-component-name="Navigate"
+    data-to="/login"
   >
     NAVIGATE
   </div>

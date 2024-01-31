@@ -1,10 +1,9 @@
 import React from 'react';
-
-import ErrorHandler from 'components/ErrorHandler';
-
 import { fireEvent, render, screen } from 'test-utils';
 
-const mockResetError = jest.fn();
+import ErrorHandler from '~/components/ErrorHandler';
+
+const mockResetError = vi.fn();
 
 describe('ErrorHandler', () => {
   it('should render the error and clicks', () => {

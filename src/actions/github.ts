@@ -1,8 +1,8 @@
 import { createAction } from '@reduxjs/toolkit';
 
-import { actionPayload } from 'modules/helpers';
+import { actionPayload } from '~/modules/helpers';
 
-import { ActionTypes } from 'literals';
+import { ActionTypes } from '~/literals';
 
 export interface GetReposSuccessMeta {
   cached: boolean;

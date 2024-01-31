@@ -1,8 +1,7 @@
 import React from 'react';
-
-import PublicRoute from 'components/PublicRoute';
-
 import { render } from 'test-utils';
+
+import PublicRoute from '~/components/PublicRoute';
 
 describe('PublicRoute', () => {
   it('should render the Login component for unauthenticated access', () => {

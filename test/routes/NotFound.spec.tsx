@@ -1,8 +1,7 @@
 import React from 'react';
-
-import NotFound from 'routes/NotFound';
-
 import { fireEvent, navigate, render, screen } from 'test-utils';
+
+import NotFound from '~/routes/NotFound';
 
 describe('NotFound', () => {
   it('should render properly', () => {

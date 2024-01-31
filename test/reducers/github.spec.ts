@@ -1,13 +1,12 @@
-import { ActionTypes } from 'literals';
+// import { emptyAction } from 'test-utils';
 
-import { getRepos } from 'actions';
-import reducer from 'reducers/github';
-
-import { emptyAction } from 'test-utils';
+import { getRepos } from '../../src/actions';
+import { ActionTypes } from '../../src/literals';
+import reducer from '../../src/reducers/github';
 
 describe('Github', () => {
   it('should return the initial state', () => {
-    expect(reducer.github(undefined, emptyAction)).toMatchSnapshot();
+    expect(reducer.github(undefined, { type: '', payload: {} })).toMatchSnapshot();
   });
 
   describe('GITHUB_GET_REPOS', () => {

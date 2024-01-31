@@ -1,4 +1,4 @@
-import { hasValidCache } from 'modules/helpers';
+import { hasValidCache } from '~/modules/helpers';
 
 declare const navigator: any;
 

@@ -1,13 +1,13 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`github getRepos should handle FAILURE 1`] = `
-Object {
-  "call": Array [
-    Object {
+exports[`github > getRepos > should handle FAILURE 1`] = `
+{
+  "call": [
+    {
       "@@redux-saga/IO": true,
       "combinator": false,
-      "payload": Object {
-        "args": Array [
+      "payload": {
+        "args": [
           "https://api.github.com/search/repositories?q=react&sort=stars",
         ],
         "context": null,
@@ -16,13 +16,13 @@ Object {
       "type": "CALL",
     },
   ],
-  "put": Array [
-    Object {
+  "put": [
+    {
       "@@redux-saga/IO": true,
       "combinator": false,
-      "payload": Object {
-        "action": Object {
-          "meta": Object {
+      "payload": {
+        "action": {
+          "meta": {
             "query": "react",
           },
           "payload": "Failed to fetch",
@@ -33,12 +33,12 @@ Object {
       "type": "PUT",
     },
   ],
-  "select": Array [
-    Object {
+  "select": [
+    {
       "@@redux-saga/IO": true,
       "combinator": false,
-      "payload": Object {
-        "args": Array [],
+      "payload": {
+        "args": [],
         "selector": "@@redux-saga-test-plan/json/function/<anonymous>",
       },
       "type": "SELECT",
@@ -47,14 +47,14 @@ Object {
 }
 `;
 
-exports[`github getRepos should handle SUCCESS 1`] = `
-Object {
-  "call": Array [
-    Object {
+exports[`github > getRepos > should handle SUCCESS 1`] = `
+{
+  "call": [
+    {
       "@@redux-saga/IO": true,
       "combinator": false,
-      "payload": Object {
-        "args": Array [
+      "payload": {
+        "args": [
           "https://api.github.com/search/repositories?q=react&sort=stars",
         ],
         "context": null,
@@ -63,19 +63,19 @@ Object {
       "type": "CALL",
     },
   ],
-  "put": Array [
-    Object {
+  "put": [
+    {
       "@@redux-saga/IO": true,
       "combinator": false,
-      "payload": Object {
-        "action": Object {
-          "meta": Object {
+      "payload": {
+        "action": {
+          "meta": {
             "cached": false,
             "query": "react",
             "updatedAt": 1234567890,
           },
-          "payload": Array [
-            Object {
+          "payload": [
+            {
               "archive_url": "https://api.github.com/repos/freeCodeCamp/freeCodeCamp/{archive_format}{/ref}",
               "archived": false,
               "assignees_url": "https://api.github.com/repos/freeCodeCamp/freeCodeCamp/assignees{/user}",
@@ -120,9 +120,9 @@ Object {
               "labels_url": "https://api.github.com/repos/freeCodeCamp/freeCodeCamp/labels{/name}",
               "language": "JavaScript",
               "languages_url": "https://api.github.com/repos/freeCodeCamp/freeCodeCamp/languages",
-              "license": Object {
+              "license": {
                 "key": "bsd-3-clause",
-                "name": "BSD 3-Clause \\"New\\" or \\"Revised\\" License",
+                "name": "BSD 3-Clause "New" or "Revised" License",
                 "node_id": "MDc6TGljZW5zZTU=",
                 "spdx_id": "BSD-3-Clause",
                 "url": "https://api.github.com/licenses/bsd-3-clause",
@@ -135,7 +135,7 @@ Object {
               "notifications_url": "https://api.github.com/repos/freeCodeCamp/freeCodeCamp/notifications{?since,all,participating}",
               "open_issues": 295,
               "open_issues_count": 295,
-              "owner": Object {
+              "owner": {
                 "avatar_url": "https://avatars0.githubusercontent.com/u/9892522?v=4",
                 "events_url": "https://api.github.com/users/freeCodeCamp/events{/privacy}",
                 "followers_url": "https://api.github.com/users/freeCodeCamp/followers",
@@ -176,7 +176,7 @@ Object {
               "watchers": 316482,
               "watchers_count": 316482,
             },
-            Object {
+            {
               "archive_url": "https://api.github.com/repos/facebook/react/{archive_format}{/ref}",
               "archived": false,
               "assignees_url": "https://api.github.com/repos/facebook/react/assignees{/user}",
@@ -221,7 +221,7 @@ Object {
               "labels_url": "https://api.github.com/repos/facebook/react/labels{/name}",
               "language": "JavaScript",
               "languages_url": "https://api.github.com/repos/facebook/react/languages",
-              "license": Object {
+              "license": {
                 "key": "mit",
                 "name": "MIT License",
                 "node_id": "MDc6TGljZW5zZTEz",
@@ -236,7 +236,7 @@ Object {
               "notifications_url": "https://api.github.com/repos/facebook/react/notifications{?since,all,participating}",
               "open_issues": 621,
               "open_issues_count": 621,
-              "owner": Object {
+              "owner": {
                 "avatar_url": "https://avatars3.githubusercontent.com/u/69631?v=4",
                 "events_url": "https://api.github.com/users/facebook/events{/privacy}",
                 "followers_url": "https://api.github.com/users/facebook/followers",
@@ -285,12 +285,12 @@ Object {
       "type": "PUT",
     },
   ],
-  "select": Array [
-    Object {
+  "select": [
+    {
       "@@redux-saga/IO": true,
       "combinator": false,
-      "payload": Object {
-        "args": Array [],
+      "payload": {
+        "args": [],
         "selector": "@@redux-saga-test-plan/json/function/<anonymous>",
       },
       "type": "SELECT",
@@ -299,21 +299,21 @@ Object {
 }
 `;
 
-exports[`github getRepos should handle SUCCESS with cache 1`] = `
-Object {
-  "put": Array [
-    Object {
+exports[`github > getRepos > should handle SUCCESS with cache 1`] = `
+{
+  "put": [
+    {
       "@@redux-saga/IO": true,
       "combinator": false,
-      "payload": Object {
-        "action": Object {
-          "meta": Object {
+      "payload": {
+        "action": {
+          "meta": {
             "cached": true,
             "query": "react",
             "updatedAt": 1234567890,
           },
-          "payload": Array [
-            Object {
+          "payload": [
+            {
               "archive_url": "https://api.github.com/repos/freeCodeCamp/freeCodeCamp/{archive_format}{/ref}",
               "archived": false,
               "assignees_url": "https://api.github.com/repos/freeCodeCamp/freeCodeCamp/assignees{/user}",
@@ -358,9 +358,9 @@ Object {
               "labels_url": "https://api.github.com/repos/freeCodeCamp/freeCodeCamp/labels{/name}",
               "language": "JavaScript",
               "languages_url": "https://api.github.com/repos/freeCodeCamp/freeCodeCamp/languages",
-              "license": Object {
+              "license": {
                 "key": "bsd-3-clause",
-                "name": "BSD 3-Clause \\"New\\" or \\"Revised\\" License",
+                "name": "BSD 3-Clause "New" or "Revised" License",
                 "node_id": "MDc6TGljZW5zZTU=",
                 "spdx_id": "BSD-3-Clause",
                 "url": "https://api.github.com/licenses/bsd-3-clause",
@@ -373,7 +373,7 @@ Object {
               "notifications_url": "https://api.github.com/repos/freeCodeCamp/freeCodeCamp/notifications{?since,all,participating}",
               "open_issues": 295,
               "open_issues_count": 295,
-              "owner": Object {
+              "owner": {
                 "avatar_url": "https://avatars0.githubusercontent.com/u/9892522?v=4",
                 "events_url": "https://api.github.com/users/freeCodeCamp/events{/privacy}",
                 "followers_url": "https://api.github.com/users/freeCodeCamp/followers",
@@ -414,7 +414,7 @@ Object {
               "watchers": 316482,
               "watchers_count": 316482,
             },
-            Object {
+            {
               "archive_url": "https://api.github.com/repos/facebook/react/{archive_format}{/ref}",
               "archived": false,
               "assignees_url": "https://api.github.com/repos/facebook/react/assignees{/user}",
@@ -459,7 +459,7 @@ Object {
               "labels_url": "https://api.github.com/repos/facebook/react/labels{/name}",
               "language": "JavaScript",
               "languages_url": "https://api.github.com/repos/facebook/react/languages",
-              "license": Object {
+              "license": {
                 "key": "mit",
                 "name": "MIT License",
                 "node_id": "MDc6TGljZW5zZTEz",
@@ -474,7 +474,7 @@ Object {
               "notifications_url": "https://api.github.com/repos/facebook/react/notifications{?since,all,participating}",
               "open_issues": 621,
               "open_issues_count": 621,
-              "owner": Object {
+              "owner": {
                 "avatar_url": "https://avatars3.githubusercontent.com/u/69631?v=4",
                 "events_url": "https://api.github.com/users/facebook/events{/privacy}",
                 "followers_url": "https://api.github.com/users/facebook/followers",
@@ -523,12 +523,12 @@ Object {
       "type": "PUT",
     },
   ],
-  "select": Array [
-    Object {
+  "select": [
+    {
       "@@redux-saga/IO": true,
       "combinator": false,
-      "payload": Object {
-        "args": Array [],
+      "payload": {
+        "args": [],
         "selector": "@@redux-saga-test-plan/json/function/<anonymous>",
       },
       "type": "SELECT",
@@ -537,14 +537,14 @@ Object {
 }
 `;
 
-exports[`github should have the expected watchers 1`] = `
-Object {
-  "fork": Array [
-    Object {
+exports[`github > should have the expected watchers 1`] = `
+{
+  "fork": [
+    {
       "@@redux-saga/IO": true,
       "combinator": false,
-      "payload": Object {
-        "args": Array [
+      "payload": {
+        "args": [
           "GITHUB_GET_REPOS_REQUEST",
           "@@redux-saga-test-plan/json/function/getReposSaga",
         ],
@@ -554,11 +554,11 @@ Object {
       "type": "FORK",
     },
   ],
-  "take": Array [
-    Object {
+  "take": [
+    {
       "@@redux-saga/IO": true,
       "combinator": false,
-      "payload": Object {
+      "payload": {
         "pattern": "GITHUB_GET_REPOS_REQUEST",
       },
       "type": "TAKE",

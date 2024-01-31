@@ -1,4 +1,4 @@
-import { login, logOut } from 'actions/user';
+import { login, logOut } from '~/actions/user';
 
 describe('actions/user', () => {
   it('login', () => {

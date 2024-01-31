@@ -1,8 +1,7 @@
 import React from 'react';
-
-import PrivateRoute from 'components/PrivateRoute';
-
 import { render } from 'test-utils';
+
+import PrivateRoute from '~/components/PrivateRoute';
 
 describe('PrivateRoute', () => {
   it('should redirect for unauthenticated access', () => {
@@ -10,6 +9,7 @@ describe('PrivateRoute', () => {
       <PrivateRoute isAuthenticated={false}>
         <div>PRIVATE</div>
       </PrivateRoute>,
+      { path: '/private', pathname: '/private' },
     );
 
     expect(container).toMatchSnapshot();
@@ -20,6 +20,7 @@ describe('PrivateRoute', () => {
       <PrivateRoute isAuthenticated>
         <div>PRIVATE</div>
       </PrivateRoute>,
+      { path: '/private', pathname: '/private' },
     );
 
     expect(container).toMatchSnapshot();

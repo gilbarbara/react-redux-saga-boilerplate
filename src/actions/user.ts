@@ -1,6 +1,6 @@
 import { createAction } from '@reduxjs/toolkit';
 
-import { ActionTypes } from 'literals';
+import { ActionTypes } from '~/literals';
 
 export const login = createAction(ActionTypes.USER_LOGIN_REQUEST);
 export const loginSuccess = createAction(ActionTypes.USER_LOGIN_SUCCESS);

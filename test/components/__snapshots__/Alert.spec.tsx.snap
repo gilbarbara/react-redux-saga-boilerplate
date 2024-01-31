@@ -1,484 +1,197 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Alert should render the "danger" type 1`] = `
-.c3 {
-  box-sizing: border-box;
-  padding-left: 8px;
-}
-
-.c0 {
-  box-sizing: border-box;
-  background-color: #ff4444;
-  border: 1px solid #ff4444;
-  color: #fff;
-  border-radius: 0px;
-  font-size: inherit;
-  line-height: 1.4;
-  max-width: 450px;
-  padding: 10px 12px;
-  width: 100%;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-}
-
-.c0 a {
-  color: #fff;
-}
-
-.c2 {
-  display: inline-block;
-  line-height: 0;
-}
-
-.c2 svg {
-  height: auto;
-  max-height: 100%;
-  width: 24px;
-}
-
-.c1 {
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  background-color: #ff4444;
-  color: #fff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
+exports[`Alert > should render the 'error' type 1`] = `
 <div
-  class="c0"
-  data-testid="Alert"
-  display="flex"
+  class="css-waw36"
+  data-component-name="Alert"
   role="alert"
 >
-  <div
-    class="c1"
+  <span
+    class="css-nri15g"
+    data-component-name="Icon"
+    name="close-circle"
   >
     <svg
-      class="c2"
-      height="100%"
-      src="/media/icons/times-circle.svg"
-      width="24px"
+      height="20"
+      src="https://files.gilbarbara.dev/icons/close-circle.svg"
+      title="close-circle"
+      width="20"
     />
-  </div>
-  <div
-    class="c3"
+  </span>
+  <span
+    class="css-lo0v0o"
+    data-component-name="Text"
   >
-    <p>
-      This is an error message
-    </p>
-  </div>
-</div>
-`;
-
-exports[`Alert should render the "dark" type 1`] = `
-.c3 {
-  box-sizing: border-box;
-  padding-left: 8px;
-}
-
-.c0 {
-  box-sizing: border-box;
-  background-color: #212121;
-  border: 1px solid #212121;
-  color: #fff;
-  border-radius: 0px;
-  font-size: inherit;
-  line-height: 1.4;
-  max-width: 450px;
-  padding: 10px 12px;
-  width: 100%;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-}
-
-.c0 a {
-  color: #fff;
-}
-
-.c2 {
-  display: inline-block;
-  line-height: 0;
-}
-
-.c2 svg {
-  height: auto;
-  max-height: 100%;
-  width: 24px;
-}
-
-.c1 {
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  background-color: #212121;
-  color: #fff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-<div
-  class="c0"
-  data-testid="Alert"
-  display="flex"
-  role="alert"
->
-  <div
-    class="c1"
-  >
-    <svg
-      class="c2"
-      height="100%"
-      src="/media/icons/bell-o.svg"
-      width="24px"
-    />
-  </div>
-  <div
-    class="c3"
-  >
-    <div>
-      This is a message
+    <div
+      class="css-n1d5o7"
+      data-component-name="Box"
+    >
+      <p>
+        This is an error message
+      </p>
     </div>
-  </div>
+  </span>
 </div>
 `;
 
-exports[`Alert should render the "info" type 1`] = `
-.c3 {
-  box-sizing: border-box;
-  padding-left: 8px;
-}
-
-.c0 {
-  box-sizing: border-box;
-  background-color: #33b5e5;
-  border: 1px solid #33b5e5;
-  color: #000;
-  border-radius: 0px;
-  font-size: inherit;
-  line-height: 1.4;
-  max-width: 450px;
-  padding: 10px 12px;
-  width: 100%;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-}
-
-.c0 a {
-  color: #000;
-}
-
-.c2 {
-  display: inline-block;
-  line-height: 0;
-}
-
-.c2 svg {
-  height: auto;
-  max-height: 100%;
-  width: 24px;
-}
-
-.c1 {
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  background-color: #33b5e5;
-  color: #fff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
+exports[`Alert > should render the 'info' type 1`] = `
 <div
-  class="c0"
-  data-testid="Alert"
-  display="flex"
+  class="css-17nincq"
+  data-component-name="Alert"
   role="alert"
 >
-  <div
-    class="c1"
+  <span
+    class="css-nri15g"
+    data-component-name="Icon"
+    name="info-circle"
   >
     <svg
-      class="c2"
-      height="100%"
-      src="/media/icons/question-circle.svg"
-      width="24px"
+      height="20"
+      src="https://files.gilbarbara.dev/icons/info-circle.svg"
+      title="info-circle"
+      width="20"
     />
-  </div>
-  <div
-    class="c3"
+  </span>
+  <span
+    class="css-lo0v0o"
+    data-component-name="Text"
   >
-    This is an info message
-  </div>
+    <div
+      class="css-n1d5o7"
+      data-component-name="Box"
+    >
+      This is an info message
+    </div>
+  </span>
 </div>
 `;
 
-exports[`Alert should render the "success" type 1`] = `
-.c3 {
-  box-sizing: border-box;
-  padding-left: 8px;
-}
-
-.c0 {
-  box-sizing: border-box;
-  background-color: #00C851;
-  border: 1px solid #00C851;
-  color: #fff;
-  border-radius: 0px;
-  font-size: inherit;
-  line-height: 1.4;
-  max-width: 450px;
-  padding: 10px 12px;
-  width: 100%;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-}
-
-.c0 a {
-  color: #fff;
-}
-
-.c2 {
-  display: inline-block;
-  line-height: 0;
-}
-
-.c2 svg {
-  height: auto;
-  max-height: 100%;
-  width: 24px;
-}
-
-.c1 {
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  background-color: #00C851;
-  color: #fff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
+exports[`Alert > should render the 'neutral' type 1`] = `
 <div
-  class="c0"
-  data-testid="Alert"
-  display="flex"
+  class="css-1wzqtgx"
+  data-component-name="Alert"
   role="alert"
 >
-  <div
-    class="c1"
+  <span
+    class="css-nri15g"
+    data-component-name="Icon"
+    name="message-circle"
   >
     <svg
-      class="c2"
-      height="100%"
-      src="/media/icons/check-circle.svg"
-      width="24px"
+      height="20"
+      src="https://files.gilbarbara.dev/icons/message-circle.svg"
+      title="message-circle"
+      width="20"
     />
-  </div>
-  <div
-    class="c3"
+  </span>
+  <span
+    class="css-lo0v0o"
+    data-component-name="Text"
   >
-    This is a success message
-  </div>
+    <div
+      class="css-n1d5o7"
+      data-component-name="Box"
+    >
+      <div>
+        This is a message
+      </div>
+    </div>
+  </span>
 </div>
 `;
 
-exports[`Alert should render the "warning" type 1`] = `
-.c3 {
-  box-sizing: border-box;
-  padding-left: 8px;
-}
-
-.c0 {
-  box-sizing: border-box;
-  background-color: #fda509;
-  border: 1px solid #fda509;
-  color: #000;
-  border-radius: 0px;
-  font-size: inherit;
-  line-height: 1.4;
-  max-width: 450px;
-  padding: 10px 12px;
-  width: 100%;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-}
-
-.c0 a {
-  color: #000;
-}
-
-.c2 {
-  display: inline-block;
-  line-height: 0;
-}
-
-.c2 svg {
-  height: auto;
-  max-height: 100%;
-  width: 24px;
-}
-
-.c1 {
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  background-color: #fda509;
-  color: #fff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
+exports[`Alert > should render the 'success' type 1`] = `
 <div
-  class="c0"
-  data-testid="Alert"
-  display="flex"
+  class="css-d735a"
+  data-component-name="Alert"
   role="alert"
 >
-  <div
-    class="c1"
+  <span
+    class="css-nri15g"
+    data-component-name="Icon"
+    name="check-circle"
   >
     <svg
-      class="c2"
-      height="100%"
-      src="/media/icons/exclamation-circle.svg"
-      width="24px"
+      height="20"
+      src="https://files.gilbarbara.dev/icons/check-circle.svg"
+      title="check-circle"
+      width="20"
     />
-  </div>
-  <div
-    class="c3"
+  </span>
+  <span
+    class="css-lo0v0o"
+    data-component-name="Text"
   >
-    This is a warning message
-  </div>
+    <div
+      class="css-n1d5o7"
+      data-component-name="Box"
+    >
+      This is a success message
+    </div>
+  </span>
 </div>
 `;
 
-exports[`Alert should render the default alert 1`] = `
-.c3 {
-  box-sizing: border-box;
-  padding-left: 8px;
-}
-
-.c0 {
-  box-sizing: border-box;
-  background-color: #4e4141;
-  border: 1px solid #4e4141;
-  color: #fff;
-  border-radius: 0px;
-  font-size: inherit;
-  line-height: 1.4;
-  max-width: 450px;
-  padding: 10px 12px;
-  width: 100%;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-}
-
-.c0 a {
-  color: #fff;
-}
-
-.c2 {
-  display: inline-block;
-  line-height: 0;
-}
-
-.c2 svg {
-  height: auto;
-  max-height: 100%;
-  width: 24px;
-}
-
-.c1 {
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  color: #fff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
+exports[`Alert > should render the 'warning' type 1`] = `
 <div
-  class="c0"
-  data-testid="Alert"
-  display="flex"
+  class="css-17sh1w2"
+  data-component-name="Alert"
   role="alert"
 >
-  <div
-    class="c1"
+  <span
+    class="css-nri15g"
+    data-component-name="Icon"
+    name="danger-circle"
   >
     <svg
-      class="c2"
-      height="100%"
-      src="/media/icons/dot-circle-o.svg"
-      width="24px"
+      height="20"
+      src="https://files.gilbarbara.dev/icons/danger-circle.svg"
+      title="danger-circle"
+      width="20"
     />
-  </div>
-  <div
-    class="c3"
+  </span>
+  <span
+    class="css-lo0v0o"
+    data-component-name="Text"
   >
-    Basic Alert
-  </div>
+    <div
+      class="css-n1d5o7"
+      data-component-name="Box"
+    >
+      This is a warning message
+    </div>
+  </span>
+</div>
+`;
+
+exports[`Alert > should render the default alert 1`] = `
+<div
+  class="css-1wzqtgx"
+  data-component-name="Alert"
+  role="alert"
+>
+  <span
+    class="css-nri15g"
+    data-component-name="Icon"
+    name="message-circle"
+  >
+    <svg
+      height="20"
+      src="https://files.gilbarbara.dev/icons/message-circle.svg"
+      title="message-circle"
+      width="20"
+    />
+  </span>
+  <span
+    class="css-lo0v0o"
+    data-component-name="Text"
+  >
+    <div
+      class="css-n1d5o7"
+      data-component-name="Box"
+    >
+      Basic Alert
+    </div>
+  </span>
 </div>
 `;

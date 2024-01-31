@@ -1,13 +1,13 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`user login should handle SUCCESS 1`] = `
-Object {
-  "call": Array [
-    Object {
+exports[`user > login > should handle SUCCESS 1`] = `
+{
+  "call": [
+    {
       "@@redux-saga/IO": true,
       "combinator": false,
-      "payload": Object {
-        "args": Array [
+      "payload": {
+        "args": [
           400,
         ],
         "context": null,
@@ -16,12 +16,12 @@ Object {
       "type": "CALL",
     },
   ],
-  "put": Array [
-    Object {
+  "put": [
+    {
       "@@redux-saga/IO": true,
       "combinator": false,
-      "payload": Object {
-        "action": Object {
+      "payload": {
+        "action": {
           "payload": undefined,
           "type": "USER_LOGIN_SUCCESS",
         },
@@ -33,14 +33,14 @@ Object {
 }
 `;
 
-exports[`user logout should handle SUCCESS 1`] = `
-Object {
-  "call": Array [
-    Object {
+exports[`user > logout > should handle SUCCESS 1`] = `
+{
+  "call": [
+    {
       "@@redux-saga/IO": true,
       "combinator": false,
-      "payload": Object {
-        "args": Array [
+      "payload": {
+        "args": [
           200,
         ],
         "context": null,
@@ -49,12 +49,12 @@ Object {
       "type": "CALL",
     },
   ],
-  "put": Array [
-    Object {
+  "put": [
+    {
       "@@redux-saga/IO": true,
       "combinator": false,
-      "payload": Object {
-        "action": Object {
+      "payload": {
+        "action": {
           "payload": undefined,
           "type": "USER_LOGOUT_SUCCESS",
         },
@@ -66,14 +66,14 @@ Object {
 }
 `;
 
-exports[`user should have the expected watchers 1`] = `
-Object {
-  "fork": Array [
-    Object {
+exports[`user > should have the expected watchers 1`] = `
+{
+  "fork": [
+    {
       "@@redux-saga/IO": true,
       "combinator": false,
-      "payload": Object {
-        "args": Array [
+      "payload": {
+        "args": [
           "USER_LOGIN_REQUEST",
           "@@redux-saga-test-plan/json/function/loginSaga",
         ],
@@ -82,11 +82,11 @@ Object {
       },
       "type": "FORK",
     },
-    Object {
+    {
       "@@redux-saga/IO": true,
       "combinator": false,
-      "payload": Object {
-        "args": Array [
+      "payload": {
+        "args": [
           "USER_LOGOUT_REQUEST",
           "@@redux-saga-test-plan/json/function/logoutSaga",
         ],
@@ -96,19 +96,19 @@ Object {
       "type": "FORK",
     },
   ],
-  "take": Array [
-    Object {
+  "take": [
+    {
       "@@redux-saga/IO": true,
       "combinator": false,
-      "payload": Object {
+      "payload": {
         "pattern": "USER_LOGIN_REQUEST",
       },
       "type": "TAKE",
     },
-    Object {
+    {
       "@@redux-saga/IO": true,
       "combinator": false,
-      "payload": Object {
+      "payload": {
         "pattern": "USER_LOGOUT_REQUEST",
       },
       "type": "TAKE",

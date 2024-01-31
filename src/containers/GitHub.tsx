@@ -1,68 +1,91 @@
 import React, { useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useUpdateEffect } from 'react-use';
-import { selectApp, selectGitHub } from 'selectors';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import {
+  Anchor,
+  Box,
   Button,
   ButtonGroup,
-  Flex,
   Grid,
-  Heading,
-  Image,
-  Link,
+  H5,
+  Loader,
+  NonIdealState,
   Paragraph,
   responsive,
-} from 'styled-minimal';
+} from '@gilbarbara/components';
 import useTreeChanges from 'tree-changes-hook';
 
-import { useAppSelector } from 'modules/hooks';
-import theme, { appColor, spacer } from 'modules/theme';
+import { topic } from '~/config';
 
-import { topic } from 'config';
-import { STATUS } from 'literals';
+import { useAppSelector } from '~/modules/hooks';
+import theme, { appColor } from '~/modules/theme';
 
-import { getRepos, setAppOptions, showAlert } from 'actions';
+import { getRepos, setAppOptions, showAlert } from '~/actions';
+import { STATUS } from '~/literals';
 
-import Loader from 'components/Loader';
+import { selectApp, selectGitHub } from '~/selectors';
 
-const Item = styled(Link)`
+const Item = styled(Anchor)`
   align-items: center;
-  border: solid 0.1rem ${appColor};
-  border-radius: 0.4rem;
+  border: solid 1px ${appColor};
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding: ${spacer(3)};
+  padding: ${theme.spacing.md};
   text-align: center;
   width: 100%;
-  /* stylelint-disable */
+
   ${responsive({
     md: {
-      padding: spacer(3),
+      padding: theme.spacing.md,
     },
     lg: {
-      padding: spacer(4),
+      padding: theme.spacing.lg,
     },
   })};
-  /* stylelint-enable */
 
   p {
     color: #000;
+    word-break: break-word;
   }
 
   img {
-    height: 8rem;
-    margin-bottom: ${spacer(2)};
+    height: 80px;
+    margin-bottom: ${theme.spacing.sm};
   }
 `;
 
 const ItemHeader = styled.div`
-  margin-bottom: ${spacer(3)};
+  margin-bottom: ${theme.spacing.md};
 
   small {
-    color: ${theme.colors.gray60};
+    color: ${theme.grayScale['600']};
   }
+`;
+
+const GridResponsive = styled(Grid)`
+  gap: ${theme.spacing.xs};
+  grid-template-columns: 100%;
+  width: 100%;
+
+  ${responsive({
+    sm: {
+      gap: theme.spacing.sm,
+      width: '90%',
+    },
+    md: {
+      gridTemplateColumns: 'repeat(2, 1fr)',
+    },
+    lg: {
+      gridTemplateColumns: 'repeat(3, 1fr)',
+    },
+    xl: {
+      gap: theme.spacing.lg,
+      gridTemplateColumns: 'repeat(4, 1fr)',
+    },
+  })};
 `;
 
 function GitHub() {
@@ -70,9 +93,9 @@ function GitHub() {
   const gitHub = useAppSelector(selectGitHub);
   const { query } = useAppSelector(selectApp);
 
-  const { changed } = useTreeChanges(gitHub.topics[query] || topic);
+  const { changed } = useTreeChanges(gitHub.topics[query] ?? topic);
 
-  const { data = [], message = '', status = STATUS.IDLE } = gitHub.topics[query] || topic;
+  const { data = [], message = '', status = STATUS.IDLE } = gitHub.topics[query] ?? topic;
 
   useEffect(() => {
     dispatch(getRepos(query));
@@ -80,7 +103,7 @@ function GitHub() {
 
   useUpdateEffect(() => {
     if (changed('status', STATUS.ERROR)) {
-      dispatch(showAlert(message, { variant: 'danger' }));
+      dispatch(showAlert(message, { type: 'error' }));
     }
   }, [changed, dispatch, message]);
 
@@ -98,58 +121,43 @@ function GitHub() {
 
   if (status === STATUS.SUCCESS) {
     output = data.length ? (
-      <Grid
-        data-testid="GitHubGrid"
+      <GridResponsive
+        data-component-name="GitHubGrid"
         data-value={query}
-        gridGap={{
-          _: spacer(2),
-          sm: spacer(3),
-          xl: spacer(4),
-        }}
-        gridTemplateColumns={{
-          _: '100%',
-          md: 'repeat(2, 1fr)',
-          lg: 'repeat(3, 1fr)',
-          xl: 'repeat(4, 1fr)',
-        }}
-        m="0 auto"
-        mt={5}
+        mt="xl"
+        mx="auto"
         padding={0}
-        width={{
-          _: '100%',
-          sm: '90%',
-        }}
       >
         {data.map((d: Record<string, any>) => (
           <Item key={d.id} href={d.html_url} target="_blank">
-            <Image alt={d.owner.login} src={d.owner.avatar_url} />
+            <img alt={d.owner.login} src={d.owner.avatar_url} />
             <ItemHeader>
-              <Heading as="h5" h={100} lineHeight={1}>
+              <H5 height={100} lineHeight={1}>
                 {d.name}
-              </Heading>
+              </H5>
               <small>{d.owner.login}</small>
             </ItemHeader>
             <Paragraph>{d.description}</Paragraph>
           </Item>
         ))}
-      </Grid>
+      </GridResponsive>
     ) : (
-      <h3>Nothing found</h3>
+      <NonIdealState description="Nothing found" type={null} />
     );
   } else {
     output = <Loader block />;
   }
 
   return (
-    <div key="GitHub" data-testid="GitHubWrapper">
-      <Flex justifyContent="center">
-        <ButtonGroup aria-label="GitHub Selector" data-testid="GitHubSelector" role="group">
+    <div key="GitHub" data-component-name="GitHubWrapper">
+      <Box flexBox justify="center">
+        <ButtonGroup aria-label="GitHub Selector" data-component-name="GitHubSelector" role="group">
           <Button
             busy={query === 'react' && isRunning}
             data-value="react"
             invert={query !== 'react'}
             onClick={handleClick}
-            size="lg"
+            size="md"
           >
             React
           </Button>
@@ -158,12 +166,12 @@ function GitHub() {
             data-value="redux"
             invert={query !== 'redux'}
             onClick={handleClick}
-            size="lg"
+            size="md"
           >
             Redux
           </Button>
         </ButtonGroup>
-      </Flex>
+      </Box>
       {output}
     </div>
   );

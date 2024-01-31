@@ -1,6 +1,5 @@
-import React from 'react';
 import SVG from 'react-inlinesvg';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
   align-items: flex-start;
@@ -8,7 +7,7 @@ export const Wrapper = styled.div`
   font-size: 0;
 
   svg {
-    height: 4.2rem;
+    height: 42px;
     max-height: 100%;
     width: auto;
   }
@@ -17,7 +16,7 @@ export const Wrapper = styled.div`
 function Logo() {
   return (
     <Wrapper>
-      <SVG src={`${process.env.PUBLIC_URL}/media/brand/icon.svg`} />
+      <SVG src="/media/brand/icon.svg" />
     </Wrapper>
   );
 }

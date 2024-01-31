@@ -1,8 +1,7 @@
 import React from 'react';
-
-import GlobalStyles from 'containers/GlobalStyles';
-
 import { render } from 'test-utils';
+
+import GlobalStyles from '~/containers/GlobalStyles';
 
 describe('GlobalStyles', () => {
   it('should render properly', () => {

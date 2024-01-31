@@ -1,8 +1,8 @@
 import { createReducer } from '@reduxjs/toolkit';
 
-import { setAppOptions } from 'actions';
+import { setAppOptions } from '~/actions';
 
-import { AppState } from 'types';
+import { AppState } from '~/types';
 
 export const appState: AppState = {
   query: 'react',

@@ -1,18 +1,11 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { RootState } from 'types';
+import { RootState } from '~/types';
 
-export const selectApp = createSelector(
-  (state: RootState) => state.app,
-  app => app,
-);
+const selectSelf = (state: RootState) => state;
 
-export const selectGitHub = createSelector(
-  (state: RootState) => state.github,
-  github => github,
-);
+export const selectApp = createSelector(selectSelf, state => state.app);
 
-export const selectUser = createSelector(
-  (state: RootState) => state.user,
-  user => user,
-);
+export const selectGitHub = createSelector(selectSelf, state => state.github);
+
+export const selectUser = createSelector(selectSelf, state => state.user);
