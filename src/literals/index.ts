@@ -1,13 +1,13 @@
 import { keyMirror } from '@gilbarbara/helpers';
 
-import { Status } from 'types';
+import { Status } from '~/types';
 
 export const ActionTypes = keyMirror({
+  ALERTS_HIDE: undefined,
+  ALERTS_SHOW: undefined,
   GITHUB_GET_REPOS_REQUEST: undefined,
   GITHUB_GET_REPOS_SUCCESS: undefined,
   GITHUB_GET_REPOS_FAILURE: undefined,
-  HIDE_ALERT: undefined,
-  SHOW_ALERT: undefined,
   SET_APP_OPTIONS: undefined,
   USER_LOGIN_REQUEST: undefined,
   USER_LOGIN_SUCCESS: undefined,

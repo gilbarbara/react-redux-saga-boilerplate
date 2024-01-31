@@ -1,17 +1,17 @@
-import React from 'react';
+import { Children, CSSProperties, ReactNode } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-import { Transitions } from 'types';
+import { Transitions } from '~/types';
 
 import transitions, { classNames } from './transitions';
 
 interface Props {
   appear: boolean;
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
   enter: boolean;
   exit: boolean;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
   timeout: number;
   transition: Transitions;
 }
@@ -27,9 +27,10 @@ function Transition({ children, className, style, transition, ...rest }: Props) 
 
   return (
     <TransitionGroup className={className} style={style}>
-      {React.Children.toArray(children)
+      {Children.toArray(children)
         .filter(child => !!child)
         .map((child, key) => (
+          // eslint-disable-next-line react/no-array-index-key
           <CSSTransition key={key} classNames={classNames[transition]} {...rest}>
             <Component>{child}</Component>
           </CSSTransition>

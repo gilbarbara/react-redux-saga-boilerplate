@@ -1,140 +1,73 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`NotFound should render properly 1`] = `
-.c1 {
-  box-sizing: border-box;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 16px;
-  padding-right: 16px;
-  position: relative;
-  width: 100%;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding-bottom: 16px;
-  padding-top: 16px;
-}
-
-.c3 {
-  box-sizing: border-box;
-  font-size: 48px;
-  font-family: inherit;
-  font-weight: 700;
-  line-height: 1;
-  margin-bottom: 0;
-  margin-top: 8px;
-  font-size: 100px;
-}
-
-.c3:first-child {
-  margin-top: 0;
-}
-
-.c4 {
-  box-sizing: border-box;
-  font-size: 40px;
-  font-family: inherit;
-  font-weight: 700;
-  line-height: 1;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
-
-.c4:first-child {
-  margin-top: 0;
-}
-
-.c0 {
-  background: #000 linear-gradient(to bottom,#00657e 0%,#002529 100%) fixed;
-  color: #fff;
-  min-height: 100vh;
-  overflow: hidden;
-  position: relative;
-}
-
-.c0:before {
-  background: linear-gradient(to bottom,#000,#fff);
-  bottom: 0;
-  content: '';
-  left: 0;
-  opacity: 0.4;
-  position: absolute;
-  right: 0;
-  top: 0;
-  -webkit-transform: rotate(-20deg) scale(2) translate(0,45%);
-  -ms-transform: rotate(-20deg) scale(2) translate(0,45%);
-  transform: rotate(-20deg) scale(2) translate(0,45%);
-}
-
-.c2 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  text-align: center;
-}
-
-.c2 h1,
-.c2 a {
-  color: #fff;
-  line-height: 1;
-}
-
-.c2 a {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-@media screen and (min-width:1024px) {
-  .c1 {
-    padding-bottom: 32px;
-    padding-top: 32px;
-  }
-}
-
-@media screen and (min-width:1024px) {
-  .c1 {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-}
-
+exports[`NotFound > should render properly 1`] = `
 <div
-  class="c0"
-  data-testid="NotFound"
+  class="css-146gbh6"
+  data-component-name="NotFound"
 >
   <div
-    class="c1 c2"
+    class="css-px2j5d"
+    data-component-name="Page"
   >
-    <h1
-      class="c3"
-      font-size="100"
+    <div
+      class="css-wc6egs"
+      data-component-name="Box"
     >
-      404
-    </h1>
-    <a
-      href="/"
-    >
-      <h2
-        class="c4"
+      <div
+        class="css-vacfv5"
+        data-component-name="NonIdealState"
       >
-        go home
-      </h2>
-    </a>
+        <div
+          class="css-16wmnst"
+          data-component-name="Box"
+        >
+          <span
+            class="css-1oyk1n8"
+            data-component-name="Icon"
+            name="smile-none"
+          >
+            <svg
+              height="64"
+              src="https://cdn.jsdelivr.net/npm/css.gg/icons/svg/smile-none.svg"
+              title="smile-none"
+              width="64"
+            />
+          </span>
+        </div>
+        <div
+          class="css-11oqjv"
+          data-component-name="Box"
+        >
+          <h2
+            class="css-wbv4yw"
+            data-component-name="H2"
+          >
+            Page not found
+          </h2>
+          <p
+            class="css-1iqh4jp"
+            data-component-name="Paragraph"
+          >
+            <span
+              class="css-lo0v0o"
+              data-component-name="Text"
+            >
+              We are sorry, but the page you requested doesn't exist.
+            </span>
+          </p>
+        </div>
+      </div>
+      <a
+        href="/"
+      >
+        <h2
+          class="css-1bwodyc"
+          data-component-name="H2"
+        >
+          go home
+        </h2>
+      </a>
+    </div>
   </div>
 </div>
 `;

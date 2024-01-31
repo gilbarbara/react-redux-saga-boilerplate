@@ -1,14 +1,20 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { render } from '@testing-library/react';
-import deepmerge from 'deepmerge';
-import { Middleware } from 'redux';
-import { configStore } from 'store';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { ThemeProvider } from '@emotion/react';
+import { Action, Middleware } from '@reduxjs/toolkit';
+import { render, RenderOptions, RenderResult } from '@testing-library/react';
+import { deepmerge } from 'deepmerge-ts';
 import { PartialDeep } from 'type-fest';
+import { Mock } from 'vitest';
 
-import { initialState } from 'reducers';
+import theme from '~/modules/theme';
 
-import { RootState } from 'types';
+import { initialState } from '~/reducers';
+
+import { store } from '~/store';
+import { addMiddleware, resetMiddlewares } from '~/store/dynamic-middlewares';
+import { RootState } from '~/types';
 
 type NavigateOptions = {
   hash?: string;
@@ -16,42 +22,84 @@ type NavigateOptions = {
   search?: string;
 };
 
-function customRender(ui: React.ReactElement, options: Record<string, any> = {}) {
-  const { actions = [], mockDispatch, ...rest } = options;
+interface CustomRenderOptions extends RenderOptions {
+  actions?: any[];
+  mockDispatch?: Mock;
+  path?: string;
+  pathname?: string;
+  resetStore?: boolean;
+}
 
-  const middleware: Middleware[] = [];
+function customRender(
+  ui: React.ReactElement,
+  options?: CustomRenderOptions,
+): RenderResult & {
+  store: typeof store;
+} {
+  const { actions = [], mockDispatch, path, pathname, resetStore = true, ...rest } = options || {};
 
-  if (mockDispatch) {
-    // eslint-disable-next-line unicorn/consistent-function-scoping
-    middleware.push(() => next => action => {
-      if (!action.type.startsWith('persist/')) {
-        mockDispatch(action);
-      }
+  resetMiddlewares();
 
-      next(action);
-    });
+  if (resetStore) {
+    store.dispatch({ type: 'RESET_STORE' });
   }
 
-  const { store } = configStore({}, middleware);
+  const middlewares: Middleware[] = [];
+
+  if (mockDispatch) {
+    middlewares.push(dispatchMiddleware(mockDispatch));
+  }
+
+  addMiddleware(...middlewares);
 
   actions.forEach(d => store.dispatch(d));
 
-  if (mockDispatch) {
-    // mockDispatch.mockClear();
-  }
-
   return {
-    ...render(ui, { wrapper: getProviders(store), ...rest }),
+    ...render(ui, { wrapper: getWrapper(path, pathname), ...rest }),
     store,
+  };
+}
+
+export function dispatchMiddleware(mockDispatch: Mock): Middleware<any, RootState> {
+  return () => next => action => {
+    const { type = '' } = action as Action;
+
+    if (!type?.startsWith('persist/')) {
+      mockDispatch(action);
+    }
+
+    next(action);
   };
 }
 
 export const emptyAction = { type: '', payload: {} };
 
+export function getWrapper(path?: string, pathname?: string): React.FC<any> {
+  return ({ children }) => {
+    let content = children;
+
+    if (path && pathname) {
+      content = (
+        <MemoryRouter initialEntries={[pathname]}>
+          <Routes>
+            <Route element={content} path={path} />
+          </Routes>
+        </MemoryRouter>
+      );
+    }
+
+    return (
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>{content}</ThemeProvider>
+      </Provider>
+    );
+  };
+}
+
 export function navigate(options: NavigateOptions): void {
   const { location } = window;
 
-  const { pathname = location.pathname, search, hash } = options;
+  const { hash, pathname = location.pathname, search } = options;
   let url = `${location.protocol}//${location.host}${pathname}`;
 
   if (search) {
@@ -62,12 +110,7 @@ export function navigate(options: NavigateOptions): void {
     url += `#${hash}`;
   }
 
-  // @ts-ignore
-  jsdom.reconfigure({ url });
-}
-
-function getProviders(store): React.FC {
-  return ({ children }) => <Provider store={store}>{children}</Provider>;
+  window.history.pushState({}, '', url);
 }
 
 export function mergeState(patch: PartialDeep<RootState> = {}) {

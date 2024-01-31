@@ -1,7 +1,4 @@
-import React from 'react';
-import { Button, Container, Paragraph } from 'styled-minimal';
-
-import Icon from 'components/Icon';
+import { Button, Container, Icon, Paragraph } from '@gilbarbara/components';
 
 interface Props {
   error: Error;
@@ -14,11 +11,11 @@ export default function ErrorHandler({ error, resetErrorBoundary }: Props) {
   };
 
   return (
-    <Container data-testid="ErrorHandler" fullScreen verticalAlign="center">
-      <Icon name="exclamation-circle" width={64} />
-      <Paragraph my={3}>{error.message}</Paragraph>
+    <Container data-component-name="ErrorHandler" fullScreen>
+      <Icon name="danger-o" size={64} />
+      <Paragraph my="md">{error.message}</Paragraph>
 
-      <Button onClick={handleClickReset} variant="red">
+      <Button bg="red" onClick={handleClickReset}>
         Tentar novamente
       </Button>
     </Container>

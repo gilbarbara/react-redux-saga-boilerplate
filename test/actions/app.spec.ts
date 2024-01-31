@@ -1,4 +1,4 @@
-import { setAppOptions } from 'actions/app';
+import { setAppOptions } from '~/actions/app';
 
 describe('actions/app', () => {
   describe('setAppOptions', () => {

@@ -1,11 +1,10 @@
-import React from 'react';
-import { Box, Container, Flex } from 'styled-minimal';
+import { Box, Container } from '@gilbarbara/components';
 
 function Footer() {
   return (
-    <Box as="footer" borderTop="0.1rem solid #ddd">
-      <Container py={3}>
-        <Flex justifyContent="space-between">
+    <Box as="footer" border={{ size: 1, side: 'top', color: 'gray.200' }}>
+      <Container py="lg">
+        <Box flexBox justify="space-between">
           <iframe
             frameBorder="0"
             height="20px"
@@ -20,9 +19,9 @@ function Footer() {
             scrolling="0"
             src="https://ghbtns.com/github-btn.html?user=gilbarbara&type=follow&count=true"
             title="GitHub Follow"
-            width="130px"
+            width="135px"
           />
-        </Flex>
+        </Box>
       </Container>
     </Box>
   );

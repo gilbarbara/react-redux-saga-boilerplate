@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
-import { easing } from 'modules/theme';
+import { easing } from '~/modules/theme';
 
 const Fade = styled.div`
   will-change: opacity, transform;
@@ -47,7 +47,9 @@ const SlideDown = styled.div`
     &.slide-down-appear-active {
       opacity: 1;
       transform: translate3d(0, 0, 0);
-      transition: 0.3s opacity, 0.3s transform ${easing};
+      transition:
+        0.3s opacity,
+        0.3s transform ${easing};
     }
   }
 
@@ -55,7 +57,9 @@ const SlideDown = styled.div`
     &.slide-down-enter-active {
       opacity: 1;
       transform: translate3d(0, 0, 0);
-      transition: 0.3s opacity, 0.3s transform ${easing};
+      transition:
+        0.3s opacity,
+        0.3s transform ${easing};
     }
   }
 
@@ -66,7 +70,9 @@ const SlideDown = styled.div`
     &.slide-down-exit-active {
       opacity: 0.01;
       transform: translate3d(0, -100%, 0);
-      transition: 0.3s opacity, 0.3s transform ${easing};
+      transition:
+        0.3s opacity,
+        0.3s transform ${easing};
     }
   }
 `;
@@ -84,7 +90,9 @@ const SlideLeft = styled.div`
     &.slide-left-appear-active {
       opacity: 1;
       transform: translate3d(0, 0, 0);
-      transition: 0.3s opacity, 0.3s transform ${easing};
+      transition:
+        0.3s opacity,
+        0.3s transform ${easing};
     }
   }
 
@@ -92,7 +100,9 @@ const SlideLeft = styled.div`
     &.slide-left-enter-active {
       opacity: 1;
       transform: translate3d(0, 0, 0);
-      transition: 0.3s opacity, 0.3s transform ${easing};
+      transition:
+        0.3s opacity,
+        0.3s transform ${easing};
     }
   }
 
@@ -103,7 +113,9 @@ const SlideLeft = styled.div`
     &.slide-left-exit-active {
       opacity: 0.01;
       transform: translate3d(100%, 0, 0);
-      transition: 0.3s opacity, 0.3s transform ${easing};
+      transition:
+        0.3s opacity,
+        0.3s transform ${easing};
     }
   }
 `;
@@ -121,7 +133,9 @@ const SlideRight = styled.div`
     &.slide-right-appear-active {
       opacity: 1;
       transform: translate3d(0, 0, 0);
-      transition: 0.3s opacity, 0.3s transform ${easing};
+      transition:
+        0.3s opacity,
+        0.3s transform ${easing};
     }
   }
 
@@ -129,7 +143,9 @@ const SlideRight = styled.div`
     &.slide-right-enter-active {
       opacity: 1;
       transform: translate3d(0, 0, 0);
-      transition: 0.3s opacity, 0.3s transform ${easing};
+      transition:
+        0.3s opacity,
+        0.3s transform ${easing};
     }
   }
 
@@ -140,7 +156,9 @@ const SlideRight = styled.div`
     &.slide-right-exit-active {
       opacity: 0.01;
       transform: translate3d(-100%, 0, 0);
-      transition: 0.3s opacity, 0.3s transform ${easing};
+      transition:
+        0.3s opacity,
+        0.3s transform ${easing};
     }
   }
 `;
@@ -158,7 +176,9 @@ const SlideUp = styled.div`
     &.slide-up-appear-active {
       opacity: 1;
       transform: translate3d(0, 0, 0);
-      transition: 0.3s opacity, 0.3s transform ${easing};
+      transition:
+        0.3s opacity,
+        0.3s transform ${easing};
     }
   }
 
@@ -166,7 +186,9 @@ const SlideUp = styled.div`
     &.slide-up-enter-active {
       opacity: 1;
       transform: translate3d(0, 0, 0);
-      transition: 0.3s opacity, 0.3s transform ${easing};
+      transition:
+        0.3s opacity,
+        0.3s transform ${easing};
     }
   }
 
@@ -177,7 +199,9 @@ const SlideUp = styled.div`
     &.slide-up-exit-active {
       opacity: 0.01;
       transform: translate3d(0, 100%, 0);
-      transition: 0.3s opacity, 0.3s transform ${easing};
+      transition:
+        0.3s opacity,
+        0.3s transform ${easing};
     }
   }
 `;

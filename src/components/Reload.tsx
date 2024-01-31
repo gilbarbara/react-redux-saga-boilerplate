@@ -1,6 +1,6 @@
-import React, { useCallback } from 'react';
-import styled from 'styled-components';
-import { Button, Heading } from 'styled-minimal';
+import { useCallback } from 'react';
+import styled from '@emotion/styled';
+import { Button, H6 } from '@gilbarbara/components';
 
 export const ReloadWrapper = styled.div`
   button {
@@ -14,11 +14,9 @@ function Reload() {
   }, []);
 
   return (
-    <ReloadWrapper data-testid="Reload">
-      <Heading as="h6" mb={3}>
-        There's a new version of this app!
-      </Heading>
-      <Button invert onClick={handleClick} size="sm" variant="dark">
+    <ReloadWrapper data-component-name="Reload">
+      <H6 mb="lg">There's a new version of this app!</H6>
+      <Button bg="black" invert onClick={handleClick} size="xs">
         Reload
       </Button>
     </ReloadWrapper>

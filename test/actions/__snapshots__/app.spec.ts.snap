@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`actions/app setAppOptions should return an action 1`] = `
-Object {
-  "payload": Object {
+exports[`actions/app > setAppOptions > should return an action 1`] = `
+{
+  "payload": {
     "query": "react",
   },
   "type": "SET_APP_OPTIONS",

@@ -1,54 +1,48 @@
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
-import { Button, Container, responsive, Text } from 'styled-minimal';
+import styled from '@emotion/styled';
+import { Box, Button, Container, Icon, responsive, Text } from '@gilbarbara/components';
 
-import { spacer } from 'modules/theme';
+import { name } from '~/config';
 
-import { name } from 'config';
-import { STATUS } from 'literals';
+import theme from '~/modules/theme';
 
-import { login } from 'actions';
+import { login } from '~/actions';
+import { STATUS } from '~/literals';
 
-import Background from 'components/Background';
-import Icon from 'components/Icon';
-import Logo from 'components/Logo';
+import Background from '~/components/Background';
+import Logo from '~/components/Logo';
 
-import { RootState } from 'types';
+import { RootState } from '~/types';
 
 const Header = styled.div`
-  margin-bottom: ${spacer(3)};
+  margin-bottom: ${theme.spacing.lg};
   text-align: center;
 
   svg {
-    height: 10rem;
+    height: 100px;
     width: auto;
 
-    ${
-      /* sc-custom '@media-query' */ responsive({
-        lg: {
-          height: '15rem',
-        },
-      })
-    };
+    ${responsive({
+      lg: {
+        height: '180px',
+      },
+    })};
   }
 `;
 
 const Heading = styled.h1`
   color: #fff;
-  font-size: 3.5rem;
+  font-size: 35px;
   line-height: 1.4;
-  margin-bottom: ${spacer(3)};
+  margin-bottom: ${theme.spacing.lg};
   margin-top: 0;
   text-align: center;
 
-  ${
-    /* sc-custom '@media-query' */ responsive({
-      lg: {
-        fontSize: '4rem',
-      },
-    })
-  };
+  ${responsive({
+    lg: {
+      fontSize: '40px',
+    },
+  })};
 `;
 
 function Home() {
@@ -60,23 +54,24 @@ function Home() {
   };
 
   return (
-    <Background key="Home" data-testid="Home">
-      <Container fullScreen>
-        <Header>
-          <Logo />
-        </Header>
-        <Heading>{name}</Heading>
-        <Button
-          busy={status === STATUS.RUNNING}
-          data-testid="Login"
-          onClick={handleClickLogin}
-          size="xl"
-          textTransform="uppercase"
-          variant="white"
-        >
-          <Icon name="sign-in" />
-          <Text ml={2}>Start</Text>
-        </Button>
+    <Background key="Home" data-component-name="Home">
+      <Container fullScreen justify="center">
+        <Box textAlign="center">
+          <Header>
+            <Logo />
+          </Header>
+          <Heading>{name}</Heading>
+          <Button
+            bg="white"
+            busy={status === STATUS.RUNNING}
+            data-component-name="Start"
+            onClick={handleClickLogin}
+            size="lg"
+          >
+            <Icon mr="xs" name="star" size={24} />
+            <Text size="lg">Start</Text>
+          </Button>
+        </Box>
       </Container>
     </Background>
   );

@@ -3,8 +3,7 @@
   "compilerOptions": {
     "noUnusedLocals": false,
     "noImplicitAny": false,
-    "module": "esnext",
-    "sourceMap": false
+    "module": "ESNext"
   },
-  "include": ["../src/types/**/*", "**/*"]
+  "include": ["**/*"]
 }

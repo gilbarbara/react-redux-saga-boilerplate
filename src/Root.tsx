@@ -1,29 +1,30 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { selectUser } from 'selectors';
-import styled, { ThemeProvider } from 'styled-components';
-import { px } from 'styled-minimal';
+import { ThemeProvider } from '@emotion/react';
+import styled from '@emotion/styled';
+import { px } from '@gilbarbara/components';
 import useTreeChanges from 'tree-changes-hook';
 
-import { useAppSelector } from 'modules/hooks';
-import theme, { headerHeight } from 'modules/theme';
+import { name } from '~/config';
 
-import { name } from 'config';
+import { useAppSelector } from '~/modules/hooks';
+import theme, { headerHeight } from '~/modules/theme';
 
-import { showAlert } from 'actions';
+import { showAlert } from '~/actions';
 
-import Footer from 'components/Footer';
-import Header from 'components/Header';
-import PrivateRoute from 'components/PrivateRoute';
-import PublicRoute from 'components/PublicRoute';
-import SystemAlerts from 'containers/SystemAlerts';
-import Home from 'routes/Home';
-import NotFound from 'routes/NotFound';
-import Private from 'routes/Private';
+import Footer from '~/components/Footer';
+import Header from '~/components/Header';
+import PrivateRoute from '~/components/PrivateRoute';
+import PublicRoute from '~/components/PublicRoute';
+import SystemAlerts from '~/containers/SystemAlerts';
+import Home from '~/routes/Home';
+import NotFound from '~/routes/NotFound';
+import Private from '~/routes/Private';
 
-import { UserState } from 'types';
+import { selectUser } from '~/selectors';
+import { UserState } from '~/types';
 
 const AppWrapper = styled.div`
   display: flex;
@@ -48,14 +49,14 @@ function Root() {
 
   useEffect(() => {
     if (changed('isAuthenticated', true)) {
-      dispatch(showAlert('Hello! And welcome!', { variant: 'success', icon: 'bell', timeout: 10 }));
+      dispatch(showAlert('Hello! And welcome!', { type: 'success', icon: 'bell', timeout: 10 }));
     }
   }, [dispatch, changed]);
 
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <AppWrapper data-testid="app">
+        <AppWrapper data-component-name="app">
           <Helmet
             defaultTitle={name}
             defer={false}

@@ -1,8 +1,7 @@
 import React from 'react';
-
-import Background from 'components/Background';
-
 import { render } from 'test-utils';
+
+import Background from '~/components/Background';
 
 describe('Background', () => {
   it('should render properly', () => {

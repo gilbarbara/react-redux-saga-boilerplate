@@ -1,11 +1,11 @@
 import { createReducer } from '@reduxjs/toolkit';
 
-import { topic } from 'config';
-import { STATUS } from 'literals';
+import { topic } from '~/config';
 
-import { getRepos, getReposFailure, getReposSuccess } from 'actions';
+import { getRepos, getReposFailure, getReposSuccess } from '~/actions';
+import { STATUS } from '~/literals';
 
-import { GitHubState } from 'types';
+import { GitHubState } from '~/types';
 
 export const githubState: GitHubState = {
   topics: {},

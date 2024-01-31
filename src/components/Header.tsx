@@ -1,14 +1,12 @@
-import React from 'react';
 import { useDispatch } from 'react-redux';
-import styled from 'styled-components';
-import { Container, responsive } from 'styled-minimal';
+import styled from '@emotion/styled';
+import { Container, Icon, responsive, Text } from '@gilbarbara/components';
 
-import { appColor, headerHeight, spacer } from 'modules/theme';
+import { appColor, headerHeight } from '~/modules/theme';
 
-import { logOut } from 'actions';
+import { logOut } from '~/actions';
 
-import Icon from 'components/Icon';
-import Logo from 'components/Logo';
+import Logo from '~/components/Logo';
 
 const HeaderWrapper = styled.header`
   background-color: #113740;
@@ -23,39 +21,23 @@ const HeaderWrapper = styled.header`
     background-color: ${appColor};
     bottom: 0;
     content: '';
-    height: 0.2rem;
+    height: 2px;
     left: 0;
     position: absolute;
     right: 0;
   }
 `;
 
-const HeaderContainer = styled(Container)`
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  height: 100%;
-  justify-content: space-between;
-  padding-bottom: ${spacer(2)};
-  padding-top: ${spacer(2)};
-`;
-
 const Logout = styled.button`
   align-items: center;
   color: #fff;
   display: flex;
-  font-size: 1.3rem;
-  padding: ${spacer(2)};
+  font-size: 14px;
 
-  ${responsive({ lg: { fontSize: '1.6rem' } })}; /* stylelint-disable-line */
-
-  &.active {
-    color: #fff;
-  }
+  ${responsive({ lg: { fontSize: '16px' } })};
 
   span {
     display: inline-block;
-    margin-right: 0.4rem;
     text-transform: uppercase;
   }
 `;
@@ -68,14 +50,14 @@ export default function Header() {
   };
 
   return (
-    <HeaderWrapper data-testid="Header">
-      <HeaderContainer>
+    <HeaderWrapper data-component-name="Header">
+      <Container direction="row" justify="space-between" padding="md">
         <Logo />
-        <Logout onClick={handleClickLogout}>
-          <span>logout</span>
-          <Icon name="sign-out" width={16} />
+        <Logout data-component-name="Logout" onClick={handleClickLogout}>
+          <Text>logout</Text>
+          <Icon ml="xs" name="sign-out" />
         </Logout>
-      </HeaderContainer>
+      </Container>
     </HeaderWrapper>
   );
 }

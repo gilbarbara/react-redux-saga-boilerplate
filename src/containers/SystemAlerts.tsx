@@ -1,16 +1,16 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useUnmount } from 'react-use';
-import styled from 'styled-components';
-import { responsive } from 'styled-minimal';
+import styled from '@emotion/styled';
+import { responsive } from '@gilbarbara/components';
 
-import { useAppSelector } from 'modules/hooks';
-import { spacer } from 'modules/theme';
+import { useAppSelector } from '~/modules/hooks';
+import theme from '~/modules/theme';
 
-import { hideAlert } from 'actions';
+import { hideAlert } from '~/actions';
 
-import Alert from 'components/Alert';
-import Transition from 'components/Transition';
+import Alert from '~/components/Alert';
+import Transition from '~/components/Transition';
 
 const Base = styled.div`
   position: fixed;
@@ -18,15 +18,15 @@ const Base = styled.div`
 
   > div {
     > * + * {
-      margin-top: ${spacer(3)};
+      margin-top: ${theme.spacing.md};
     }
   }
 `;
 
 const TopLeft = styled(Base)`
-  left: ${spacer(3)};
-  top: ${spacer(3)};
-  width: 26rem;
+  left: ${theme.spacing.md};
+  top: ${theme.spacing.md};
+  width: 260px;
 
   ${
     /* sc-custom '@media-query' */ responsive({
@@ -38,9 +38,9 @@ const TopLeft = styled(Base)`
 `;
 
 const TopRight = styled(Base)`
-  right: ${spacer(3)};
-  top: ${spacer(3)};
-  width: 26rem;
+  right: ${theme.spacing.md};
+  top: ${theme.spacing.md};
+  width: 260px;
 
   ${
     /* sc-custom '@media-query' */ responsive({
@@ -52,9 +52,9 @@ const TopRight = styled(Base)`
 `;
 
 const BottomLeft = styled(Base)`
-  bottom: ${spacer(3)};
-  left: ${spacer(3)};
-  width: 26rem;
+  bottom: ${theme.spacing.md};
+  left: ${theme.spacing.md};
+  width: 260px;
 
   ${
     /* sc-custom '@media-query' */ responsive({
@@ -66,9 +66,9 @@ const BottomLeft = styled(Base)`
 `;
 
 const BottomRight = styled(Base)`
-  bottom: ${spacer(3)};
-  right: ${spacer(3)};
-  width: 26rem;
+  bottom: ${theme.spacing.md};
+  right: ${theme.spacing.md};
+  width: 260px;
 
   ${
     /* sc-custom '@media-query' */ responsive({
@@ -131,13 +131,7 @@ export default function SystemAlerts() {
       }
 
       return items.map(d => (
-        <Alert
-          key={d.id}
-          handleClickClose={handleClick}
-          icon={d.icon}
-          id={d.id}
-          variant={d.variant}
-        >
+        <Alert key={d.id} handleClickClose={handleClick} icon={d.icon} id={d.id} type={d.type}>
           {d.message}
         </Alert>
       ));

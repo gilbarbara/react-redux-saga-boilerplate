@@ -1,23 +1,21 @@
 import React from 'react';
 import { config } from 'react-transition-group';
+import { act, fireEvent, render, screen } from 'test-utils';
 
-import { ActionTypes } from 'literals';
+import { showAlert } from '~/actions';
+import { ActionTypes } from '~/literals';
 
-import { showAlert } from 'actions';
-
-import SystemAlerts from 'containers/SystemAlerts';
-
-import { fireEvent, render, screen } from 'test-utils';
+import SystemAlerts from '~/containers/SystemAlerts';
 
 config.disabled = true;
 
-jest.mock('components/Transition', () => ({ children }) => (
-  <div className="transition">{children}</div>
-));
+vi.mock('~/components/Transition', () => ({
+  default: ({ children }) => <div className="transition">{children}</div>,
+}));
 
-jest.useFakeTimers();
+vi.useFakeTimers();
 
-const mockDispatch = jest.fn();
+const mockDispatch = vi.fn();
 
 describe('SystemAlerts', () => {
   it('should render all zones', () => {
@@ -31,7 +29,7 @@ describe('SystemAlerts', () => {
       actions: [
         showAlert('Hello World', {
           position: 'top-left',
-          variant: 'success',
+          type: 'success',
         }),
       ],
       mockDispatch,
@@ -39,10 +37,12 @@ describe('SystemAlerts', () => {
 
     expect(screen.getByRole('alert')).toBeInTheDocument();
 
-    jest.runOnlyPendingTimers();
+    act(() => {
+      vi.runOnlyPendingTimers();
+    });
 
     expect(mockDispatch).toHaveBeenCalledWith({
-      type: ActionTypes.HIDE_ALERT,
+      type: ActionTypes.ALERTS_HIDE,
       payload: '8cdee72f-28d4-4441-91f0-c61f6e3d9684',
     });
 
@@ -55,7 +55,7 @@ describe('SystemAlerts', () => {
         showAlert('Hello Mars', {
           id: 'ABD13',
           position: 'bottom-right',
-          variant: 'dark',
+          type: 'neutral',
           timeout: 0,
         }),
       ],

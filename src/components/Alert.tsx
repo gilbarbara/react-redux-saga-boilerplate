@@ -1,92 +1,44 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Alert as AlertComponent, Box } from 'styled-minimal';
-import { Variants } from 'styled-minimal/lib/types';
+import { MouseEvent, ReactNode } from 'react';
+import styled from '@emotion/styled';
+import { Alert as AlertComponent, Box, Icon, Types } from '@gilbarbara/components';
 
-import { spacer, variants } from 'modules/theme';
+import theme from '~/modules/theme';
 
-import Icon from 'components/Icon';
-
-import { Icons } from 'types';
+import { AlertType } from '~/types';
 
 interface Props {
-  children: React.ReactNode;
-  handleClickClose?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  icon?: Icons;
+  children: ReactNode;
+  handleClickClose?: (event: MouseEvent<HTMLButtonElement>) => void;
+  icon?: Types.Icons;
   id?: string;
-  variant?: string;
+  type?: AlertType;
 }
 
 AlertComponent.displayName = 'AlertComponent';
 
-const AlertIcon = styled.div`
-  align-items: flex-start;
-  background-color: ${({ variant }: { variant: Variants }) => variants[variant]};
-  color: #fff;
-  display: flex;
-`;
-
 const AlertButton = styled.button`
-  background-color: ${({ variant }: { variant: Variants }) => variants[variant]};
   color: #fff;
   line-height: 0;
   pointer-events: all;
   position: absolute;
-  right: ${spacer(1)};
-  top: ${spacer(1)};
+  right: ${theme.spacing.xs};
+  top: ${theme.spacing.xs};
 `;
 
-function Alert({ children, handleClickClose, icon, id, variant = 'gray', ...rest }: Props) {
+function Alert({ children, handleClickClose, id, type = 'neutral', ...rest }: Props) {
   const output: Record<string, any> = {};
-  let name: Icons;
-
-  switch (variant) {
-    case 'success': {
-      name = icon || 'check-circle';
-      break;
-    }
-    case 'warning': {
-      name = icon || 'exclamation-circle';
-      break;
-    }
-    case 'danger': {
-      name = icon || 'times-circle';
-      break;
-    }
-    case 'info': {
-      name = icon || 'question-circle';
-      break;
-    }
-    case 'dark': {
-      name = icon || 'bell-o';
-      break;
-    }
-    default: {
-      name = icon || 'dot-circle-o';
-    }
-  }
 
   if (handleClickClose) {
     output.button = (
-      <AlertButton data-id={id} onClick={handleClickClose} type="button" variant={variant}>
-        <Icon name="times" width={10} />
+      <AlertButton data-id={id} onClick={handleClickClose} type="button">
+        <Icon name="times" size={10} />
       </AlertButton>
     );
   }
 
   return (
-    <AlertComponent
-      {...rest}
-      alignItems="center"
-      data-testid="Alert"
-      display="flex"
-      position="relative"
-      variant={variant}
-    >
-      <AlertIcon variant={variant} {...rest}>
-        <Icon name={name} width={24} />
-      </AlertIcon>
-      <Box pl={handleClickClose ? 3 : 2}>{children}</Box>
+    <AlertComponent {...rest} align="center" data-component-name="Alert" type={type}>
+      <Box pl={handleClickClose ? 'sm' : 'xs'}>{children}</Box>
       {output.button}
     </AlertComponent>
   );

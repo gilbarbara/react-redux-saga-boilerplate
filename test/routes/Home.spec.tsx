@@ -1,10 +1,11 @@
 import React from 'react';
-
-import Home from 'routes/Home';
-
 import { fireEvent, render, screen } from 'test-utils';
 
-const mockDispatch = jest.fn();
+import { login } from '~/actions';
+
+import Home from '~/routes/Home';
+
+const mockDispatch = vi.fn();
 
 describe('Home', () => {
   it('should render properly', () => {
@@ -14,10 +15,8 @@ describe('Home', () => {
 
   it('should handle clicks', () => {
     render(<Home />, { mockDispatch });
-    fireEvent.click(screen.getByTestId('Login'));
+    fireEvent.click(screen.getByTestId('Start'));
 
-    expect(mockDispatch).toHaveBeenCalledWith({
-      type: 'USER_LOGIN_REQUEST',
-    });
+    expect(mockDispatch).toHaveBeenCalledWith(login());
   });
 });

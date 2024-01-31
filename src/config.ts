@@ -1,6 +1,6 @@
-import { STATUS } from 'literals';
+import { STATUS } from '~/literals';
 
-import { Topic } from 'types';
+import { Topic } from '~/types';
 
 export const description = 'Boilerplate with React and Redux with Redux Saga';
 export const name = 'React Redux Saga Boilerplate';

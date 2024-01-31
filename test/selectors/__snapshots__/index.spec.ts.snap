@@ -1,19 +1,19 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`selectors selectApp should return the app 1`] = `
-Object {
+exports[`selectors > selectApp > should return the app 1`] = `
+{
   "query": "react",
 }
 `;
 
-exports[`selectors selectGitHub should return the github 1`] = `
-Object {
-  "topics": Object {},
+exports[`selectors > selectGitHub > should return the github 1`] = `
+{
+  "topics": {},
 }
 `;
 
-exports[`selectors selectUser should return the user 1`] = `
-Object {
+exports[`selectors > selectUser > should return the user 1`] = `
+{
   "isAuthenticated": false,
   "status": "idle",
 }

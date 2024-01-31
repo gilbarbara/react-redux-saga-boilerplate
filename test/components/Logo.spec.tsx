@@ -1,8 +1,7 @@
 import React from 'react';
-
-import Logo from 'components/Logo';
-
 import { render } from 'test-utils';
+
+import Logo from '~/components/Logo';
 
 describe('Logo', () => {
   it('should render properly', () => {

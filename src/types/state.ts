@@ -1,17 +1,17 @@
-import React from 'react';
+import { ReactNode } from 'react';
+import { Types } from '@gilbarbara/components';
 import { Dispatch } from 'redux';
-import { Variants } from 'styled-minimal/lib/types';
 import { ValueOf } from 'type-fest';
 
-import { AlertPosition, Icons, Status } from './common';
+import { AlertPosition, AlertType, Status } from './common';
 
 export interface AlertData {
-  icon: Icons;
+  icon: Types.Icons;
   id: string;
-  message: React.ReactNode;
+  message: ReactNode;
   position: AlertPosition;
   timeout: number;
-  variant: Variants;
+  type: AlertType;
 }
 
 export interface Topic {

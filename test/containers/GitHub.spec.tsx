@@ -1,13 +1,13 @@
 import React from 'react';
+import { fireEvent, render, screen, waitFor, waitForElementToBeRemoved } from 'test-utils';
 
-import { ActionTypes } from 'literals';
+import { ActionTypes } from '~/literals';
 
-import GitHub from 'containers/GitHub';
+import GitHub from '~/containers/GitHub';
 
 import githubRepos from 'test/__fixtures__/github-repos.json';
-import { fireEvent, render, screen, waitFor } from 'test-utils';
 
-const mockDispatch = jest.fn();
+const mockDispatch = vi.fn();
 
 describe('GitHub', () => {
   afterEach(() => {
@@ -15,37 +15,33 @@ describe('GitHub', () => {
     fetchMock.resetMocks();
   });
 
-  it('should render a loader and dispatch the action', () => {
-    const { container } = render(<GitHub />, { mockDispatch });
+  it('should render a loader, dispatch the action and render no results', async () => {
+    fetchMock.mockResponseOnce(JSON.stringify({ items: [] }));
 
-    expect(container).toMatchSnapshot();
+    render(<GitHub />, { mockDispatch });
+
     expect(mockDispatch).toHaveBeenCalledWith({
       type: ActionTypes.GITHUB_GET_REPOS_REQUEST,
       payload: 'react',
     });
+
+    expect(screen.getByTestId('GitHubWrapper')).toMatchSnapshot();
+
+    await waitForElementToBeRemoved(() => screen.queryByTestId('LoaderPill'));
+    expect(screen.getByText('Nothing found')).toBeInTheDocument();
   });
 
   it('should render the repos', async () => {
-    fetchMock.mockResponse(JSON.stringify({ items: githubRepos.items.slice(0, 2) }));
-
-    render(<GitHub />);
-    const repos = await screen.findByTestId('GitHubGrid');
-
-    expect(repos.outerHTML).toMatchSnapshot();
-  });
-
-  it("should render a message if there's no data", async () => {
-    fetchMock.mockResponse(JSON.stringify({ items: [] }));
+    fetchMock.mockResponseOnce(JSON.stringify({ items: githubRepos.items.slice(0, 2) }));
 
     render(<GitHub />);
 
-    const repos = await screen.findByText('Nothing found');
+    await waitForElementToBeRemoved(() => screen.queryByTestId('LoaderPill'));
 
-    expect(repos).toMatchSnapshot();
+    expect(screen.getByTestId('GitHubGrid')).toMatchSnapshot();
   });
 
   it('should dispatch an action when click selector button', async () => {
-    fetchMock.mockResponse(JSON.stringify({ items: [] }));
     render(<GitHub />, { mockDispatch });
 
     fireEvent.click(screen.getByRole('button', { name: 'Redux' }));
@@ -54,22 +50,24 @@ describe('GitHub', () => {
       type: 'GITHUB_GET_REPOS_REQUEST',
       payload: 'redux',
     });
+
+    await waitForElementToBeRemoved(() => screen.queryByTestId('LoaderPill'));
   });
 
   it('should dispatch an alert with errors', async () => {
-    fetchMock.mockReject(new Error('Nothing found'));
+    fetchMock.mockRejectOnce(new Error('Nothing found'));
 
     render(<GitHub />, { mockDispatch });
 
     await waitFor(() => {
       expect(mockDispatch).toHaveBeenCalledWith({
-        type: 'SHOW_ALERT',
+        type: 'ALERTS_SHOW',
         payload: {
           id: '8cdee72f-28d4-4441-91f0-c61f6e3d9684',
-          icon: 'dot-circle-o',
+          icon: 'info-o',
           message: 'Nothing found',
           position: 'bottom-right',
-          variant: 'danger',
+          type: 'error',
           timeout: 0,
         },
       });

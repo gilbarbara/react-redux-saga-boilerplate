@@ -1,8 +1,8 @@
 import { createReducer } from '@reduxjs/toolkit';
 
-import { hideAlert, showAlert } from 'actions';
+import { hideAlert, showAlert } from '~/actions';
 
-import { AlertsState } from 'types';
+import { AlertsState } from '~/types';
 
 export const alertsState: AlertsState = {
   data: [],

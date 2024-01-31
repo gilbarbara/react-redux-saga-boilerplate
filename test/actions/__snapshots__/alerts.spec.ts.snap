@@ -1,38 +1,38 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`actions/alerts hideAlert should return an action 1`] = `
-Object {
+exports[`actions/alerts > hideAlert > should return an action 1`] = `
+{
   "payload": "test",
-  "type": "HIDE_ALERT",
+  "type": "ALERTS_HIDE",
 }
 `;
 
-exports[`actions/alerts showAlert should return an action with variant \`error\` 1`] = `
-Object {
+exports[`actions/alerts > showAlert > should return an action with type \`error\` 1`] = `
+{
   "meta": undefined,
-  "payload": Object {
-    "icon": "dot-circle-o",
+  "payload": {
+    "icon": "info-o",
     "id": "test",
     "message": "Alright!",
     "position": "bottom-right",
     "timeout": 0,
-    "variant": "danger",
+    "type": "error",
   },
-  "type": "SHOW_ALERT",
+  "type": "ALERTS_SHOW",
 }
 `;
 
-exports[`actions/alerts showAlert should return an action with variant \`success\` 1`] = `
-Object {
+exports[`actions/alerts > showAlert > should return an action with type \`success\` 1`] = `
+{
   "meta": undefined,
-  "payload": Object {
-    "icon": "dot-circle-o",
+  "payload": {
+    "icon": "info-o",
     "id": "test",
     "message": "Alright!",
     "position": "bottom-right",
     "timeout": 10,
-    "variant": "success",
+    "type": "success",
   },
-  "type": "SHOW_ALERT",
+  "type": "ALERTS_SHOW",
 }
 `;

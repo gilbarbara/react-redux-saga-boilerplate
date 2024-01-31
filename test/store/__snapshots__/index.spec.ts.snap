@@ -1,21 +1,21 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`store should be able to create a new store 1`] = `
-Object {
-  "_persist": Object {
+exports[`store > should be able to create a new store 1`] = `
+{
+  "_persist": {
     "rehydrated": false,
     "version": -1,
   },
-  "alerts": Object {
-    "data": Array [],
+  "alerts": {
+    "data": [],
   },
-  "app": Object {
+  "app": {
     "query": "react",
   },
-  "github": Object {
-    "topics": Object {},
+  "github": {
+    "topics": {},
   },
-  "user": Object {
+  "user": {
     "isAuthenticated": false,
     "status": "idle",
   },

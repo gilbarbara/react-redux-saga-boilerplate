@@ -1,28 +1,28 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`reducers/alerts should handle HIDE_ALERT 1`] = `
-Object {
-  "data": Array [],
+exports[`reducers/alerts > should handle ALERTS_HIDE 1`] = `
+{
+  "data": [],
 }
 `;
 
-exports[`reducers/alerts should handle SHOW_ALERT 1`] = `
-Object {
-  "data": Array [
-    Object {
-      "icon": "dot-circle-o",
+exports[`reducers/alerts > should handle ALERTS_SHOW 1`] = `
+{
+  "data": [
+    {
+      "icon": "info-o",
       "id": "test",
       "message": "HELLO",
       "position": "bottom-right",
       "timeout": 5,
-      "variant": "success",
+      "type": "success",
     },
   ],
 }
 `;
 
-exports[`reducers/alerts should return the initial state 1`] = `
-Object {
-  "data": Array [],
+exports[`reducers/alerts > should return the initial state 1`] = `
+{
+  "data": [],
 }
 `;

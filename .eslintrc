@@ -1,19 +1,12 @@
 {
   "extends": [
-    "@gilbarbara/eslint-config"
+    "@gilbarbara/eslint-config",
+    "@gilbarbara/eslint-config/vitest",
+    "@gilbarbara/eslint-config/testing-library"
   ],
   "env": {
     "browser": true,
     "cypress/globals": true
-  },
-  "settings": {
-    "import/resolver": {
-      "node": {},
-      "typescript": {},
-      "webpack": {
-        "config": "config/webpack.config.js"
-      }
-    }
   },
   "globals": {
     "fetch": false,
@@ -34,10 +27,6 @@
         "jsdom": false,
         "navigate": true,
         "renderWithRedux": true
-      },
-      "parserOptions": {
-        "project": "./tsconfig.json",
-        "tsconfigRootDir": "./test/"
       },
       "rules": {
         "no-console": "off",

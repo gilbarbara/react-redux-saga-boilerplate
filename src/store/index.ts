@@ -1,14 +1,31 @@
-import { applyMiddleware, compose, createStore, Middleware, Store } from 'redux';
-import { persistCombineReducers, persistStore } from 'redux-persist';
+import { configureStore, Tuple } from '@reduxjs/toolkit';
+import {
+  FLUSH,
+  PAUSE,
+  PERSIST,
+  persistCombineReducers,
+  persistStore,
+  PURGE,
+  REGISTER,
+  REHYDRATE,
+} from 'redux-persist';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import storage from 'redux-persist/lib/storage';
 
-import reducers from 'reducers';
-import rootSaga from 'sagas';
+import reducers from '~/reducers';
+import rootSaga from '~/sagas';
 
-import { RootState } from 'types';
+import { RootState } from '~/types';
 
-import middleware, { sagaMiddleware } from './middleware';
+import dynamicMiddlewares from './dynamic-middlewares';
+import middlewares, { sagaMiddleware } from './middlewares';
+
+const getDefaultMiddlewareOptions = {
+  serializableCheck: {
+    ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+  },
+  // thunk: false,
+};
 
 const rootReducer = persistCombineReducers<RootState>(
   {
@@ -21,26 +38,26 @@ const rootReducer = persistCombineReducers<RootState>(
   reducers,
 );
 
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
 /* istanbul ignore next */
-export const configStore = (initialState: any = {}, additionalMiddleware: Middleware[] = []) => {
-  const store: Store = createStore(
-    rootReducer,
-    initialState,
-    composeEnhancer(applyMiddleware(...additionalMiddleware, ...middleware)),
-  );
+export const configStore = (preloadedState: any = {}) => {
+  const enhancedStore = configureStore({
+    reducer: rootReducer,
+    preloadedState,
+    middleware: getDefaultMiddleware => {
+      return new Tuple(
+        ...getDefaultMiddleware(getDefaultMiddlewareOptions),
+        ...middlewares,
+        dynamicMiddlewares,
+      );
+    },
+  });
 
   sagaMiddleware.run(rootSaga);
 
-  if (module.hot) {
-    module.hot.accept('reducers', () => {
-      store.replaceReducer(rootReducer);
-    });
-  }
-
   return {
-    persistor: persistStore(store),
-    store,
+    persistor: persistStore(enhancedStore),
+    store: enhancedStore,
   };
 };
+
+export const { persistor, store } = configStore();

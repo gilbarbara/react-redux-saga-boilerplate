@@ -1,6 +1,8 @@
-import React from 'react';
+import { ComponentProps, ComponentType } from 'react';
+import { Alert, Types } from '@gilbarbara/components';
 
 export type AlertPosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+export type AlertType = ComponentProps<typeof Alert>['type'];
 
 export interface AsyncFlow {
   message: string;
@@ -9,27 +11,10 @@ export interface AsyncFlow {
 
 export type GenericFunction<T = any> = (...arguments_: any[]) => T;
 
-export type Icons =
-  | 'bell-o'
-  | 'bell'
-  | 'bolt'
-  | 'check-circle-o'
-  | 'check-circle'
-  | 'check'
-  | 'dot-circle-o'
-  | 'exclamation-circle'
-  | 'question-circle-o'
-  | 'question-circle'
-  | 'sign-in'
-  | 'sign-out'
-  | 'times-circle-o'
-  | 'times-circle'
-  | 'times';
-
 export type PlainObject<T = any> = Record<string, T>;
 
 export interface RouteProps {
-  component: React.ComponentType<any>;
+  component: ComponentType<any>;
   exact?: boolean;
   isAuthenticated: boolean;
   path: string;
@@ -49,11 +34,11 @@ export interface SetAppOOptions {
 }
 
 export interface ShowAlertOptions {
-  icon?: Icons;
+  icon?: Types.Icons;
   id?: string;
   position?: AlertPosition;
   timeout?: number;
-  variant?: string;
+  type?: AlertType;
 }
 
 export type Transitions = 'fade' | 'slideDown' | 'slideLeft' | 'slideRight' | 'slideUp';

@@ -1,8 +1,7 @@
 import React from 'react';
-
-import Reload from 'components/Reload';
-
 import { fireEvent, render, screen } from 'test-utils';
+
+import Reload from '~/components/Reload';
 
 describe('Reload', () => {
   const { location } = window;
@@ -10,7 +9,7 @@ describe('Reload', () => {
   beforeAll(() => {
     // @ts-ignore
     delete window.location;
-    window.location = { ...location, reload: jest.fn() };
+    window.location = { ...location, reload: vi.fn() };
   });
 
   afterAll(() => {

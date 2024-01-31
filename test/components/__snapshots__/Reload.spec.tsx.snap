@@ -1,73 +1,19 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Reload should render properly 1`] = `
-.c2 {
-  box-sizing: border-box;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: #fff;
-  border: 1px solid #212121;
-  color: #212121;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border-radius: 0px;
-  box-shadow: none;
-  cursor: pointer;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  font-family: inherit;
-  font-size: 14px;
-  line-height: 1;
-  padding: 6px 10px;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  width: auto;
-}
-
-.c2:disabled {
-  opacity: 0.7;
-  pointer-events: none;
-}
-
-.c2:focus {
-  outline-color: #212121;
-}
-
-.c1 {
-  box-sizing: border-box;
-  font-size: 16px;
-  font-family: inherit;
-  font-weight: 700;
-  line-height: 1;
-  margin-bottom: 0;
-  margin-top: 8px;
-  margin-bottom: 16px;
-}
-
-.c1:first-child {
-  margin-top: 0;
-}
-
-.c0 button {
-  pointer-events: all;
-}
-
+exports[`Reload > should render properly 1`] = `
 <div
-  class="c0"
-  data-testid="Reload"
+  class="css-15cg8s2"
+  data-component-name="Reload"
 >
   <h6
-    class="c1"
+    class="css-hr59i5"
+    data-component-name="H6"
   >
     There's a new version of this app!
   </h6>
   <button
-    class="c2"
+    class="css-7rcxmt"
+    data-component-name="Button"
     type="button"
   >
     Reload

@@ -1,12 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Github GITHUB_GET_REPOS should handle FAILURE 1`] = `
-Object {
-  "topics": Object {
-    "react": Object {
+exports[`Github > GITHUB_GET_REPOS > should handle FAILURE 1`] = `
+{
+  "topics": {
+    "react": {
       "cached": false,
-      "data": Array [],
-      "message": Object {
+      "data": [],
+      "message": {
         "message": "Something failed",
       },
       "status": "error",
@@ -16,12 +16,12 @@ Object {
 }
 `;
 
-exports[`Github GITHUB_GET_REPOS should handle REQUEST 1`] = `
-Object {
-  "topics": Object {
-    "react": Object {
+exports[`Github > GITHUB_GET_REPOS > should handle REQUEST 1`] = `
+{
+  "topics": {
+    "react": {
       "cached": false,
-      "data": Array [],
+      "data": [],
       "message": "",
       "status": "running",
       "updatedAt": 0,
@@ -30,14 +30,14 @@ Object {
 }
 `;
 
-exports[`Github GITHUB_GET_REPOS should handle SUCCESS 1`] = `
-Object {
-  "topics": Object {
-    "react": Object {
+exports[`Github > GITHUB_GET_REPOS > should handle SUCCESS 1`] = `
+{
+  "topics": {
+    "react": {
       "cached": false,
-      "data": Object {
-        "data": Array [
-          Object {
+      "data": {
+        "data": [
+          {
             "name": "one",
           },
         ],
@@ -50,8 +50,8 @@ Object {
 }
 `;
 
-exports[`Github should return the initial state 1`] = `
-Object {
-  "topics": Object {},
+exports[`Github > should return the initial state 1`] = `
+{
+  "topics": {},
 }
 `;

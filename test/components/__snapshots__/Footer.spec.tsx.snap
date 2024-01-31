@@ -1,51 +1,18 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Footer should render properly 1`] = `
-.c0 {
-  box-sizing: border-box;
-  border-top: 0.1rem solid #ddd;
-}
-
-.c1 {
-  box-sizing: border-box;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 16px;
-  padding-right: 16px;
-  position: relative;
-  width: 100%;
-  padding-top: 16px;
-  padding-bottom: 16px;
-}
-
-.c2 {
-  box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-@media screen and (min-width:1024px) {
-  .c1 {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-}
-
+exports[`Footer > should render properly 1`] = `
 <div>
   <footer
-    class="c0"
+    class="css-mtlhd8"
+    data-component-name="Box"
   >
     <div
-      class="c1"
+      class="css-fd9se2"
+      data-component-name="Container"
     >
       <div
-        class="c2"
+        class="css-1xy02bk"
+        data-component-name="Box"
       >
         <iframe
           frameborder="0"
@@ -61,7 +28,7 @@ exports[`Footer should render properly 1`] = `
           scrolling="0"
           src="https://ghbtns.com/github-btn.html?user=gilbarbara&type=follow&count=true"
           title="GitHub Follow"
-          width="130px"
+          width="135px"
         />
       </div>
     </div>

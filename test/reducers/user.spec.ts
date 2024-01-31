@@ -1,8 +1,7 @@
-import { ActionTypes } from 'literals';
-
-import reducer from 'reducers/user';
-
 import { emptyAction } from 'test-utils';
+
+import { ActionTypes } from '~/literals';
+import reducer from '~/reducers/user';
 
 describe('User', () => {
   it('should return the initial state', () => {

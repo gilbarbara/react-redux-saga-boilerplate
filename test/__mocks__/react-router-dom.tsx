@@ -1,10 +1,7 @@
 import React from 'react';
-
 import { navigate } from 'test-utils';
 
-export * from 'react-router-dom/umd/react-router-dom.development';
-
-export function Link(props) {
+function Link(props: any) {
   const { children, className, onClick, style, to, ...rest } = props;
 
   delete rest.end;
@@ -31,7 +28,7 @@ export function Link(props) {
   );
 }
 
-export function NavLink(props) {
+function NavLink(props: any) {
   const {
     activeClassName,
     activeStyle,
@@ -41,7 +38,7 @@ export function NavLink(props) {
     to,
     ...rest
   } = props;
-  let match;
+  let match: Record<string, string> | null = null;
 
   if ((to.pathname || to) === window.location.pathname) {
     match = { path: window.location.pathname };
@@ -59,18 +56,27 @@ export function NavLink(props) {
   );
 }
 
-export function Navigate({ to }) {
-  return (
-    <div data-component-name="Navigate" data-to={to.pathname}>
-      NAVIGATE
-    </div>
-  );
+function Navigate({ to }: any) {
+  return <div data-to={to}>NAVIGATE</div>;
 }
 
-export function useParams() {
+function useParams() {
   return {};
 }
 
-export function useLocation() {
+function useLocation() {
   return {};
 }
+
+vi.mock('react-router-dom', async importOriginal => {
+  const reactRouterDom = await importOriginal<typeof import('react-router-dom')>();
+
+  return {
+    ...reactRouterDom,
+    Link,
+    Navigate,
+    NavLink,
+    useParams,
+    useLocation,
+  };
+});

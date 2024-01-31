@@ -1,34 +1,17 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import { Container, Heading } from 'styled-minimal';
+import { H2, NonIdealState, Page } from '@gilbarbara/components';
 
-import Background from 'components/Background';
-
-const StyledContainer = styled(Container)`
-  align-items: center;
-  text-align: center;
-
-  h1,
-  a {
-    color: #fff;
-    line-height: 1;
-  }
-
-  a {
-    text-decoration: underline;
-  }
-`;
+import Background from '~/components/Background';
 
 function NotFound() {
   return (
-    <Background key="404" data-testid="NotFound">
-      <StyledContainer fullScreen ySpacing>
-        <Heading fontSize={100}>404</Heading>
+    <Background key="404" data-component-name="NotFound">
+      <Page>
+        <NonIdealState />
         <Link to="/">
-          <Heading as="h2">go home</Heading>
+          <H2>go home</H2>
         </Link>
-      </StyledContainer>
+      </Page>
     </Background>
   );
 }

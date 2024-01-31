@@ -1,9 +1,15 @@
 declare namespace NodeJS {
   interface ProcessEnv {
+    APP_ENV: 'local' | 'development' | 'production';
     readonly NODE_ENV: 'development' | 'production' | 'test';
     readonly PUBLIC_URL: string;
   }
 }
+
+declare let APP__BRANCH: string;
+declare let APP__BUILD_DATE: string;
+declare let APP__GITHASH: string;
+declare let APP__VERSION: string;
 
 declare module '*.bmp' {
   const src: string;

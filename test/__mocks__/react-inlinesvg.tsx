@@ -1,3 +1,8 @@
-import React from 'react';
+vi.mock('react-inlinesvg', async importOriginal => {
+  const reactInlinesvg = await importOriginal<typeof import('react-inlinesvg')>();
 
-export default props => <svg {...props} />;
+  return {
+    ...reactInlinesvg,
+    default: (props: any) => <svg {...props} />,
+  };
+});

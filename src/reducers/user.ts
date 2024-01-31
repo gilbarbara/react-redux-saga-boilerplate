@@ -1,10 +1,9 @@
 import { createReducer } from '@reduxjs/toolkit';
 
-import { STATUS } from 'literals';
+import { login, loginSuccess, logOut, logOutSuccess } from '~/actions';
+import { STATUS } from '~/literals';
 
-import { login, loginSuccess, logOut, logOutSuccess } from 'actions';
-
-import { UserState } from 'types';
+import { UserState } from '~/types';
 
 export const userState = {
   isAuthenticated: false,
