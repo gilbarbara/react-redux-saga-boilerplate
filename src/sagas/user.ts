@@ -1,7 +1,6 @@
 import { all, delay, put, takeLatest } from 'redux-saga/effects';
 
-import { loginSuccess, logOutSuccess } from '~/actions';
-import { ActionTypes } from '~/literals';
+import { login, loginSuccess, logOut, logOutSuccess } from '~/actions';
 
 export function* loginSaga() {
   yield delay(400);
@@ -16,8 +15,5 @@ export function* logoutSaga() {
 }
 
 export default function* root() {
-  yield all([
-    takeLatest(ActionTypes.USER_LOGIN_REQUEST, loginSaga),
-    takeLatest(ActionTypes.USER_LOGOUT_REQUEST, logoutSaga),
-  ]);
+  yield all([takeLatest(login.type, loginSaga), takeLatest(logOut.type, logoutSaga)]);
 }

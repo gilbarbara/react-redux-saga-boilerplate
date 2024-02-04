@@ -8,6 +8,7 @@
     "lib": ["dom", "dom.iterable", "esnext", "webworker"],
     "noEmit": true,
     "paths": {
+      "~/actions": ["src/store/actions"],
       "~/*": ["src/*"],
       "assets/*": ["assets/*"],
       "test/*": ["test/*"],

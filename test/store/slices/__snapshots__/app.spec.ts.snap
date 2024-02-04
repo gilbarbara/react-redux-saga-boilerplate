@@ -1,0 +1,22 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`slices/app > actions > app/setAppOptions > should return an action 1`] = `
+{
+  "payload": {
+    "query": "react",
+  },
+  "type": "app/setAppOptions",
+}
+`;
+
+exports[`slices/app > reducer > should handle app/setAppOptions 1`] = `
+{
+  "query": "test",
+}
+`;
+
+exports[`slices/app > reducer > should return the initial state 1`] = `
+{
+  "query": "react",
+}
+`;

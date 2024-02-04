@@ -38,5 +38,6 @@ if (container) {
 
 /* c8 ignore next 3 */
 if (['local', 'development'].includes(APP_ENV)) {
+  // eslint-disable-next-line no-console
   reportWebVitals(console.log);
 }

@@ -2,8 +2,7 @@ import React from 'react';
 import { config } from 'react-transition-group';
 import { act, fireEvent, render, screen } from 'test-utils';
 
-import { showAlert } from '~/actions';
-import { ActionTypes } from '~/literals';
+import { alertHide, alertShow } from '~/actions';
 
 import SystemAlerts from '~/containers/SystemAlerts';
 
@@ -27,7 +26,7 @@ describe('SystemAlerts', () => {
   it('should render an alert and hide itself after the timeout', async () => {
     render(<SystemAlerts />, {
       actions: [
-        showAlert('Hello World', {
+        alertShow('Hello World', {
           position: 'top-left',
           type: 'success',
         }),
@@ -41,10 +40,7 @@ describe('SystemAlerts', () => {
       vi.runOnlyPendingTimers();
     });
 
-    expect(mockDispatch).toHaveBeenCalledWith({
-      type: ActionTypes.ALERTS_HIDE,
-      payload: '8cdee72f-28d4-4441-91f0-c61f6e3d9684',
-    });
+    expect(mockDispatch).toHaveBeenCalledWith(alertHide('8cdee72f-28d4-4441-91f0-c61f6e3d9684'));
 
     expect(screen.queryByRole('alert')).not.toBeInTheDocument();
   });
@@ -52,7 +48,7 @@ describe('SystemAlerts', () => {
   it('should render an alert without timeout and close it', () => {
     render(<SystemAlerts />, {
       actions: [
-        showAlert('Hello Mars', {
+        alertShow('Hello Mars', {
           id: 'ABD13',
           position: 'bottom-right',
           type: 'neutral',

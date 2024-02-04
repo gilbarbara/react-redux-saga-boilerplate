@@ -21,7 +21,7 @@ import { topic } from '~/config';
 import { useAppSelector } from '~/modules/hooks';
 import theme, { appColor } from '~/modules/theme';
 
-import { getRepos, setAppOptions, showAlert } from '~/actions';
+import { alertShow, getRepos, setAppOptions } from '~/actions';
 import { STATUS } from '~/literals';
 
 import { selectApp, selectGitHub } from '~/selectors';
@@ -103,7 +103,7 @@ function GitHub() {
 
   useUpdateEffect(() => {
     if (changed('status', STATUS.ERROR)) {
-      dispatch(showAlert(message, { type: 'error' }));
+      dispatch(alertShow(message, { type: 'error' }));
     }
   }, [changed, dispatch, message]);
 

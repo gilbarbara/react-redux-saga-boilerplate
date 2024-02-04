@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, render, screen } from 'test-utils';
 
-import { ActionTypes } from '~/literals';
+import { logOut } from '~/actions';
 
 import Header from '~/components/Header';
 
@@ -18,8 +18,6 @@ describe('Header', () => {
     render(<Header />, { mockDispatch });
     fireEvent.click(screen.getByRole('button')!);
 
-    expect(mockDispatch).toHaveBeenCalledWith({
-      type: ActionTypes.USER_LOGOUT_REQUEST,
-    });
+    expect(mockDispatch).toHaveBeenCalledWith(logOut());
   });
 });

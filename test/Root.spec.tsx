@@ -1,8 +1,7 @@
 import React from 'react';
 import { act, render, screen } from 'test-utils';
 
-import { loginSuccess } from '~/actions';
-import { ActionTypes } from '~/literals';
+import { alertShow, loginSuccess } from '~/actions';
 
 import Root from '~/Root';
 
@@ -29,7 +28,7 @@ describe('Root', () => {
 
     expect(screen.getByTestId('app')).toMatchSnapshot();
     expect(mockDispatch).toHaveBeenCalledWith({
-      type: ActionTypes.ALERTS_SHOW,
+      type: alertShow.type,
       payload: {
         id: '8cdee72f-28d4-4441-91f0-c61f6e3d9684',
         icon: 'bell',

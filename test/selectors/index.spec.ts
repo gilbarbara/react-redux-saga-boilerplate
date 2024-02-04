@@ -2,7 +2,7 @@ import { selectApp, selectGitHub, selectUser } from '~/selectors';
 import { configStore } from '~/store';
 
 describe('selectors', () => {
-  const { store } = configStore();
+  const store = configStore();
 
   describe('selectApp', () => {
     it('should return the app', () => {

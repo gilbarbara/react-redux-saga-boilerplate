@@ -23,7 +23,7 @@ exports[`user > login > should handle SUCCESS 1`] = `
       "payload": {
         "action": {
           "payload": undefined,
-          "type": "USER_LOGIN_SUCCESS",
+          "type": "user/loginSuccess",
         },
         "channel": undefined,
       },
@@ -56,7 +56,7 @@ exports[`user > logout > should handle SUCCESS 1`] = `
       "payload": {
         "action": {
           "payload": undefined,
-          "type": "USER_LOGOUT_SUCCESS",
+          "type": "user/logOutSuccess",
         },
         "channel": undefined,
       },
@@ -74,7 +74,7 @@ exports[`user > should have the expected watchers 1`] = `
       "combinator": false,
       "payload": {
         "args": [
-          "USER_LOGIN_REQUEST",
+          "user/login",
           "@@redux-saga-test-plan/json/function/loginSaga",
         ],
         "context": null,
@@ -87,7 +87,7 @@ exports[`user > should have the expected watchers 1`] = `
       "combinator": false,
       "payload": {
         "args": [
-          "USER_LOGOUT_REQUEST",
+          "user/logOut",
           "@@redux-saga-test-plan/json/function/logoutSaga",
         ],
         "context": null,
@@ -101,7 +101,7 @@ exports[`user > should have the expected watchers 1`] = `
       "@@redux-saga/IO": true,
       "combinator": false,
       "payload": {
-        "pattern": "USER_LOGIN_REQUEST",
+        "pattern": "user/login",
       },
       "type": "TAKE",
     },
@@ -109,7 +109,7 @@ exports[`user > should have the expected watchers 1`] = `
       "@@redux-saga/IO": true,
       "combinator": false,
       "payload": {
-        "pattern": "USER_LOGOUT_REQUEST",
+        "pattern": "user/logOut",
       },
       "type": "TAKE",
     },

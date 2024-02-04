@@ -1,0 +1,65 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`slices/alerts > actions > alerts/alertHide > should return an action 1`] = `
+{
+  "payload": "test",
+  "type": "alerts/alertHide",
+}
+`;
+
+exports[`slices/alerts > actions > alerts/alertShow > should return an action with variant \`error\` 1`] = `
+{
+  "meta": undefined,
+  "payload": {
+    "icon": "info-o",
+    "id": "test",
+    "message": "Alright!",
+    "position": "bottom-right",
+    "timeout": 0,
+    "type": "error",
+  },
+  "type": "alerts/alertShow",
+}
+`;
+
+exports[`slices/alerts > actions > alerts/alertShow > should return an action with variant \`success\` 1`] = `
+{
+  "meta": undefined,
+  "payload": {
+    "icon": "info-o",
+    "id": "test",
+    "message": "Alright!",
+    "position": "bottom-right",
+    "timeout": 10,
+    "type": "success",
+  },
+  "type": "alerts/alertShow",
+}
+`;
+
+exports[`slices/alerts > reducer > should handle "alerts/alertHide" 1`] = `
+{
+  "data": [],
+}
+`;
+
+exports[`slices/alerts > reducer > should handle "alerts/alertShow" 1`] = `
+{
+  "data": [
+    {
+      "icon": "info-o",
+      "id": "test",
+      "message": "HELLO",
+      "position": "bottom-right",
+      "timeout": 5,
+      "type": "success",
+    },
+  ],
+}
+`;
+
+exports[`slices/alerts > reducer > should return the initial state 1`] = `
+{
+  "data": [],
+}
+`;
