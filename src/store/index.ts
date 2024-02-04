@@ -12,19 +12,36 @@ import {
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import storage from 'redux-persist/lib/storage';
 
-import reducers from '~/reducers';
 import rootSaga from '~/sagas';
 
 import { RootState } from '~/types';
 
 import dynamicMiddlewares from './dynamic-middlewares';
 import middlewares, { sagaMiddleware } from './middlewares';
+import alerts, { alertsState } from './slices/alerts';
+import app, { appState } from './slices/app';
+import github, { githubState } from './slices/github';
+import user, { userState } from './slices/user';
 
 const getDefaultMiddlewareOptions = {
   serializableCheck: {
     ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
   },
   // thunk: false,
+};
+
+export const initialState = {
+  alerts: alertsState,
+  app: appState,
+  github: githubState,
+  user: userState,
+};
+
+export const reducers = {
+  alerts,
+  app,
+  github,
+  user,
 };
 
 const rootReducer = persistCombineReducers<RootState>(
@@ -38,7 +55,6 @@ const rootReducer = persistCombineReducers<RootState>(
   reducers,
 );
 
-/* istanbul ignore next */
 export const configStore = (preloadedState: any = {}) => {
   const enhancedStore = configureStore({
     reducer: rootReducer,
@@ -54,10 +70,8 @@ export const configStore = (preloadedState: any = {}) => {
 
   sagaMiddleware.run(rootSaga);
 
-  return {
-    persistor: persistStore(enhancedStore),
-    store: enhancedStore,
-  };
+  return enhancedStore;
 };
 
-export const { persistor, store } = configStore();
+export const store = configStore();
+export const persistor = persistStore(store);

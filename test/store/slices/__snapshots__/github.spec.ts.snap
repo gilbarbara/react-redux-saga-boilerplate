@@ -1,6 +1,13 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Github > GITHUB_GET_REPOS > should handle FAILURE 1`] = `
+exports[`slices/github > actions > getRepos 1`] = `
+{
+  "payload": "react",
+  "type": "github/getRepos",
+}
+`;
+
+exports[`slices/github > reducer > getRepos > should handle FAILURE 1`] = `
 {
   "topics": {
     "react": {
@@ -16,7 +23,7 @@ exports[`Github > GITHUB_GET_REPOS > should handle FAILURE 1`] = `
 }
 `;
 
-exports[`Github > GITHUB_GET_REPOS > should handle REQUEST 1`] = `
+exports[`slices/github > reducer > getRepos > should handle REQUEST 1`] = `
 {
   "topics": {
     "react": {
@@ -30,7 +37,7 @@ exports[`Github > GITHUB_GET_REPOS > should handle REQUEST 1`] = `
 }
 `;
 
-exports[`Github > GITHUB_GET_REPOS > should handle SUCCESS 1`] = `
+exports[`slices/github > reducer > getRepos > should handle SUCCESS 1`] = `
 {
   "topics": {
     "react": {
@@ -50,7 +57,7 @@ exports[`Github > GITHUB_GET_REPOS > should handle SUCCESS 1`] = `
 }
 `;
 
-exports[`Github > should return the initial state 1`] = `
+exports[`slices/github > reducer > should return the initial state 1`] = `
 {
   "topics": {},
 }

@@ -10,9 +10,7 @@ import { Mock } from 'vitest';
 
 import theme from '~/modules/theme';
 
-import { initialState } from '~/reducers';
-
-import { store } from '~/store';
+import { initialState, store } from '~/store';
 import { addMiddleware, resetMiddlewares } from '~/store/dynamic-middlewares';
 import { RootState } from '~/types';
 

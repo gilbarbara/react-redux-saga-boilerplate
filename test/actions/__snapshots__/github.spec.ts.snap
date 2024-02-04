@@ -1,8 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`actions/github > getRepos 1`] = `
-{
-  "payload": "react",
-  "type": "GITHUB_GET_REPOS_REQUEST",
-}
-`;

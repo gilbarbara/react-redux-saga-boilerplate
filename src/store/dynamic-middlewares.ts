@@ -1,49 +1,47 @@
-import { compose, Middleware, MiddlewareAPI } from 'redux';
+import { uuid } from '@gilbarbara/helpers';
+import type { Middleware } from '@reduxjs/toolkit';
+import { compose } from '@reduxjs/toolkit';
+
+import { RootState } from '~/types';
 
 export const createDynamicMiddlewares = () => {
-  let allDynamicMiddlewares: Middleware[] = [];
-  let allAppliedDynamicMiddlewares: Middleware[] = [];
-  let store: MiddlewareAPI;
+  const middlewareMap = new Map<string, Middleware<any, RootState>>();
 
-  const enhancer: Middleware = _store => {
-    store = _store;
-
-    return next => action => {
-      // @ts-ignore
-      return compose(...allAppliedDynamicMiddlewares)(next)(action);
-    };
+  const addMiddleware = (...middlewares: Middleware<any, RootState>[]) => {
+    middlewares.forEach(middleware => {
+      middlewareMap.set(uuid(), middleware);
+    });
   };
 
-  const addMiddleware = (...middlewares: Middleware[]) => {
-    // TODO: Fix this
-    // @ts-ignore
-    allAppliedDynamicMiddlewares.push(...middlewares.map(middleware => middleware(store)));
-    allDynamicMiddlewares.push(...middlewares);
-  };
+  const removeMiddleware = (middleware: Middleware<any, RootState>) => {
+    const item = [...middlewareMap.entries()].find(([_, value]) => value === middleware);
 
-  const removeMiddleware = (middleware: Middleware) => {
-    const index = allDynamicMiddlewares.findIndex(d => d === middleware);
-
-    if (index === -1) {
+    if (!item) {
       // eslint-disable-next-line no-console
       console.error('Middleware does not exist!', middleware);
 
       return;
     }
 
-    allDynamicMiddlewares = allDynamicMiddlewares.filter((_, mdwIndex) => mdwIndex !== index);
-    allAppliedDynamicMiddlewares = allAppliedDynamicMiddlewares.filter(
-      (_, mdwIndex) => mdwIndex !== index,
-    );
+    middlewareMap.delete(item[0]);
   };
 
   const resetMiddlewares = () => {
-    allAppliedDynamicMiddlewares = [];
-    allDynamicMiddlewares = [];
+    middlewareMap.clear();
+  };
+
+  const middleware: Middleware<any, RootState> = api => next => action => {
+    const getFinalMiddleware: Middleware<{}, RootState> = store => {
+      const appliedMiddleware = [...middlewareMap.values()].map(entry => entry(store));
+
+      return compose(...appliedMiddleware);
+    };
+
+    return getFinalMiddleware(api)(next)(action);
   };
 
   return {
-    enhancer,
+    middleware,
     addMiddleware,
     removeMiddleware,
     resetMiddlewares,
@@ -52,6 +50,6 @@ export const createDynamicMiddlewares = () => {
 
 const dynamicMiddlewaresInstance = createDynamicMiddlewares();
 
-export default dynamicMiddlewaresInstance.enhancer;
+export default dynamicMiddlewaresInstance.middleware;
 
 export const { addMiddleware, removeMiddleware, resetMiddlewares } = dynamicMiddlewaresInstance;

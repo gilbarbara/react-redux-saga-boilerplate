@@ -1,9 +1,27 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`store > should be able to create a new store 1`] = `
+exports[`store > should create a new store 1`] = `
+{
+  "alerts": {
+    "data": [],
+  },
+  "app": {
+    "query": "react",
+  },
+  "github": {
+    "topics": {},
+  },
+  "user": {
+    "isAuthenticated": false,
+    "status": "idle",
+  },
+}
+`;
+
+exports[`store > should return the global store 1`] = `
 {
   "_persist": {
-    "rehydrated": false,
+    "rehydrated": true,
     "version": -1,
   },
   "alerts": {

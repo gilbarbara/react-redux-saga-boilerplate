@@ -7,7 +7,7 @@ import { responsive } from '@gilbarbara/components';
 import { useAppSelector } from '~/modules/hooks';
 import theme from '~/modules/theme';
 
-import { hideAlert } from '~/actions';
+import { alertHide } from '~/actions';
 
 import Alert from '~/components/Alert';
 import Transition from '~/components/Transition';
@@ -97,7 +97,7 @@ export default function SystemAlerts() {
       alerts.forEach(d => {
         if (d.timeout && !current[d.id]) {
           current[d.id] = setTimeout(() => {
-            dispatch(hideAlert(d.id));
+            dispatch(alertHide(d.id));
           }, d.timeout * 1000);
         }
       });
@@ -117,7 +117,7 @@ export default function SystemAlerts() {
       event.preventDefault();
       const { id = '' } = event.currentTarget.dataset;
 
-      dispatch(hideAlert(id));
+      dispatch(alertHide(id));
     },
     [dispatch],
   );

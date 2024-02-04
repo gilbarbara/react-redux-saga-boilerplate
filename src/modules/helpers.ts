@@ -2,9 +2,15 @@ import { now } from '@gilbarbara/helpers';
 import { createAction } from '@reduxjs/toolkit';
 import { REHYDRATE } from 'redux-persist';
 
-import { RootState } from '~/types';
+import { PlainObject, RootState } from '~/types';
 
-export function actionPayload<T = any, M = Record<string, string>>(payload: T, meta?: M) {
+export function actionBody<T = any, M extends PlainObject = PlainObject>(
+  payload: T,
+  meta: M,
+): { meta: M; payload: T };
+export function actionBody<T = any>(payload: T): { meta: never; payload: T };
+
+export function actionBody<T = any>(payload: T, meta?: any) {
   return { payload, meta };
 }
 

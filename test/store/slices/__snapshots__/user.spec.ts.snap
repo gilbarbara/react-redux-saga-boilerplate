@@ -1,0 +1,50 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`User > actions > logOut 1`] = `
+{
+  "payload": undefined,
+  "type": "user/logOut",
+}
+`;
+
+exports[`User > actions > login 1`] = `
+{
+  "payload": undefined,
+  "type": "user/login",
+}
+`;
+
+exports[`User > reducer > should return the initial state 1`] = `
+{
+  "isAuthenticated": false,
+  "status": "idle",
+}
+`;
+
+exports[`User > reducer > user/logOut > should handle REQUEST 1`] = `
+{
+  "isAuthenticated": false,
+  "status": "running",
+}
+`;
+
+exports[`User > reducer > user/logOut > should handle SUCCESS 1`] = `
+{
+  "isAuthenticated": false,
+  "status": "idle",
+}
+`;
+
+exports[`User > reducer > user/login > should handle REQUEST 1`] = `
+{
+  "isAuthenticated": false,
+  "status": "running",
+}
+`;
+
+exports[`User > reducer > user/login > should handle SUCCESS 1`] = `
+{
+  "isAuthenticated": true,
+  "status": "ready",
+}
+`;

@@ -12,7 +12,7 @@ import { name } from '~/config';
 import { useAppSelector } from '~/modules/hooks';
 import theme, { headerHeight } from '~/modules/theme';
 
-import { showAlert } from '~/actions';
+import { alertShow } from '~/actions';
 
 import Footer from '~/components/Footer';
 import Header from '~/components/Header';
@@ -49,7 +49,7 @@ function Root() {
 
   useEffect(() => {
     if (changed('isAuthenticated', true)) {
-      dispatch(showAlert('Hello! And welcome!', { type: 'success', icon: 'bell', timeout: 10 }));
+      dispatch(alertShow('Hello! And welcome!', { type: 'success', icon: 'bell', timeout: 10 }));
     }
   }, [dispatch, changed]);
 

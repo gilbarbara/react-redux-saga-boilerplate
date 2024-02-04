@@ -1,7 +1,11 @@
-import { configStore } from '~/store';
+import { configStore, store } from '~/store';
 
 describe('store', () => {
-  it('should be able to create a new store', () => {
-    expect(configStore().store.getState()).toMatchSnapshot();
+  it('should create a new store', () => {
+    expect(configStore().getState()).toMatchSnapshot();
+  });
+
+  it('should return the global store', () => {
+    expect(store.getState()).toMatchSnapshot();
   });
 });

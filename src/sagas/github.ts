@@ -4,7 +4,6 @@ import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import { hasValidCache } from '~/modules/helpers';
 
 import { getRepos, getReposFailure, getReposSuccess } from '~/actions';
-import { ActionTypes } from '~/literals';
 
 import { RootState } from '~/types';
 
@@ -41,5 +40,5 @@ export function* getReposSaga({ payload }: ReturnType<typeof getRepos>) {
  * GitHub Sagas
  */
 export default function* root() {
-  yield all([takeLatest(ActionTypes.GITHUB_GET_REPOS_REQUEST, getReposSaga)]);
+  yield all([takeLatest(getRepos.type, getReposSaga)]);
 }

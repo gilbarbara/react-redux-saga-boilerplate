@@ -1,9 +1,10 @@
 import { expectSaga } from 'redux-saga-test-plan';
 import { mergeState } from 'test-utils';
 
-import { ActionTypes } from '~/literals';
-import githubReducer from '~/reducers/github';
+import { getRepos } from '~/actions';
 import github, { getReposSaga } from '~/sagas/github';
+
+import githubReducer from '~/store/slices/github';
 
 import githubRepos from 'test/__fixtures__/github-repos.json';
 
@@ -16,23 +17,13 @@ describe('github', () => {
       }));
 
   describe('getRepos', () => {
-    const initialAction = {
-      type: ActionTypes.GITHUB_GET_REPOS_REQUEST,
-      payload: 'react',
-    };
-    const initialState = () => ({
-      github: githubReducer.github(undefined, initialAction),
-    });
+    const initialAction = getRepos('react');
+    const initialState = () => ({ github: githubReducer(undefined, initialAction) });
 
     it('should handle SUCCESS', async () => {
       fetchMock.mockResponse(JSON.stringify({ items: githubRepos.items.slice(0, 2) }));
 
-      const result = await expectSaga(getReposSaga, {
-        type: ActionTypes.GITHUB_GET_REPOS_REQUEST,
-        payload: 'react',
-      })
-        .withReducer(initialState)
-        .run();
+      const result = await expectSaga(getReposSaga, initialAction).withReducer(initialState).run();
 
       expect(result.toJSON()).toMatchSnapshot();
     });
@@ -40,10 +31,7 @@ describe('github', () => {
     it('should handle SUCCESS with cache', async () => {
       fetchMock.mockResponse(JSON.stringify({ items: githubRepos.items.slice(0, 2) }));
 
-      const result = await expectSaga(getReposSaga, {
-        type: ActionTypes.GITHUB_GET_REPOS_REQUEST,
-        payload: 'react',
-      })
+      const result = await expectSaga(getReposSaga, initialAction)
         .withReducer(
           mergeState({
             github: {
@@ -65,12 +53,7 @@ describe('github', () => {
     it('should handle FAILURE', async () => {
       fetchMock.mockReject(new Error('Failed to fetch'));
 
-      const result = await expectSaga(getReposSaga, {
-        type: ActionTypes.GITHUB_GET_REPOS_REQUEST,
-        payload: 'react',
-      })
-        .withReducer(initialState)
-        .run();
+      const result = await expectSaga(getReposSaga, initialAction).withReducer(initialState).run();
 
       expect(result.toJSON()).toMatchSnapshot();
     });

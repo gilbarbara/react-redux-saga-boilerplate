@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, render, screen, waitFor, waitForElementToBeRemoved } from 'test-utils';
 
-import { ActionTypes } from '~/literals';
+import { alertShow, getRepos } from '~/actions';
 
 import GitHub from '~/containers/GitHub';
 
@@ -20,10 +20,7 @@ describe('GitHub', () => {
 
     render(<GitHub />, { mockDispatch });
 
-    expect(mockDispatch).toHaveBeenCalledWith({
-      type: ActionTypes.GITHUB_GET_REPOS_REQUEST,
-      payload: 'react',
-    });
+    expect(mockDispatch).toHaveBeenCalledWith(getRepos('react'));
 
     expect(screen.getByTestId('GitHubWrapper')).toMatchSnapshot();
 
@@ -46,10 +43,7 @@ describe('GitHub', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'Redux' }));
 
-    expect(mockDispatch).toHaveBeenCalledWith({
-      type: 'GITHUB_GET_REPOS_REQUEST',
-      payload: 'redux',
-    });
+    expect(mockDispatch).toHaveBeenCalledWith(getRepos('redux'));
 
     await waitForElementToBeRemoved(() => screen.queryByTestId('LoaderPill'));
   });
@@ -61,7 +55,7 @@ describe('GitHub', () => {
 
     await waitFor(() => {
       expect(mockDispatch).toHaveBeenCalledWith({
-        type: 'ALERTS_SHOW',
+        type: alertShow.type,
         payload: {
           id: '8cdee72f-28d4-4441-91f0-c61f6e3d9684',
           icon: 'info-o',
